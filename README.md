@@ -1,12 +1,12 @@
-# @godfreyd/takberi-ui
+# ls-ui
 
-React components that implement Takberi's UI Design.
+React components that implement Lookingschools's UI Design.
 
-Мы поддерживаем стабильные версии всех основных браузеров, в том числе и ie11.
+We support stable versions of all major browsers, including ie11.
 
-| Browser           | Поддерживаемая версия |
+| Browser           | Support version       |
 | ----------------- | --------------------- |
-| Chrome            | Последние 2 версии    |
+| Chrome            | Last 2 versions       |
 | Opera             | >= 12.1               |
 | Firefox           | >= 23                 |
 | Android           | >= 4                  |
@@ -22,26 +22,36 @@ npm install --save @godfreyd/takberi-ui
 npm update @godfreyd/takberi-ui
 ```
 
-## Build
+## Development
 
-```sh
-// Use Node 12+
-nvm use
-// Build
-npm run build
-```
+1. Login to NPM by `godfreyd`:
 
-## Storybook
+    ```sh
+    npm login
+    ```
 
-Чтобы запустить Storybook:
+2. Install dependences:
 
-1. Выполните команду:
+    ```sh
+    npm i
+    ```
+
+3. Run Storybook:
 
     ```sh
     npm run storybook
     ```
 
-1. Перейдите по ссылке [http://localhost:6006/](http://localhost:6006/).
+4. Go to the link [http://localhost:6006/](http://localhost:6006/).
+
+## Build for production
+
+```sh
+// Use Node 14.14.0
+nvm use
+// Build
+npm run build
+```
 
 ## Publish
 
