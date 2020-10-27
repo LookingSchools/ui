@@ -1,0 +1,116 @@
+/* Анимация открытия/закрытия реализована только на desktop из соображений производительности. */
+
+.Modal_theme_default .Modal-Content {
+    margin: 5px;
+
+    background: #fff;
+}
+
+/*
+ * 1-3. Если показывать модальное окно без анимации - то все просто, можно использовать display: none/block.
+ *  К сожалению, менять display во время анимации нельзя, поэтому в любом состоянии после инициализации модальное окно
+ *  имеет display: block [2]. А скрываем его унося за пределы документа с помощью отрицательных margin [1], которые
+ *  можно убрать при открытии модального окна и выставить заново в самый последний момент анимации перед закрытием [3].
+ *  Так же для скрытия используется visibility:hidden, но это больше из соображений a11y. Использовать только visibility
+ *  без margin нельзя, т.к. оно наследуется и обрабатывается для каждого элемента отдельно, т.е. если любой из вложенных
+ *  в модальное окно элементов будет иметь visibility:visible, то он будет виден даже в скрытом модальном окне.
+ *
+ * 4. .modal_has-animation_yes выставляется в момент первого открытия модального окна. Если применять анимацию без этого
+ *  модификатора, то она будет проиграна сразу при первой же инициализации блока, когда он получит display: block.
+ *  В popup2 роль такого модификатора играет _direction, который так же выставляется при при первом открытии и
+ *  и на который применяется анимация.
+ */
+
+.Modal_theme_default {
+    display: none;
+    visibility: hidden;
+
+    margin: -9999px 0 0 -9999px; /* 1 */
+
+    background: rgba(50, 50, 50, .2);
+}
+
+.Modal_theme_default.Modal_js_inited {
+    display: block; /* 2 */
+}
+
+.Modal_theme_default.Modal_visible {
+    display: block;
+    visibility: visible;
+
+    margin: 0;
+}
+
+.Modal_theme_default,
+.Modal_theme_default .Modal-Content {
+    animation-duration: .2s;
+    animation-timing-function: ease-in-out;
+}
+
+.Modal_theme_default.Modal_hasAnimation /*4*/ {
+    animation-name: modal_theme_default;
+}
+
+.Modal_theme_default.Modal_hasAnimation .Modal-Content /*4*/ {
+    animation-name: modal_theme_default__content;
+}
+
+.Modal_theme_default.Modal_visible.Modal_hasAnimation {
+    animation-name: modal_theme_default_visible;
+}
+
+.Modal_theme_default.Modal_visible.Modal_hasAnimation .Modal-Content {
+    animation-name: modal_theme_default_visible__content;
+}
+
+@keyframes modal_theme_default {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+    }
+
+    99% {
+        margin: 0;
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px; /* 3 */
+
+        opacity: 0;
+    }
+}
+
+@keyframes modal_theme_default_visible {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes modal_theme_default__content {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes modal_theme_default_visible__content {
+    0% {
+        transform: scale(.75);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

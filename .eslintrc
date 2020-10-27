@@ -1,0 +1,38 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "rules": {
+    "valid-jsdoc": 0,
+
+    // Codestyle
+    "arrow-parens": [2, "always"],
+    "operator-linebreak": [2, "after", {
+      "overrides": {
+        "?": "before",
+        ":": "before"
+      }
+    }],
+    "space-before-function-paren": [2, {
+      "asyncArrow": "always",
+      "anonymous": "never",
+      "named": "never"
+    }],
+
+    // React
+    "react/jsx-no-bind": 0,
+
+    // TypeScript
+    "@typescript-eslint/rule-name": "error",
+    "@typescript-eslint/no-explicit-any": 0,
+    
+    // eslint-plugin-react-hooks
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+  }
+}

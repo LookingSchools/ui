@@ -1,0 +1,80 @@
+.Radiobutton-Radio {
+    position: relative;
+    z-index: 2;
+
+    display: inline-block;
+
+    margin: 0 -1px 0 0;
+
+    user-select: none;
+    text-align: center;
+
+    outline: 0;
+    touch-action: manipulation;
+}
+
+.Radiobutton-Radio::before {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+}
+
+/**
+ * 1. В состоянии focused рамка на псевдо-элементе before шириной 2px
+ *    и накладывается на фон. Поэтому делаем z-index у фона заведомо ниже.
+ */
+.Radiobutton-Radio::after {
+    position: absolute;
+    z-index: -2; /* 1 */
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+
+    content: '';
+}
+
+.Radiobutton-Radio_side_left,
+.Radiobutton-Radio_side_left::before {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.Radiobutton-Radio_side_right {
+    margin-right: 0;
+}
+
+.Radiobutton-Radio_side_right,
+.Radiobutton-Radio_side_right::before {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.Radiobutton-Radio_side_left::after {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.Radiobutton-Radio_side_right::after {
+    right: 1px;
+
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.Radiobutton-Radio_checked::before {
+    right: 0;
+}
+
+.Radiobutton-Radio_checked + .Radiobutton-Radio::before {
+    left: 1px;
+}
+
+.Radiobutton-Radio_disabled {
+    pointer-events: none;
+}

@@ -1,0 +1,21 @@
+.Price {
+    &_size_m {
+        font-size: 22px;
+
+        .Price-CurrentPrice {
+            .Price-Currency {
+                font-size: 16px;
+            }
+        }
+
+        .Price-OldPrice {
+            font-size: 14px;
+        }
+
+        &.Price_with-old-price {
+            .Price-CurrentPrice {
+                margin-right: 9px;
+            }
+        }
+    }
+}

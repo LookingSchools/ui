@@ -1,0 +1,44 @@
+.Cut {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    hyphens: manual;
+}
+
+.Cut_breakWords {
+    word-break: break-all;
+}
+
+.Cut_oneLine {
+    display: block;
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.Cut-Invisible {
+    display: none;
+}
+
+.Cut_ellipsis .Cut-More_type_text::before {
+    content: '… ';
+    white-space: normal;
+}
+
+.Cut-More_type_content {
+    padding-top: 20px;
+}
+
+.Cut_open .Cut-Invisible {
+    display: inline;
+}
+
+.Cut_open .Cut-More {
+    display: none;
+}
+
+.Cut_clickableContent {
+    cursor: pointer;
+}

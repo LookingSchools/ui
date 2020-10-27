@@ -1,0 +1,14 @@
+.TabsMenu-Tab {
+    cursor: pointer;
+    user-select: none;
+}
+
+.TabsMenu-Tab_disabled {
+    cursor: default;
+}
+
+.TabsMenu-Tab .Link {
+    position: relative;
+
+    display: inline-block;
+}

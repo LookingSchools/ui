@@ -1,0 +1,34 @@
+.Rating_size_l {
+    height: 26px;
+}
+
+.Rating_size_l .Rating-Stars {
+    height: 26px;
+
+    line-height: 26px;
+}
+
+.Rating_size_l .Rating-Star,
+.Rating_size_l .Rating-Half,
+.Rating_size_l .Rating-Rest {
+    height: 26px;
+
+    /* +1 потому что между звёздами 1px отступ */
+    background-size: 27px 100%;
+}
+
+.Rating_size_l .Rating-Value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.Rating_size_l .Rating-Delimiter {
+    margin: 0 3px;
+}
+
+.Rating_size_l .Rating-Hint {
+    display: block;
+
+    margin: 8px 0;
+}
+

@@ -1,0 +1,10 @@
+.Grid-Items {
+    display: grid;
+
+    row-gap: 24px;
+    column-gap: 16px;
+
+    /* stylelint-disable-next-line */
+    grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
+    grid-auto-flow: row dense;
+}

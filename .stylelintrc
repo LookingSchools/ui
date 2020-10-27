@@ -1,0 +1,10 @@
+{
+  "extends": "./.config/stylelint/stylelintrc.js",
+  "rules": {
+    "max-line-length": null,
+    "max-empty-lines": 2,
+  },
+  "ignoreFiles": [
+    "**/*.tsx"
+  ]
+}

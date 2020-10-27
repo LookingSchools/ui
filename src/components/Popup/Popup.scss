@@ -1,0 +1,13 @@
+/**
+ * Без important стили класса перебиваются inline-стилями
+ */
+.Popup {
+    position: absolute;
+}
+
+.Popup_outside {
+    top: -10000px !important;
+    left: -10000px !important;
+
+    display: block !important;
+}

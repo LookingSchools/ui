@@ -1,0 +1,89 @@
+/**
+ * 1. Если перед Checkbox_size_m поставить вплотную текст определенной длины,
+ * inline-svg внутри сдвигается (вероятно, из-за нечетных величин длины/ширины).
+ * Точно так же такие сдвиги могут происходить из-за margin у элементов сверху (Chrome).
+ * Поэтому процентный отступ переопределяется на величину в px.
+ * 2. Из-за четных величин themeBox, которые актуальны для размеров s и n, в нечетном m
+ * нужен небольшой отступ для выравнивания.
+ */
+
+/* common */
+.Checkbox_theme_default {
+    color: #000;
+}
+
+.Checkbox_theme_default .Checkbox-Box {
+    text-align: left;
+}
+
+.Checkbox_theme_default .Checkbox-Box::before {
+    border-radius: 4px;
+    background-color: #e6e6e6;
+
+    transition: background-color .1s linear;
+}
+
+.Checkbox_theme_default .Checkbox-Tick {
+    color: transparent;
+
+    transition: color .1s, transform .2s;
+    transform: translateY(-5px);
+}
+
+.Checkbox_theme_default .Checkbox-Tick,
+.Checkbox_theme_default .Checkbox-Tick .Icon {
+    width: 100%;
+    height: 100%;
+}
+
+.Checkbox_theme_default.Checkbox_size_m .Checkbox-Tick svg {
+    top: 9px; /* 1 */
+    left: 9px; /* 1 */
+
+    width: 11px;
+    height: 10px;
+    padding-right: 1px; /* 2 */
+    padding-bottom: 1px; /* 2 */
+}
+
+.Checkbox_theme_default.Checkbox_size_s .Checkbox-Tick svg {
+    width: 10px;
+    height: 8px;
+}
+
+
+/* check */
+
+/* Усиливаем селектор для ie11 */
+.Checkbox_theme_default.Checkbox_checked .Checkbox-Box[class]::before {
+    background-color: #555;
+}
+
+.Checkbox_theme_default.Checkbox_checked .Checkbox-Tick {
+    color: #fff;
+
+    transform: translateY(0);
+}
+
+/* disable */
+.Checkbox_theme_default.Checkbox_disabled {
+    opacity: .6;
+}
+
+/* hover */
+
+/* TODO: Усиливаем селектор для ie11 */
+.Checkbox_theme_default.Checkbox_hovered .Checkbox-Box[class]::before {
+    background-color: #dbdbdb;
+}
+
+/* check */
+
+.Checkbox_theme_default.Checkbox_hovered.Checkbox_checked .Checkbox-Box[class]::before {
+    background-color: #515151;
+}
+
+/* focus */
+.utilityfocus .Checkbox_theme_default.Checkbox_focused .Checkbox-Box::before {
+    box-shadow: 0 0 0 2px #f33;
+}

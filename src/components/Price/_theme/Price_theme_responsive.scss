@@ -1,0 +1,15 @@
+.Price {
+    &_theme {
+        &_responsive {
+            display: inline-block;
+
+            .Price-CurrentPrice {
+                font-size: inherit;
+            }
+
+            .Price-Currency {
+                font-size: inherit;
+            }
+        }
+    }
+}

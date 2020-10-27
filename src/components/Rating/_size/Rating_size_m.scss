@@ -1,0 +1,26 @@
+.Rating_size_m {
+    height: 16px;
+}
+
+.Rating_size_m .Rating-Stars {
+    height: 16px;
+
+    line-height: 16px;
+}
+
+.Rating_size_m .Rating-Star,
+.Rating_size_m .Rating-Half,
+.Rating_size_m .Rating-Rest {
+    height: 16px;
+
+    /* +1 потому что между звёздами 1px отступ */
+    background-size: 17px 100%;
+}
+
+.Rating_size_m .Rating-Delimiter {
+    margin: 0 2px;
+}
+
+.Rating_size_m .Rating-Hint {
+    margin-left: 3px;
+}

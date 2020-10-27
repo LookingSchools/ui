@@ -1,0 +1,76 @@
+/* common */
+.Textarea_theme_default .Textarea-Box {
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+    background-color: #fff;
+
+    transition: background-color .15s linear;
+}
+
+.Textarea_theme_default.Textarea_state_error .Textarea-Box {
+    border-color: #f33;
+}
+
+.Textarea_theme_default .Textarea-Control {
+    color: #000;
+}
+
+.Textarea_theme_default .Textarea-Control::placeholder {
+    color: #e4e4e4;
+}
+
+.Textarea_theme_default .Textarea-Icon {
+    color: #e4e4e4;
+}
+
+.Textarea_theme_default .Textarea-Clear {
+    color: #e4e4e4;
+
+    transition: color .15s linear;
+}
+
+.Textarea_theme_default.Textarea_size_s .Textarea-Clear svg {
+    width: 12px;
+    height: 12px;
+}
+
+.Textarea_theme_default.Textarea_size_m .Textarea-Clear svg {
+    width: 14px;
+    height: 14px;
+}
+
+.Textarea_theme_default.Textarea_state_error .Textarea-Hint {
+    color: #f33;
+}
+
+/* disable */
+.Textarea_theme_default.Textarea_disabled .Textarea-Control {
+    color: #767676;
+}
+
+.Textarea_theme_default.Textarea_disabled .Textarea-Control::placeholder {
+    color: #767676;
+}
+
+.Textarea_theme_default.Textarea_disabled .Textarea-Box {
+    border-color: transparent;
+    background-color: #f2f2f2;
+}
+
+.Textarea_theme_default.Textarea_hovered .Textarea-Box[class] {
+    border-color: #cecece;
+    background-color: #fff;
+}
+
+.Textarea_theme_default .Textarea-Clear.Textarea-Clear:hover {
+    color: #000;
+}
+
+.Textarea_theme_default.Textarea_hovered.Textarea_state_error .Textarea-Box {
+    border-color: #f33;
+}
+
+/* focus */
+.Textarea.Textarea_theme_default.Textarea_focused .Textarea-Box {
+    border-color: #b4b4b4;
+}

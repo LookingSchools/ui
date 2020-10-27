@@ -1,0 +1,15 @@
+.Spin_size_m {
+    width: 32px;
+    height: 32px;
+
+    font-size: 15px;
+    line-height: 28px;
+
+    background-position: -2px -73px;
+}
+
+.Spin_size_m.Spin_position_center {
+    /* Отступ равен половине ширины */
+    margin-top: calc(32px / -2);
+    margin-left: calc(32px / -2);
+}

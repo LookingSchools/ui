@@ -1,0 +1,47 @@
+@import '../../theme/default.scss';
+
+.Price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    font-family: $font-default;
+
+    &-CurrentPrice,
+    &-OldPrice {
+        font-weight: bold;
+        line-height: 1;
+        white-space: nowrap;
+
+        color: #222;
+    }
+
+    &-Currency {
+        font-size: inherit;
+    }
+
+    &-OldPrice {
+        position: relative;
+
+        transform: translate3d(0, 0, -1px);
+
+        &::after {
+            position: absolute;
+            top: -1px;
+            left: -4%;
+
+            width: 110%;
+            height: 100%;
+
+            content: '';
+            pointer-events: none;
+
+            border-radius: 6px;
+            background-image: url('Price.assets/Price-OldPrice.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            transform: rotateX(40deg);
+        }
+    }
+}

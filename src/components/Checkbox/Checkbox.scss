@@ -1,0 +1,18 @@
+@import '../../theme/default.scss';
+
+/**
+ * 1. Нужно, чтобы Label всегда оставался на одной строке с Box.
+ */
+
+.Checkbox {
+    font-family: $font-default;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap; /* 1 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: manipulation;
+}
+
+.Checkbox_disabled {
+    cursor: default;
+}

@@ -1,0 +1,37 @@
+@import '../../theme/default.scss';
+
+.ColorBox {
+    font-family: $font-default;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ColorBox-Colors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.ColorBox-Radio_disabled {
+    pointer-events: none;
+}
+
+.ColorBox fieldset {
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+}
+
+/**
+ * По умолчанию input имеет cursor: auto, поэтому для него тоже задаем pointer.
+ */
+.ColorBox-Radio,
+.ColorBox-Control {
+    cursor: pointer;
+}
+
+.ColorBox-Radio_disabled,
+.ColorBox-Radio_disabled .ColorBox-Control {
+    cursor: default;
+}

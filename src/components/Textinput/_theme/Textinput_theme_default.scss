@@ -1,0 +1,76 @@
+/* common */
+.Textinput_theme_default .Textinput-Box {
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+    background-color: #fff;
+
+    transition: background-color .15s linear;
+}
+
+.Textinput_theme_default.Textinput_state_error .Textinput-Box {
+    border-color: #f33;
+}
+
+.Textinput_theme_default .Textinput-Control {
+    color: #000;
+}
+
+.Textinput_theme_default .Textinput-Control::placeholder {
+    color: #e4e4e4;
+}
+
+.Textinput_theme_default .Textinput-Icon {
+    color: #e4e4e4;
+}
+
+.Textinput_theme_default .Textinput-Clear {
+    transition: color .15s linear;
+}
+
+.Textinput_theme_default.Textinput_size_s .Textinput-Clear svg {
+    width: 12px;
+    height: 12px;
+}
+
+.Textinput_theme_default.Textinput_size_m .Textinput-Clear svg {
+    width: 14px;
+    height: 14px;
+}
+
+.Textinput_theme_default.Textinput_state_error .Textinput-Hint {
+    color: #f33;
+}
+
+/* disable */
+.Textinput_theme_default.Textinput_disabled .Textinput-Control {
+    color: #767676;
+}
+
+.Textinput_theme_default.Textinput_disabled .Textinput-Control::placeholder {
+    color: #767676;
+}
+
+.Textinput_theme_default.Textinput_disabled .Textinput-Box {
+    border-color: transparent;
+    background-color: #f2f2f2;
+}
+
+/* hover */
+.Textinput_theme_default .Textinput-Clear:hover {
+    color: #000;
+}
+
+.Textinput_theme_default.Textinput_hovered .Textinput-Box[class] {
+    border-color: #cecece;
+    background-color: #dbdbdb;
+}
+
+.Textinput_theme_default.Textinput_hovered.Textinput_state_error .Textinput-Box {
+    border-color: #f33;
+}
+
+/* focus */
+.Textinput.Textinput_theme_default.Textinput_focused .Textinput-Box {
+    border-width: 2px;
+    border-color: #b4b4b4;
+}

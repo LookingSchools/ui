@@ -1,0 +1,23 @@
+.GalleryMobilePoints {
+    position: relative;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 30px;
+}
+
+.GalleryMobilePoints-Point {
+    width: calc(4px * 2);
+    height: calc(4px * 2);
+    margin: 4px;
+
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.GalleryMobilePoints-Point_active {
+    background-color: #09141f;
+}

@@ -1,0 +1,26 @@
+.Button_size_s {
+    height: 32px;
+
+    font-size: 13px;
+    line-height: 32px;
+}
+
+.Button_size_s .Button-Text {
+    margin: 0 13px;
+}
+
+.Button_size_s .Button-Icon {
+    width: 32px;
+}
+
+.Button_size_s .Button-Icon.Icon_type_arrow {
+    width: 32px;
+}
+
+.Button_size_s .Button-Icon_side_left ~ .Button-Text {
+    margin-left: 25px;
+}
+
+.Button_size_s .Button-Icon_side_right ~ .Button-Text {
+    margin-right: 25px;
+}

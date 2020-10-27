@@ -1,0 +1,11 @@
+/* common */
+.Link_theme_default {
+    color: #04b;
+
+    transition: color .15s linear;
+}
+
+/* disable */
+.Link_theme_default[aria-disabled='true'] {
+    color: rgba(0, 0, 0, .3);
+}

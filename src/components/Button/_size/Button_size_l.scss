@@ -1,0 +1,26 @@
+.Button_size_l {
+    height: 42px;
+
+    font-size: 18px;
+    line-height: 42px;
+}
+
+.Button_size_l .Button-Text {
+    margin: 0 18px;
+}
+
+.Button_size_l .Button-Icon {
+    width: 42px;
+}
+
+.Button_size_l .Button-Icon.Icon_type_arrow {
+    width: 42px;
+}
+
+.Button_size_l .Button-Icon_side_left ~ .Button-Text {
+    margin-left: 35px;
+}
+
+.Button_size_l .Button-Icon_side_right ~ .Button-Text {
+    margin-right: 35px;
+}

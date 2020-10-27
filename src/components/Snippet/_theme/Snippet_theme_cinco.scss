@@ -1,0 +1,19 @@
+.Snippet {
+    &_theme_cinco {
+        .Snippet-Link {
+            flex-direction: column;
+        }
+
+        .Snippet-Price {
+            margin-top: 4px;
+        }
+
+        .Snippet-Rating {
+            margin-top: 2 * 4px;
+        }
+
+        .Snippet-Title {
+            margin-top: 3 * 4px;
+        }
+    }
+}

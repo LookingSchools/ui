@@ -1,0 +1,49 @@
+.Radiobutton.Radiobutton_theme_default {
+    color: #000;
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_disabled {
+    color: #999;
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio::before {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, .2) rgba(0, 0, 0, .1) rgba(0, 0, 0, .2) rgba(0, 0, 0, .1);
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_side_left::before,
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_side_both::before {
+    border-left-color: rgba(0, 0, 0, .2);
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_side_right::before,
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_side_both::before {
+    border-right-color: rgba(0, 0, 0, .2);
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_disabled::before {
+    border-color: rgba(0, 0, 0, .08);
+}
+
+/* :after — фон */
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio::after {
+    background-color: #fff;
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_checked::before {
+    border-color: #a1a1a1;
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_checked::after {
+    background-color: #e6e6e6;
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_checked + .Radiobutton-Radio::before {
+    border-left-width: 0;
+}
+
+.Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_disabled::after {
+    color: #7f7f7f;
+    background-color: #f2f2f2;
+}

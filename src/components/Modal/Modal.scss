@@ -1,0 +1,42 @@
+/*
+ * 1. В мобильном сафари есть неприятный bug, связанный с -webkit-overflow-scrolling: touch. Дело в том, что при
+ * применении этого свойства, вложенный контент может просто пропадать, это решается включением аппаратного
+ * рендеринга, что и сделано. Подробнее http://cantina.co/thought_leadership/ios-5-native-scrolling-grins-and-gothcas/
+ * 2. Усиливаем селектор, т.к. modal является миксом для popup из-за этого стили могут приезжать не в правильном порядке
+ */
+
+.Modal[class] { /* 2 */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    width: 100%;
+    height: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.Modal-Table {
+    display: table;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+}
+
+.Modal-Cell {
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+.Modal-Content {
+    display: inline-block;
+
+    text-align: left;
+
+    -webkit-transform: translate3d(0, 0, 0); /* 1 */
+}

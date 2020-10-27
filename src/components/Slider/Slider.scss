@@ -1,0 +1,19 @@
+.Slider {
+    position: relative;
+}
+
+.Slider-Scroll {
+    display: flex;
+    flex-wrap: nowrap;
+
+    scroll-snap-type: x mandatory;
+}
+
+.Slider-Item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+}
+
+.Slider-Item:not(:last-child) {
+    margin-right: 16px;
+}

@@ -1,0 +1,49 @@
+.Button_theme_clear {
+    position: relative;
+    z-index: 0;
+
+    color: #000;
+    border: none;
+    outline: none;
+}
+
+.Button_theme_clear::before {
+    border-radius: 18px;
+    background-color: transparent;
+    background-clip: padding-box;
+}
+
+.Button_theme_clear:not([aria-disabled='true']):active::before,
+.Button_theme_clear.Button_pressed::before {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.Button_theme_clear.Button_checked::before {
+    border-color: rgba(153, 122, 0, .5);
+    background-color: #ffeba0;
+}
+
+.Button_theme_clear.Button_checked:not([aria-disabled='true']):active::before,
+.Button_theme_clear.Button_checked.Button_pressed::before {
+    border-color: rgba(129, 103, 0, .6);
+    background-color: #fee481;
+}
+
+.Button_theme_clear[aria-disabled='true']::before,
+.Button_theme_clear.Button_disabled::before {
+    border-color: rgba(0, 0, 0, .08);
+    background-color: rgba(0, 0, 0, .08);
+}
+
+.Button_theme_clear[aria-disabled='true'].Button_checked::before,
+.Button_theme_clear.Button_disabled.Button_checked::before {
+    border-color: rgba(0, 0, 0, .15);
+    background-color: rgba(0, 0, 0, .15);
+}
+
+.Button_theme_clear[aria-disabled='true'] .Button-Text,
+.Button_theme_clear[aria-disabled='true'] .Button-Icon,
+.Button_theme_clear.Button_disabled .Button-Text,
+.Button_theme_clear.Button_disabled .Button-Icon {
+    opacity: .5;
+}

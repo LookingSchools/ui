@@ -1,0 +1,60 @@
+/* common */
+.Radiobox_theme_default .Radiobox-Text {
+    display: inline-block;
+
+    color: #000;
+}
+
+.Radiobox_theme_default .Radiobox-Box {
+    border-radius: 50%;
+    background-color: #e6e6e6;
+
+    transition: background .1s linear;
+}
+
+.Radiobox_theme_default .Radiobox-Box::after {
+    position: absolute;
+
+    content: '';
+
+    opacity: 0;
+    border-radius: 50%;
+    background-color: #fff;
+
+    transition: opacity .1s, transform .2s;
+    transform: scale(.1);
+}
+
+/* disable */
+.Radiobox_theme_default .Radiobox-Radio_disabled .Radiobox-Box,
+.Radiobox_theme_default .Radiobox-Radio_disabled .Radiobox-Text {
+    opacity: .6;
+}
+
+/* check */
+
+/* Усиливаем селекторы, чтобы при раскрытии переменных иметь больший приоритет. */
+.Radiobox.Radiobox_theme_default .Radiobox-Radio_checked .Radiobox-Box {
+    background-color: #555;
+}
+
+.Radiobox.Radiobox_theme_default .Radiobox-Radio_checked .Radiobox-Box::after {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+/* hover */
+/* stylelint-disable-next-line no-descending-specificity */
+.Radiobox_theme_default .Radiobox-Radio_hovered .Radiobox-Box {
+    background-color: #dbdbdb;
+}
+
+.Radiobox_theme_default .Radiobox-Radio_hovered.Radiobox-Radio_checked .Radiobox-Box {
+    background-color: #555;
+}
+
+/* focus */
+.utilityfocus .Radiobox_theme_default .Radiobox-Radio_focused .Radiobox-Box {
+    box-shadow: 0 0 0 2px #b3b3b3;
+}

@@ -1,0 +1,29 @@
+.DiscountBadge {
+    &_size {
+        &_l {
+            width: 84px;
+            height: 40px;
+
+            font-size: 32px;
+            line-height: 36px;
+
+            .DiscountBadge-Discount {
+                margin-top: 5px;
+
+                letter-spacing: -.03em;
+
+                &::before {
+                    font-size: 26px;
+                    letter-spacing: normal;
+                }
+
+                &::after {
+                    margin-top: 7px;
+
+                    font-size: 16px;
+                    letter-spacing: normal;
+                }
+            }
+        }
+    }
+}

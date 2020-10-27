@@ -1,0 +1,54 @@
+.Rating {
+    white-space: nowrap;
+
+    color: #999;
+}
+
+.Rating-Stars {
+    top: -2px;
+
+    vertical-align: middle;
+}
+
+.Rating-Stars,
+.Rating-Rest {
+    position: relative;
+    top: -2px;
+
+    display: inline-block;
+
+    vertical-align: middle;
+}
+
+.Rating-Star,
+.Rating-Half {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: inherit;
+}
+
+.Rating-Star {
+    background: 0 0 url('./Rating.assets/Rating-Star.svg');
+}
+
+.Rating-Half {
+    opacity: .1;
+    background: 0 0 url('./Rating.assets/Rating-Rest.svg');
+}
+
+.Rating-Rest {
+    opacity: .15;
+    background: 0 0 url('./Rating.assets/Rating-Rest.svg');
+}
+
+.Rating-Value {
+    font-weight: bold;
+
+    color: #000;
+}
+
+.Rating-Hint {
+    margin-left: 3px;
+}

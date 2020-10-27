@@ -1,0 +1,27 @@
+/* common */
+.TabsMenu_theme_default .TabsMenu-Tab {
+    position: relative;
+
+    color: #000;
+    outline: none;
+}
+
+.TabsMenu_theme_default.TabsMenu_layout_horiz .TabsMenu-Tab_active::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 2px;
+
+    content: '';
+
+    background-color: #000;
+
+    transition: background-color .15s ease-out;
+}
+
+/* focus */
+.utilityfocus .TabsMenu_theme_default .TabsMenu-Tab:focus {
+    outline: 2px solid #fff;
+}

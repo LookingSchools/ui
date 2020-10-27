@@ -1,0 +1,35 @@
+.Gallery {
+    position: relative;
+
+    display: flex;
+}
+
+.Gallery::after {
+    display: block;
+    clear: both;
+
+    content: '';
+}
+
+.Gallery-Button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    transform: translate(-50%, -50%);
+}
+
+.Gallery-Discount {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 75px;
+
+    display: flex;
+
+    font-size: 16px;
+}

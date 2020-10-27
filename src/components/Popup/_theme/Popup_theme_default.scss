@@ -1,0 +1,289 @@
+/* common */
+.Popup_theme_default {
+    visibility: hidden;
+
+    box-sizing: border-box;
+    margin: -9999px 0 0 -9999px;
+
+    color: #000;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1.5ex 2ex -1ex rgba(0, 0, 0, .3);
+
+    animation-duration: .1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.Popup_theme_default::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+}
+
+.Popup_theme_default.Popup_visible::before {
+    z-index: -1;
+}
+
+.Popup_theme_default.Popup_visible {
+    visibility: visible;
+
+    margin: 0;
+}
+
+.Popup.Popup_theme_default .Popup-Tail::before {
+    position: absolute;
+    top: 0;
+    top: 1px;
+    right: 0;
+    right: 1px;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    border: 1px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, .06);
+    border-left-color: rgba(0, 0, 0, .06);
+}
+
+.Popup_theme_default .Popup-Tail::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 1px;
+    left: 1px;
+
+    content: '';
+
+    background-image: linear-gradient(to top right, #fff 50%, transparent 50%);
+}
+
+/**
+ * Необходимо, чтобы сохранить скругленные края попапа,
+ * даже если у вложенного элемента скругления не будет.
+ */
+.Popup.Popup_theme_default > :first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.Popup.Popup_theme_default > :last-child {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.Popup_theme_default.Popup_direction_bottom-left,
+.Popup_theme_default.Popup_direction_bottom-center,
+.Popup_theme_default.Popup_direction_bottom-right {
+    animation-name: Popup_theme_default_bottom;
+}
+
+.Popup_theme_default.Popup_direction_bottom-left.Popup_visible,
+.Popup_theme_default.Popup_direction_bottom-center.Popup_visible,
+.Popup_theme_default.Popup_direction_bottom-right.Popup_visible {
+    animation-name: Popup_theme_default_bottom_visible;
+}
+
+.Popup_theme_default.Popup_direction_top-left,
+.Popup_theme_default.Popup_direction_top-center,
+.Popup_theme_default.Popup_direction_top-right {
+    animation-name: Popup_theme_default_top;
+}
+
+.Popup_theme_default.Popup_direction_top-left.Popup_visible,
+.Popup_theme_default.Popup_direction_top-center.Popup_visible,
+.Popup_theme_default.Popup_direction_top-right.Popup_visible {
+    animation-name: Popup_theme_default_top_visible;
+}
+
+.Popup_theme_default.Popup_direction_right-top,
+.Popup_theme_default.Popup_direction_right-center,
+.Popup_theme_default.Popup_direction_right-bottom {
+    animation-name: Popup_theme_default_right;
+}
+
+.Popup_theme_default.Popup_direction_right-top.Popup_visible,
+.Popup_theme_default.Popup_direction_right-center.Popup_visible,
+.Popup_theme_default.Popup_direction_right-bottom.Popup_visible {
+    animation-name: Popup_theme_default_right_visible;
+}
+
+.Popup_theme_default.Popup_direction_left-top,
+.Popup_theme_default.Popup_direction_left-center,
+.Popup_theme_default.Popup_direction_left-bottom {
+    animation-name: Popup_theme_default_left;
+}
+
+.Popup_theme_default.Popup_direction_left-top.Popup_visible,
+.Popup_theme_default.Popup_direction_left-center.Popup_visible,
+.Popup_theme_default.Popup_direction_left-bottom.Popup_visible {
+    animation-name: Popup_theme_default_left_visible;
+}
+
+@keyframes Popup_theme_default_bottom {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+    99% {
+        margin: 0;
+
+        transform: translateY(10px);
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px;
+
+        opacity: 0;
+    }
+}
+
+@keyframes Popup_theme_default_bottom_visible {
+    0% {
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes Popup_theme_default_top {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+    99% {
+        margin: 0;
+
+        transform: translateY(-10px);
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px;
+
+        opacity: 0;
+    }
+}
+
+@keyframes Popup_theme_default_top_visible {
+    0% {
+        opacity: 0;
+
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes Popup_theme_default_right {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+    99% {
+        margin: 0;
+
+        transform: translateX(10px);
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px;
+
+        opacity: 0;
+    }
+}
+
+@keyframes Popup_theme_default_right_visible {
+    0% {
+        opacity: 0;
+
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+@keyframes Popup_theme_default_left {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+    99% {
+        margin: 0;
+
+        transform: translateX(-10px);
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px;
+
+        opacity: 0;
+    }
+}
+
+@keyframes Popup_theme_default_left_visible {
+    0% {
+        opacity: 0;
+
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}

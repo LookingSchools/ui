@@ -1,0 +1,55 @@
+.Device {
+    position: relative;
+
+    width: 360px;
+    height: 640px;
+    margin: auto;
+
+    border: 16px #000 solid;
+    border-top-width: 60px;
+    border-bottom-width: 80px;
+    border-radius: 36px;
+}
+
+.Device::before {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+
+    display: block;
+
+    width: 60px;
+    height: 5px;
+
+    content: '';
+
+    border-radius: 10px;
+    background: #333;
+
+    transform: translate(-50%, -50%);
+}
+
+.Device::after {
+    position: absolute;
+    bottom: -85px;
+    left: 50%;
+
+    display: block;
+
+    width: 35px;
+    height: 35px;
+
+    content: '';
+
+    border-radius: 50%;
+    background: #333;
+
+    transform: translate(-50%, -50%);
+}
+
+.Device-Content {
+    width: 360px;
+    height: 640px;
+
+    background: #fff;
+}

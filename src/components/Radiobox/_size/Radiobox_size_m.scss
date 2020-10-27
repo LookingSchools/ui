@@ -1,0 +1,23 @@
+.Radiobox_size_m {
+    font-size: 15px;
+    line-height: 32px;
+}
+
+.Radiobox_size_m .Radiobox-Text {
+    padding-left: 6px;
+}
+
+.Radiobox_size_m .Radiobox-Box {
+    top: 3px;
+
+    width: 17px;
+    height: 17px;
+}
+
+.Radiobox_size_m .Radiobox-Box::after {
+    top: calc(50% - (7px / 2));
+    left: calc(50% - (7px / 2));
+
+    width: 7px;
+    height: 7px;
+}

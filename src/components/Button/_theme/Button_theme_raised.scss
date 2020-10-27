@@ -1,0 +1,29 @@
+.Button_theme_raised {
+    position: relative;
+    z-index: 0;
+
+    color: #000;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.Button_theme_raised.Button_disabled {
+    opacity: .75;
+}
+
+.Button_theme_raised::before {
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(13, 35, 67, .06), 0 5px 15px -4px rgba(13, 35, 67, .4);
+
+    transition: box-shadow .1s ease-in-out;
+}
+
+.Button_theme_raised:hover::before {
+    box-shadow: 0 0 0 1px rgba(13, 35, 67, .06), 0 10px 20px -4px rgba(13, 35, 67, .36);
+}
+
+.Button_theme_raised:active::before,
+.Button_theme_raised:active:hover::before {
+    box-shadow: 0 0 0 1px rgba(13, 35, 67, .06), 0 5px 15px -4px rgba(13, 35, 67, .4);
+}

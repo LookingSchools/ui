@@ -1,0 +1,53 @@
+.Cookie {
+    position: fixed;
+    z-index: 80000;
+    bottom: 10px;
+    left: 50%;
+
+    display: none;
+
+    margin: 0 auto;
+    margin-right: -50%;
+
+    transform: translate(-50%, -20%);
+
+    &_visible {
+        display: block;
+    }
+
+    &-Control {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+
+        box-sizing: border-box;
+        padding: 16px;
+
+        border: 1px solid rgba(0, 0, 0, .08);
+        border-radius: 8px;
+        background-color: #b9b5c3;
+        box-shadow: 0 0 0 1px rgba(13, 35, 67, .06), 0 5px 15px -4px rgba(13, 35, 67, .4);
+
+        /* Touch */
+
+        /* Portrait tablets and small desktops */
+        @media (min-width: 320px) and (max-width: 959px) {
+            flex-direction: column;
+        }
+    }
+
+    &-Icon {
+        @media (min-width: 320px) and (max-width: 959px) {
+            display: none;
+        }
+    }
+
+    &-Message {
+        padding: 0 16px;
+
+        @media (min-width: 320px) and (max-width: 959px) {
+            padding: 0 0 16px;
+        }
+    }
+}

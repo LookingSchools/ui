@@ -1,0 +1,33 @@
+.Separator {
+    position: relative;
+    z-index: 1;
+
+    &-Line {
+        width: 100%;
+        margin: 0 auto;
+
+        &_thickness {
+            &_thin {
+                height: 1px;
+            }
+
+            &_thick {
+                height: 2px;
+            }
+        }
+
+        &_width {
+            &_short {
+                max-width: 230px;
+            }
+
+            &_middle {
+                max-width: 954px;
+            }
+
+            &_long {
+                max-width: 100%;
+            }
+        }
+    }
+}

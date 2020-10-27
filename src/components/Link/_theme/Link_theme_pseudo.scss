@@ -1,0 +1,8 @@
+.Link_theme_pseudo {
+    color: #04b;
+    border-bottom: 1px dotted;
+}
+
+.Link_theme_pseudo[aria-disabled='true'] {
+    color: #ddd;
+}

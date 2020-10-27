@@ -1,0 +1,60 @@
+/* common */
+.Button_theme_default {
+    color: #000;
+
+    transition: transform .1s ease-out, color .15s linear;
+    transform: scale(1);
+}
+
+.Button_theme_default::before {
+    background-color: #e6e6e6;
+
+    transition: background-color .15s linear;
+}
+
+/* press */
+.Button_theme_default.Button_pressed,
+.Button_theme_default:active {
+    transition: none;
+    transform: scale(.96);
+}
+
+/* 1.042 ≈ 1/0.96 */
+.Button_theme_default.Button_pressed::after,
+.Button_theme_default:active::after {
+    transform: scale(1.042);
+}
+
+/* disable */
+.Button_theme_default[aria-disabled='true'] {
+    color: #7f7f7f;
+}
+
+.Button_theme_default[aria-disabled='true']::before {
+    border-color: transparent;
+    background-color: #f2f2f2;
+}
+
+/* check */
+.Button_theme_default.Button_checked {
+    color: #fff;
+}
+
+.Button_theme_default.Button_checked::before {
+    background-color: #555;
+}
+
+/* hover */
+.Button_theme_default:not([aria-disabled='true']):hover::before {
+    background-color: #dbdbdb;
+}
+
+/* check */
+.Button_theme_default.Button_checked:not([aria-disabled='true']):hover::before {
+    background-color: #515151;
+}
+
+/* focus */
+.utilityfocus .Button_theme_default:focus::before {
+    border: 2px solid #f33;
+}

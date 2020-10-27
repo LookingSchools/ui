@@ -1,0 +1,48 @@
+@import '../../theme/default.scss';
+
+.Typography,
+.Typography_size_l {
+    font-family: $font-default;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 20px;
+
+    color: #000;
+}
+
+.Typography_tag_h1 {
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 36px;
+}
+
+.Typography_tag_h2 {
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 32px;
+}
+
+.Typography_tag_h3 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+}
+
+.Typography_tag_h4 {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 24px;
+}
+
+.Typography_size_m {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 18px;
+}
+
+.Typography_size_s {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 16px;
+}

@@ -1,0 +1,18 @@
+.Price {
+    &_theme {
+        &_clear {
+
+            .Price-CurrentPrice {
+                font-size: inherit;
+            }
+
+            .Price-OldPrice {
+                font-size: inherit;
+            }
+
+            .Price-Currency {
+                font-size: inherit;
+            }
+        }
+    }
+}

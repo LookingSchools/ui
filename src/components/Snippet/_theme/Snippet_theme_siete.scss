@@ -1,0 +1,32 @@
+.Snippet {
+    &_theme_siete {
+        .Snippet-Image {
+            width: 88px;
+            min-width: 88px;
+        }
+
+        .Snippet-Info {
+            flex-grow: 1;
+            flex-direction: column;
+
+            margin-left: 6 * 4px;
+        }
+
+        .Snippet-Price {
+            margin-bottom: 4px;
+        }
+
+        .Snippet-Rating {
+            margin-bottom: 2 * 4px;
+        }
+
+        .Snippet-Title {
+            margin-bottom: 2 * 4px;
+        }
+
+        .Snippet-AddToCart {
+            width: 104px;
+            margin-left: 114px;
+        }
+    }
+}

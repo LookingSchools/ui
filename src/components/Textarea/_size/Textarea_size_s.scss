@@ -1,0 +1,21 @@
+.Textarea_size_s {
+    min-width: 180px;
+    min-height: 32px;
+}
+
+.Textarea_size_s .Textarea-Control {
+    padding: 6px 8px;
+
+    font-size: 13px;
+}
+
+/* Усиливаем селектор, для того, чтобы при раскрытии переменных иметь большую специфичность. */
+.Textarea.Textarea_size_s.Textarea_hasClear .Textarea-Control {
+    /* Подобрано на глаз, необходимо для того, чтобы скрыть скролл. */
+    padding-right: 25%;
+}
+
+.Textarea_size_s .Textarea-Clear {
+    width: 32px;
+    height: 32px;
+}

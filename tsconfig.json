@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "module": "esNext",
+    "moduleResolution": "node",
+    "target": "es5",
+    "esModuleInterop": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "pretty": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "lib": [
+      "es7",
+      "dom"
+    ],
+    "rootDir": "src",
+    "baseUrl": ".",
+    "jsx": "react",
+    "allowJs": true
+  },
+  // Обрабатываем только ts & tsx файлы в src, чтобы typescript
+  // не зависал пытаясь обработать js файлы из артефактов сборки.
+  "include": ["src"],
+  "exclude": [
+    "src/internal/**",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*tests/**/*",
+    "node_modules"
+  ]
+}
+

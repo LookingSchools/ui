@@ -1,0 +1,132 @@
+.Scroller {
+    position: relative;
+}
+
+.Scroller-Container {
+    overflow: hidden;
+}
+
+.Scroller-Wrap {
+    position: relative;
+    z-index: 1;
+    /* stylelint-disable declaration-no-important  */
+
+    overflow: -moz-scrollbars-none !important;
+    /* stylelint-enable */
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    white-space: nowrap;
+
+    -ms-overflow-style: none;
+    /* stylelint-disable-next-line */
+    scrollbar-width: none;
+}
+
+.Scroller-Wrap,
+.Scroller-ItemsWrap {
+    margin-top: -20px;
+    margin-bottom: -20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Scroller-Wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.Scroller-Item {
+    position: relative;
+
+    display: inline-block;
+}
+
+.Scroller-Item:first-child {
+    margin-left: 0;
+}
+
+.Scroller_hasArrows::after,
+.Scroller_hasArrows::before {
+    position: absolute;
+    z-index: 4;
+    top: -6px;
+    bottom: -6px;
+
+    width: 2px;
+
+    background-color: rgba(0, 0, 0, .15);
+}
+
+.Scroller_arrowLine.Scroller_hasArrows.Scroller_scrollDirection_both::after,
+.Scroller_arrowLine.Scroller_hasArrows.Scroller_scrollDirection_right::after {
+    right: 0;
+
+    content: '';
+}
+
+.Scroller_arrowLine.Scroller_hasArrows.Scroller_scrollDirection_both::before,
+.Scroller_arrowLine.Scroller_hasArrows.Scroller_scrollDirection_left::before {
+    left: 0;
+
+    content: '';
+}
+
+.Scroller_widthFull .Scroller-Container,
+.Scroller_widthFull .Scroller-Wrap,
+.Scroller_widthFull .Scroller-ItemsWrap {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.Scroller_sameHeight .Scroller-ItemsWrap,
+.Scroller_sameHeight .Scroller-ItemsWrap .Scroller-Item {
+    display: inline-flex;
+}
+
+.Scroller_sameHeight .Scroller-ItemsWrap .Scroller-Item {
+    flex-shrink: 0;
+}
+
+.Scroller_noGap .Scroller-Wrap,
+.Scroller_noGap .Scroller-ItemsWrap {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.Scroller_arrowsTheme_shadow .Scroller-Arrow.ArrowButton_direction_right {
+    right: 24px;
+}
+
+.Scroller_arrowsTheme_shadow .Scroller-Arrow.ArrowButton_direction_left {
+    left: 24px;
+}
+
+.Scroller_arrowsTheme_shadow .Scroller-ArrowShadow {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+
+    width: 200px;
+    height: 100%;
+
+    pointer-events: none;
+
+    opacity: .9;
+}
+
+.Scroller_arrowsTheme_shadow .Scroller-ArrowShadow_direction_left {
+    left: 0;
+
+    background-image: linear-gradient(-270deg, #24201e 0, rgba(36, 32, 30, 0) 100%);
+}
+
+.Scroller_arrowsTheme_shadow .Scroller-ArrowShadow_direction_right {
+    right: 0;
+
+    background-image: linear-gradient(-270deg, rgba(36, 32, 30, 0) 0, #24201e 100%);
+}

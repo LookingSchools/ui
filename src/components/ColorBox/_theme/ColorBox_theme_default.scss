@@ -1,0 +1,65 @@
+/* common */
+.ColorBox_theme_default .ColorBox-Box {
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: inset 0 0 1px 0 hsla(0, 0%, 40%, .5);
+
+    transition: background .1s linear;
+}
+
+.ColorBox_theme_default .Typography {
+    padding-bottom: 20px;
+}
+
+.ColorBox_theme_default .ColorBox-Box::after {
+    position: absolute;
+
+    content: '';
+
+    opacity: 0;
+    border-radius: 50%;
+    background-color: #fff;
+
+    transition: opacity .1s, transform .2s;
+    transform: scale(.1);
+}
+
+/* disable */
+.ColorBox_theme_default .ColorBox-Radio_disabled .ColorBox-Box {
+    opacity: .5;
+    background-image: url('../ColorBox.asset/Disabled.svg');
+}
+
+
+/* check */
+/* Усиливаем селекторы, чтобы при раскрытии переменных иметь больший приоритет. */
+.ColorBox.ColorBox_theme_default .ColorBox-Radio_checked .ColorBox-Box {
+    cursor: default;
+}
+
+.ColorBox.ColorBox_theme_default .ColorBox-Radio_checked .ColorBox-Box::after {
+    cursor: default;
+
+    opacity: 1;
+    border-color: #0070c9;
+
+    transform: scale(1);
+}
+
+/* hover */
+/* stylelint-disable-next-line no-descending-specificity */
+.ColorBox.ColorBox_theme_default .ColorBox-Radio_hovered .ColorBox-Box::after {
+    opacity: 1;
+    border-color: #dbdbdb;
+
+    transform: scale(1);
+}
+
+.ColorBox_theme_default .ColorBox-Radio_hovered.ColorBox-Radio_checked .ColorBox-Box::after {
+    border-color: #0058b0;
+}
+
+/* focus */
+.utilityfocus .ColorBox_theme_default .ColorBox-Radio_focused .ColorBox-Box {
+    box-shadow: 0 0 0 2px #b3b3b3;
+}

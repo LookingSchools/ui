@@ -1,0 +1,53 @@
+.Socials {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 28px;
+    padding: 0 14px;
+}
+
+.Socials-Link {
+    margin-right: 30px;
+
+    text-decoration: none;
+
+    &,
+    .Icon_social_twitter {
+        color: #4aa0eb;
+    }
+
+    &,
+    .Icon_social_vk {
+        color: #436eab;
+    }
+
+    &,
+    .Icon_social_facebook {
+        color: #4968ad;
+    }
+
+    &,
+    .Icon_social_youtube {
+        color: #eb3323;
+    }
+
+    &,
+    .Icon_social_telegram {
+        color: #51a4db;
+    }
+
+    &,
+    .Icon_social_github {
+        color: #25292e;
+    }
+
+    &,
+    .Icon_social_rss {
+        color: #f29c39;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

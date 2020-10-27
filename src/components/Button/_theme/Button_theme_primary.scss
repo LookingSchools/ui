@@ -1,0 +1,60 @@
+/* common */
+.Button_theme_primary {
+    color: #fff;
+
+    transition: transform .1s ease-out, color .15s linear;
+    transform: scale(1);
+}
+
+.Button_theme_primary::before {
+    background-color: #0071e3;
+
+    transition: background-color .15s linear;
+}
+
+/* press */
+.Button_theme_primary.Button_pressed,
+.Button_theme_primary:active {
+    transition: none;
+    transform: scale(.96);
+}
+
+/* 1.042 ≈ 1/0.96 */
+.Button_theme_primary.Button_pressed::after,
+.Button_theme_primary:active::after {
+    transform: scale(1.042);
+}
+
+/* disable */
+.Button_theme_primary[aria-disabled='true'] {
+    color: #e6e6e6;
+}
+
+.Button_theme_primary[aria-disabled='true']::before {
+    border-color: transparent;
+    background-color: #7ebeff;
+}
+
+/* check */
+.Button_theme_primary.Button_checked {
+    color: #fff;
+}
+
+.Button_theme_primary.Button_checked::before {
+    background-color: #004b97;
+}
+
+/* hover */
+.Button_theme_primary:not([aria-disabled='true']):hover::before {
+    background-color: #0064ca;
+}
+
+/* check */
+.Button_theme_primary.Button_checked:not([aria-disabled='true']):hover::before {
+    background-color: #0058b0;
+}
+
+/* focus */
+.utilityfocus .Button_theme_primary:focus::before {
+    border: 2px solid #f33;
+}

@@ -1,0 +1,45 @@
+.Spin {
+    display: none;
+
+    box-sizing: border-box;
+
+    border: 2px solid transparent;
+    border-radius: 100px; /* На android 2.3 border-radius в % не поддерживается */
+
+    /*
+     * Поддержка CSS анимаций и CSS градиентов у основных браузеров совпадает
+     * Если браузер не поддерживает градиенты, будет показана gif-анимация
+     */
+    background-image: url('spin.gif');
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+/* Для правильного позиционирования блока относительно baseline */
+.Spin::after {
+    visibility: hidden;
+
+    content: '\00A0'; /* &nbsp; */
+}
+
+/*
+  (1)
+      Добавлена задержка начала анимации, что заставляет её нормально работать в iOS 12-
+      Решение взято отсюда:
+      https://stackoverflow.com/questions/29219534/css-animation-not-always-starting-in-ios-8-safari
+*/
+.Spin_progress {
+    display: inline-block;
+
+    animation: takberi-spin 1s .21s infinite linear; /* (1) */
+    backface-visibility: hidden;  /* Для ускорения анимации */
+}
+
+@keyframes takberi-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

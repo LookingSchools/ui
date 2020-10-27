@@ -1,0 +1,12 @@
+.Link {
+    cursor: pointer;
+    text-decoration: none;
+
+    outline: 0;
+    touch-action: manipulation;
+}
+
+.Link[aria-disabled='true'] {
+    cursor: default;
+    pointer-events: none;
+}

@@ -1,0 +1,10 @@
+.Popup.Popup_nonvisual {
+    border: 0;
+    box-shadow: none;
+}
+
+.Popup.Popup_nonvisual::before {
+    content: none;
+
+    box-shadow: none;
+}

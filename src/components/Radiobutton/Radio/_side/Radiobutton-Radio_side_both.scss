@@ -1,0 +1,13 @@
+.Radiobutton-Radio_side_both {
+    border-radius: 3px;
+}
+
+.Radiobutton-Radio_side_both::before {
+    right: 0;
+
+    border-radius: 3px;
+}
+
+.Radiobutton-Radio_side_both::after {
+    border-radius: 2px;
+}

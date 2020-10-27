@@ -1,0 +1,65 @@
+.Gallery-Modal {
+    position: relative;
+
+    display: flex;
+
+    width: calc(100vw - 84px);
+    height: calc(100vh - 136px);
+}
+
+.Gallery-ModalNav {
+    overflow-y: auto;
+
+    padding: 20px;
+
+    border-right: 1px solid #ececec;
+}
+
+.Gallery-ModalPreview {
+    position: relative;
+    z-index: 1;
+
+    flex: 1 1 auto;
+}
+
+.Gallery-ModalWrap {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.Gallery-ModalImage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+    width: auto;
+    height: 100%;
+    margin: auto;
+    padding: 30px 100px 40px;
+
+    user-select: none;
+    text-align: center;
+}
+
+
+.Gallery-ModalImg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}

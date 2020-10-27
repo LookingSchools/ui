@@ -1,0 +1,17 @@
+.Icon_hasSocial {
+    position: relative;
+}
+
+.Icon_hasSocial svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+/* stylelint-disable selector-max-universal */
+.Icon_hasSocial svg,
+.Icon_hasSocial svg * {
+    fill: currentColor;
+}

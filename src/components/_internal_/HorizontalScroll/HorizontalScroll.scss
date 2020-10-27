@@ -1,0 +1,22 @@
+.HorizontalScroll {
+    overflow: hidden;
+}
+
+/*
+ *    В Safari под iOS есть баг, связанный с -webkit-overflow-scrolling: touch.
+ *    При использовании этого свойства, вложенный контент может пропадать.
+ *    Проблема решается включением аппаратного рендеринга.
+ *    Подробнее: http://cantina.co/thought_leadership/ios-5-native-scrolling-grins-and-gothcas/
+ */
+.HorizontalScroll-Content {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    margin-bottom: -30px;
+    padding-bottom: 30px;
+
+    white-space: nowrap;
+
+    -webkit-transform: translate3d(0, 0, 0);
+}

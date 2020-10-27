@@ -1,0 +1,16 @@
+.ColorBox_size_s .ColorBox-Box {
+    width: 30px;
+    height: 30px;
+}
+
+.ColorBox_size_s .ColorBox-Box::after {
+    z-index: -1;
+    top: calc(50% - (40px / 2));
+    left: calc(50% - (40px / 2));
+
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid transparent;
+}
