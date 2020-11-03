@@ -2,7 +2,7 @@
 
 Кнопка.
 
-{{%story::desktop:takberi-components-button-desktop--theme%}}
+{{%story::desktop:lookingschools-components-button-desktop--theme%}}
 
 ## Пример вызова
 
@@ -13,7 +13,7 @@ import {
   Button as ButtonBase,
   withThemeLink,
   withSizeM,
-} from "@godfreyd/takberi-ui/Button"
+} from "@lookingschools/ls-ui/Button"
 
 // Композиция из различных модификаторов
 const Button = compose(withThemeLink, withSizeM)(ButtonBase)
@@ -30,7 +30,7 @@ const App = () => <Button theme="default" size="m" children="Button" />
 
 Допустимые значения: `"s"`, `"m"`, `"l"`.
 
-{{%story::desktop:takberi-components-button-desktop--size%}}
+{{%story::desktop:lookingschools-components-button-desktop--size%}}
 
 ### theme
 
@@ -38,7 +38,7 @@ const App = () => <Button theme="default" size="m" children="Button" />
 
 **Допустимые значения:** `"default"`, `"action"`, `"link"`.
 
-{{%story::desktop:takberi-components-button-desktop--theme%}}
+{{%story::desktop:lookingschools-components-button-desktop--theme%}}
 
 ### pin
 
@@ -46,6 +46,6 @@ const App = () => <Button theme="default" size="m" children="Button" />
 
 **Допустимые значения:** `"circle-circle"`, `"circle-clear"`, `"clear-circle"`, `"circle-brick"`, `"brick-circle"`.
 
-{{%story::desktop:takberi-components-button-desktop--pin%}}
+{{%story::desktop:lookingschools-components-button-desktop--pin%}}
 
 ## Свойства

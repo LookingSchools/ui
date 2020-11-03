@@ -10,7 +10,7 @@ function getItems() {
   return stubData.dataDefault.items;
 }
 
-storiesOf("Takberi/Components|Cart", module)
+storiesOf("LookingSchools/Components|Cart", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -6,7 +6,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Amountpicker } from "./Amountpicker";
 
-storiesOf("Takberi/Components|Amountpicker/", module)
+storiesOf("LookingSchools/Components|Amountpicker/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

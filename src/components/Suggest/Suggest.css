@@ -1,0 +1,29 @@
+.Suggest {
+    position: relative;
+}
+
+.Suggest-Popup {
+    width: 100%;
+}
+
+.Suggest-Menu {
+    display: block;
+}
+
+.Suggest-Text {
+    padding: var(--space-m) var(--space-xs);
+
+    font-family: var(--control-font-family);
+    font-size: var(--textinput-size-m-fontSize);
+
+    color: var(--color-typo-ghost);
+}
+
+.Textinput-Spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--textinput-size-m-icon-width);
+    height: var(--textinput-size-m-icon-height);
+}

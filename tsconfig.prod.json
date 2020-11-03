@@ -20,8 +20,9 @@
     "experimentalDecorators": true,
     "pretty": true,
     "preserveConstEnums": true,
-    "removeComments": false,
+    "removeComments": true,
     "lib": [
+      "es5",
       "es6",
       "dom"
     ],

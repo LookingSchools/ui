@@ -18,7 +18,7 @@ import {
   Tumbler as TumblerDesktop,
   withSizeM,
   withViewDefault,
-} from "@godfreyd/takberi-ui/Tumbler"
+} from "@lookingschools/ls-ui/Tumbler"
 
 const Tumbler = compose(withSizeM, withViewDefault)(TumblerDesktop)
 
@@ -41,7 +41,7 @@ const App = () => {
 ```ts
 // src/App.ts
 import React, { useState } from "react"
-import Tumbler from "@godfreyd/takberi-ui/Tumbler/Tumbler.bundle"
+import Tumbler from "@lookingschools/ls-ui/Tumbler/Tumbler.bundle"
 
 const App = () => {
   const [checked, setChecked] = useState("")

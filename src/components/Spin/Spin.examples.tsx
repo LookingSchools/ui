@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Spin } from "./Spin.bundle";
 
-storiesOf("Takberi/Components|Spin/", module)
+storiesOf("LookingSchools/Components|Spin/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -32,7 +32,7 @@ storiesOf("Takberi/Components|Spin/", module)
     );
   });
 
-storiesOf("Takberi/Components|Spin/", module)
+storiesOf("LookingSchools/Components|Spin/", module)
   .addDecorator(
     withDocs({
       readme: {

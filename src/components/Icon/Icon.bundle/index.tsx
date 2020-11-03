@@ -15,6 +15,7 @@ import { withGlyphMinus } from "../_glyph/Icon_glyph_minus";
 import { withGlyphSearch } from "../_glyph/Icon_glyph_search";
 import { withGlyphSort } from "../_glyph/Icon_glyph_sort";
 import { withGlyphTick } from "../_glyph/Icon_glyph_tick";
+import { withGlyphCheck } from "../_glyph/Icon_glyph_check";
 import { withGlyphXSign } from "../_glyph/Icon_glyph_x-sign";
 import { withGlyphInfo } from "../_glyph/Icon_glyph_info";
 import { withGlyphTrash } from "../_glyph/Icon_glyph_trash";
@@ -74,6 +75,7 @@ export const Icon = compose(
     withGlyphCross,
     withGlyphSort,
     withGlyphTick,
+    withGlyphCheck,
     withGlyphArrowRight
   ),
   composeU(

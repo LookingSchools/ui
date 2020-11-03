@@ -14,7 +14,7 @@ const Link = compose(
   withPseudo
 )(LinkBase);
 
-storiesOf("Takberi/Components|Link/", module)
+storiesOf("LookingSchools/Components|Link/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -26,7 +26,7 @@ storiesOf("Takberi/Components|Link/", module)
   .add("playground", () => {
     const theme = select("theme", ["default", ""], "default");
     const href = text("href", "https://yandex.ru");
-    const children = text("children", "Takberi");
+    const children = text("children", "Lookingschools");
     return (
       <Link theme={theme} href={href}>
         {children}
@@ -34,7 +34,7 @@ storiesOf("Takberi/Components|Link/", module)
     );
   });
 
-storiesOf("Takberi/Components|Link/", module)
+storiesOf("LookingSchools/Components|Link/", module)
   .addDecorator(
     withDocs({
       readme: {

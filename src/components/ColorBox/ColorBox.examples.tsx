@@ -133,7 +133,7 @@ export const Theme = () => {
   );
 };
 
-storiesOf("Takberi/Components|ColorBox", module)
+storiesOf("LookingSchools/Components|ColorBox", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

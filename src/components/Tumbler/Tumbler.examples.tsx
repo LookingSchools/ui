@@ -274,7 +274,7 @@ export const Showcase = () => {
   );
 };
 
-storiesOf("Takberi/Components|Tumbler", module)
+storiesOf("LookingSchools/Components|Tumbler", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

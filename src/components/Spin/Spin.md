@@ -16,7 +16,7 @@ import {
   Spin as SpinBase,
   withSizeM,
   withThemePrimary,
-} from "@godfreyd/takberi-ui/Spin"
+} from "@lookingschools/ls-ui/Spin"
 
 // Композиция из различных модификаторов
 const Spin = compose(withSizeM, withThemePrimary)(SpinBase)

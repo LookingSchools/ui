@@ -243,7 +243,7 @@ class PositionShowcase extends BaseExample {
   }
 }
 
-storiesOf("Takberi/Components|Popup/", module)
+storiesOf("LookingSchools/Components|Popup/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -288,7 +288,7 @@ storiesOf("Takberi/Components|Popup/", module)
     );
   });
 
-storiesOf("Takberi/Components|Popup/", module)
+storiesOf("LookingSchools/Components|Popup/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

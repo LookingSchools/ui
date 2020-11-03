@@ -15,7 +15,7 @@ const Radiobutton = compose(
   composeU(withThemeDefault)
 )(RadiobuttonPresenter);
 
-storiesOf("Takberi/Components|Radiobutton/", module)
+storiesOf("LookingSchools/Components|Radiobutton/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -51,7 +51,7 @@ storiesOf("Takberi/Components|Radiobutton/", module)
     );
   });
 
-storiesOf("Takberi/Components|Radiobutton", module)
+storiesOf("LookingSchools/Components|Radiobutton", module)
   .addDecorator(
     withDocs({
       readme: {

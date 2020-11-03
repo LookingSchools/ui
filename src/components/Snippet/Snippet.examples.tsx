@@ -36,7 +36,7 @@ const Container = ({
   </div>
 );
 
-storiesOf("Takberi/Components|Snippet/", module)
+storiesOf("LookingSchools/Components|Snippet/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -93,7 +93,7 @@ const ContentShowcase = () => {
   );
 };
 
-storiesOf("Takberi/Components|TabsMenu/", module)
+storiesOf("LookingSchools/Components|TabsMenu/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -137,7 +137,7 @@ storiesOf("Takberi/Components|TabsMenu/", module)
     );
   });
 
-storiesOf("Takberi/Components|TabsMenu/", module)
+storiesOf("LookingSchools/Components|TabsMenu/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

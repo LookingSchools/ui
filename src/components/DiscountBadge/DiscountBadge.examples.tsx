@@ -25,7 +25,7 @@ const DiscountBadge = compose(
   composeU(withThemeBlack, withThemeDefault)
 )(DiscountBadgeBase);
 
-storiesOf("takberi/Components|DiscountBadge", module)
+storiesOf("LookingSchools/Components|DiscountBadge", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -2,21 +2,21 @@
 
 Значок в правом верхнем углу своего дочернего элемента.
 
-{{%story::desktop:takberi-components-badge-desktop--color%}}
+{{%story::desktop:lookingschools-components-badge-desktop--color%}}
 
 ## Import
 
 ```js
-import Badge from "@godfreyd/takberi-ui/Badge"
+import Badge from "@lookingschools/ls-ui/Badge"
 // or
-import { Badge } from "@godfreyd/takberi-ui"
+import { Badge } from "@lookingschools/ls-ui"
 ```
 
 ## Пример
 
 ```js
-import { Badge } from "@godfreyd/takberi-ui"
-import { Icon } from "@godfreyd/takberi-ui"
+import { Badge } from "@lookingschools/ls-ui"
+import { Icon } from "@lookingschools/ls-ui"
 
 ;<Badge badgeContent={4} color="primary">
   <Icon favorite width={27} height={24} />

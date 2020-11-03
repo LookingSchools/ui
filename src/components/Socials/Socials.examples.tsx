@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Socials } from "./Socials.bundle";
 
-storiesOf("Takberi/Components|Socials", module)
+storiesOf("LookingSchools/Components|Socials", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

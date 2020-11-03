@@ -28,7 +28,7 @@ import {
   Checkbox as CheckboxDesktop,
   withSizeM,
   withThemeDefault,
-} from "@godfreyd/takberi-ui/Checkbox"
+} from "@lookingschools/ls-ui/Checkbox"
 
 // Композиция из различных модификаторов
 const Checkbox = compose(withSizeM, withThemeDefault)(CheckboxDesktop)

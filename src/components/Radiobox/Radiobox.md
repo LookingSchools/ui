@@ -16,7 +16,7 @@ import {
   Radiobox as RadioboxBase,
   withSizeM,
   withThemeDefault,
-} from "@takberi-ui/components/Radiobox/"
+} from "@ls-ui/components/Radiobox/"
 
 const Radiobox = compose(withSizeM, withThemeDefault)(RadioboxBase)
 

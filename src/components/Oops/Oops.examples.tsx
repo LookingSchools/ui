@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Oops } from "./Oops.bundle";
 
-storiesOf("Takberi/Components|Oops", module)
+storiesOf("LookingSchools/Components|Oops", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

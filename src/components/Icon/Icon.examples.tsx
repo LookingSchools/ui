@@ -18,6 +18,8 @@ const allIcons = [
   "cross",
   "sort",
   "info",
+  "tick",
+  'check',
   "arrow-right",
   "trash"
 ];
@@ -77,7 +79,7 @@ function renderSocialIcons(icons) {
   );
 }
 
-storiesOf("Takberi/Components|Icon/", module)
+storiesOf("LookingSchools/Components|Icon/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

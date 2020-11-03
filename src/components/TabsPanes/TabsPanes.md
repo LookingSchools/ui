@@ -12,7 +12,7 @@
 ```js
 // src/App.ts
 import React, { useState } from "react"
-import { TabsPanes } from "@godfreyd/takberi-ui/TabsPanes"
+import { TabsPanes } from "@lookingschools/ls-ui/TabsPanes"
 
 const App = () => {
   return (

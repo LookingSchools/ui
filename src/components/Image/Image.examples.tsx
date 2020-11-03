@@ -6,7 +6,7 @@ import { withDocs } from "@storybook-addons/docs";
 import { Image } from "./Image";
 import { Spin } from "../Spin/Spin.bundle";
 
-storiesOf("Takberi/Components|Image/", module)
+storiesOf("LookingSchools/Components|Image/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -72,7 +72,7 @@ export const SpecsGroup = () => {
   );
 };
 
-storiesOf("Takberi/Components|Specs", module)
+storiesOf("LookingSchools/Components|Specs", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

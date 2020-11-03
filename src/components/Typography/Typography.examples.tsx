@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Typography } from "./Typography.bundle";
 
-storiesOf("Takberi/Components|Typography", module)
+storiesOf("LookingSchools/Components|Typography", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

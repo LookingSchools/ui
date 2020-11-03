@@ -2,9 +2,7 @@ import React, {
   ComponentClass,
   PureComponent,
   ReactType,
-  ChangeEvent,
-  
-  FC, useState, useCallback } from "react";
+  ChangeEvent} from "react";
 import _ from "lodash";
 import { cn } from "@bem-react/classname";
 import { Defaultize } from "../../typings/utility-types";
@@ -21,7 +19,7 @@ import { Icon } from "../Icon/Icon.bundle";
 import { TotalItem } from "./Item/Total-Item";
 import "./Cart.scss";
 
-import * as stubData from "./datastub"; // Удалить
+// import * as stubData from "./datastub"; // Удалить
 
 export const cnCart = cn("Cart");
 

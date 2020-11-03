@@ -13,7 +13,7 @@
 ```jsx
 // src/App.ts
 import React from "react"
-import { Image } from "@takberi-ui/components/Image"
+import { Image } from "@ls-ui/components/Image"
 
 // Использование компонента в вашем приложении
 const App = () => (
@@ -54,7 +54,7 @@ const App = () => (
 
 ```typescript jsx
 import React, { FC } from "react"
-import { Image } from "@takberi-ui/components/Image"
+import { Image } from "@ls-ui/components/Image"
 
 const App: FC = () => {
   return <Image className="my-image" stub={<MyImageStub />} />

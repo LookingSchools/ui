@@ -8,7 +8,7 @@
 // src/App.ts
 import React from "react"
 import { compose } from "@bem-react/core"
-import { Link as LinkBase, withThemeDefault } from "@godfreyd/takberi-ui/Link"
+import { Link as LinkBase, withThemeDefault } from "@lookingschools/ls-ui/Link"
 
 // Композиция из различных модификаторов
 const Link = compose(withThemeDefault)(LinkBase)

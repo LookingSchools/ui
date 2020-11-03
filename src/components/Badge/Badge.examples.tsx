@@ -46,7 +46,7 @@ function renderIcons(icons, type) {
   );
 }
 
-storiesOf("Takberi/Components|Badge/", module)
+storiesOf("LookingSchools/Components|Badge/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

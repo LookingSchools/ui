@@ -11,7 +11,7 @@
 
 ```typescript jsx
 import React, { FC } from "react"
-import { GalleryMobile } from "@godfreyd/takberi-ui/GalleryMobile"
+import { GalleryMobile } from "@lookingschools/ls-ui/GalleryMobile"
 
 const items = [
   { src: "image1-1x.png", srcSet: "image1-2x.png" },
@@ -30,7 +30,7 @@ const MyComponent: FC = () => {
 
 ```typescript jsx
 import React, { FC } from "react"
-import { GalleryMobileSkeleton } from "@godfreyd/takberi-ui/GalleryMobile"
+import { GalleryMobileSkeleton } from "@lookingschools/ls-ui/GalleryMobile"
 
 const App: FC = () => {
   return <GalleryMobileSkeleton className="my-GalleryMobile" />

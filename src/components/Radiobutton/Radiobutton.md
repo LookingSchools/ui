@@ -12,8 +12,8 @@
 
 ```ts
 // src/lib/theme.ts
-import { configureRootTheme } from "@godfreyd/takberi-ui/Theme"
-import { theme } from "@godfreyd/takberi-ui/Theme/presets/default"
+import { configureRootTheme } from "@lookingschools/ls-ui/Theme"
+import { theme } from "@lookingschools/ls-ui/Theme/presets/default"
 
 configureRootTheme({ theme })
 ```
@@ -28,7 +28,7 @@ import {
   Radiobutton as RadiobuttonBase,
   withSizeM,
   withViewDefault,
-} from "@godfreyd/takberi-ui/Radiobutton"
+} from "@lookingschools/ls-ui/Radiobutton"
 
 const Radiobutton = compose(withSizeM, withViewDefault)(RadiobuttonBase)
 

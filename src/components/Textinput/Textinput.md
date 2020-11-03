@@ -18,7 +18,7 @@ import {
   Textinput as TextinputBase,
   withThemeDefault,
   withSizeM,
-} from "@godfreyd/takberi-ui/Textinput"
+} from "@lookingschools/ls-ui/Textinput"
 
 // Композиция из различных модификаторов
 const Textinput = compose(withThemeDefault, withSizeM)(TextinputBase)

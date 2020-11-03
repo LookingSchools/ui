@@ -7,7 +7,7 @@ import { Device } from "../_internal_/Device/Device";
 
 import { Slider } from "./Slider";
 
-storiesOf("Takberi/Components|Slider/", module)
+storiesOf("LookingSchools/Components|Slider/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

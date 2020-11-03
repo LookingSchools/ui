@@ -23,9 +23,11 @@
     "experimentalDecorators": true,
     "pretty": true,
     "preserveConstEnums": true,
-    "removeComments": false,
+    "removeComments": true,
     "sourceMap": true,
     "lib": [
+      "es5",
+      "es6",
       "es7",
       "dom"
     ],

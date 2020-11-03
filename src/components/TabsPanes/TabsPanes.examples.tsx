@@ -23,7 +23,7 @@ const TabsMenu = compose(
 
 const Radiobox = compose(withRadioboxSizeM, withThemeDefault)(RadioboxBase);
 
-storiesOf("Takberi/Components|TabsPanes/", module)
+storiesOf("LookingSchools/Components|TabsPanes/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -42,7 +42,7 @@ storiesOf("Takberi/Components|TabsPanes/", module)
     return <TabsPanes activePane={activeTab} panes={panes} />;
   });
 
-storiesOf("Takberi/Components|TabsPanes", module)
+storiesOf("LookingSchools/Components|TabsPanes", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

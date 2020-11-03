@@ -20,8 +20,8 @@
 
 ```ts
 // src/lib/theme.ts
-import { configureRootTheme } from "@godfreyd/takberi-ui/Theme"
-import { theme } from "@godfreyd/takberi-ui/Theme/presets/default"
+import { configureRootTheme } from "@lookingschools/ls-ui/Theme"
+import { theme } from "@lookingschools/ls-ui/Theme/presets/default"
 
 configureRootTheme({ theme })
 ```
@@ -37,7 +37,7 @@ import {
   withSizeM,
   withLayoutHoriz,
   withViewDefault,
-} from "@godfreyd/takberi-ui/TabsMenu"
+} from "@lookingschools/ls-ui/TabsMenu"
 
 const TabsMenu = compose(
   withSizeM,

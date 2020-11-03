@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Textarea } from "./Textarea.bundle";
 
-storiesOf("Takberi/Components|Textarea", module)
+storiesOf("LookingSchools/Components|Textarea", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -43,7 +43,7 @@ storiesOf("Takberi/Components|Textarea", module)
     );
   });
 
-storiesOf("Takberi/Components|Textarea/", module)
+storiesOf("LookingSchools/Components|Textarea/", module)
   .addDecorator(
     withDocs({
       readme: {

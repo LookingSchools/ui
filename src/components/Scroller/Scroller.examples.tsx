@@ -23,7 +23,7 @@ function prepareItems(count: number) {
   return items;
 }
 
-storiesOf("Takberi/Components|Scroller/", module)
+storiesOf("LookingSchools/Components|Scroller/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

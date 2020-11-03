@@ -30,11 +30,11 @@
 .Spin_progress {
     display: inline-block;
 
-    animation: takberi-spin 1s .21s infinite linear; /* (1) */
+    animation: lookingschools-spin 1s .21s infinite linear; /* (1) */
     backface-visibility: hidden;  /* Для ускорения анимации */
 }
 
-@keyframes takberi-spin {
+@keyframes lookingschools-spin {
     from {
         transform: rotate(0deg);
     }

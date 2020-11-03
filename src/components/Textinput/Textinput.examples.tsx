@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Textinput } from "./Textinput.bundle";
 
-storiesOf("Takberi/Components|Textinput", module)
+storiesOf("LookingSchools/Components|Textinput", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -58,7 +58,7 @@ storiesOf("Takberi/Components|Textinput", module)
     );
   });
 
-storiesOf("Takberi/Components|Textinput/", module)
+storiesOf("LookingSchools/Components|Textinput/", module)
   .addDecorator(
     withDocs({
       readme: {

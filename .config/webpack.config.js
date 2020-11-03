@@ -43,6 +43,7 @@ module.exports = {
         Icon: './Icon/',
         Image: './Image/',
         Link: './Link/',
+        Menu: './Menu/',
         Modal: './Modal/',
         Oops: './Oops/',
         Popup: './Popup/',
@@ -143,7 +144,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             ENV: JSON.stringify(ENV)
         }),
@@ -151,5 +151,8 @@ module.exports = {
             baseUrl: resolve(__dirname, '../'),
             configFile: resolve(__dirname, 'tsconfig.prod.json'),
         })
-    ]
+    ],
+    optimization: {
+        emitOnErrors: false // Для прода включить.
+    }
 };

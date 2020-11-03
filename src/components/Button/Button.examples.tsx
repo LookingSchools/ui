@@ -6,7 +6,7 @@ import { withDocs } from "@storybook-addons/docs";
 import { Button } from "./Button.bundle";
 import { Icon } from "../Icon/Icon.bundle";
 
-storiesOf("Takberi/Components|Button/", module)
+storiesOf("LookingSchools/Components|Button/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -119,7 +119,7 @@ storiesOf("Takberi/Components|Button/", module)
     );
   });
 
-storiesOf("takberi/Components|Button/", module)
+storiesOf("LookingSchools/Components|Button/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

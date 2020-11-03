@@ -59,7 +59,7 @@ export const Cookie = class extends PureComponent<ICookieProps, ICookieState> {
   static displayName = cnCookie();
 
   readonly state = {
-    isVisible: Cookies.get("takbericookie") ? false : true
+    isVisible: Cookies.get("ls-cookie") ? false : true
   };
 
   render() {
@@ -96,7 +96,7 @@ export const Cookie = class extends PureComponent<ICookieProps, ICookieState> {
   }
 
   protected onClick = () => {
-    Cookies.set("takbericookie", "1", { expires: 7 });
+    Cookies.set("ls-cookie", "1", { expires: 7 });
     this.setState({
       isVisible: false
     });

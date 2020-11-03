@@ -17,9 +17,9 @@ We support stable versions of all major browsers, including ie11.
 
 ```sh
 // Install with npm
-npm install --save @godfreyd/takberi-ui
+npm install -S @lookingschools/ui
 // Update
-npm update @godfreyd/takberi-ui
+npm update @lookingschools/ui
 ```
 
 ## Development

@@ -18,7 +18,7 @@ import {
   Textarea as TextareaDesktop,
   withViewDefault,
   withSizeM,
-} from "@godfreyd/takberi-ui/Textarea"
+} from "@lookingschools/ls-ui/Textarea"
 
 // Композиция из различных модификаторов
 const Textarea = compose(withViewDefault, withSizeM)(TextareaDesktop)

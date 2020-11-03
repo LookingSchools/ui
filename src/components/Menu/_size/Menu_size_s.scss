@@ -1,0 +1,47 @@
+.Menu_size_s {
+    font-size: 13px;
+    line-height: 32px; 
+}
+
+.Menu_size_s::before,
+.Menu_size_s::after {
+    height: 4px;
+}
+
+.Menu_size_s .Menu-Item,
+.Menu_size_s .Menu-Title {
+    padding: 0 9px;
+}
+
+.Menu_size_s .Menu-Item {
+    background-position: 9px center;
+}
+
+.Menu_size_s .Icon.Icon_glyph_check {
+    margin-right: 4px;
+}
+
+.Menu_size_s .Menu-Group {
+    padding: 4px 0;
+}
+
+.Menu_size_s .Menu-Item + .Menu-Group {
+    margin-top: 4px;
+}
+
+.Menu_size_s .Menu-Group + .Menu-Item {
+    margin-top: 4px;
+}
+
+.Menu_size_s .Menu-Item_type_option > :first-child,
+.Menu_size_s .Menu-Title ~ .Menu-Item > :first-child {
+    margin-left: 20px;
+}
+
+.Menu_size_s .Menu-Title ~ .Menu-Item .Icon {
+    margin-left: 0;
+}
+
+.Menu_size_s .Menu-Icon + .Menu-Text {
+    margin-left: 4px;
+}

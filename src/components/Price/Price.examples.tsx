@@ -6,7 +6,7 @@ import * as stubData from "./datastub";
 
 import { Price } from "./Price.bundle";
 
-storiesOf("takberi/Components|Price", module)
+storiesOf("LookingSchools/Components|Price", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

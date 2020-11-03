@@ -1,7 +1,7 @@
 # Scroller
 
 ```js
-import { Scroller } from "@godfreyd/takberi-ui/Scroller"
+import { Scroller } from "@lookingschools/ls-ui/Scroller"
 ```
 
 ## Base

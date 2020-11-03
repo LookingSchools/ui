@@ -14,9 +14,9 @@ import { compose } from "@bem-react/core"
 import {
   Modal as ModalBase,
   withThemeDefault,
-} from "@takberi-ui/components/Modal"
-import { withOutsideClick } from "@takberi-ui/components/withOutsideClick"
-import { withZIndex } from "@takberi-ui/components/withZIndex"
+} from "@ls-ui/components/Modal"
+import { withOutsideClick } from "@ls-ui/components/withOutsideClick"
+import { withZIndex } from "@ls-ui/components/withZIndex"
 
 // Композиция из различных модификаторов
 const Modal = compose(withThemeDefault, withOutsideClick, withZIndex)(ModalBase)

@@ -11,7 +11,7 @@ function getImages() {
   return stubData.dataDefault.images as Array<GalleryMobileItemProps>;
 }
 
-storiesOf("Takberi/Components|GalleryMobile/", module)
+storiesOf("LookingSchools/Components|GalleryMobile/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

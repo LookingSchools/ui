@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Grid, GridItem } from "./Grid";
 
-storiesOf("Takberi/Components|Grid/", module)
+storiesOf("LookingSchools/Components|Grid/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

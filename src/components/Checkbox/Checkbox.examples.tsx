@@ -110,7 +110,7 @@ export const Lines = () => {
   );
 };
 
-storiesOf("Takberi/Components|Checkbox", module)
+storiesOf("LookingSchools/Components|Checkbox", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

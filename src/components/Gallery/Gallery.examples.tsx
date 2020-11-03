@@ -10,7 +10,7 @@ function getImages() {
   return stubData.dataDefault.images;
 }
 
-storiesOf("Takberi/Components|Gallery", module)
+storiesOf("LookingSchools/Components|Gallery", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

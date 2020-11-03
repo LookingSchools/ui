@@ -1,0 +1,66 @@
+/* common */
+.Menu_view_default {
+    color: #000;
+    background-color:  rgb(230, 230, 230);
+}
+
+.Menu_view_default .Menu-Group {
+    border-top: 1px solid  rgb(179, 179, 179);
+}
+
+.Menu_view_default .Menu-Group:first-child {
+    padding-top: 0;
+
+    border-top: none;
+}
+
+.Menu_view_default .Menu-Group:last-child {
+    padding-bottom: 0;
+}
+
+.Menu_view_default .Menu-Title {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.Menu_view_default .Menu-Item {
+    position: relative;
+
+    cursor: pointer;
+}
+
+/* stylelint-disable-next-line selector-max-universal */
+.Menu_view_default .Menu-Item * {
+    /* Обнуляем значения для интерактивных элементов внутри пункта меню. */
+    text-decoration: none;
+
+    outline: none;
+}
+
+.Menu_view_default .Menu-Item .Icon.Icon_glyph_check {
+    visibility: hidden;
+
+    width: 16px;
+}
+
+/* Усиливаем селектор Menu & Icon, чтобы перебить margin-left при раскрытии css-переменных. */
+.Menu.Menu_view_default .Menu-Item .Icon.Icon_glyph_check[class] {
+    margin-left: 0;
+}
+
+/* check */
+.Menu.Menu_view_default .Menu-Item.Menu-Item_checked .Icon_glyph_check {
+    visibility: visible;
+}
+
+/* disable */
+.Menu_view_default.Menu_disabled .Menu-Item,
+.Menu_view_default .Menu-Item.Menu-Item_disabled {
+    opacity: .3;
+    color: rgb(128, 128, 128);
+}
+
+/* hover */
+.Menu_view_default .Menu-Item.Menu-Item_hovered {
+    color: #000;
+    background-color: rgb(219, 219, 219);
+}

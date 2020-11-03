@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Cookie } from "./Cookie.bundle";
 
-storiesOf("Takberi/Components|Cookie", module)
+storiesOf("LookingSchools/Components|Cookie", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
