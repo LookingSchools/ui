@@ -5,7 +5,7 @@ import { Popup } from '../Popup/Popup.bundle';
 import { Menu } from '../Menu/Menu.bundle';
 import { Spin } from '../Spin/Spin.bundle';
 
-import './Suggest.css';
+import './Suggest.scss';
 
 type SuggestProps<T> = {
     /**
