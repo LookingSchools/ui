@@ -47,6 +47,7 @@
     "src/**/*.test.tsx",
     "src/**/*tests/**/*",
     "src/**/*.examples.tsx",
-    "node_modules"
+    "node_modules",
+    "src/components/Cart/**" // временно отключил Cart (удалить)
   ]
 }
