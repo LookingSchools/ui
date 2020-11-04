@@ -1,6 +1,6 @@
 /* common */
 .Textinput_theme_default .Textinput-Box {
-    border: 2px solid #d9d9d9;
+    border: 2px solid rgb(217, 217, 217);;
     border-radius: 4px;
     background-color: #fff;
 
@@ -8,7 +8,7 @@
 }
 
 .Textinput_theme_default.Textinput_state_error .Textinput-Box {
-    border-color: #f33;
+    border-color: rgb(224, 0, 15);
 }
 
 .Textinput_theme_default .Textinput-Control {
@@ -16,11 +16,11 @@
 }
 
 .Textinput_theme_default .Textinput-Control::placeholder {
-    color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .Textinput_theme_default .Textinput-Icon {
-    color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .Textinput_theme_default .Textinput-Clear {
@@ -38,21 +38,27 @@
 }
 
 .Textinput_theme_default.Textinput_state_error .Textinput-Hint {
-    color: #f33;
+    color: rgb(224, 0, 15);
 }
 
 /* disable */
 .Textinput_theme_default.Textinput_disabled .Textinput-Control {
-    color: #767676;
+    color: rgb(128, 128, 128);
 }
 
 .Textinput_theme_default.Textinput_disabled .Textinput-Control::placeholder {
-    color: #767676;
+    color: rgb(128, 128, 128);
 }
 
+/* TODO: Усиливаем селектор для ie11 (оторвать после https://st.yandex-team.ru/ISL-7989) */
 .Textinput_theme_default.Textinput_disabled .Textinput-Box {
     border-color: transparent;
-    background-color: #f2f2f2;
+    background-color: rgb(242, 242, 242); 
+}
+
+/* focus */
+.Textinput.Textinput_theme_default.Textinput_focused .Textinput-Box[class] {
+    border-color: rgb(179, 179, 179);
 }
 
 /* hover */
@@ -60,17 +66,12 @@
     color: #000;
 }
 
+/* TODO: Усиливаем селектор для ie11 (оторвать после https://st.yandex-team.ru/ISL-7989) */
 .Textinput_theme_default.Textinput_hovered .Textinput-Box[class] {
-    border-color: #cecece;
-    background-color: #dbdbdb;
+    border-color: rgb(204, 204, 204); 
+    background-color: #fff;
 }
 
 .Textinput_theme_default.Textinput_hovered.Textinput_state_error .Textinput-Box {
-    border-color: #f33;
-}
-
-/* focus */
-.Textinput.Textinput_theme_default.Textinput_focused .Textinput-Box {
-    border-width: 2px;
-    border-color: #b4b4b4;
+    border-color: rgb(224, 0, 15);
 }
