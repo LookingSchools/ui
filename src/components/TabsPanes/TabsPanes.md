@@ -1,18 +1,14 @@
 # TabsPanes
 
-<!-- description:start -->
-
 Компонент для создания вкладок с разным содержимым.
 Переключение между вкладками можно реализовать, например, с помощью `TabsMenu`, `Radiobox`, `Select`.
-
-<!-- description:end -->
 
 ## Пример использования
 
 ```js
 // src/App.ts
 import React, { useState } from "react"
-import { TabsPanes } from "@lookingschools/ls-ui/TabsPanes"
+import { TabsPanes } from "@lookingschools/ui/TabsPanes"
 
 const App = () => {
   return (
@@ -38,14 +34,9 @@ const App = () => {
 {{%story::desktop:lego-components-tabspanes-desktop--radiobox%}}
 
 ## Свойства
-
-<!-- props:start -->
-
-| Свойство    | Тип                         | Описание                                   |
-| ----------- | --------------------------- | ------------------------------------------ |
-| activePane? | `string`                    | Идентификатор отображаемой вкладки.        |
-| panes       | `ITabsPanesPaneProps[]`     | Набор вкладок.                             |
-| innerRef?   | `RefObject<HTMLDivElement>` | Ссылка на корневой DOM-элемент компонента. |
-| className?  | `string`                    | Дополнительный класс.                      |
-
-<!-- props:end -->
+| Свойство    | Тип                         | Описание                                  |
+| ----------- | --------------------------- | ----------------------------------------- |
+| activePane? | `string`                    | Идентификатор отображаемой вкладки        |
+| panes       | `ITabsPanesPaneProps[]`     | Набор вкладок                             |
+| innerRef?   | `RefObject<HTMLDivElement>` | Ссылка на корневой DOM-элемент компонента |
+| className?  | `string`                    | Дополнительный класс                      |

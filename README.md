@@ -1,4 +1,4 @@
-# ls-ui
+# @lookingschools/ui
 
 React components that implement Lookingschools's UI Design.
 

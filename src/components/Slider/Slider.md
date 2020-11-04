@@ -10,7 +10,7 @@
 
 ```ts
 import React from "react"
-import { Slider } from "@lookingschools/ls-ui/Slider"
+import { Slider } from '@lookingschools/ui/Slider"
 
 const slides = [
   { src: "image1-1x.png", src2x: "image1-2x.png" },

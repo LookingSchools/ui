@@ -1,22 +1,8 @@
 # Radiobutton
 
-<!-- description:start -->
-
 Компонент для создания радиопереключателя.
 
-<!-- description:end -->
-
 ## Пример использования
-
-Конфигурация темы на уровне проекта:
-
-```ts
-// src/lib/theme.ts
-import { configureRootTheme } from "@lookingschools/ls-ui/Theme"
-import { theme } from "@lookingschools/ls-ui/Theme/presets/default"
-
-configureRootTheme({ theme })
-```
 
 Использование компонента:
 
@@ -28,7 +14,7 @@ import {
   Radiobutton as RadiobuttonBase,
   withSizeM,
   withViewDefault,
-} from "@lookingschools/ls-ui/Radiobutton"
+} from "@lookingschools/ui/Radiobutton"
 
 const Radiobutton = compose(withSizeM, withViewDefault)(RadiobuttonBase)
 
@@ -73,42 +59,15 @@ const App = () => {
 
 ## Свойства
 
-<!-- props:start -->
-
-| Свойство   | Тип                                                         | Описание                                                                                                            |
-| ---------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| options    | `(string \| IOption)[]`                                     | Набор опций                                                                                                         |
-| innerRef?  | `RefObject<HTMLSpanElement>`                                | Ссылка на корневой DOM-элемент компонента                                                                           |
-| disabled?  | `false \| true`                                             | Неактивное состояние кнопки. Состояние, при котором компонент отображается, но недоступен для действий пользователя |
-| className? | `string`                                                    | Дополнительный класс                                                                                                |
-| onClick?   | `(event: MouseEvent<HTMLInputElement, MouseEvent>) => void` | Обработчик клика                                                                                                    |
-| value?     | `string`                                                    | Значение контрола.                                                                                                  |
-| id?        | `string`                                                    | Уникальный id компонента                                                                                            |
-| onChange?  | `(event: ChangeEvent<HTMLInputElement>) => void`            | Обработчик изменения значения                                                                                       |
-| name?      | `string`                                                    | Имя компонента                                                                                                      |
-
-<!-- props:end -->
-
-## Модификаторы
-
-<!-- modifiers:start -->
-
-### size
-
-Задает размер радиопереключателей.
-
-**Допустимые значения:** `"m"`, `"s"`.
-
-### theme
-
-Задает стилевое оформление радиопереключателей.
-
-**Допустимые значения:** `"default"`, `"pseudo"`.
-
-### theme
-
-Задает тему оформления радиопереключателя.
-
-**Допустимые значения:** `"default"`.
-
-<!-- modifiers:end -->
+| Свойство    | Тип                                                         | Описание                                        |
+| ----------- | ----------------------------------------------------------- | ----------------------------------------------- |
+| options     | `IRadioButtonOption[]`                                      | Набор опций                                     |
+| innerRef?   | `RefObject<HTMLSpanElement>`                                | Ссылка на корневой DOM-элемент компонента       |
+| style?      | `CSSProperties`                                             | Пользовательские стили на корневом DOM-элементе |
+| aria-label? | `string`                                                    | Метка для радиогруппы                           |
+| value       | `string`                                                    | HTML-атрибут `value`, значение контрола         |
+| name?       | `string`                                                    | HTML-атрибут `name`, имя компонента             |
+| disabled?   | `false \| true`                                             | HTML-атрибут `disabled`                         |
+| className?  | `string`                                                    | Дополнительный класс                            |
+| onClick?    | `(event: MouseEvent<HTMLInputElement, MouseEvent>) => void` | Обработчик клика                                |
+| onChange?   | `(event: ChangeEvent<HTMLInputElement>) => void`            | Обработчик изменения значения                   |

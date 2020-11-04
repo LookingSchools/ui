@@ -1,23 +1,6 @@
 # Menu
 
-<a href='https://github.yandex-team.ru/search-interfaces/frontend/tree/master/packages/lego-components/src/Menu' target='_blank'><img src='https://badger.yandex-team.ru/custom/[Исходники]/[Github
-][green]/badge.svg' /></a> <a href='https://search.yandex-team.ru/stsearch?text=Menu.ts&facet.queue=ISL&facet.type=bug&facet.status=128' target='_blank'><img src='https://badger.yandex-team.ru/custom/[Известные проблемы]/[Startrek][blue]/badge.svg' /></a>
-
-<!-- description:start -->
-Компонент для создания меню.
-<!-- description:end -->
-
 ## Пример использования
-
-Конфигурация темы на уровне проекта:
-
-```ts
-// src/lib/theme.ts
-import { configureRootTheme } from '@yandex-lego/components/Theme'
-import { theme } from '@yandex-lego/components/Theme/presets/default'
-
-configureRootTheme({ theme })
-```
 
 Использование с нужным набором модификаторов:
 
@@ -108,8 +91,6 @@ const App = () => {
 {{%story::desktop:controls-menu-desktop--width%}}
 
 ## Свойства
-
-<!-- props:start -->
 | Свойство   | Тип                    | Описание                                                                                                                                |
 | ---------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | focused?   | `false \| true`        | Состояние фокуса на меню. Необходимо для активации клавиатурной навигации                                                               |
@@ -120,4 +101,3 @@ const App = () => {
 | innerRef?  | `any`                  | Ссылка на корневой DOM-элемент компонента                                                                                               |
 | className? | `string`               | Дополнительный класс                                                                                                                    |
 | style?     | `CSSProperties`        | Html атрибут `style`                                                                                                                    |
-<!-- props:end -->

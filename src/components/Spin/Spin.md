@@ -1,10 +1,6 @@
 # Spin
 
-<!-- description:start -->
-
 Индикатор загрузки. Отображает выполнение какого-то процесса, например загрузки сайта или медиа-файла.
-
-<!-- description:end -->
 
 ## Пример использования
 
@@ -16,7 +12,7 @@ import {
   Spin as SpinBase,
   withSizeM,
   withThemePrimary,
-} from "@lookingschools/ls-ui/Spin"
+} from "@lookingschools/ui/Spin"
 
 // Композиция из различных модификаторов
 const Spin = compose(withSizeM, withThemePrimary)(SpinBase)
@@ -41,36 +37,8 @@ const App = () => {
 {{%story::desktop:lego-components-spin-desktop--position%}}
 
 ## Свойства
-
-<!-- props:start -->
-
-| Свойство  | Тип                         | Описание                                   |
-| --------- | --------------------------- | ------------------------------------------ |
-| innerRef? | `RefObject<HTMLDivElement>` | Ссылка на корневой DOM-элемент компонента. |
-| progress? | `false \| true`             | Видимость индикатора загрузки.             |
-
-<!-- props:end -->
-
-## Модификаторы
-
-<!-- modifiers:start -->
-
-### position
-
-Задает позицию индикатора загрузки внутри корневого элемента.
-
-**Допустимые значения:** `"center"`.
-
-### size
-
-Обязательный. Задает размер индикатора загрузки.
-
-**Допустимые значения:** `"l"`, `"m"`, `"s"`, `"xs"`, `"xxs"`.
-
-### theme
-
-Задает внешний вид индикатора загрузки.
-
-**Допустимые значения:** `"primary"`.
-
-<!-- modifiers:end -->
+| Свойство   | Тип                         | Описание                                  |
+| ---------- | --------------------------- | ----------------------------------------- |
+| innerRef?  | `RefObject<HTMLDivElement>` | Ссылка на корневой DOM-элемент компонента |
+| progress?  | `false \| true`             | Видимость индикатора загрузки             |
+| className? | `string`                    | Дополнительный класс                      |

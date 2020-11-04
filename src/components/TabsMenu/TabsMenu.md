@@ -1,10 +1,6 @@
 # TabsMenu
 
-<!-- description:start -->
-
 Компонент для создания горизонтального меню.
-
-<!-- description:end -->
 
 ## Когда использовать
 
@@ -15,16 +11,6 @@
 - Переключатель для вкладок `TabsPanes`.
 
 ## Пример использования
-
-Конфигурация темы на уровне проекта:
-
-```ts
-// src/lib/theme.ts
-import { configureRootTheme } from "@lookingschools/ls-ui/Theme"
-import { theme } from "@lookingschools/ls-ui/Theme/presets/default"
-
-configureRootTheme({ theme })
-```
 
 Использование компонента:
 
@@ -37,7 +23,7 @@ import {
   withSizeM,
   withLayoutHoriz,
   withViewDefault,
-} from "@lookingschools/ls-ui/TabsMenu"
+} from "@lookingschools/ui/TabsMenu"
 
 const TabsMenu = compose(
   withSizeM,
@@ -72,44 +58,9 @@ const App = () => {
 {{%story::desktop:lego-components-tabsmenu-desktop--size%}}
 
 ## Свойства
-
-<!-- props:start -->
-
-| Свойство   | Тип                           | Описание                                   |
-| ---------- | ----------------------------- | ------------------------------------------ |
-| activeTab? | `string`                      | Идентификатор активного пункта меню.       |
-| tabs       | `ITabsMenuTabProps[]`         | Массив пунктов меню.                       |
-| innerRef?  | `RefObject<HTMLUListElement>` | Ссылка на корневой DOM элемент компонента. |
-| className? | `string`                      | Дополнительный класс.                      |
-
-<!-- props:end -->
-
-## Модификаторы
-
-<!-- modifiers:start -->
-
-### layout
-
-Задает расположение вкладок меню.
-
-**Допустимые значения:** `"horiz"`.
-
-### size
-
-Задает размер меню.
-
-**Допустимые значения:** `"m"`, `"s"`.
-
-### theme
-
-Задает стилевое оформление меню.
-
-**Допустимые значения:** `"normal"`.
-
-### view
-
-Определяет внешний вид вкладок.
-
-**Допустимые значения:** `"default"`.
-
-<!-- modifiers:end -->
+| Свойство   | Тип                           | Описание                                  |
+| ---------- | ----------------------------- | ----------------------------------------- |
+| activeTab? | `string`                      | Идентификатор активного пункта меню       |
+| tabs       | `ITabsMenuTabProps[]`         | Массив пунктов меню                       |
+| innerRef?  | `RefObject<HTMLUListElement>` | Ссылка на корневой DOM-элемент компонента |
+| className? | `string`                      | Дополнительный класс                      |

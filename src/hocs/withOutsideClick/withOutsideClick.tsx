@@ -1,5 +1,3 @@
-// TODO: https://st.yandex-team.ru/ISL-6338
-
 import React, { ComponentType, RefObject, PureComponent, createRef } from 'react';
 
 import { isKeyCode, Keys } from '../../lib/keyboard';

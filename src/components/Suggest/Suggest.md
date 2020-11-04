@@ -1,21 +1,9 @@
 # Suggest
 
-<!-- description:start -->
 Составной компонент Textinput + Menu.
 Служит для реализации подсказки для пользовательского ввода текста
-<!-- description:end -->
 
 ## Примеры использования
-
-Конфигурация темы на уровне проекта:
-
-```ts
-// src/lib/theme.ts
-import { configureRootTheme } from '@yandex-lego/components/Theme'
-import { theme } from '@yandex-lego/components/Theme/presets/default'
-
-configureRootTheme({ theme })
-```
 
 ### Использование со статичным набором даннных:
 
@@ -149,7 +137,6 @@ const App = () => {
 
 ## Свойства
 
-<!-- props:start -->
 | Свойство       | Тип                                 | По умолчанию      | Описание                                                                |
 | -------------- | ----------------------------------- | ----------------- | ----------------------------------------------------------------------- |
 | textinputSize? | `"s" \| "m"`                        | `"m"`             | Размер текстового поля.                                                 |
@@ -161,4 +148,3 @@ const App = () => {
 | onChange       | `(value: string) => void`           | —                 | Обработчик на изменение текстового поля                                 |
 | onRenderItem?  | `(value: any) => ReactNode`         | —                 | Переопределяет компонент MenuItem                                       |
 | onFilter?      | `(data: T[], value: string) => T[]` | `onFilterDefault` | Обработчик для фильтрации данных в меню                                 |
-<!-- props:end -->

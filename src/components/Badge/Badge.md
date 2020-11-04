@@ -7,16 +7,16 @@
 ## Import
 
 ```js
-import Badge from "@lookingschools/ls-ui/Badge"
+import Badge from "@lookingschools/ui/Badge"
 // or
-import { Badge } from "@lookingschools/ls-ui"
+import { Badge } from "@lookingschools/ui"
 ```
 
 ## Пример
 
 ```js
-import { Badge } from "@lookingschools/ls-ui"
-import { Icon } from "@lookingschools/ls-ui"
+import { Badge } from "@lookingschools/ui"
+import { Icon } from "@lookingschools/ui"
 
 ;<Badge badgeContent={4} color="primary">
   <Icon favorite width={27} height={24} />
