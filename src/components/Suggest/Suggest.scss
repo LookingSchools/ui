@@ -11,12 +11,12 @@
 }
 
 .Suggest-Text {
-    padding: var(--space-m) var(--space-xs);
+    padding: 16px 8px;
 
-    font-family: var(--control-font-family);
-    font-size: var(--textinput-size-m-fontSize);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
 
-    color: var(--color-typo-ghost);
+    color: rgba(0, 0, 0, 0.3);;
 }
 
 .Textinput-Spinner {
@@ -24,6 +24,6 @@
     justify-content: center;
     align-items: center;
 
-    width: var(--textinput-size-m-icon-width);
-    height: var(--textinput-size-m-icon-height);
+    width: 36px;
+    height: 36px;
 }

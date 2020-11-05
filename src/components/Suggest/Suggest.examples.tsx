@@ -1,10 +1,10 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, select, boolean } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import { withDocs } from "@storybook-addons/docs";
 
 import { Suggest } from "./Suggest";
-import { fetchData, Data } from './fetchData';
+import { fetchData } from './fetchData';
 
 storiesOf("LookingSchools/Components|Suggest/", module)
   .addDecorator(withKnobs)
@@ -15,7 +15,20 @@ storiesOf("LookingSchools/Components|Suggest/", module)
       }
     })
   )
-  .add("playground", () => {
+  .add("static-data", () => {
+    const [value, setValue] = React.useState('');
+
+    return (
+      <>
+        <Suggest
+            data={['Каждый', 'Охотник', 'Желает', 'Знать','Где', 'Сидит', 'Фазан']}
+            value={value}
+            onChange={setValue}
+        />
+      </>
+    );
+  })
+  .add("suggest-async", () => {
     const [value, setValue] = React.useState('');
     const [loading, setLoading] = React.useState(false);
     const [data, setData] = React.useState<string[]>([]);
