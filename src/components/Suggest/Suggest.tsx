@@ -170,7 +170,7 @@ export const Suggest: FC<SuggestProps<any>> = ({
                     <Menu
                         focused={visible}
                         className="Suggest-Menu"
-                        view="default"
+                        theme="normal"
                         size={menuSize}
                         onChange={onChangeMenu}
                         items={values.map((value) => ({
