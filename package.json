@@ -23,6 +23,7 @@
   "dependencies": {
     "@bem-react/classname": "1.5.6",
     "@bem-react/core": "2.0.6",
+    "@lookingschools/i18n": "0.0.1",
     "@types/js-cookie": "2.2.6",
     "@types/lodash": "4.14.164",
     "@types/react-dom": "16.9.9",
