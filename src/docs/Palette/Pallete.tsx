@@ -1,67 +1,150 @@
 export const paletteGroup = [{
-    title: 'Buttons',
+    title: 'Цвета',
     content: [
-
         {
-            color: '#0071E3',
-            caption: 'Синяя кнопка',
+            color: '#263181',
+            caption: '',
             text: '#fff',
         },
         {
-            color: '#0058b0',
-            caption: 'Синяя кнопка: hover',
+            color: '#26318170',
+            caption: '',
+        },
+        {
+            color: '#26318150',
+            caption: '',
+        },
+        {
+            color: '#26318130',
+            caption: '',
+        },
+        {
+            color: '#26318115',
+            caption: '',
+        },
+        {
+            color: '#26318107',
+            caption: '',
+        },
+        {
+            color: '#067aff',
+            caption: '',
+            text: '#fff',
+        },
+        {
+            color: '#fdf5e7',
+            caption: '',
+        },
+        {
+            color: '#FC5759',
+            caption: '',
+        },
+        {
+            color: '#2ebc4f',
+            caption: '',
+        },
+        {
+            color: '#fdc62f',
+            caption: '',
+        },
+    ],
+},
+{
+    title: 'Buttons',
+    content: [
+       
+        {
+            color: '#263181',
+            caption: 'Кнопка1',
+            text: '#fff',
+        },
+        {
+            color: '#1b225c',
+            caption: 'Кнопка1: hover',
             text: '#fff'
         },
         {
-            color: '#1D1D1F',
-            caption: 'Черная кнопка',
-            text: '#fff',
+            color: '#26318115',
+            caption: 'Кнопка2',
         },
         {
-            color: '#000',
-            caption: 'Черная кнопка: hover',
-            text: '#fff',
+            color: '#26318150',
+            caption: 'Кнопка2: hover',
+        },
+        {
+            color: '#26318107',
+            caption: 'Кнопка3',
+        },
+        {
+            color: '#26318115',
+            caption: 'Кнопка3: hover',
+        },
+        {
+            color: '#067aff10',
+            caption: 'Кнопка4',
+            text: '#067aff',
+        },
+        {
+            color: '#067aff20',
+            caption: 'Кнопка4:hover',
+            text: '#067aff'
+        },
+        {
+            color: '#fdf5e7',
+            caption: 'Кнопка5',
+        },
+        {
+            color: '#f7e1ba',
+            caption: 'Кнопка5:hover',
+        },
+        {
+            color: '#067aff',
+            caption: 'Кнопка6',
+            text: '#fff'
+        },
+        {
+            color: '#0062d1',
+            caption: 'Кнопка6:hover',
+            text: '#fff'
+        },
+        {
+            color: '#2ebc4f',
+            caption: 'Кнопка6',
+        },
+        {
+            color: '#28a745',
+            caption: 'Кнопка6:hover',
+        },
+        {
+            color: '#fdc62f',
+            caption: 'Кнопка7',
+        },
+        {
+            color: '#f7b602',
+            caption: 'Кнопка7:hover',
+        },
+        
+    
+        
 
-        },
-        {
-            color: '#f2f2f2',
-            caption: 'Серая кнопка: disabled',
-        },
-        {
-            color: '#E6E6E6',
-            caption: 'Серая кнопка',
-        },
-        {
-            color: '#DBDBDB',
-            caption: 'Серая кнопка: hover',
-        },
-        {
-            color: '#a1a1a1',
-            caption: 'Серая кнопка: checked',
-        }
+        
+        
+        
     ],
 },
 {
     title: 'Alerts',
     content: [
         {
-            color: '#FF8542',
-            caption: '',
-        },
-        {
-            color: '#F9C1B2',
-            caption: '',
-        },
-        {
-            color: '#D73355',
-            caption: '',
-        },
-        {
-            color: '#f33',
+            color: '#f33333',
             caption: '',
         },
         {
             color: '#FC5759',
+            caption: '',
+        },
+        {
+            color: '#067aff40',
             caption: '',
         },
     ],
@@ -70,45 +153,29 @@ export const paletteGroup = [{
     title: 'Links',
     content: [
         {
-            color: '#0066CC',
+            color: '#067aff',
             caption: '',
             text: '#fff'
+        },   
+        {
+            color: '#000',
+            caption: ':hover',
+            text: '#fff'
         }
-    ],
-},
-{
-    title: 'Backgrounds',
-    content: [
-        {
-            color: '#B9B5C3',
-            caption: '',
-        },
-        {
-            color: '#F5F5F7',
-            caption: '',
-        },
-        {
-            color: '#FDF8F2',
-            caption: '',
-        },
-        {
-            color: '#FAFAFA',
-            caption: '',
-        },
     ],
 },
 {
     title: 'Text',
     content: [
         {
-            color: '#111',
-            caption: 'Заголовки',
+            color: '#000',
+            caption: 'Заголовки и основной текст',
             text: '#fff'
         },
         {
-            color: '#000',
-            caption: 'Основной текст',
-            text: '#fff'
+            color: '#B9B5C3',
+            caption: 'Менее заметный текст и иконки',
+            text: '#000'
         }
     ],
 }];
