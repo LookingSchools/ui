@@ -122,7 +122,7 @@ export const paletteGroup = [{
     title: 'Links',
     content: [
         {
-            color: '#067aff',
+            color: '#067AFF',
             caption: '',
             text: '#fff'
         },   
