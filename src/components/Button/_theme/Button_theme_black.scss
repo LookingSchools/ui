@@ -7,7 +7,7 @@
 }
 
 .Button_theme_black::before {
-    background-color: #1d1d1f;
+    background-color: #24292e;
 
     transition: background-color .15s linear;
 }
@@ -27,12 +27,12 @@
 
 /* disable */
 .Button_theme_black[aria-disabled='true'] {
-    color: #e6e6e6;
+    color: rgba(36, 41, 46, 0.3);
 }
 
 .Button_theme_black[aria-disabled='true']::before {
     border-color: transparent;
-    background-color: #67676f;
+    background-color: rgba(36, 41, 46, 0.07);
 }
 
 /* check */

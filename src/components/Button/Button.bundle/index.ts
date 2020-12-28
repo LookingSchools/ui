@@ -15,7 +15,7 @@ import { withSizeS } from "../_size/Button_size_s";
 import { withThemeBlack } from "../_theme/Button_theme_black";
 import { withThemeClear } from "../_theme/Button_theme_clear";
 import { withThemeDefault } from "../_theme/Button_theme_default";
-import { withThemeLink } from "../_theme/Button_theme_link";
+import { withThemeSecondary } from "../_theme/Button_theme_secondary";
 import { withThemePrimary } from "../_theme/Button_theme_primary";
 import { withThemePseudo } from "../_theme/Button_theme_pseudo";
 import { withThemeRaised } from "../_theme/Button_theme_raised";
@@ -48,7 +48,7 @@ export interface IButtonProps extends IButtonBaseProps {
   theme?:
     | "black"
     | "clear"
-    | "link"
+    | "secondary"
     | "default"
     | "pseudo"
     | "raised"
@@ -60,7 +60,7 @@ export interface IButtonProps extends IButtonBaseProps {
 export const Button = compose(
   composeU(withSizeL, withSizeM, withSizeS),
   composeU(
-    withThemeLink,
+    withThemeSecondary,
     withThemeBlack,
     withThemePrimary,
     withThemeDefault,

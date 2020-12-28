@@ -1,19 +1,19 @@
 import { withBemMod } from "@bem-react/core";
 
 import { cnButton } from "../Button";
-import "./Button_theme_link.scss";
+import "./Button_theme_secondary.scss";
 
-export interface IButtonThemeLinkProps {
+export interface IButtonThemeSecondaryProps {
   /**
    * Стилевое оформление кнопки
    */
-  theme?: "link";
+  theme?: "secondary";
 }
 
 /**
  * Модификатор, отвечающий за стилевое оформление кнопки.
- * @param {IButtonThemeLinkProps} props
+ * @param {IButtonThemeSecondaryProps} props
  */
-export const withThemeLink = withBemMod<IButtonThemeLinkProps>(cnButton(), {
-  theme: "link"
+export const withThemeSecondary = withBemMod<IButtonThemeSecondaryProps>(cnButton(), {
+  theme: "secondary"
 });

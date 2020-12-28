@@ -18,7 +18,7 @@ storiesOf("LookingSchools/Components|Button/", module)
   .add("playground", () => {
     return (
       <>
-        <Button size="m" theme="link" type="link" url="https://yandex.ru/">
+        <Button size="m" theme="secondary" >
           Button
         </Button>{" "}
         <Button size="m" theme="default">
@@ -27,14 +27,14 @@ storiesOf("LookingSchools/Components|Button/", module)
         <p>Кнопка с иконками:</p>
         <Button
           size="m"
-          theme="link"
+          theme="secondary"
           icon={className => (
             <Icon glyph="plus" size="m" className={className} />
           )}
         />{" "}
         <Button
           size="m"
-          theme="link"
+          theme="secondary"
           iconLeft={className => (
             <Icon glyph="plus" size="m" className={className} />
           )}
@@ -43,7 +43,7 @@ storiesOf("LookingSchools/Components|Button/", module)
         </Button>{" "}
         <Button
           size="m"
-          theme="link"
+          theme="secondary"
           iconRight={className => (
             <Icon glyph="plus" size="m" className={className} />
           )}
@@ -139,8 +139,8 @@ storiesOf("LookingSchools/Components|Button/", module)
       <Button theme="black" size="m">
         Black
       </Button>{" "}
-      <Button theme="link" size="m">
-        Link
+      <Button theme="secondary" size="m">
+        Secondary
       </Button>{" "}
       <Button theme="clear" size="m">
         Clear
@@ -176,7 +176,19 @@ storiesOf("LookingSchools/Components|Button/", module)
       </Button>{" "}
       <Button theme="primary" size="m" disabled={true}>
         Button
-      </Button>
+      </Button>{" "}
+      <Button theme="black" size="m">
+        Button
+      </Button>{" "}
+      <Button theme="black" size="m" disabled={true}>
+        Button
+      </Button>{" "}
+      <Button theme="secondary" size="m">
+        Button
+      </Button>{" "}
+      <Button theme="secondary" size="m" disabled={true}>
+        Button
+      </Button>{" "}
     </>
   ))
   .add("_width", () => (
@@ -200,9 +212,9 @@ storiesOf("LookingSchools/Components|Button/", module)
 
     return (
       <>
-        <p>Кнопки с круглыми границами theme="link"</p>
+        <p>Кнопки с круглыми границами theme="secondary"</p>
         {cPins.map(pin => (
-          <Button key={pin} pin={pin} theme="link" size="m">
+          <Button key={pin} pin={pin} theme="secondary" size="m">
             Button
           </Button>
         ))}

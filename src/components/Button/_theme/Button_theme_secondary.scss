@@ -1,0 +1,63 @@
+/* common */
+.Button_theme_secondary {
+    color: #000;
+
+    transition: transform .1s ease-out, color .15s linear;
+    transform: scale(1);
+}
+
+.Button_theme_secondary::before {
+    border: 2px solid rgba(38, 49, 129, 0.15);
+    background-color: #fff;
+
+    transition: background-color .15s linear;
+}
+
+/* press */
+.Button_theme_secondary.Button_pressed,
+.Button_theme_secondary:active {
+    transition: none;
+    transform: scale(.96);
+}
+
+/* 1.042 ≈ 1/0.96 */
+.Button_theme_secondary.Button_pressed::after,
+.Button_theme_secondary:active::after {
+    transform: scale(1.042);
+}
+
+/* disable */
+.Button_theme_secondary[aria-disabled='true'] {
+    color: rgba(38, 49, 129, 0.3);
+}
+
+.Button_theme_secondary[aria-disabled='true']::before {
+    border-color: transparent;
+    background-color: rgba(38, 49, 129, 0.07);
+}
+
+/* check */
+.Button_theme_secondary.Button_checked {
+    color: #fff;
+}
+
+.Button_theme_secondary.Button_checked::before {
+    border-color: transparent;
+    background-color: #555;
+}
+
+/* hover */
+.Button_theme_secondary:not([aria-disabled='true']):hover::before {
+    // background-color: #b3c7eb;
+    border-color: rgba(38, 49, 129, 0.5);;
+}
+
+/* check */
+.Button_theme_secondary.Button_checked:not([aria-disabled='true']):hover::before {
+    background-color: #515151;
+}
+
+/* focus */
+.utilityfocus .Button_theme_secondary:focus::before {
+    border: 2px solid #f33;
+}
