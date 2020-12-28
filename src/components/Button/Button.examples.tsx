@@ -130,14 +130,14 @@ storiesOf("LookingSchools/Components|Button/", module)
   )
   .add("_theme", () => (
     <>
+      <Button theme="default" size="m">
+        Default
+      </Button>{" "}
       <Button theme="primary" size="m">
         Primary
       </Button>{" "}
       <Button theme="black" size="m">
         Black
-      </Button>{" "}
-      <Button theme="default" size="m">
-        Default
       </Button>{" "}
       <Button theme="link" size="m">
         Link
@@ -169,6 +169,12 @@ storiesOf("LookingSchools/Components|Button/", module)
         Button
       </Button>{" "}
       <Button theme="default" size="m" disabled={true}>
+        Button
+      </Button>{" "}
+      <Button theme="primary" size="m">
+        Button
+      </Button>{" "}
+      <Button theme="primary" size="m" disabled={true}>
         Button
       </Button>
     </>

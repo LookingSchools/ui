@@ -7,7 +7,7 @@
 }
 
 .Button_theme_primary::before {
-    background-color: #0071e3;
+    background-color: #067aff;
 
     transition: background-color .15s linear;
 }
@@ -27,12 +27,12 @@
 
 /* disable */
 .Button_theme_primary[aria-disabled='true'] {
-    color: #e6e6e6;
+    color: rgba(6, 122, 255, 0.3);
 }
 
 .Button_theme_primary[aria-disabled='true']::before {
     border-color: transparent;
-    background-color: #7ebeff;
+    background-color: rgba(6, 122, 255, 0.07);
 }
 
 /* check */
@@ -46,7 +46,7 @@
 
 /* hover */
 .Button_theme_primary:not([aria-disabled='true']):hover::before {
-    background-color: #0064ca;
+    background-color: #0062D1;
 }
 
 /* check */
