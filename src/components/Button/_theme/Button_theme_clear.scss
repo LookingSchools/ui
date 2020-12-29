@@ -1,49 +1,62 @@
-.Button_theme_clear {
-    position: relative;
-    z-index: 0;
+@import '../../../theme/default.scss';
 
+/* common */
+.Button_theme_clear {
     color: #000;
+
     border: none;
-    outline: none;
+    transition: transform .1s ease-out, color .15s linear;
+    transform: scale(1);
 }
 
 .Button_theme_clear::before {
-    border-radius: 18px;
-    background-color: transparent;
-    background-clip: padding-box;
+    transition: background-color .15s linear;
 }
 
-.Button_theme_clear:not([aria-disabled='true']):active::before,
-.Button_theme_clear.Button_pressed::before {
-    background-color: rgba(0, 0, 0, .05);
+/* press */
+.Button_theme_clear.Button_pressed,
+.Button_theme_clear:active {
+    transition: none;
+    transform: scale(.96);
+}
+
+/* 1.042 ≈ 1/0.96 */
+.Button_theme_clear.Button_pressed::after,
+.Button_theme_clear:active::after {
+    transform: scale(1.042);
+}
+
+/* disable */
+.Button_theme_clear[aria-disabled='true'] {
+    color: $color-control-default-disabled;
+}
+
+.Button_theme_clear[aria-disabled='true']::before {
+    border-color: transparent;
+    background-color: #fff;
+}
+
+/* check */
+.Button_theme_clear.Button_checked {
+    color: #fff;
 }
 
 .Button_theme_clear.Button_checked::before {
-    border-color: rgba(153, 122, 0, .5);
-    background-color: #ffeba0;
+    border-color: transparent;
+    background-color: rgba(6, 122, 255, 0.07);
 }
 
-.Button_theme_clear.Button_checked:not([aria-disabled='true']):active::before,
-.Button_theme_clear.Button_checked.Button_pressed::before {
-    border-color: rgba(129, 103, 0, .6);
-    background-color: #fee481;
+/* hover */
+.Button_theme_clear:not([aria-disabled='true']):hover::before {
+    background-color: #E8F0FE;
 }
 
-.Button_theme_clear[aria-disabled='true']::before,
-.Button_theme_clear.Button_disabled::before {
-    border-color: rgba(0, 0, 0, .08);
-    background-color: rgba(0, 0, 0, .08);
+/* check */
+.Button_theme_clear.Button_checked:not([aria-disabled='true']):hover::before {
+    background-color: #515151;
 }
 
-.Button_theme_clear[aria-disabled='true'].Button_checked::before,
-.Button_theme_clear.Button_disabled.Button_checked::before {
-    border-color: rgba(0, 0, 0, .15);
-    background-color: rgba(0, 0, 0, .15);
-}
-
-.Button_theme_clear[aria-disabled='true'] .Button-Text,
-.Button_theme_clear[aria-disabled='true'] .Button-Icon,
-.Button_theme_clear.Button_disabled .Button-Text,
-.Button_theme_clear.Button_disabled .Button-Icon {
-    opacity: .5;
+/* focus */
+.utilityfocus .Button_theme_clear:focus::before {
+    border: 2px solid  #f33;
 }

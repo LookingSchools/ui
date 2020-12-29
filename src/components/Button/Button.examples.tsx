@@ -144,10 +144,10 @@ storiesOf("LookingSchools/Components|Button/", module)
       </Button>{" "}
       <Button theme="clear" size="m">
         Clear
-      </Button>
+      </Button>{" "}
       <Button theme="raised" size="m">
         Raised
-      </Button>
+      </Button>{" "}
     </>
   ))
   .add("_size", () => (
@@ -187,6 +187,12 @@ storiesOf("LookingSchools/Components|Button/", module)
         Button
       </Button>{" "}
       <Button theme="secondary" size="m" disabled={true}>
+        Button
+      </Button>{" "}
+      <Button theme="clear" size="m">
+        Button
+      </Button>{" "}
+      <Button theme="clear" size="m" disabled={true}>
         Button
       </Button>{" "}
     </>
