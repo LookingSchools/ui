@@ -1,8 +1,8 @@
 $font-default: 'Roboto', sans-serif;
 $color-base: #000; /* базовый цвет содержимого, от которого выстраиваются цвета текста, иконок, ... */
-$color-control-default-disabled: rgba(38, 49, 129, 0.3);
-$color-control-bg-default: rgba(38, 49, 129, 0.15); /* цвет фона контрола */
-$color-control-bg-default-disabled: rgba(38, 49, 129, 0.07); /* цвет фона disabled-контрола */
-$color-control-bg-default-hover: rgba(38, 49, 129, 0.3);
+$color-control-default-disabled: rgba(38, 49, 129, .3);
+$color-control-bg-default: rgba(38, 49, 129, .15); /* цвет фона контрола */
+$color-control-bg-default-disabled: rgba(38, 49, 129, .07); /* цвет фона disabled-контрола */
+$color-control-bg-default-hover: rgba(38, 49, 129, .3);
 $color-control-bg-border-default: $color-control-bg-default;
-$color-control-bg-border-default-hover: rgba(38, 49, 129, 0.5);
+$color-control-bg-border-default-hover: rgba(38, 49, 129, .5);

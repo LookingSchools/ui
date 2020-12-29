@@ -8,22 +8,21 @@
     background: transparent;
 }
 
+.Button_theme_raised::before {
+    background-color: #fff;
+}
+
+.Button_theme_raised[aria-disabled='true'],
 .Button_theme_raised.Button_disabled {
     opacity: .75;
 }
 
+/* stylelint-disable-next-line no-duplicate-selectors, no-descending-specificity */
 .Button_theme_raised::before {
-    background-color: #fff;
-    box-shadow: 0 0 0 1px rgba(13, 35, 67, .06), 0 5px 15px -4px rgba(13, 35, 67, .4);
-
-    transition: box-shadow .1s ease-in-out;
+    box-shadow: 0 0 0 1px rgba(38, 49, 129, .07), 0 5px 15px -4px rgba(38, 49, 129, .07), 0 4px 6px 0 rgba(38, 49, 129, .07);
 }
 
-.Button_theme_raised:hover::before {
-    box-shadow: 0 0 0 1px rgba(13, 35, 67, .06), 0 10px 20px -4px rgba(13, 35, 67, .36);
-}
-
-.Button_theme_raised:active::before,
-.Button_theme_raised:active:hover::before {
-    box-shadow: 0 0 0 1px rgba(13, 35, 67, .06), 0 5px 15px -4px rgba(13, 35, 67, .4);
+.Button_theme_raised:not([aria-disabled='true']):active::before,
+.Button_theme_raised.Button_pressed::before {
+    box-shadow: 0 1px 1px 0 rgba(38, 49, 129, .1), 0 1px 1px 0 rgba(38, 49, 129, .1), 0 1px 2px 0 rgba(38, 49, 129, .1);
 }

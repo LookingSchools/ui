@@ -2,7 +2,7 @@
 
 /* common */
 .Button_theme_secondary {
-    color: #000;
+    color: $color-base;
 
     transition: transform .1s ease-out, color .15s linear;
     transform: scale(1);
