@@ -145,6 +145,9 @@ storiesOf("LookingSchools/Components|Button/", module)
       <Button theme="clear" size="m">
         Clear
       </Button>{" "}
+      <Button theme="pseudo" size="m">
+        Pseudo
+      </Button>{" "}
       <Button theme="raised" size="m">
         Raised
       </Button>{" "}
@@ -193,6 +196,12 @@ storiesOf("LookingSchools/Components|Button/", module)
         Button
       </Button>{" "}
       <Button theme="clear" size="m" disabled={true}>
+        Button
+      </Button>{" "}
+      <Button theme="pseudo" size="m">
+        Button
+      </Button>{" "}
+      <Button theme="pseudo" size="m" disabled={true}>
         Button
       </Button>{" "}
     </>

@@ -1,3 +1,5 @@
+@import '../../../theme/default.scss';
+
 /* common */
 .Button_theme_pseudo {
     color: #000;
@@ -7,7 +9,7 @@
 }
 
 .Button_theme_pseudo::before {
-    border: 1px solid #ccc;
+    background-color:  #E8F0FE;
 
     transition: background-color .15s linear;
 }
@@ -27,12 +29,12 @@
 
 /* disable */
 .Button_theme_pseudo[aria-disabled='true'] {
-    color: #7f7f7f;
+    color: $color-control-default-disabled;
 }
 
 .Button_theme_pseudo[aria-disabled='true']::before {
     border-color: transparent;
-    background-color: #f2f2f2;
+    background-color: $color-control-bg-default-disabled;
 }
 
 /* check */
@@ -47,7 +49,7 @@
 
 /* hover */
 .Button_theme_pseudo:not([aria-disabled='true']):hover::before {
-    background-color: #f7f7f7;
+    background-color: #B8D2FF;
 }
 
 /* check */
