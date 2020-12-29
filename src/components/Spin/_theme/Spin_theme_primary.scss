@@ -1,4 +1,6 @@
+@import '../../../theme/default.scss';
+
 .Spin_theme_primary.Spin_progress {
-    border-top-color: #0071e3;
-    border-left-color: #0071e3;
+    border-top-color: $color-control-bg-primary;
+    border-left-color: $color-control-bg-primary;
 }

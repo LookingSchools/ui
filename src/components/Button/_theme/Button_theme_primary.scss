@@ -1,3 +1,5 @@
+@import '../../../theme/default.scss';
+
 /* common */
 .Button_theme_primary {
     color: #fff;
@@ -7,7 +9,7 @@
 }
 
 .Button_theme_primary::before {
-    background-color: #067aff;
+    background-color: $color-control-bg-primary;
 
     transition: background-color .15s linear;
 }
@@ -27,7 +29,7 @@
 
 /* disable */
 .Button_theme_primary[aria-disabled='true'] {
-    color: rgba(6, 122, 255, 0.3);
+    color: $color-control-bg-primary-disabled;
 }
 
 .Button_theme_primary[aria-disabled='true']::before {
@@ -46,7 +48,7 @@
 
 /* hover */
 .Button_theme_primary:not([aria-disabled='true']):hover::before {
-    background-color: #0062D1;
+    background-color: $color-control-bg-primary-hover;
 }
 
 /* check */
