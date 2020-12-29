@@ -38,7 +38,7 @@
 
 /* check */
 .Button_theme_clear.Button_checked {
-    color: #fff;
+    color: #B8D2FF;
 }
 
 .Button_theme_clear.Button_checked::before {
@@ -53,7 +53,7 @@
 
 /* check */
 .Button_theme_clear.Button_checked:not([aria-disabled='true']):hover::before {
-    background-color: #515151;
+    background-color: #85b1ff;
 }
 
 /* focus */
