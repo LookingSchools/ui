@@ -1,3 +1,5 @@
+@import '../../theme/default.scss';
+
 .Badge {
     position: absolute;
     z-index: 1;
@@ -18,7 +20,7 @@
 
     font-size: 12px;
 
-    color: #000;
+    color: $color-base;
     border-radius: 10px;
-    background-color: #e6e6e6;
+    background-color: $color-control-bg-default;
 }

@@ -1,3 +1,5 @@
+@import '../../../theme/default.scss';
+
 /* common */
 .Button_theme_secondary {
     color: #000;
@@ -7,7 +9,7 @@
 }
 
 .Button_theme_secondary::before {
-    border: 2px solid rgba(38, 49, 129, 0.15);
+    border: 2px solid $color-control-bg-border-default;
     background-color: #fff;
 
     transition: background-color .15s linear;
@@ -28,12 +30,12 @@
 
 /* disable */
 .Button_theme_secondary[aria-disabled='true'] {
-    color: rgba(38, 49, 129, 0.3);
+    color: $color-control-default-disabled;
 }
 
 .Button_theme_secondary[aria-disabled='true']::before {
     border-color: transparent;
-    background-color: rgba(38, 49, 129, 0.07);
+    background-color: $color-control-bg-default-disabled;
 }
 
 /* check */
@@ -48,8 +50,7 @@
 
 /* hover */
 .Button_theme_secondary:not([aria-disabled='true']):hover::before {
-    // background-color: #b3c7eb;
-    border-color: rgba(38, 49, 129, 0.5);;
+    border-color: $color-control-bg-border-default-hover;
 }
 
 /* check */

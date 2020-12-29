@@ -34,7 +34,7 @@ function renderIcons(icons, type) {
               type={type || "standart"}
               as="div"
               badgeContent={3}
-              background={color("Цвет разделителя", "#f55")}
+              background={color("Цвет разделителя", "#FC5759")}
               color={color("Цвет текста", "#fff")}
             >
               <Icon glyph={icon} size="m" />
