@@ -1,3 +1,5 @@
+@import '../../theme/default.scss';
+
 .Suggest {
     position: relative;
 }
@@ -13,7 +15,7 @@
 .Suggest-Text {
     padding: 16px 8px;
 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: $font-default;
     font-size: 15px;
 
     color: rgba(0, 0, 0, 0.3);;

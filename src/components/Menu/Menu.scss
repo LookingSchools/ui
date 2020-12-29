@@ -1,3 +1,5 @@
+@import '../../theme/default.scss';
+
 .Menu {
     display: inline-block;
     overflow-x: hidden;
@@ -5,7 +7,7 @@
 
     box-sizing: border-box;
 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: $font-default;
     user-select: none;
 
     outline: 0;
