@@ -41,7 +41,7 @@
 }
 
 .Button_theme_black.Button_checked::before {
-    background-color: #555;
+    background-color: #0e1012;
 }
 
 /* hover */
@@ -52,7 +52,7 @@
 
 /* check */
 .Button_theme_black.Button_checked:not([aria-disabled='true']):hover::before {
-    background-color: #515151;
+    background-color: #000;
 }
 
 /* focus */
