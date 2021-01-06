@@ -1,11 +1,16 @@
-import React, { RefObject, FC } from "react";
+import React, { FC, useRef } from "react";
 import { cn } from "@bem-react/classname";
 
 import { Popup, IPopupProps } from "../Popup/Popup";
 
 import "./Modal.scss";
 
-export interface IModalProps extends IPopupProps {
+type PartialPopupProps = Pick<
+    IPopupProps,
+    'keepMounted' | 'className' | 'innerRef' | 'zIndex' | 'visible' | 'scope' | 'forceRender' | 'onClose' | 'onClick'
+>;
+
+export interface IModalProps extends PartialPopupProps {
   /**
    * Выравнивание контента по вертикали
    *
@@ -29,28 +34,29 @@ export const cnModal = cn("Modal");
  */
 export const Modal: FC<IModalProps> = ({
   children,
-  className,
-  contentVerticalAlign,
-  hasAnimation = true,
-  targetRef,
-  visible,
-  ...props
+    className,
+    contentVerticalAlign: align = 'middle',
+    hasAnimation = true,
+    visible,
+    onClick,
+    ...props
 }) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
   return (
     <Popup
       {...props}
       className={cnModal({ visible, hasAnimation }, [className])}
       visible={visible}
+      unstable_hostRef={contentRef}
+      onClick={onClick}
     >
       <div className={cnModal("Table")}>
         <div
-          className={cnModal("Cell")}
-          style={{ verticalAlign: contentVerticalAlign }}
+          className={cnModal("Cell", { align })}
+          // style={{ verticalAlign: contentVerticalAlign }}
         >
-          <div
-            className={cnModal("Content")}
-            ref={targetRef as RefObject<HTMLDivElement>}
-          >
+          <div className={cnModal("Content")} ref={contentRef}>
             {children}
           </div>
         </div>

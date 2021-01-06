@@ -1,0 +1,162 @@
+.Calendar.Calendar_layout_month {
+    max-width: 334px;
+
+    font-size: 16px;
+    user-select: none;
+}
+
+.Calendar-WeekDays {
+    margin-bottom: 16px;
+}
+
+.Calendar-Days,
+.Calendar-WeekDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    width: 100%;
+
+    text-transform: lowercase;
+}
+
+.Calendar-WeekDays + .Calendar-Days {
+    margin-top: -12px;
+}
+
+.Calendar-Item {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+
+    text-align: center;
+
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.Calendar-Item.Calendar-Item_selected {
+    font-weight: 500;
+
+    color: #fff;
+}
+
+.Calendar-Item_selected::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    border-radius: 50%;
+    background: #ff3737;
+}
+
+.Calendar-ItemContent {
+    position: relative;
+}
+
+.Calendar-Item_disabled {
+    pointer-events: none;
+}
+
+.Calendar-Item_disabled .Calendar-ItemContent {
+    opacity: 0.25;
+}
+
+.Calendar-Item_disabled::before {
+    background-color: #ffb7b7;
+}
+
+.Calendar-Item_weekend {
+    color: #ff3737;
+}
+
+.Calendar-Item_anotherMonth {
+    visibility: hidden;
+}
+
+.Calendar-Item_beetween::after {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: -1px;
+    bottom: 0;
+    left: -1px;
+
+    content: '';
+
+    background: rgba(0, 0, 0, .035);
+}
+
+.Calendar-Item_first.Calendar-Item_beetween:not(.Calendar-Item_selected)::after {
+    left: -100%;
+
+    background: linear-gradient(to left, rgba(0, 0, 0, .035), rgba(0, 0, 0, 0));
+}
+
+.Calendar-Item_last.Calendar-Item_beetween:not(.Calendar-Item_selected)::after {
+    right: -100%;
+
+    background: linear-gradient(to right, rgba(0, 0, 0, .035), rgba(0, 0, 0, 0));
+}
+
+.Calendar-Item_first.Calendar-Item_beetween:first-child:not(.Calendar-Item_selected)::after,
+.Calendar-Item_last.Calendar-Item_beetween:last-child:not(.Calendar-Item_selected)::after {
+    right: -1px;
+    left: -1px;
+}
+
+.Calendar-Item_beetween.Calendar-Item.Calendar-Item_selectedFirst::after {
+    left: 50%;
+}
+
+.Calendar-Item_selectedFirst.Calendar-Item_last::after,
+.Calendar-Item_selectedSecond.Calendar-Item_first::after {
+    display: none;
+}
+
+.Calendar-Item_beetween.Calendar-Item.Calendar-Item_selectedSecond::after {
+    right: 50%;
+}
+
+.Calendar-Item:nth-child(7n)::after {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.Calendar-Item:first-child::after,
+.Calendar-Item:nth-child(7n + 1)::after {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media (max-width: 380px) {
+    .Calendar.Calendar_layout_month {
+        max-width: 304px;
+    }
+
+    .Calendar_layout_month .Calendar-Item {
+        width: 40px;
+        height: 40px;
+        margin: 2px;
+    }
+
+    .Calendar_layout_month .Calendar-Item_beetween::after {
+        right: -2px;
+        left: -2px;
+    }
+
+    .Calendar-Item_first.Calendar-Item_beetween:first-child:not(.Calendar-Item_selected)::after,
+    .Calendar-Item_last.Calendar-Item_beetween:last-child:not(.Calendar-Item_selected)::after {
+        right: -2px;
+        left: -2px;
+    }
+}

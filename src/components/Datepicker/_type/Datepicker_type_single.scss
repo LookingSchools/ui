@@ -1,0 +1,15 @@
+.Datepicker_type_single .Datepicker-FooterActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    padding-top: 16px;
+}
+
+.Datepicker_type_single .Datepicker-FooterAction {
+    margin-right: 5px;
+}
+
+.Datepicker_type_single .Datepicker-FooterAction + .Datepicker-FooterAction {
+    margin-right: 0;
+    margin-left: 5px;
+}

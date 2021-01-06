@@ -2,9 +2,12 @@ import React, {
   RefObject,
   ReactNode,
   FC,
+  Ref,
   CSSProperties,
   useEffect,
-  useState
+  useState,
+  ReactElement,
+  MouseEventHandler,
 } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@bem-react/classname";
@@ -144,6 +147,41 @@ export interface IPopupProps {
    * Html атрибут `style`
    */
   style?: CSSProperties;
+
+     /**
+     * Функция, вызывающаяся при отрисовке хвостика.
+     * Вызывается вне зависимости от наличия флага `hasTail`.
+     */
+    unstable_onRenderTail?: (tail: ReactElement) => ReactElement;
+
+    /**
+     * Содержимое попапа
+     */
+    children?: ReactNode | ((props: { tailRef?: Ref<HTMLDivElement> }) => ReactNode);
+
+    /**
+     * Обработчик, вызывающийся после нажатия на клавишу esc либо мышкой на область вне контейнера
+     */
+    onClose?: MouseEventHandler<HTMLDivElement>;
+
+    /**
+     * Список ссылок на DOM-узлы в рамках которых не нужно отслеживать нажатия
+     *
+     * @internal
+     */
+    unstable_essentialRefs?: RefObject<HTMLElement>[];
+
+    /**
+     * DOM-узел в рамках которого не нужно отслеживать нажатие
+     *
+     * @internal
+     */
+    unstable_hostRef?: RefObject<HTMLElement>;
+
+    /**
+     * Обработчик, вызываемый при срабатывании события click
+     */
+    onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
 export const cnPopup = cn("Popup");

@@ -1,0 +1,69 @@
+.Calendar-Month {
+    display: grid;
+    grid-template-columns: auto;
+
+    margin-bottom: 8px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.Calendar-MonthName::first-letter {
+    text-transform: uppercase;
+}
+
+.Calendar-Month_changeable {
+    grid-template-columns: 40px auto 40px;
+}
+
+/* TODO: перейти на лего кнопку со своей темой */
+.Calendar-MonthArrow {
+    position: relative;
+
+    display: block;
+
+    width: 40px;
+    height: 46px;
+    padding: 0;
+
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.Calendar-MonthArrow_left::after {
+    right: auto;
+    left: 10px;
+
+    transform: rotate(180deg);
+}
+
+.Calendar-MonthArrow::after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+
+    width: 9px;
+    height: 16px;
+    margin-top: -8px;
+
+    content: '';
+
+    opacity: 0.8;
+    /* TODO: использоватеь Icon */
+    background: url('./arrow.svg') no-repeat 0 0;
+}
+
+.Calendar-MonthArrow_disabled {
+    pointer-events: none;
+}
+
+.Calendar-MonthArrow_disabled::after {
+    opacity: 0.25;
+}

@@ -1,0 +1,15 @@
+@import '../../theme/default.scss';
+
+.Datepicker {
+    box-sizing: border-box;
+    max-width: 336px;
+    margin: 0 16px;
+    padding: 16px 0;
+
+    font-family: $font-default;
+}
+
+.Datepicker-Bottom {
+    position: relative;
+    z-index: 3;
+}
