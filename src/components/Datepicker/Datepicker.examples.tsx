@@ -19,7 +19,7 @@ const Datepicker = compose(
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DatePicker = (props: any) => {
-    const date = new Date('2021-01-10');
+    const date = new Date('2021-01-06');
     const date2 = new Date(date.getFullYear(), date.getMonth() + 4, 10);
 
     const [datepickerVisible, setDatepickerVisible] = useState(false);
