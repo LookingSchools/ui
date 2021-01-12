@@ -1,107 +1,171 @@
-export const paletteGroup = [{
-    title: 'Цвета',
+export const paletteGroup = [
+{
+    title: 'Neutral colors',
     content: [
         {
-            color: '#23233C',
-            caption: '',
-            text: '#fff',
+            color: 'rgba(36, 41, 46, 0.07)',
+            caption: 'black-50',
         },
         {
-            color: '#26318170',
+            color: 'rgba(36, 41, 46, 0.15)',
+            caption: 'black-100',
+        },
+        {
+            color: 'rgba(36, 41, 46, 0.3)',
+            caption: 'black-200',
+        },
+        {
+            color: 'rgba(36, 41, 46, 0.5)',
+            caption: 'black-300',
+        },
+        {
+            color: 'rgba(36, 41, 46, 0.7)',
+            caption: 'black-400',
+            text: '#fff'
+        },
+        {
+            color: '#24292E',
+            caption: 'black-900',
+            text: '#fff'
+        },
+        {
+            color: '#000000',
+            caption: 'black',
+            text: '#fff'
+        },
+    ],
+},
+{
+    title: 'Brand colors',
+    content: [
+        {
+            color: 'rgba(38, 49, 129, 0.07)',
             caption: '',
         },
         {
-            color: '#26318150',
+            color: 'rgba(38, 49, 129, 0.12)',
             caption: '',
         },
         {
-            color: '#26318130',
+            color: 'rgba(38, 49, 129, 0.15)',
             caption: '',
         },
         {
-            color: '#26318115',
+            color: 'rgba(38, 49, 129, 0.3)',
             caption: '',
         },
         {
-            color: '#26318107',
+            color: 'rgba(38, 49, 129, 0.5)',
             caption: '',
         },
         {
-            color: '#067aff',
-            caption: '',
-            text: '#fff',
-        },
-        {
-            color: '#FC5759',
+            color: 'rgba(38, 49, 129, 0.7)',
             caption: '',
         },
         {
-            color: '#F33333',
+            color: '#263181',
             caption: '',
-        },
-        {
-            color: '#2ebc4f',
-            caption: '',
-        },
-        {
-            color: '#FBDE28',
-            caption: '',
+            text: '#fff'
         },
        
     ],
 },
 {
-    title: 'Buttons',
     content: [
-       
         {
-            color: 'rgb(35,35,60,0.8)',
-            caption: 'Кнопка1',
+            color: '#3D3E66',
             text: '#fff',
         },
         {
-            color: '#23233C',
-            caption: 'Кнопка1: hover',
+            color: '#0C1142',
             text: '#fff'
         },
-        {
-            color: '#26318115',
-            caption: 'Кнопка2',
-        },
-        {
-            color: '#26318130',
-            caption: 'Кнопка2: hover',
-        },
-        {
-            color: '#067AFF',
-            caption: 'Кнопка3',
-            text: '#fff'
-        },
-        {
-            color: '#0062D1',
-            caption: 'Кнопка3:hover',
-            text: '#fff'
-        },
+    ],
+},
+{
+    title: 'Blue colors',
+    content: [
         {
             color: '#E8F0FE',
-            caption: 'Кнопка4',
+            caption: 'blue-50',
         },
         {
             color: '#B8D2FF',
-            caption: 'Кнопка4:hover',
+            caption: 'blue-300',
+        },
+        {
+            color: '#067AFF',
+            text: '#fff',
+            caption: 'blue-400',
+        },
+        {
+            color: '#0062D1',
+            text: '#fff',
+            caption: 'blue-600',
         }
     ],
 },
 {
-    title: 'Alerts',
+    title: 'Red colors',
     content: [
         {
             color: '#FC5759',
             caption: '',
         },
         {
-            color: '#B8D2FF',
+            color: '#F33',
             caption: '',
+        },
+    ],
+},
+{
+    title: 'Green colors',
+    content: [
+        {
+            color: '#2EBC4F',
+            caption: '',
+        },
+        {
+            color: '#237B4B',
+            caption: '',
+        },
+    ],
+},
+{
+    title: 'Orange colors',
+    content: [
+        {
+            color: '#FFAA44',
+            caption: 'orange-300',
+        },
+        {
+            color: '#FF9514',
+            caption: 'orange-400',
+        },
+        {
+            color: '#FF7E00',
+            caption: 'orange-600',
+        },
+    ],
+},
+{
+    title: 'Yellow colors',
+    content: [
+        {
+            color: '#FFFC98',
+            caption: 'yellow-50',
+        },
+        {
+            color: '#F9EC02',
+            caption: 'yellow-300',
+        },
+        {
+            color: '#FBDE28',
+            caption: 'yellow-400',
+        },
+        {
+            color: '#FFD919',
+            caption: 'yellow-600',
         },
     ],
 },
@@ -125,12 +189,7 @@ export const paletteGroup = [{
             color: '#067AFF',
             caption: '',
             text: '#fff'
-        },   
-        {
-            color: '#000',
-            caption: ':hover',
-            text: '#fff'
-        }
+        },
     ],
 },
 {
@@ -143,8 +202,8 @@ export const paletteGroup = [{
         },
       
         {
-            color: 'rgb(35,35,60,0.5)',
-            caption: 'Менее заметный текст и иконки',
+            color: 'rgba(36, 41, 46, 0.7)',
+            caption: 'Менее заметный текст',
             text: '#fff'
         },
     ],
