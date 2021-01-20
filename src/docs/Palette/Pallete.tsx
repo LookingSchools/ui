@@ -73,12 +73,58 @@ export const paletteGroup = [
 {
     content: [
         {
-            color: '#3D3E66',
+            color: '#47508B',
             text: '#fff',
         },
         {
-            color: '#0C1142',
+            color: '#3D3E66',
             text: '#fff'
+        },
+    ],
+},
+{
+    title: 'Red colors',
+    content: [
+        {
+            color: 'rgba(255, 51, 51, 0.5)',
+            caption: 'red-50',
+            text: '#fff'
+        },
+        {
+            color: '#FC5759',
+            caption: 'red-300',
+            text: '#fff'
+        },
+        {
+            color: '#FF3333',
+            caption: 'red-400',
+            text: '#fff'
+        },
+        {
+            color: '#E80202',
+            caption: 'red-600',
+            text: '#fff'
+        },
+    ],
+},
+{
+    title: 'Yellow colors',
+    content: [
+        {
+            color: '#FFFC98',
+            caption: 'yellow-50',
+        },
+        {
+            color: '#F9EC02',
+            caption: 'yellow-300',
+        },
+        {
+            color: '#FBDE28',
+            caption: 'yellow-400',
+        },
+        {
+            color: '#FFD500',
+            caption: 'yellow-600',
         },
     ],
 },
@@ -99,76 +145,56 @@ export const paletteGroup = [
             caption: 'blue-400',
         },
         {
-            color: '#0062D1',
+            color: '#2B43E0',
             text: '#fff',
             caption: 'blue-600',
         }
     ],
 },
-{
-    title: 'Red colors',
-    content: [
-        {
-            color: '#FC5759',
-            caption: '',
-        },
-        {
-            color: '#F33',
-            caption: '',
-        },
-    ],
-},
+
 {
     title: 'Green colors',
     content: [
         {
+            color: '#E7F8D1',
+            caption: 'green-50',
+        },
+        {
+            color: '#A1E34B',
+            caption: 'green-300',
+        },
+        {
             color: '#2EBC4F',
-            caption: '',
+            caption: 'green-400',
         },
         {
             color: '#237B4B',
-            caption: '',
+            caption: 'green-600',
         },
     ],
 },
 {
     title: 'Orange colors',
     content: [
+        { 
+            color: 'rgba(255, 170, 68, 0.5)',
+            caption: 'orange-50',
+        },
         {
             color: '#FFAA44',
             caption: 'orange-300',
         },
         {
-            color: '#FF9514',
+            color: '#FF7E00',
             caption: 'orange-400',
         },
         {
-            color: '#FF7E00',
+            color: '#FF5226',
             caption: 'orange-600',
         },
     ],
 },
-{
-    title: 'Yellow colors',
-    content: [
-        {
-            color: '#FFFC98',
-            caption: 'yellow-50',
-        },
-        {
-            color: '#F9EC02',
-            caption: 'yellow-300',
-        },
-        {
-            color: '#FBDE28',
-            caption: 'yellow-400',
-        },
-        {
-            color: '#FFD919',
-            caption: 'yellow-600',
-        },
-    ],
-},
+
 {
     title: 'Backgrounds',
     content: [
