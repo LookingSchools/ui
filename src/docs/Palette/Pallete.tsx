@@ -145,7 +145,7 @@ export const paletteGroup = [
             caption: 'blue-400',
         },
         {
-            color: '#2B43E0',
+            color: '#0062D1',
             text: '#fff',
             caption: 'blue-600',
         }
