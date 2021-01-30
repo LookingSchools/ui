@@ -6,6 +6,7 @@ import {
   Textinput as TextinputDesktop
 } from "../Textinput";
 // _size
+import { withSizeL } from "../_size/Textinput_size_l";
 import { withSizeM } from "../_size/Textinput_size_m";
 import { withSizeS } from "../_size/Textinput_size_s";
 // _theme
@@ -26,7 +27,7 @@ import { withBaseline } from "../_baseline/Textinput_baseline";
 export * from "../Textinput";
 
 export interface ITextinputProps extends ITextinputDesktopProps {
-  size?: "m" | "s";
+  size?: "l" | "m" | "s";
   theme?: "default";
   hasClear?: boolean;
   onClearClick?: MouseEventHandler<HTMLSpanElement>;
@@ -44,7 +45,7 @@ export interface ITextinputProps extends ITextinputDesktopProps {
 }
 
 export const Textinput = compose(
-  composeU(withSizeM, withSizeS),
+  composeU(withSizeL, withSizeM, withSizeS),
   withThemeDefault,
   composeU(
     withPinBrickRound,

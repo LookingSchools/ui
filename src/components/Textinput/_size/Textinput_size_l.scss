@@ -1,0 +1,38 @@
+.Textinput_size_l .Textinput-Box {
+    height: 44px;
+}
+
+.Textinput_size_l .Textinput-Control {
+    height: 44px;
+
+    font-size: 15px;
+
+    border-width: 0 10px;
+}
+
+/* Усиливаем селектор Textinput, чтобы перебить значения при раскрытии css-переменных. */
+.Textinput.Textinput_size_l .Textinput-Icon_side_left ~ .Textinput-Control {
+    border-left-width: 44px;
+}
+
+/* Усиливаем селектор Textinput, чтобы перебить значения при раскрытии css-переменных. */
+.Textinput.Textinput_size_l .Textinput-Icon_side_right ~ .Textinput-Control {
+    border-right-width: 44px;
+}
+
+.Textinput_size_l.Textinput_hasClear .Textinput-Clear_visible ~ .Textinput-Control {
+    border-right-width: 44px;
+}
+
+.Textinput_size_l.Textinput_hasClear .Textinput-Icon_side_right ~ .Textinput-Control {
+    border-right-width: calc(44px * 2);
+}
+
+.Textinput_size_l.Textinput_iconRight .Textinput-Clear {
+    right: 44px;
+}
+
+.Textinput_size_l .Textinput-Icon.Icon {
+    width: 44px;
+    height: 44px;
+}

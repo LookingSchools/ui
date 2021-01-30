@@ -17,7 +17,7 @@ storiesOf("LookingSchools/Components|Textinput", module)
   .add("playground", () => {
     const [value, setValue] = useState("");
     const theme = select("theme", ["default", ""], "default") as any;
-    const size = select("size", ["m", "s"], "m") as any;
+    const size = select("size", ["l", "m", "s"], "m") as any;
     const pin = select(
       "pin",
       [
@@ -145,6 +145,9 @@ storiesOf("LookingSchools/Components|Textinput/", module)
   })
   .add("_size", () => (
     <>
+    <div style={{ padding: 4 }}>
+        <Textinput size="l" theme="default" defaultValue="size l" />
+      </div>
       <div style={{ padding: 4 }}>
         <Textinput size="m" theme="default" defaultValue="size m" />
       </div>
@@ -169,7 +172,14 @@ storiesOf("LookingSchools/Components|Textinput/", module)
     </>
   ))
   .add("_theme", () => Theme())
+  .add("_disabled", () => Disabled())
   .add("state", () => State());
+
+export const Disabled = () => (
+  <>
+    <Textinput size="m" theme="default" disabled defaultValue="theme default" />
+  </>
+);
 
 export const Theme = () => (
   <>
