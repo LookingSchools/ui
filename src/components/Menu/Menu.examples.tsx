@@ -11,7 +11,7 @@ const items = [
   { value: 'b', content: 'Охотник' },
   {
       items: [
-          { value: 'c', content: 'Желает', disabled: true },
+          {  value: 'c', content: 'Желает', disabled: true },
           { value: 'd', content: 'Знать' },
           { value: 'e', content: 'Где' },
       ],
@@ -31,8 +31,7 @@ storiesOf("LookingSchools/Components|Menu/", module)
     const [value, setValue] = useState('a');
 
     const size = select('size', ['s', 'm'], 'm') as any;
-    const view = select('view', ['default', ''], 'default') as any;
-    const theme = view === '' ? (select('theme', ['normal'], 'normal') as any) : null;
+    const theme = select('theme', ['default', 'clear'], 'clear') as any;
     const width = select('width', ['max', 'auto'], 'auto') as any;
     const disabled = boolean('disabled', false);
     const rawItems = object('items', items);
@@ -42,7 +41,6 @@ storiesOf("LookingSchools/Components|Menu/", module)
               theme={theme}
               disabled={disabled}
               size={size}
-              view={view}
               width={width}
               items={rawItems}
               value={value}
@@ -65,7 +63,10 @@ storiesOf("LookingSchools/Components|Menu/", module)
     const [value, setValue] = useState('a');
 
     return (
-        <Menu size="m" theme="normal" items={items} value={value} onChange={(event: any) => setValue(event.target.value)} />
+      <>
+        <Menu  size="m" theme="default" items={items} value={value} onChange={(event: any) => setValue(event.target.value)} />
+        <Menu size="m" theme="clear" items={items} value={value} onChange={(event: any) => setValue(event.target.value)} />
+      </>
     );
   })
   .add("_size", () => {
@@ -76,26 +77,19 @@ storiesOf("LookingSchools/Components|Menu/", module)
         <>
             <Menu
                 size="m"
-                view="default"
+                theme="default"
                 items={items}
                 value={value1}
                 onChange={(event: any) => setValue1(event.target.value)}
             />
             <Menu
                 size="s"
-                view="default"
+                theme="default"
                 items={items}
                 value={value2}
                 onChange={(event: any) => setValue2(event.target.value)}
             />
         </>
-    );
-  })
-  .add("_view", () => {
-    const [value, setValue] = useState('a');
-
-    return (
-        <Menu size="m" view="default" items={items} value={value} onChange={(event: any) => setValue(event.target.value)} />
     );
   })
   .add("_width", () => {
@@ -106,7 +100,7 @@ storiesOf("LookingSchools/Components|Menu/", module)
         <>
             <Menu
                 size="m"
-                view="default"
+                theme="default"
                 width="max"
                 items={items}
                 value={value1}
@@ -114,7 +108,7 @@ storiesOf("LookingSchools/Components|Menu/", module)
             />
             <Menu
                 size="m"
-                view="default"
+                theme="default"
                 width="auto"
                 items={items}
                 value={value2}

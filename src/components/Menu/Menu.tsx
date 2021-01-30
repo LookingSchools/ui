@@ -94,7 +94,7 @@ export interface IMenuProps {
      *
      * @internal
      */
-    view?: string;
+    theme?: string;
 
     /**
      * Неактивное состояние компонента.
@@ -227,10 +227,10 @@ export class Menu extends PureComponent<IMenuProps> {
             );
         }
 
-        const { value, view } = this.props;
+        const { value, theme } = this.props;
         const { hoveredIndex } = this.state;
         const values: any[] = [].concat(value as []);
-        const needIconGlyph = view === 'default' && value !== undefined;
+        const needIconGlyph = theme === 'default' && value !== undefined;
         const itemIndex = getNextItemCount();
 
         this.itemsRef[itemIndex] = createRef();

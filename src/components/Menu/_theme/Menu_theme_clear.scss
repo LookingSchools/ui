@@ -1,0 +1,48 @@
+.Menu_theme_clear {
+    outline: 0;
+    background: #fff;
+}
+
+.Menu_theme_clear .Menu-Group {
+    border-top: 1px solid rgba(38, 49, 129, 0.12);
+}
+
+.Menu_theme_clear .Menu-Group:first-child {
+    border-top: none;
+}
+
+.Menu_theme_clear .Menu-Title {
+    cursor: default;
+
+    color: rgba(38, 49, 129, 0.7);
+}
+
+/**
+ * 1. Для ссылок.
+ */
+.Menu_theme_clear .Menu-Item {
+    display: block;
+
+    cursor: pointer;
+    text-decoration: none; /* 1 */
+
+    color: #000;
+    outline: none;
+    background-repeat: no-repeat;
+}
+
+.Menu_theme_clear.Menu_disabled .Menu-Item,
+.Menu_theme_clear .Menu-Item.Menu-Item_disabled {
+    cursor: default;
+
+    color:rgba(38, 49, 129, 0.15);
+}
+
+.Menu_theme_clear .Menu-Item.Menu-Item_checked {
+    background-image: url('menu_theme_clear.assets/tip.svg');
+}
+
+.Menu_theme_clear .Menu-Item:hover,
+.Menu_theme_clear .Menu-Item.Menu-Item_hovered {
+    background-color: #E8F0FE;
+}

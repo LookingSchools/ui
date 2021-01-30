@@ -11,10 +11,10 @@ import { compose } from '@bem-react/core'
 import {
   Menu as MenuDesktop,,
   withSizeM,
-  withViewDefault,
+  withThemeDefault,
 } from '@lookingschools/ui/Menu/desktop'
 
-const Menu = compose(withSizeM, withViewDefault)(MenuDesktop)
+const Menu = compose(withSizeM, withThemeDefault)(MenuDesktop)
 
 const App = () => {
   const [value, setValue] = useState('a')
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <Menu
       size="m"
-      view="default"
+      theme="default"
       value={value}
       items={[
         { value: 'a', content: 'Каждый' },
@@ -48,7 +48,7 @@ const App = () => {
   return (
      <Menu
       size="m"
-      view="default"
+      theme="default"
       value={value}
       items={[
         { value: 'a', content: 'Каждый' },
@@ -63,15 +63,9 @@ const App = () => {
 
 ## Примеры
 
-### Вид меню
-
-Чтобы изменить вид меню, установите свойство `view` в значение `default`.
-
-{{%story::desktop:controls-menu-desktop--view%}}
-
 ### Стилевое оформление
 
-Чтобы изменить стилевое оформление меню, установите свойство `theme` в значение `"normal"`.
+Чтобы изменить стилевое оформление меню, установите свойство `theme` в значение `"clear"` или `default`.
 
 {{%story::desktop:controls-menu-desktop--theme%}}
 

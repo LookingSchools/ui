@@ -7,9 +7,9 @@ import { IMenuProps as IMenuDesktopProps, Menu as MenuDesktop } from '../Menu';
 import { withSizeM } from '../_size/Menu_size_m';
 import { withSizeS } from '../_size/Menu_size_s';
 // _theme
-import { withThemeNormal } from '../_theme/Menu_theme_normal';
-// _view
-import { withViewDefault } from '../_view/Menu_view_default';
+import { withThemeClear } from '../_theme/Menu_theme_clear';
+// _theme
+import { withThemeDefault } from '../_theme/Menu_theme_default';
 // _width
 import { withWidthAuto } from '../_width/Menu_width_auto';
 import { withWidthMax } from '../_width/Menu_width_max';
@@ -18,14 +18,12 @@ export * from '../Menu';
 
 export interface IMenuProps extends IMenuDesktopProps {
     size?: 'm' | 's';
-    view?: 'default';
+    theme?: 'default' | 'clear';
     width?: 'auto' | 'max';
-    theme?: 'normal';
 }
 
 export const Menu = compose(
     composeU(withSizeM, withSizeS),
     composeU(withWidthAuto, withWidthMax),
-    withViewDefault,
-    withThemeNormal,
+    composeU(withThemeClear, withThemeDefault),
 )(MenuDesktop) as FC<IMenuProps>;
