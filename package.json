@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "dist-generator generate --config=./.config/build.config.js",
-    "storybook": "start-storybook  -s ./public -p 6006",
-    "chromatic": "npx chromatic --project-token CHROMATIC_PROJECT_TOKEN"
+    "storybook": "start-storybook  -s ./public -p 6006"
   },
   "repository": {
     "type": "git",
