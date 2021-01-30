@@ -30,7 +30,8 @@
     "dotenv": "8.2.0",
     "js-cookie": "2.2.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "rebound": "0.1.0"
   },
   "bugs": {
     "url": "https://github.com/LookingSchools/ui/issues"
@@ -57,8 +58,9 @@
     "@storybook-addons/docs": "1.2.0",
     "@storybook/addon-actions": "5.2.8",
     "@storybook/addon-knobs": "5.2.8",
-    "@storybook/addon-links": "^5.2.8",
-    "@storybook/addons": "^5.2.8",
+    "@storybook/addon-links": "5.3.21",
+    "@storybook/addon-viewport": "6.1.15",
+    "@storybook/addons": "5.3.21",
     "@storybook/preset-typescript": "1.2.0",
     "@storybook/react": "5.2.8",
     "@storybook/storybook-deployer": "2.8.7",
