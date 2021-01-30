@@ -3,6 +3,10 @@
     border-bottom: 1px dotted;
 }
 
+.Link_theme_pseudo:hover {
+    color: #f33;
+}
+
 .Link_theme_pseudo[aria-disabled='true'] {
-    color: #ddd;
+    color: rgba(38, 49, 129, 0.3);
 }

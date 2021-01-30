@@ -1,18 +1,9 @@
 import React from "react";
-import { compose, composeU } from "@bem-react/core";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { withDocs } from "@storybook-addons/docs";
 
-import { Link as LinkBase } from "./Link";
-import { withPseudo } from "./_pseudo/Link_pseudo";
-import { withThemeDefault } from "./_theme/Link_theme_default";
-import { withThemePseudo } from "./_theme/Link_theme_pseudo";
-
-const Link = compose(
-  composeU(withThemeDefault, withThemePseudo),
-  withPseudo
-)(LinkBase);
+import { Link  } from "./Link.bundle";
 
 storiesOf("LookingSchools/Components|Link/", module)
   .addDecorator(withKnobs)
@@ -57,6 +48,10 @@ storiesOf("LookingSchools/Components|Link/", module)
   ))
   .add("_theme", () => (
     <>
+     <Link href="#" theme="black">
+        Ссылка с темой black
+      </Link>
+      <br />
       <Link href="#" theme="default">
         Ссылка с темой default
       </Link>

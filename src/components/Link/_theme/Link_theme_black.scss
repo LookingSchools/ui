@@ -2,6 +2,10 @@
     color: #000;
 }
 
+.Link_theme_black:hover {
+    color: #f33;
+}
+
 .Link_theme_black[aria-disabled='true'] {
-    color: #ddd;
+    color: rgba(38, 49, 129, 0.3);
 }

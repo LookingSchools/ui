@@ -5,7 +5,11 @@
     transition: color .15s linear;
 }
 
+.Link_theme_default:hover {
+    color: #f33;
+}
+
 /* disable */
 .Link_theme_default[aria-disabled='true'] {
-    color: rgba(0, 0, 0, .3);
+    color: rgba(38, 49, 129, 0.3);
 }

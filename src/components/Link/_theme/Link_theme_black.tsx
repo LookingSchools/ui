@@ -15,7 +15,6 @@ export interface ILinkThemeBlackProps {
  * Модификатор, отвечающий за стилевое оформление ссылки.
  * @param {ILinkThemeBlackProps} props
  *
- * @deprecated Рекомендуется использовать withViewDefault
  */
 export const withThemeBlack = withBemMod<ILinkThemeBlackProps>(
   cnLink(),
