@@ -6,7 +6,7 @@
   "scripts": {
     "build": "dist-generator generate --config=./.config/build.config.js",
     "storybook": "start-storybook  -s ./public -p 6006",
-    "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes"
+    "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN"
   },
   "repository": {
     "type": "git",
