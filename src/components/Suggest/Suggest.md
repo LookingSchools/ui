@@ -34,7 +34,7 @@ const App = () => {
 ```ts
 // src/App.ts
 import React, { useState } from 'react'
-import { Select } from '@yandex-lego/draft-components/Suggest'
+import { Select } from '@lookingschools/ui/Suggest'
 
 const App = () => {
   const [value, setValue] = React.useState('');

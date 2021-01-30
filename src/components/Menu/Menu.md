@@ -12,7 +12,7 @@ import {
   Menu as MenuDesktop,,
   withSizeM,
   withViewDefault,
-} from '@yandex-lego/components/Menu/desktop'
+} from '@lookingschools/ui/Menu/desktop'
 
 const Menu = compose(withSizeM, withViewDefault)(MenuDesktop)
 
@@ -40,7 +40,7 @@ const App = () => {
 ```ts
 // src/App.ts
 import React, { useState } from 'react'
-import { Menu } from '@yandex-lego/components/Menu/desktop/bundle'
+import { Menu } from '@lookingschools/ui/Menu/desktop/bundle'
 
 const App = () => {
   const [value, setValue] = useState('a')

@@ -37,8 +37,7 @@ export const HorizontalScroll: FC<Props> = ({
   const handleTouchMove = useCallback(
     (e: TouchEvent) => {
       /**
-       * При наличии метода window.yandex.app.setAllowHideByUserGesture
-       * При горизонтальном скролле запрещаем жест скрытия турбоапп
+       * При горизонтальном скролле запрещаем жест скрытия
        */
       if (!scrollCompute.current) {
         return;

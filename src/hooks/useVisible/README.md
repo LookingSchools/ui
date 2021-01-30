@@ -11,7 +11,7 @@
 
 ```typescript jsx
 import React, { useRef, useCallback } from 'react';
-import { useVisible } from '@yandex-int/tap-components/hooks';
+import { useVisible } from '@lookingschools/ui/hooks';
 
 const Component: React.FC = () => {
     const ref = useRef();

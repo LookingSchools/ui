@@ -9,7 +9,7 @@
 ```typescript jsx
 import React, { useState } from 'react';
 import { compose, composeU } from '@bem-react/core';
-import { Datepicker as DatepickerBase, DatepickerTypeSingle, DatepickerContainerPopup } from '@yandex-int/tap-components/Datepicker';
+import { Datepicker as DatepickerBase, DatepickerTypeSingle, DatepickerContainerPopup } from '@lookingschools/ui/Datepicker';
 
 const Datepicker = compose(DatepickerTypeSingle, DatepickerContainerPopup)(DatepickerBase);
 
@@ -45,7 +45,7 @@ const App: React.FC = () => {
 ```typescript jsx
 import React, { useState } from 'react';
 import { compose, composeU } from '@bem-react/core';
-import { Datepicker as DatepickerBase, DatepickerTypeRange, DatepickerContainerDrawer } from '@yandex-int/tap-components/Datepicker';
+import { Datepicker as DatepickerBase, DatepickerTypeRange, DatepickerContainerDrawer } from '@lookingschools/ui/Datepicker';
 
 const Datepicker = compose(DatepickerTypeRange, DatepickerContainerDrawer)(DatepickerBase);
 
