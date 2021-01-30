@@ -1,9 +1,11 @@
 node_modules/
 packages/
 stories/
+dist/
 .DS_Store
 npm-debug.log*
 *.tmp
+*.log
 *~
 
 # build

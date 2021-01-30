@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "dist-generator generate --config=./.config/build.config.js",
-    "storybook": "start-storybook  -s ./public -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook  -s ./public -p 6006"
   },
   "repository": {
     "type": "git",
@@ -60,6 +59,7 @@
     "@storybook/addons": "^5.2.8",
     "@storybook/preset-typescript": "1.2.0",
     "@storybook/react": "5.2.8",
+    "@storybook/storybook-deployer": "2.8.7",
     "@types/node": "13.5.0",
     "@typescript-eslint/eslint-plugin": "4.0.1",
     "@typescript-eslint/parser": "4.0.1",
@@ -72,6 +72,7 @@
     "babel-plugin-transform-dev-warning": "0.1.1",
     "babel-plugin-transform-import-css": "1.0.0-alpha.11",
     "cache-loader": "4.1.0",
+    "chromatic": "5.6.1",
     "cross-env": "7.0.2",
     "css-loader": "^3.2.1",
     "eslint": "7.8.1",

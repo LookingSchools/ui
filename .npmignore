@@ -3,6 +3,7 @@ packages/
 .config/
 .storybook/
 stories/
+dist/
 @types/
 babel.config.js
 tsconfig.prod.json
