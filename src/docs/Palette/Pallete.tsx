@@ -73,12 +73,10 @@ export const paletteGroup = [
 {
     content: [
         {
-            color: '#47508B',
-            text: '#fff',
+            color: '#F4F0E7',
         },
         {
-            color: '#3D3E66',
-            text: '#fff'
+            color: '#E6E2DA',
         },
     ],
 },
@@ -86,24 +84,24 @@ export const paletteGroup = [
     title: 'Red colors',
     content: [
         {
-            color: 'rgba(255, 51, 51, 0.5)',
+            color: 'rgba(239, 51, 40, 0.07)',
             caption: 'red-50',
-            text: '#fff'
+        },
+        {
+            color: 'rgba(255, 51, 51, 0.5)',
+            caption: 'red-100',
         },
         {
             color: '#FC5759',
             caption: 'red-300',
-            text: '#fff'
         },
         {
             color: '#FF3333',
             caption: 'red-400',
-            text: '#fff'
         },
         {
             color: '#E80202',
             caption: 'red-600',
-            text: '#fff'
         },
     ],
 },
@@ -192,20 +190,6 @@ export const paletteGroup = [
             color: '#FF5226',
             caption: 'orange-600',
         },
-    ],
-},
-
-{
-    title: 'Backgrounds',
-    content: [
-        {
-            color: '#f0f5f5',
-            caption: '',
-        },   
-        {
-            color: '#FCF6F0',
-            caption: '',
-        }
     ],
 },
 {
