@@ -67,13 +67,11 @@ export const Oops: FC<IOopsProps> = ({
       />
       <Socials
         icons={[
-          "twitter",
           "facebook",
-          "vk",
-          "telegram",
+          "instagram",
           "youtube",
-          "github",
-          "rss"
+          "twitter",
+          "telegram"
         ]}
         className="Oops-Socials"
       />

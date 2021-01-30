@@ -29,6 +29,7 @@ import { withSocialTwitter } from "../_social/Icon_social_twitter";
 import { withSocialRSS } from "../_social/Icon_social_rss";
 import { withSocialGitHub } from "../_social/Icon_social_github";
 import { withSocialFacebook } from "../_social/Icon_social_facebook";
+import { withSocialInstagram } from "../_social/Icon_social_instagram";
 
 export * from "../Icon";
 
@@ -56,7 +57,8 @@ export interface IIconProps extends IIconBaseProps {
     | "rss"
     | "twitter"
     | "github"
-    | "facebook";
+    | "facebook"
+    | "instagram";
 }
 
 export const Icon = compose(
@@ -85,6 +87,7 @@ export const Icon = compose(
     withSocialRSS,
     withSocialTwitter,
     withSocialGitHub,
+    withSocialInstagram,
     withSocialFacebook
   )
 )(IconBase) as FC<IIconProps>;

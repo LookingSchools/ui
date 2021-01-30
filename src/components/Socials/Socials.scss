@@ -14,32 +14,39 @@
 
     &,
     .Icon_social_twitter {
-        color: #4aa0eb;
+        color: #000;
     }
 
     &,
     .Icon_social_vk {
-        color: #436eab;
+        color: #000;
     }
 
     &,
     .Icon_social_facebook {
-        color: #4968ad;
+        color: #000;
+        &.Icon_size_m svg {
+            border-radius: 50%;
+        }
+    }
+    &,
+    .Icon_social_instagram {
+        color: #000;
     }
 
     &,
     .Icon_social_youtube {
-        color: #eb3323;
+        color: #000;
     }
 
     &,
     .Icon_social_telegram {
-        color: #51a4db;
+        color: #000;
     }
 
     &,
     .Icon_social_github {
-        color: #25292e;
+        color: #000;
     }
 
     &,

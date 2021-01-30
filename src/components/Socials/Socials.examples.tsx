@@ -18,13 +18,12 @@ storiesOf("LookingSchools/Components|Socials", module)
     <div>
       <Socials
         icons={[
-          "twitter",
           "facebook",
-          "vk",
-          "telegram",
+          "instagram",
           "youtube",
-          "github",
-          "rss"
+          "twitter",
+          "telegram",
+          
         ]}
       />
     </div>

@@ -12,6 +12,7 @@ import { withSocialTwitter } from "../Icon/_social/Icon_social_twitter";
 import { withSocialRSS } from "../Icon/_social/Icon_social_rss";
 import { withSocialGitHub } from "../Icon/_social/Icon_social_github";
 import { withSocialFacebook } from "../Icon/_social/Icon_social_facebook";
+import { withSocialInstagram } from "../Icon/_social/Icon_social_instagram";
 
 const Icon = compose(
   composeU(
@@ -21,7 +22,8 @@ const Icon = compose(
     withSocialRSS,
     withSocialTwitter,
     withSocialGitHub,
-    withSocialFacebook
+    withSocialFacebook,
+    withSocialInstagram
   )
 )(IconBase) as FC<IIconProps>;
 
@@ -49,7 +51,7 @@ export const Socials: FC<ISocialsProps> = ({
     <div {...props} className={cnSocials(null, [className])}>
       {icons.map((icon: string, key: number) => (
         <Link pseudo href="#" className={cnSocials("Link")} key={key}>
-          <Icon social={icon} size="l" />
+          <Icon social={icon} size="m" />
         </Link>
       ))}
     </div>

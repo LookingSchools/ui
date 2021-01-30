@@ -31,7 +31,8 @@ const allSocialIcons = [
   "twitter",
   "rss",
   "github",
-  "facebook"
+  "facebook",
+  "instagram"
 ];
 
 const styleContainer = {
