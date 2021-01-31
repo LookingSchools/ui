@@ -8,7 +8,7 @@
     color: #000;
     border-radius: 4px;
     background-color: #fff;
-    box-shadow: 0 1.5ex 2ex -1ex rgba(0, 0, 0, .3);
+    box-shadow: 0 1.5ex 2ex -1ex rgba(38, 49, 129, 0.3);
 
     animation-duration: .1s;
     animation-timing-function: ease-out;
@@ -25,7 +25,7 @@
     content: '';
 
     border-radius: 4px;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 0 0 1px rgba(38, 49, 129, 0.07);;
 }
 
 .Popup_theme_default.Popup_visible::before {
@@ -50,8 +50,8 @@
     content: '';
 
     border: 1px solid transparent;
-    border-bottom-color: rgba(0, 0, 0, .06);
-    border-left-color: rgba(0, 0, 0, .06);
+    border-bottom-color: rgba(38, 49, 129, 0.07);;
+    border-left-color: rgba(38, 49, 129, 0.07);;
 }
 
 .Popup_theme_default .Popup-Tail::after {

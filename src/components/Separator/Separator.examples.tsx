@@ -27,7 +27,7 @@ storiesOf("LookingSchools/Components|Separator", module)
           [Width.Short, Width.Middle, Width.Long],
           Width.Middle
         )}
-        color={color("Цвет разделителя", "#f55")}
+        color={color("Цвет разделителя", " rgba(38, 49, 129, 0.15)")}
       />
     );
   });
