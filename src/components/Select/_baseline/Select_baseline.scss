@@ -1,0 +1,41 @@
+/*
+/ TODO
+/ Временный модификатор для выравнивания по базовой линии, будет внедрено в следующей мажорной версии
+*/
+.Select_baseline.Select {
+    display: inline-flex;
+
+    vertical-align: baseline;
+}
+
+.Select_baseline .Button_width_auto .Button-Text {
+    /* 
+    Фикс для firefox - при добавлении свойства overflow: hidden, у элемента перестает работать baseline */
+    overflow: -moz-hidden-unscrollable;
+}
+
+.Select_baseline .Button_width_max .Button-Text {
+    /*
+    Фикс для firefox - при добавлении свойства overflow: hidden, у элемента перестает работать baseline */
+    overflow: -moz-hidden-unscrollable;
+}
+
+.Select_baseline.Select_width_fixed .Select-Popup {
+    margin: -3px 0 0;
+}
+
+.Select_baseline.Select_width_fixed .Select-Popup .Menu::before {
+    height: 0;
+}
+
+.Select_baseline.Select_width_fixed .Select-Popup .Menu-Item {
+    height: 0;
+}
+
+.Select_baseline.Select_width_fixed .Select-Popup .Menu::after {
+    height: 0;
+}
+
+.Select_baseline.Select_width_max {
+    display: block;
+}

@@ -1,0 +1,6 @@
+/**
+ * Селектор усиливается, чтобы перебить text-align: center; в Button.
+ **/
+.Select-Button.Select-Button {
+    text-align: left;
+}
