@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Separator, Thickness, Width } from "./Separator";
 
-storiesOf("LookingSchools/Components|Separator", module)
+storiesOf("Controls|Separator", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

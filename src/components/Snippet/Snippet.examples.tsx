@@ -36,7 +36,7 @@ const Container = ({
   </div>
 );
 
-storiesOf("LookingSchools/Components|Snippet/", module)
+storiesOf("Controls|Snippet/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -91,7 +91,7 @@ storiesOf("LookingSchools/Components|Snippet/", module)
       step: 10
     }) as any;
     const cartButton = object('Кнопка "В корзину"', {
-      url: "https://yandex.ru"
+      url: "https://google.com"
     });
 
     return (
@@ -259,7 +259,7 @@ function getAddToCartButton(id: string) {
   return object(
     'Кнопка "В корзину"',
     {
-      url: "https://yandex.ru"
+      url: "https://google.com"
     },
     id
   );

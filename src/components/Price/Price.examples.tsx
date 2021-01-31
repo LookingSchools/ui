@@ -6,7 +6,7 @@ import * as stubData from "./datastub";
 
 import { Price } from "./Price.bundle";
 
-storiesOf("LookingSchools/Components|Price", module)
+storiesOf("Controls|Price", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

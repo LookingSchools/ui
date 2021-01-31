@@ -18,7 +18,7 @@ const Modal = compose(
 const scopeRef1 = createRef();
 const scopeRef2 = createRef();
 
-storiesOf("LookingSchools/Components|Modal/", module)
+storiesOf("Controls|Modal/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -44,7 +44,7 @@ storiesOf("LookingSchools/Components|Modal/", module)
     );
   });
 
-storiesOf("LookingSchools/Components|Modal/", module)
+storiesOf("Controls|Modal/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

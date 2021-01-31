@@ -14,7 +14,7 @@
 
 ```tsx
 import React from 'react'
-import { useRenderOverride } from '@yandex-lego/components/lib/render-override'
+import { useRenderOverride } from '@lookingschools/ui/lib/render-override'
 
 const ElementOriginal = ({ children }) => <div>{children}</div>
 
@@ -33,7 +33,7 @@ const MyComponent = ({ renderElement }) => {
 
 ```tsx
 import React from 'react'
-import { RenderOverrideProvider } from '@yandex-lego/components/lib/render-override'
+import { RenderOverrideProvider } from '@lookingschools/ui/lib/render-override'
 
 const ElementOriginal = ({ children }) => <div>{children}</div>
 
@@ -50,7 +50,7 @@ const MyComponent = ({ renderElement }) => (
 
 ```tsx
 import React from 'react'
-import { MultiRenderOverrideProvider } from '@yandex-lego/components/lib/render-override'
+import { MultiRenderOverrideProvider } from '@lookingschools/ui/lib/render-override'
 
 const ElementOriginal1 = ({ children }) => <div>{children}</div>
 const ElementOriginal2 = ({ children }) => <div>{children}</div>
@@ -101,17 +101,3 @@ const App = () => {
 }
 ```
 
-## Соглашение
-
-Все свойства для переопределяемых элементов должны называться со слова `render` и реализовывать `RenderOverride` интерфейс:
-
-```ts
-import { RenderOverride } from '@yandex-lego/components/lib/render-override'
-
-type MyComponentProps = {
-  /**
-   * Переопределяет компонент `Element`
-   */
-  renderElement?: RenderOverride
-}
-```

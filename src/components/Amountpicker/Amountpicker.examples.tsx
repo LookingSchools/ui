@@ -6,7 +6,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Amountpicker } from "./Amountpicker";
 
-storiesOf("LookingSchools/Components|Amountpicker/", module)
+storiesOf("Controls|Amountpicker/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

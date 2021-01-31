@@ -15,7 +15,7 @@ const Radiobutton = compose(
   composeU(withThemeDefault)
 )(RadiobuttonPresenter);
 
-storiesOf("LookingSchools/Components|Radiobutton/", module)
+storiesOf("Controls|Radiobutton/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -51,7 +51,7 @@ storiesOf("LookingSchools/Components|Radiobutton/", module)
     );
   });
 
-storiesOf("LookingSchools/Components|Radiobutton", module)
+storiesOf("Controls|Radiobutton", module)
   .addDecorator(
     withDocs({
       readme: {

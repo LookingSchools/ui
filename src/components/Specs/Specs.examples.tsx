@@ -72,7 +72,7 @@ export const SpecsGroup = () => {
   );
 };
 
-storiesOf("LookingSchools/Components|Specs", module)
+storiesOf("Controls|Specs", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

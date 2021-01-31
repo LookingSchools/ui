@@ -10,7 +10,7 @@ function getImages() {
   return stubData.dataDefault.images;
 }
 
-storiesOf("LookingSchools/Components|Gallery", module)
+storiesOf("Controls|Gallery", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

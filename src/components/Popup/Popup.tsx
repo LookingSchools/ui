@@ -4,6 +4,7 @@ import React, {
   FC,
   Ref,
   CSSProperties,
+  useRef,
   useEffect,
   useState,
   ReactElement,
@@ -14,9 +15,10 @@ import { cn } from "@bem-react/classname";
 import { PopupTail as Tail } from "./Tail/Popup-Tail";
 
 import { canUseDOM } from "../../lib/canUseDOM";
-import { mergeRefs } from "../../lib/mergeRefs";
+import { mergeAllRefs } from '../../lib/mergeRefs';
 
 import "./Popup.scss";
+import { useUpdateEffect } from '../../hooks/useUpdateEffect';
 
 export type Direction =
   | "bottom-left"
@@ -83,9 +85,9 @@ export interface IPopupProps {
   hasTail?: boolean;
 
   /**
-   * Ссылка на корневой DOM-элемент компонента
-   */
-  innerRef?: RefObject<HTMLDivElement>;
+     * Ссылка на корневой DOM-элемент компонента
+     */
+    innerRef?: Ref<HTMLDivElement>;
 
   /**
    * Сохраняет контейнер в DOM после создания
@@ -148,41 +150,46 @@ export interface IPopupProps {
    */
   style?: CSSProperties;
 
-     /**
-     * Функция, вызывающаяся при отрисовке хвостика.
-     * Вызывается вне зависимости от наличия флага `hasTail`.
-     */
-    unstable_onRenderTail?: (tail: ReactElement) => ReactElement;
-
     /**
-     * Содержимое попапа
-     */
-    children?: ReactNode | ((props: { tailRef?: Ref<HTMLDivElement> }) => ReactNode);
+   * Функция, вызывающаяся при отрисовке хвостика.
+   * Вызывается вне зависимости от наличия флага `hasTail`.
+   */
+  unstable_onRenderTail?: (tail: ReactElement) => ReactElement;
 
-    /**
-     * Обработчик, вызывающийся после нажатия на клавишу esc либо мышкой на область вне контейнера
-     */
-    onClose?: MouseEventHandler<HTMLDivElement>;
+  /**
+   * Содержимое попапа
+   */
+  children?: ReactNode | ((props: { tailRef?: Ref<HTMLDivElement> }) => ReactNode);
 
-    /**
-     * Список ссылок на DOM-узлы в рамках которых не нужно отслеживать нажатия
-     *
-     * @internal
-     */
-    unstable_essentialRefs?: RefObject<HTMLElement>[];
+  /**
+   * Обработчик, вызывающийся после нажатия на клавишу esc либо мышкой на область вне контейнера
+   */
+  onClose?: MouseEventHandler<HTMLDivElement>;
 
-    /**
-     * DOM-узел в рамках которого не нужно отслеживать нажатие
-     *
-     * @internal
-     */
-    unstable_hostRef?: RefObject<HTMLElement>;
+  /**
+   * Список ссылок на DOM-узлы в рамках которых не нужно отслеживать нажатия
+   *
+   * @internal
+   */
+  unstable_essentialRefs?: RefObject<HTMLElement>[];
 
-    /**
-     * Обработчик, вызываемый при срабатывании события click
-     */
-    onClick?: MouseEventHandler<HTMLDivElement>;
+  /**
+   * DOM-узел в рамках которого не нужно отслеживать нажатие
+   *
+   * @internal
+   */
+  unstable_hostRef?: RefObject<HTMLElement>;
+
+  /**
+   * Обработчик, вызываемый при срабатывании события click
+   */
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
+
+type PopupInternalProps = IPopupProps & {
+  onOutsideClick?: (event: any) => void;
+  onEscapeKeyDown?: (event: any) => void;
+};
 
 export const cnPopup = cn("Popup");
 
@@ -208,6 +215,9 @@ export const Popup: FC<IPopupProps> = ({
   tailSize,
   targetRef,
   visible,
+  onOutsideClick,
+  onEscapeKeyDown,
+  onClick,
   zIndex,
   // Извлекаем свойства, т.к. они не нужны на DOM узле
   // @ts-ignore
@@ -215,29 +225,39 @@ export const Popup: FC<IPopupProps> = ({
   // @ts-ignore
   view: _view,
   ...props
-}) => {
-  const [hasUpdated, forceUpdate] = useState(false);
+}: PopupInternalProps) => {
+  const [isFirstRender, forceUpdate] = useState(true);
+  const containerRef = useRef(null);
+
+  useUpdateEffect(() => {
+    if (isFirstRender && visible) {
+        forceUpdate(false);
+    }
+}, []);
 
   useEffect(() => {
-    if (!hasUpdated && forceRender) {
-      forceUpdate(true);
-    }
+      console.assert(
+          onOutsideClick === undefined || onEscapeKeyDown === undefined,
+          'Использование функции "withOutsideClick" является устаревшим API. ' +
+              'Для закрытия используйте свойство "onClose" без использования "withOutsideClick".',
+      );
+
+      if (isFirstRender && (forceRender || visible)) {
+          forceUpdate(false);
+      }
   }, []);
 
-  useEffect(() => {
-    mergeRefs(innerRef, targetRef);
-  }, [innerRef, targetRef]);
-
-  if ((!visible && !keepMounted) || !canUseDOM() || scope.current === null) {
-    return null;
+  if ((!visible && !keepMounted) || !canUseDOM() || scope.current === null || isFirstRender) {
+      return null;
   }
 
   return createPortal(
     <div
       {...props}
       className={cnPopup({ visible, direction }, [className])}
-      ref={innerRef}
+      ref={mergeAllRefs(containerRef, innerRef)}
       style={{ ...style, ...position, zIndex }}
+      onClick={onClick}
     >
       {addonBefore}
       {children}

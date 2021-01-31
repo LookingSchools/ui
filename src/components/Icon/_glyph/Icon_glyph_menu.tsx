@@ -17,18 +17,7 @@ export const withGlyphMenu = withBemMod<IWithGlyphMenuProps, IIconProps>(
   { glyph: "menu" },
   Icon => ({ className, ...props }) => (
     <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
-      <svg
-        focusable="false"
-        width="0"
-        height="0"
-        fill="#000"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fillRule="evenodd"
-          d="M 2 6 V 4 h 20 v 2 H 2 Z m 0 7 v -2 h 20 v 2 H 2 Z m 0 7 v -2 h 20 v 2 H 2 Z"
-        ></path>
-      </svg>
+      <svg width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 7a1 1 0 011-1h18a1 1 0 110 2H3a1 1 0 01-1-1zm0 5a1 1 0 011-1h18a1 1 0 110 2H3a1 1 0 01-1-1zm1 4a1 1 0 100 2h18a1 1 0 100-2H3z" fill="#000"></path></svg>
     </Icon>
   )
 );

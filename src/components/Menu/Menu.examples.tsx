@@ -18,7 +18,7 @@ const items = [
   },
 ];
 
-storiesOf("LookingSchools/Components|Menu/", module)
+storiesOf("Controls|Menu/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -50,7 +50,7 @@ storiesOf("LookingSchools/Components|Menu/", module)
     );
   });
 
-storiesOf("LookingSchools/Components|Menu/", module)
+storiesOf("Controls|Menu/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

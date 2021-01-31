@@ -4,7 +4,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { withDocs } from "@storybook-addons/docs";
 import { Rating } from "./Rating.bundle";
 
-storiesOf("LookingSchools/Components|Rating/", module)
+storiesOf("Controls|Rating/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -1,23 +1,11 @@
 # Select
 
-<a href='https://github.yandex-team.ru/search-interfaces/frontend/tree/master/packages/lego-components/src/Select' target='_blank'><img src='https://badger.yandex-team.ru/custom/[Исходники]/[Github
-][green]/badge.svg' /></a> <a href='https://search.yandex-team.ru/stsearch?text=Select.ts&facet.queue=ISL&facet.type=bug&facet.status=128' target='_blank'><img src='https://badger.yandex-team.ru/custom/[Известные проблемы]/[Startrek][blue]/badge.svg' /></a>
-
 <!-- description:start -->
 Компонент для создания раскрывающегося списка с меню.
 <!-- description:end -->
 
 ## Пример использования
 
-Конфигурация темы на уровне проекта:
-
-```ts
-// src/lib/theme.ts
-import { configureRootTheme } from '@yandex-lego/components/Theme'
-import { theme } from '@yandex-lego/components/Theme/presets/default'
-
-configureRootTheme({ theme })
-```
 
 Использование с нужным набором модификаторов:
 
@@ -30,40 +18,40 @@ import { withRegistry, Registry } from '@bem-react/di'
 import {
   Select as SelectDesktop,
   cnSelect,
-} from '@yandex-lego/components/Select/desktop'
+} from '@lookingschools/ui/Select/desktop'
 
-import { withTogglable } from '@yandex-lego/components/withTogglable'
+import { withTogglable } from '@lookingschools/ui/withTogglable'
 
 import {
   Button as ButtonDesktop,
   withSizeM as withButtonSizeM,
-  withViewDefault as withButtonViewDefault,
-} from '@yandex-lego/components/Button/desktop'
+  withThemeDefault as withButtonThemeDefault,
+} from '@lookingschools/ui/Button/desktop'
 
 import {
   Menu as MenuDesktop,
   withSizeM as withMenuSizeM,
-  withViewDefault as withMenuViewDefault,
-} from '@yandex-lego/components/Menu/desktop'
+  withThemeDefault as withMenuThemeDefault,
+} from '@lookingschools/ui/Menu/desktop'
 
 import {
   Popup as PopupDesktop,
-  withViewDefault as withPopupViewDefault,
+  withThemeDefault as withPopupThemeDefault,
   withTargetAnchor,
-} from '@yandex-lego/components/Popup/desktop'
+} from '@lookingschools/ui/Popup/desktop'
 
 import {
   Icon as IconDesktop,
   withGlyphCaretsV,
-} from '@yandex-lego/components/Icon/desktop'
+} from '@lookingschools/ui/Icon/desktop'
 
 const selectRegistry = new Registry({ id: cnSelect() })
 
-const Button = compose(withButtonSizeM, withButtonViewDefault)(ButtonDesktop)
+const Button = compose(withButtonSizeM, withButtonThemeDefault)(ButtonDesktop)
 
-const Menu = compose(withMenuSizeM, withMenuViewDefault)(MenuDesktop)
+const Menu = compose(withMenuSizeM, withMenuThemeDefault)(MenuDesktop)
 
-const Popup = compose(withPopupViewDefault, withTargetAnchor)(PopupDesktop)
+const Popup = compose(withPopupThemeDefault, withTargetAnchor)(PopupDesktop)
 
 const Icon = compose(withGlyphCaretsV)(IconDesktop)
 
@@ -84,7 +72,7 @@ const App = () => {
   return (
     <Select
       size="m"
-      view="default"
+      theme="default"
       onChange={(event) => setValue(event.target.value)}
       value={value}
       options={[
@@ -102,7 +90,7 @@ const App = () => {
 ```ts
 // src/App.ts
 import React, { useState } from 'react'
-import { Select } from '@yandex-lego/components/Select/desktop/bundle'
+import { Select } from '@lookingschools/ui/Select/desktop/bundle'
 
 const App = () => {
   const [value, setValue] = useState('a')
@@ -110,7 +98,7 @@ const App = () => {
   return (
     <Select
       size="m"
-      view="default"
+      theme="default"
       onChange={(event) => setValue(event.target.value)}
       value={value}
       options={[
@@ -124,12 +112,6 @@ const App = () => {
 ```
 
 ## Примеры
-
-### Вид компонента
-
-Чтобы изменить вид компонента, установите свойство `view` в значение `"default"`.
-
-{{%story::desktop:controls-select-desktop--view%}}
 
 ### Размер компонента
 
@@ -172,7 +154,7 @@ const App = () => {
 | theme?                 | `string`                                                                                                                                                                                                                                                          | —            | Стилевое оформление компонента                                                                                                                                                                                                                                                       |
 | triggerRef?            | `RefObject<HTMLElement>`                                                                                                                                                                                                                                          | —            | Ссылка на корневой DOM-элемент компонента `Trigger`                                                                                                                                                                                                                                  |
 | value?                 | `any`                                                                                                                                                                                                                                                             | `''`         | Значение, выбранное в компоненте по умолчанию.<br>Если передана строка или число, то компонент будет работать в режиме `radio` — выбрать можно только один пункт. Если передан массив, то компонент будет работать в режиме `check` — выбрать можно произвольное количество пунктов. |
-| view?                  | `string`                                                                                                                                                                                                                                                          | —            | Внешний вид компонента                                                                                                                                                                                                                                                               |
+| theme?                  | `string`                                                                                                                                                                                                                                                          | —            | Внешний вид компонента                                                                                                                                                                                                                                                               |
 | showAlwaysPlaceholder? | `false \| true`                                                                                                                                                                                                                                                   | —            | Показывать всегда значение из свойства `placeholder` вне зависимости от выбранного значения                                                                                                                                                                                          |
 | checkable?             | `false \| true`                                                                                                                                                                                                                                                   | —            | Включает/отключает модификатор `checked` на кнопке селекта                                                                                                                                                                                                                           |
 | iconProps?             | `IIconEnhancedProps`                                                                                                                                                                                                                                              | —            | Дополнительные свойства для иконки                                                                                                                                                                                                                                                   |

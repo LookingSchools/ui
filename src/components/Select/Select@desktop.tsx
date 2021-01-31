@@ -140,16 +140,15 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
             options,
             popupRef,
             size,
-            theme,
             unsafe_scope = this.innerRef,
             value,
-            view,
+            theme,
             renderControl = false,
             renderMenu,
             ...props
         } = this.props;
         const { popupMinWidth, maxMenuHeight } = this.state;
-        const popupMainOffset = view ? 2 : 5;
+        const popupMainOffset = theme ? 2 : 5;
 
         return (
             <ComponentRegistryConsumer id={cnSelect()}>
@@ -168,7 +167,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
                                 size={size}
                                 theme={theme}
                                 value={value}
-                                view={view}
                                 opened={opened}
                                 addonAfter={
                                     <>
@@ -190,7 +188,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
                                             className={cnSelect('Popup')}
                                             directions={POPUP_DIRECTIONS}
                                             mainOffset={popupMainOffset}
-                                            view={view}
                                             style={{ minWidth: popupMinWidth }}
                                             theme={theme}
                                             visible={opened}
@@ -210,7 +207,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
                                                 size={size}
                                                 theme={theme}
                                                 value={value}
-                                                view={view}
                                                 innerRef={this.menuRef}
                                             />
                                         </Popup>

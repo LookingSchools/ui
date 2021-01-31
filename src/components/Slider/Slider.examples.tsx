@@ -7,7 +7,7 @@ import { Device } from "../_internal_/Device/Device";
 
 import { Slider } from "./Slider";
 
-storiesOf("LookingSchools/Components|Slider/", module)
+storiesOf("Controls|Slider/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

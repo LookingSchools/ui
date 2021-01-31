@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
+import { withKnobs, select, boolean, object } from '@storybook/addon-knobs';
 
 import { Select } from '../../Select.bundle/desktop';
 import { EXAMPLE_DESKTOP_TOKEN, parameters } from '../examples-config';
 
 export default {
     title: EXAMPLE_DESKTOP_TOKEN,
+    decorators: [withKnobs],
     parameters,
 };
 
@@ -18,6 +20,47 @@ const options = [
     { value: 'g', content: 'Фазан' },
 ];
 
+
+const rawOptions = [
+    { value: 1, content: 1 },
+    { value: 2, content: 2 },
+    { value: 'c', content: 'hello' },
+    { value: 'd', content: 'darkness' },
+    { value: 'e', content: 'my', disabled: true },
+    { value: 'f', content: 'old' },
+    { value: 'g', content: 'friend' },
+];
+
+export const Playground = () => {
+    const [value, setValue] = useState('с');
+    const scopeRef = useRef(null);
+
+    const size = select('size', ['m', 's'], 'm') as any;
+    const theme = select('theme', ['default', ''], 'default') as any;
+    const disabled = boolean('disabled', false);
+    const renderControl = boolean('renderControl', false);
+    const options = object('options', rawOptions);
+
+    return (
+        <div ref={scopeRef} style={{ position: 'relative' }}>
+            <Select
+                unsafe_scope={scopeRef}
+                disabled={disabled}
+                theme={theme}
+                size={size}
+                value={value}
+                renderControl={renderControl}
+                onChange={(event) => setValue(event.target.value)}
+                options={options}
+            />
+        </div>
+    );
+};
+
+Playground.story = {
+    name: 'playground',
+};
+
 export const Width = () => {
     const [value1, setValue1] = useState('a');
     const [value2, setValue2] = useState('a');
@@ -28,7 +71,7 @@ export const Width = () => {
             <Select
                 unsafe_scope={scopeRef}
                 size="m"
-                view="default"
+                theme="default"
                 width="max"
                 value={value1}
                 onChange={(event) => setValue1(event.target.value)}
@@ -37,7 +80,7 @@ export const Width = () => {
             <Select
                 unsafe_scope={scopeRef}
                 size="m"
-                view="default"
+                theme="default"
                 value={value2}
                 onChange={(event) => setValue2(event.target.value)}
                 options={options}
@@ -60,7 +103,7 @@ export const Size = () => {
             <Select
                 unsafe_scope={scopeRef}
                 size="m"
-                view="default"
+                theme="default"
                 value={value1}
                 onChange={(event) => setValue1(event.target.value)}
                 options={options}
@@ -68,7 +111,7 @@ export const Size = () => {
             <Select
                 unsafe_scope={scopeRef}
                 size="s"
-                view="default"
+                theme="default"
                 value={value2}
                 onChange={(event) => setValue2(event.target.value)}
                 options={options}
@@ -89,7 +132,7 @@ export const Theme = () => {
         <div ref={scopeRef} style={{ position: 'relative' }}>
             <Select
                 unsafe_scope={scopeRef}
-                theme="normal"
+                theme="default"
                 size="m"
                 value={value}
                 onChange={(event) => setValue(event.target.value)}
@@ -103,28 +146,6 @@ Theme.story = {
     name: 'theme',
 };
 
-export const View = () => {
-    const [value, setValue] = useState('a');
-    const scopeRef = useRef(null);
-
-    return (
-        <div ref={scopeRef} style={{ position: 'relative' }}>
-            <Select
-                unsafe_scope={scopeRef}
-                view="default"
-                size="m"
-                value={value}
-                onChange={(event) => setValue(event.target.value)}
-                options={options}
-            />
-        </div>
-    );
-};
-
-View.story = {
-    name: 'view',
-};
-
 export const Icon = () => {
     const [value, setValue] = useState('a');
     const scopeRef = useRef(null);
@@ -133,13 +154,13 @@ export const Icon = () => {
         <div ref={scopeRef} style={{ position: 'relative' }}>
             <Select
                 unsafe_scope={scopeRef}
-                view="default"
+                theme="default"
                 size="m"
                 value={value}
                 onChange={(event) => setValue(event.target.value)}
                 options={options}
                 iconProps={{
-                    type: 'arrow',
+                    glyph: 'type-arrow',
                 }}
             />
         </div>

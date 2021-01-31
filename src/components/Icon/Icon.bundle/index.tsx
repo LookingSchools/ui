@@ -20,6 +20,11 @@ import { withGlyphXSign } from "../_glyph/Icon_glyph_x-sign";
 import { withGlyphInfo } from "../_glyph/Icon_glyph_info";
 import { withGlyphTrash } from "../_glyph/Icon_glyph_trash";
 import { withGlyphArrowRight } from "../_glyph/Icon_glyph_arrow-right";
+import { withGlyphTypeArrow } from "../_glyph/Icon_glyph_type-arrow";
+import { withGlyphCaretsV } from "../_glyph/Icon_glyph_carets-v";
+import { withGlyphCourse } from "../_glyph/Icon_glyph_course";
+import { withGlyphCourseActive } from "../_glyph/Icon_glyph_course-active";
+import { withGlyphCreateCourse } from "../_glyph/Icon_glyph_create-course";
 
 // social
 import { withSocialYouTube } from "../_social/Icon_social_youtube";
@@ -48,7 +53,12 @@ export interface IIconProps extends IIconBaseProps {
     | "sort"
     | "info"
     | "trash"
-    | "arrow-right";
+    | "carets-v"
+    | "type-arrow"
+    | "arrow-right"
+    | "course"
+    | "course-active"
+    | "create-course";
 
   social?:
     | "youtube"
@@ -63,6 +73,8 @@ export interface IIconProps extends IIconBaseProps {
 
 export const Icon = compose(
   composeU(
+    withGlyphTypeArrow,
+    withGlyphCaretsV,
     withGlyphCart,
     withGlyphFavorite,
     withGlyphMenu,
@@ -78,7 +90,10 @@ export const Icon = compose(
     withGlyphSort,
     withGlyphTick,
     withGlyphCheck,
-    withGlyphArrowRight
+    withGlyphArrowRight,
+    withGlyphCourse,
+    withGlyphCourseActive,
+    withGlyphCreateCourse
   ),
   composeU(
     withSocialYouTube,

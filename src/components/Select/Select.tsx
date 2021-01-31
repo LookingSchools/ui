@@ -126,11 +126,6 @@ export interface ISelectProps extends IWithTogglableProps, SelectAllHTMLAttribut
     value?: any;
 
     /**
-     * Внешний вид компонента.
-     */
-    view?: string;
-
-    /**
      * Показывать всегда значение из свойства `placeholder` вне зависимости от выбранного значения.
      */
     showAlwaysPlaceholder?: boolean;
@@ -166,7 +161,7 @@ export interface ISelectProps extends IWithTogglableProps, SelectAllHTMLAttribut
     activeDescendant?: string;
 }
 
-export const cnSelect = cn('Select2');
+export const cnSelect = cn('Select');
 
 const defaultProps = {
     placeholder: '—',
@@ -221,7 +216,6 @@ export const Select = class extends PureComponent<SelectProps> {
             size,
             theme,
             value,
-            view,
             style,
             checkable = true,
             iconProps,
@@ -232,8 +226,8 @@ export const Select = class extends PureComponent<SelectProps> {
         const { buttonText } = this.state;
         // Проставляем состояние `checked` только для типа `check`.
         const checked = checkable && Array.isArray(value) ? value.length > 0 : false;
-        const iconType = view || (iconProps && iconProps.glyph) ? undefined : 'arrow';
-        const iconGlyph = view && !(iconProps && iconProps.type) ? 'carets-v' : undefined;
+        const iconType = theme || (iconProps && iconProps.glyph) ? undefined : 'arrow';
+        const iconGlyph = theme && !(iconProps && iconProps.type) ? 'carets-v' : undefined;
 
         return (
             <ComponentRegistryConsumer id={cnSelect()}>
@@ -260,9 +254,8 @@ export const Select = class extends PureComponent<SelectProps> {
                                     innerRef={this.triggerRef}
                                     style={style}
                                     size={size}
-                                    theme={theme}
                                     checked={checked}
-                                    view={view}
+                                    theme={theme}
                                     onClick={onClick}
                                     onKeyDown={onKeyDown}
                                     onBlur={onBlur}

@@ -25,8 +25,7 @@ export const Playground = () => {
     const scopeRef = useRef(null);
 
     const size = select('size', ['m', 's'], 'm') as any;
-    const view = select('view', ['default', ''], 'default') as any;
-    const theme = view === '' ? (select('theme', ['normal'], 'normal') as any) : null;
+    const theme = select('theme', ['default', ''], 'default') as any;
     const disabled = boolean('disabled', false);
     const options = object('options', rawOptions);
 
@@ -36,7 +35,6 @@ export const Playground = () => {
                 disabled={disabled}
                 theme={theme}
                 size={size}
-                view={view}
                 value={value}
                 onChange={(event) => setValue(event.target.value)}
                 options={options}

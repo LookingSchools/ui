@@ -6,7 +6,7 @@ import { withDocs } from "@storybook-addons/docs";
 import { Suggest } from "./Suggest";
 import { fetchData } from './fetchData';
 
-storiesOf("LookingSchools/Components|Suggest/", module)
+storiesOf("Controls|Suggest/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

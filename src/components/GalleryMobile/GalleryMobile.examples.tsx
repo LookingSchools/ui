@@ -11,7 +11,7 @@ function getImages() {
   return stubData.dataDefault.images as Array<GalleryMobileItemProps>;
 }
 
-storiesOf("LookingSchools/Components|GalleryMobile/", module)
+storiesOf("Controls|GalleryMobile/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

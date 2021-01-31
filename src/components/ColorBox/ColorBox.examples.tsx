@@ -133,7 +133,7 @@ export const Theme = () => {
   );
 };
 
-storiesOf("LookingSchools/Components|ColorBox", module)
+storiesOf("Controls|ColorBox", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

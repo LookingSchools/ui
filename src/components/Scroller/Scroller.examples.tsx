@@ -23,7 +23,7 @@ function prepareItems(count: number) {
   return items;
 }
 
-storiesOf("LookingSchools/Components|Scroller/", module)
+storiesOf("Controls|Scroller/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

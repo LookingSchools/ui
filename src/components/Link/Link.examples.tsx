@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Link  } from "./Link.bundle";
 
-storiesOf("LookingSchools/Components|Link/", module)
+storiesOf("Controls|Link/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -16,7 +16,7 @@ storiesOf("LookingSchools/Components|Link/", module)
   )
   .add("playground", () => {
     const theme = select("theme", ["default", ""], "default");
-    const href = text("href", "https://yandex.ru");
+    const href = text("href", "https://google.com");
     const children = text("children", "Lookingschools");
     return (
       <Link theme={theme} href={href}>
@@ -25,7 +25,7 @@ storiesOf("LookingSchools/Components|Link/", module)
     );
   });
 
-storiesOf("LookingSchools/Components|Link/", module)
+storiesOf("Controls|Link/", module)
   .addDecorator(
     withDocs({
       readme: {

@@ -8,7 +8,7 @@ import * as keyset from './Cookie.i18n';
 
 import { Cookie } from "./Cookie.bundle";
 
-storiesOf("LookingSchools/Components|Cookie", module)
+storiesOf("Controls|Cookie", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

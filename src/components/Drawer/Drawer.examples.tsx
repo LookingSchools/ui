@@ -13,7 +13,7 @@ export const parameters = {
   },
 };
 
-storiesOf("LookingSchools/Components|Drawer", module)
+storiesOf("Controls|Drawer", module)
   .addDecorator(withKnobs)
   .addParameters(parameters)
   .addDecorator(

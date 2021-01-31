@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Socials } from "./Socials.bundle";
 
-storiesOf("LookingSchools/Components|Socials", module)
+storiesOf("Controls|Socials", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

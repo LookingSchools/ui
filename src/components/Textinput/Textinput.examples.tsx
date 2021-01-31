@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Textinput } from "./Textinput.bundle";
 
-storiesOf("LookingSchools/Components|Textinput", module)
+storiesOf("Controls|Textinput", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -58,7 +58,7 @@ storiesOf("LookingSchools/Components|Textinput", module)
     );
   });
 
-storiesOf("LookingSchools/Components|Textinput/", module)
+storiesOf("Controls|Textinput/", module)
   .addDecorator(
     withDocs({
       readme: {

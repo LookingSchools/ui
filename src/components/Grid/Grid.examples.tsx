@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Grid, GridItem } from "./Grid";
 
-storiesOf("LookingSchools/Components|Grid/", module)
+storiesOf("Controls|Grid/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

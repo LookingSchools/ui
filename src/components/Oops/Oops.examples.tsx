@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Oops } from "./Oops.bundle";
 
-storiesOf("LookingSchools/Components|Oops", module)
+storiesOf("Controls|Oops", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -25,7 +25,7 @@ const DiscountBadge = compose(
   composeU(withThemeBlack, withThemeDefault)
 )(DiscountBadgeBase);
 
-storiesOf("LookingSchools/Components|DiscountBadge", module)
+storiesOf("Controls|DiscountBadge", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

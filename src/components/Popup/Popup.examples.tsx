@@ -243,7 +243,7 @@ class PositionShowcase extends BaseExample {
   }
 }
 
-storiesOf("LookingSchools/Components|Popup/", module)
+storiesOf("Controls|Popup/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -288,7 +288,7 @@ storiesOf("LookingSchools/Components|Popup/", module)
     );
   });
 
-storiesOf("LookingSchools/Components|Popup/", module)
+storiesOf("Controls|Popup/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -5,7 +5,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Typography } from "./Typography.bundle";
 
-storiesOf("LookingSchools/Components|Typography", module)
+storiesOf("Controls|Typography", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -77,7 +77,7 @@ export const Cookie = class extends PureComponent<ICookieProps, ICookieState> {
           <Icon glyph="info" size="m" className={cnCookie("Icon")} />
           <Typography className={cnCookie("Message")}>
             {text} Подробности в{" "}
-            <Link theme="default" href="https://yandex.ru/">
+            <Link theme="default" href="https://google.com">
               политике конфиденциальности
             </Link>
             .

@@ -110,7 +110,7 @@ export const Lines = () => {
   );
 };
 
-storiesOf("LookingSchools/Components|Checkbox", module)
+storiesOf("Controls|Checkbox", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

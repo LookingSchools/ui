@@ -32,7 +32,7 @@ const afterContentStyle = {
 const afterContentText = "Капитанская дочка";
 const afterContent = <div style={afterContentStyle}>{afterContentText}</div>;
 
-storiesOf("LookingSchools/Components|Cut/", module)
+storiesOf("Controls|Cut/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

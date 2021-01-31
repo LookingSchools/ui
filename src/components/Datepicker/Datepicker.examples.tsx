@@ -52,7 +52,7 @@ const DatePicker = (props: any) => {
     );
 };
 
-storiesOf("LookingSchools/Components|Datepicker/", module)
+storiesOf("Controls|Datepicker/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

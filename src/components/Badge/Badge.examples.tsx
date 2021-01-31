@@ -46,7 +46,7 @@ function renderIcons(icons, type) {
   );
 }
 
-storiesOf("LookingSchools/Components|Badge/", module)
+storiesOf("Controls|Badge/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

@@ -15,7 +15,7 @@ const Link = compose(withThemeDefault)(LinkBase)
 
 const App = () => {
   return (
-    <Link theme="default" href="http://yandex.ru">
+    <Link theme="default" href="https://google.com">
       Yandex
     </Link>
   )

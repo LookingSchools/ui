@@ -93,7 +93,7 @@ const ContentShowcase = () => {
   );
 };
 
-storiesOf("LookingSchools/Components|TabsMenu/", module)
+storiesOf("Controls|TabsMenu/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -137,7 +137,7 @@ storiesOf("LookingSchools/Components|TabsMenu/", module)
     );
   });
 
-storiesOf("LookingSchools/Components|TabsMenu/", module)
+storiesOf("Controls|TabsMenu/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

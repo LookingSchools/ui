@@ -6,7 +6,7 @@ import { withDocs } from "@storybook-addons/docs";
 
 import { Radiobox } from "./Radiobox.bundle";
 
-storiesOf("LookingSchools/Components|Radiobox/", module)
+storiesOf("Controls|Radiobox/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -42,7 +42,7 @@ storiesOf("LookingSchools/Components|Radiobox/", module)
     );
   });
 
-storiesOf("LookingSchools/Components|Radiobox", module)
+storiesOf("Controls|Radiobox", module)
   .addDecorator(
     withDocs({
       readme: {

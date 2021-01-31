@@ -21,7 +21,12 @@ const allIcons = [
   "tick",
   'check',
   "arrow-right",
-  "trash"
+  "carets-v",
+  "type-arrow",
+  "trash",
+  "course-active",
+  "course",
+  "create-course"
 ];
 
 const allSocialIcons = [
@@ -80,7 +85,7 @@ function renderSocialIcons(icons) {
   );
 }
 
-storiesOf("LookingSchools/Components|Icon/", module)
+storiesOf("Controls|Icon/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

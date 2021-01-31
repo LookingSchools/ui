@@ -1,0 +1,62 @@
+.BottomBar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+    height: 56px;
+}
+
+.BottomBar-Tab {
+    position: relative;
+
+    flex-grow: 1;
+
+    text-align: center;
+}
+
+.BottomBar-Link {
+    display: block;
+
+    padding-top: 6px;
+
+    text-decoration: none;
+}
+
+.BottomBar-Link > a {
+    text-decoration: none;
+}
+
+.BottomBar-Text {
+    font-size: 12px;
+    padding-top: 6px;
+    line-height: 14px;
+
+    color: rgba(0, 0, 0, .5);
+}
+
+.BottomBar-Tab_active .BottomBar-Text {
+    color: #000;
+}
+
+.BottomBar-Tab_active .BottomBar-Icon {
+    color: #067AFF;
+}
+
+.BottomBar-Tip {
+    position: absolute;
+    top: 4px;
+    right: calc(50% - 19px);
+
+    width: 18px;
+    height: 18px;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+
+    color: #fff;
+    border-radius: 50%;
+    background-color:  #f33;
+}

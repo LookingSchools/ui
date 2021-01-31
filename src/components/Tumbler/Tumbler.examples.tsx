@@ -274,7 +274,7 @@ export const Showcase = () => {
   );
 };
 
-storiesOf("LookingSchools/Components|Tumbler", module)
+storiesOf("Controls|Tumbler", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({

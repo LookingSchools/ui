@@ -23,7 +23,7 @@ const TabsMenu = compose(
 
 const Radiobox = compose(withRadioboxSizeM, withThemeDefault)(RadioboxBase);
 
-storiesOf("LookingSchools/Components|TabsPanes/", module)
+storiesOf("Controls|TabsPanes/", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
@@ -42,7 +42,7 @@ storiesOf("LookingSchools/Components|TabsPanes/", module)
     return <TabsPanes activePane={activeTab} panes={panes} />;
   });
 
-storiesOf("LookingSchools/Components|TabsPanes", module)
+storiesOf("Controls|TabsPanes", module)
   .addDecorator(withKnobs)
   .addDecorator(
     withDocs({
