@@ -2,37 +2,37 @@ import React, {
   RefObject,
   ReactNode,
   FC,
-  Ref,
   CSSProperties,
-  useRef,
   useEffect,
   useState,
   ReactElement,
+  Ref,
+  useRef,
   MouseEventHandler,
-} from "react";
-import { createPortal } from "react-dom";
-import { cn } from "@bem-react/classname";
+} from 'react';
+import { createPortal } from 'react-dom';
+import { cn } from '@bem-react/classname';
+
+import { canUseDOM } from '../../lib/canUseDOM';
+import { mergeAllRefs } from '../../lib/mergeRefs';
 import { PopupTail as Tail } from "./Tail/Popup-Tail";
 
-import { canUseDOM } from "../../lib/canUseDOM";
-import { mergeAllRefs } from '../../lib/mergeRefs';
-
-import "./Popup.scss";
+import './Popup.scss';
 import { useUpdateEffect } from '../../hooks/useUpdateEffect';
 
 export type Direction =
-  | "bottom-left"
-  | "bottom-center"
-  | "bottom-right"
-  | "top-left"
-  | "top-center"
-  | "top-right"
-  | "right-top"
-  | "right-center"
-  | "right-bottom"
-  | "left-top"
-  | "left-center"
-  | "left-bottom";
+  | 'bottom-left'
+  | 'bottom-center'
+  | 'bottom-right'
+  | 'top-left'
+  | 'top-center'
+  | 'top-right'
+  | 'right-top'
+  | 'right-center'
+  | 'right-bottom'
+  | 'left-top'
+  | 'left-center'
+  | 'left-bottom';
 
 export type Position = {
   top: number;
@@ -54,6 +54,8 @@ export type DrawingParams = {
   width: number;
 };
 
+export type OnClose = (event: KeyboardEvent | MouseEvent, source: 'esc' | 'click') => void;
+
 export interface IPopupProps {
   /**
    * Дополнительный контент после содержимого попапа
@@ -68,14 +70,15 @@ export interface IPopupProps {
   /**
    * Задает направление хвостика. Например, если указано значение `bottom-center` — хвостик выходит из центра снизу.
    *
-   * Свойство `direction` необходимо использовать без модификатора `_target_anchor`.
-   * Чтобы задать направление раскрытия для попапа с модификатором `_target_anchor`,
-   * используйте свойство `directions`
+   * Свойство `direction` необходимо использовать без модификатора `target_anchor`.
+   * Чтобы задать направление раскрытия для попапа с модификатором `target_anchor`,
+   * установите свойство `directions`
    */
   direction?: Direction;
 
   /**
    * Вызывает дополнительный рендер после создания
+   * @deprecated Используйте `visible`
    */
   forceRender?: boolean;
 
@@ -85,9 +88,9 @@ export interface IPopupProps {
   hasTail?: boolean;
 
   /**
-     * Ссылка на корневой DOM-элемент компонента
-     */
-    innerRef?: Ref<HTMLDivElement>;
+   * Ссылка на корневой DOM-элемент компонента
+   */
+  innerRef?: Ref<HTMLDivElement>;
 
   /**
    * Сохраняет контейнер в DOM после создания
@@ -97,7 +100,7 @@ export interface IPopupProps {
   keepMounted?: boolean;
 
   /**
-   * Задает позицию попапа. Свойство `position` необходимо использовать без модификатора `_target_anchor`
+   * Задает позицию попапа. Свойство `position` необходимо использовать без модификатора `target_anchor`
    */
   position?: OptionalPosition;
 
@@ -111,24 +114,19 @@ export interface IPopupProps {
   scope?: RefObject<HTMLElement>;
 
   /**
-   * Задает позицию хвостика. Свойство `tailPosition` необходимо использовать без модификатора `_target_anchor`.
+   * Задает позицию хвостика. Свойство `tailPosition` необходимо использовать без модификатора `target_anchor`.
    */
   tailPosition?: Position;
 
   /**
    * Ссылка на DOM-элемент хвостика
    */
-  tailRef?: RefObject<HTMLDivElement>;
+  tailRef?: Ref<HTMLDivElement>;
 
   /**
    * Задает размер хвостика
    */
   tailSize?: number;
-
-  /**
-   * Ссылка на DOM-элемент, в котором не отслеживаются нажатия. Используется с `withOutsideClick`
-   */
-  targetRef?: RefObject<HTMLElement>;
 
   /**
    * Делает попап видимым
@@ -150,7 +148,7 @@ export interface IPopupProps {
    */
   style?: CSSProperties;
 
-    /**
+  /**
    * Функция, вызывающаяся при отрисовке хвостика.
    * Вызывается вне зависимости от наличия флага `hasTail`.
    */
@@ -164,7 +162,7 @@ export interface IPopupProps {
   /**
    * Обработчик, вызывающийся после нажатия на клавишу esc либо мышкой на область вне контейнера
    */
-  onClose?: MouseEventHandler<HTMLDivElement>;
+  onClose?: OnClose;
 
   /**
    * Список ссылок на DOM-узлы в рамках которых не нужно отслеживать нажатия
@@ -191,12 +189,12 @@ type PopupInternalProps = IPopupProps & {
   onEscapeKeyDown?: (event: any) => void;
 };
 
-export const cnPopup = cn("Popup");
+export const cnPopup = cn('Popup');
 
 /**
- * Компонент для создания всплывающего окна (попапа).
- * @param {IPopupProps} props
- */
+* Компонент для создания всплывающего окна (попапа).
+* @param {IPopupProps} props
+*/
 export const Popup: FC<IPopupProps> = ({
   addonAfter,
   addonBefore,
@@ -213,27 +211,33 @@ export const Popup: FC<IPopupProps> = ({
   tailPosition,
   tailRef,
   tailSize,
-  targetRef,
   visible,
+  zIndex,
+  unstable_onRenderTail,
+  onClose,
+  unstable_essentialRefs = [],
+  unstable_hostRef,
   onOutsideClick,
   onEscapeKeyDown,
   onClick,
-  zIndex,
   // Извлекаем свойства, т.к. они не нужны на DOM узле
+  // FIXME:
   // @ts-ignore
   theme: _theme,
   // @ts-ignore
   view: _view,
+  // @ts-ignore
+  nonvisual: _nonvisual,
   ...props
 }: PopupInternalProps) => {
   const [isFirstRender, forceUpdate] = useState(true);
   const containerRef = useRef(null);
 
   useUpdateEffect(() => {
-    if (isFirstRender && visible) {
-        forceUpdate(false);
-    }
-}, []);
+      if (isFirstRender && visible) {
+          forceUpdate(false);
+      }
+  }, []);
 
   useEffect(() => {
       console.assert(
@@ -252,24 +256,25 @@ export const Popup: FC<IPopupProps> = ({
   }
 
   return createPortal(
-    <div
-      {...props}
-      className={cnPopup({ visible, direction }, [className])}
-      ref={mergeAllRefs(containerRef, innerRef)}
-      style={{ ...style, ...position, zIndex }}
-      onClick={onClick}
-    >
-      {addonBefore}
-      {children}
-      {addonAfter}
-      {hasTail && (
-        <Tail
-          innerRef={tailRef}
-          style={{ ...tailPosition, height: tailSize, width: tailSize }}
-        />
-      )}
-    </div>,
-    scope.current
+      <div
+          {...props}
+          className={cnPopup({ visible, direction }, [className])}
+          ref={mergeAllRefs(containerRef, innerRef)}
+          style={{ ...style, ...position, zIndex }}
+          onClick={onClick}
+      >
+          {addonBefore}
+          {typeof children === 'function' ? children({ tailRef }) : children}
+          {addonAfter}
+          {unstable_onRenderTail &&
+              unstable_onRenderTail(
+                  <Tail innerRef={tailRef} style={{ ...tailPosition, height: tailSize, width: tailSize }} />,
+              )}
+          {!unstable_onRenderTail && hasTail && (
+              <Tail innerRef={tailRef} style={{ ...tailPosition, height: tailSize, width: tailSize }} />
+          )}
+      </div>,
+      scope.current
   );
 };
 

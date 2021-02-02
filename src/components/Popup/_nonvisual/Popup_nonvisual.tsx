@@ -11,9 +11,7 @@ export interface IPopupNonvisualProps {
 }
 
 /**
- * Модификатор который убирает стили попапа влияющие на визуальный стиль.
- * @param {IPopupNonvisualProps} props
- */
-export const withNonvisual = withBemMod<IPopupNonvisualProps>(cnPopup(), {
-  nonvisual: true
-});
+* Модификатор который убирает стили попапа влияющие на визуальный стиль.
+* @param {IPopupNonvisualProps} props
+*/
+export const withNonvisual = withBemMod<IPopupNonvisualProps>(cnPopup(), { nonvisual: true });

@@ -20,7 +20,7 @@ export type BottomBarProps = {
 const cnBottomBar = cn('BottomBar');
 
 const BottomBarTab: React.FC<Tab & { index: number; }> = props => {
-    const { tip, text, icon, activeIcon, isActive, onClick, index, linkComponent } = props;
+    const { tip, text, icon, isActive, onClick, index, linkComponent } = props;
     const onTabClick = useCallback((e: React.MouseEvent<HTMLElement>) => {
         onClick && onClick(e, index);
     }, [onClick, index]);

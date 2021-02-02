@@ -1,4 +1,4 @@
-import React, { RefObject, CSSProperties } from "react";
+import React, { CSSProperties, FC, Ref } from 'react';
 
 import { cnPopup } from "../Popup";
 import "./Popup-Tail.scss";
@@ -7,7 +7,7 @@ export interface IPopupTailProps {
   /**
    * Ссылка на хвостик
    */
-  innerRef?: RefObject<HTMLDivElement>;
+  innerRef?: Ref<HTMLDivElement>;
 
   /**
    * Дополнительный класс
@@ -20,14 +20,7 @@ export interface IPopupTailProps {
   style?: CSSProperties;
 }
 
-export const PopupTail = ({
-  className,
-  innerRef,
-  ...props
-}: IPopupTailProps) => (
-  <div
-    {...props}
-    className={cnPopup("Tail", null, [className])}
-    ref={innerRef}
-  />
+export const PopupTail: FC<IPopupTailProps> = ({ className, innerRef, children, ...props }) => (
+  <div {...props} className={cnPopup('Tail', null, [className])} ref={innerRef}>{children}</div>
 );
+

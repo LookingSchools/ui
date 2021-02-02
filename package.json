@@ -1,6 +1,6 @@
 {
   "name": "@lookingschools/ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React UI Components",
   "scripts": {
     "build": "dist-generator generate --config=./.config/build.config.js",
@@ -141,6 +141,7 @@
   "files": [
     "Amountpicker",
     "Badge",
+    "BottomBar",
     "Button",
     "Calendar",
     "Checkbox",
@@ -149,6 +150,7 @@
     "Cut",
     "Datepicker",
     "DiscountBadge",
+    "Drawer",
     "Gallery",
     "GalleryMobile",
     "Grid",
@@ -164,6 +166,7 @@
     "Radiobutton",
     "Rating",
     "Scroller",
+    "Select",
     "Separator",
     "Slider",
     "Snippet",

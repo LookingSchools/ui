@@ -11,6 +11,7 @@ npm-debug.log*
 # build
 /Amountpicker
 /Badge
+/BottomBar
 /Button
 /Calendar
 /Checkbox
@@ -19,6 +20,7 @@ npm-debug.log*
 /Cut
 /Datepicker
 /DiscountBadge
+/Drawer
 /Gallery
 /GalleryMobile
 /Grid
@@ -34,6 +36,7 @@ npm-debug.log*
 /Radiobutton
 /Rating
 /Scroller
+/Select
 /Separator
 /Slider
 /Snippet
