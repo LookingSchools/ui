@@ -1,0 +1,82 @@
+/* common */
+.Textinput_theme_search .Textinput-Box {
+    border: 1px solid transparent;
+    border-radius: 22px;
+    background-color: rgba(38, 49, 129, 0.07);
+
+    transition: background-color .15s linear;
+}
+
+.Textinput_theme_search.Textinput_size_s .Textinput-Search svg {
+    width: 16px;
+    height: 16px;
+}
+
+.Textinput_theme_search.Textinput_state_error .Textinput-Box {
+    border-color: #f33;
+}
+
+.Textinput_theme_search .Textinput-Control {
+    color: #000;
+}
+
+.Textinput_theme_search .Textinput-Control::placeholder {
+    color: rgba(38, 49, 129, 0.5);
+}
+
+.Textinput_theme_search .Textinput-Icon {
+    color: rgba(38, 49, 129, 0.5);
+}
+
+.Textinput_theme_search .Textinput-Clear {
+    transition: color .15s linear;
+}
+
+.Textinput_theme_search.Textinput_size_s .Textinput-Clear svg {
+    width: 12px;
+    height: 12px;
+}
+
+.Textinput_theme_search.Textinput_size_m .Textinput-Clear svg {
+    width: 14px;
+    height: 14px;
+}
+
+.Textinput_theme_search.Textinput_state_error .Textinput-Hint {
+    color: #f33;
+}
+
+/* disable */
+.Textinput_theme_search.Textinput_disabled .Textinput-Control {
+    color: rgba(38, 49, 129, 0.5);
+}
+
+.Textinput_theme_search.Textinput_disabled .Textinput-Control::placeholder {
+    color: rgba(38, 49, 129, 0.5);
+}
+
+/* TODO: Усиливаем селектор для ie11 */
+.Textinput_theme_search.Textinput_disabled .Textinput-Box {
+    border-color: transparent;
+    background-color: rgba(38, 49, 129, 0.15);
+}
+
+/* focus */
+.Textinput.Textinput_theme_search.Textinput_focused .Textinput-Box[class] {
+    border-color: rgba(38, 49, 129, 0.7);
+}
+
+/* hover */
+.Textinput_theme_search .Textinput-Clear:hover {
+    color: #000;
+}
+
+/* TODO: Усиливаем селектор для ie11 */
+.Textinput_theme_search.Textinput_hovered .Textinput-Box[class] {
+    border-color: rgba(38, 49, 129, 0.3);
+    background-color: #fff;
+}
+
+.Textinput_theme_search.Textinput_hovered.Textinput_state_error .Textinput-Box {
+    border-color: #f33;
+}

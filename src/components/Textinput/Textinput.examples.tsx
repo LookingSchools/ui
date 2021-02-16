@@ -4,7 +4,7 @@ import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { withDocs } from "@storybook-addons/docs";
 
 import { Textinput } from "./Textinput.bundle";
-
+import { Icon } from "../Icon/Icon.bundle";
 storiesOf("Controls|Textinput", module)
   .addDecorator(withKnobs)
   .addDecorator(
@@ -16,7 +16,7 @@ storiesOf("Controls|Textinput", module)
   )
   .add("playground", () => {
     const [value, setValue] = useState("");
-    const theme = select("theme", ["default", ""], "default") as any;
+    const theme = select("theme", ["default", "search"], "default") as any;
     const size = select("size", ["l", "m", "s"], "m") as any;
     const pin = select(
       "pin",
@@ -181,11 +181,41 @@ export const Disabled = () => (
   </>
 );
 
-export const Theme = () => (
+export const Theme = () => {
+  const [value1, setValue1] = useState("");
+  const [value2, setValue2] = useState("");
+
+ return (
   <>
-    <Textinput size="m" theme="default" defaultValue="theme default" />
-  </>
-);
+    <div style={{ padding: 4 }}>
+      <h3>Theme Default</h3>
+      <Textinput 
+        size="m"
+        hasClear
+        theme="default"    
+        value={value1}
+        onChange={event => setValue1(event.target.value)}
+        onClearClick={() => setValue1("")}
+      />
+      </div>
+      <div style={{ padding: 4 }}>
+        <h3>Theme Search</h3>
+        <Textinput 
+          size="m" 
+          theme="search"
+          iconRight={(
+            <Icon glyph="search" size="s" />
+          )}
+          hasClear
+          placeholder="Найти школы и курсы"
+          value={value2}
+          onChange={event => setValue2(event.target.value)}
+          onClearClick={() => setValue2("")}
+          />
+      </div>
+    </>
+    )
+};
 
 export const State = () => (
   <>

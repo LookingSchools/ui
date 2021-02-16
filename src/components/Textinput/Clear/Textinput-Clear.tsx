@@ -15,6 +15,9 @@ const getIconType = (theme?: string): any => {
   if (theme === "default") {
     return { glyph: "x-sign" };
   }
+  if (theme === "search") {
+    return { glyph: "cross" };
+  }
 
   return { glyph: "cross" };
 };

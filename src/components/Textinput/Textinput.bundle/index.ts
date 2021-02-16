@@ -11,6 +11,7 @@ import { withSizeM } from "../_size/Textinput_size_m";
 import { withSizeS } from "../_size/Textinput_size_s";
 // _theme
 import { withThemeDefault } from "../_theme/Textinput_theme_default";
+import { withThemeSearch } from "../_theme/Textinput_theme_search";
 
 // _hasClear
 import { withHasClear } from "../_hasClear/Textinput_hasClear";
@@ -28,7 +29,7 @@ export * from "../Textinput";
 
 export interface ITextinputProps extends ITextinputDesktopProps {
   size?: "l" | "m" | "s";
-  theme?: "default";
+  theme?: "default" | "search";
   hasClear?: boolean;
   onClearClick?: MouseEventHandler<HTMLSpanElement>;
   pin?:
@@ -46,7 +47,7 @@ export interface ITextinputProps extends ITextinputDesktopProps {
 
 export const Textinput = compose(
   composeU(withSizeL, withSizeM, withSizeS),
-  withThemeDefault,
+  composeU(withThemeDefault,withThemeSearch),
   composeU(
     withPinBrickRound,
     withPinClearClear,
