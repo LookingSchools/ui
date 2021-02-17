@@ -5,7 +5,7 @@ import * as stubData from "./datastub";
 import { Price } from "./Price.bundle";
 
 export default {
-    title: "Controls|Price",
+    title: "Price",
     decorators: [withKnobs],
     parameters: {
         docs: {

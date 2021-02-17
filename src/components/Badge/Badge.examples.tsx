@@ -44,7 +44,7 @@ function renderIcons(icons, type) {
 }
 
 export default {
-    title: "Controls|Badge",
+    title: "Badge",
     decorators: [withKnobs],
     parameters: {
         docs: {

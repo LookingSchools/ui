@@ -5,7 +5,7 @@ import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { Drawer } from "./Drawer.bundle";
 
 export default {
-    title: "Controls|Drawer",
+    title: "Drawer",
     decorators: [withKnobs],
     parameters: {
         docs: {

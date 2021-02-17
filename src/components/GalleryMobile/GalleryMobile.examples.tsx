@@ -10,7 +10,7 @@ function getImages() {
 }
 
 export default {
-    title: "Controls|GalleryMobile",
+    title: "GalleryMobile",
     decorators: [withKnobs],
     parameters: {
         docs: {

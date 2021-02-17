@@ -4,7 +4,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { Socials } from "./Socials.bundle";
 
 export default {
-    title: "Controls|Socials",
+    title: "Socials",
     decorators: [withKnobs],
     parameters: {
         docs: {

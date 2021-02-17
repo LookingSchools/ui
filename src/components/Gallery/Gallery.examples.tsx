@@ -9,7 +9,7 @@ function getImages() {
 }
 
 export default {
-    title: "Controls|Gallery",
+    title: "Gallery",
     decorators: [withKnobs],
     parameters: {
         docs: {

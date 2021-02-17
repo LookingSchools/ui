@@ -4,7 +4,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { Amountpicker } from "./Amountpicker";
 
 export default {
-    title: "Controls|Amountpicker",
+    title: "Amountpicker",
     decorators: [withKnobs],
     parameters: {
         docs: {
@@ -14,10 +14,7 @@ export default {
 };
 
 export const Playground = () => {
-
-    return (
-        <Amountpicker value={1} className="Card" onChange={action("onChange")} />
-    );
+    return <Amountpicker value={1} className="Card" onChange={action("onChange")} />;
 };
 
 Playground.story = {

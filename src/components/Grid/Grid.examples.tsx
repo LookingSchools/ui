@@ -3,7 +3,7 @@ import { withKnobs, number } from "@storybook/addon-knobs";
 import { Grid, GridItem } from "./Grid";
 
 export default {
-    title: "Controls|Grid",
+    title: "Grid",
     decorators: [withKnobs],
     parameters: {
         docs: {

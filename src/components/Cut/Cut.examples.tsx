@@ -31,7 +31,7 @@ const afterContentText = "Капитанская дочка";
 const afterContent = <div style={afterContentStyle}>{afterContentText}</div>;
 
 export default {
-    title: "Controls|Cut",
+    title: "Cut",
     decorators: [withKnobs],
     parameters: {
         docs: {

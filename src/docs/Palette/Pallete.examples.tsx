@@ -52,7 +52,6 @@ const renderPallete = (pallete: object, i: number) => {
     );
 };
 
-
 export default {
     title: "Pallete",
     decorators: [withKnobs],
@@ -64,7 +63,6 @@ export default {
 };
 
 export const Playground = () => {
-
     return paletteGroup.map((group, i) => renderPallete(group, i));
 };
 

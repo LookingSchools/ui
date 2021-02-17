@@ -4,7 +4,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { Link } from "./Link.bundle";
 
 export default {
-    title: "Controls|Link",
+    title: "Link",
     decorators: [withKnobs],
     parameters: {
         docs: {

@@ -13,7 +13,7 @@ const scopeRef1 = createRef();
 const scopeRef2 = createRef();
 
 export default {
-    title: "Controls|Modal",
+    title: "Modal",
     decorators: [withKnobs],
     parameters: {
         docs: {

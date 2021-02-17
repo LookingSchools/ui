@@ -11,7 +11,7 @@ import { withTypeSingle } from "./_type/Datepicker_type_single";
 import { withTypeRange } from "./_type/Datepicker_type_range";
 
 export default {
-    title: "Controls|Datepicker",
+    title: "Datepicker",
     decorators: [withKnobs],
     parameters: {
         docs: {

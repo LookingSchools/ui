@@ -22,7 +22,7 @@ function prepareItems(count: number) {
 }
 
 export default {
-    title: "Controls|Scroller",
+    title: "Scroller",
     decorators: [withKnobs],
     parameters: {
         docs: {

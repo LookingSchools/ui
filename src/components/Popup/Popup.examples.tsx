@@ -227,7 +227,7 @@ class PositionShowcase extends BaseExample {
 }
 
 export default {
-    title: "Controls|Popup",
+    title: "Popup",
     decorators: [withKnobs],
     parameters: {
         docs: {

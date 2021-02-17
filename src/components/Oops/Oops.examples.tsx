@@ -3,7 +3,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { Oops } from "./Oops.bundle";
 
 export default {
-    title: "Controls|Oops",
+    title: "Oops",
     decorators: [withKnobs],
     parameters: {
         docs: {

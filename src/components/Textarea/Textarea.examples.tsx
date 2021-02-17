@@ -4,7 +4,7 @@ import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 import { Textarea } from "./Textarea.bundle";
 
 export default {
-    title: "Controls|Textarea",
+    title: "Textarea",
     decorators: [withKnobs],
     parameters: {
         docs: {

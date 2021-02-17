@@ -5,7 +5,7 @@ import { Store, State } from "@sambego/storybook-state";
 import { Radiobox } from "./Radiobox.bundle";
 
 export default {
-    title: "Controls|Radiobox",
+    title: "Radiobox",
     decorators: [withKnobs],
     parameters: {
         docs: {

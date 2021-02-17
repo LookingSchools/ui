@@ -4,7 +4,7 @@ import { Button } from "./Button.bundle";
 import { Icon } from "../Icon/Icon.bundle";
 
 export default {
-    title: "Controls|Button",
+    title: "Button",
     decorators: [withKnobs],
     parameters: {
         docs: {

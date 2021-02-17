@@ -88,7 +88,7 @@ const ContentShowcase = () => {
 };
 
 export default {
-    title: "Controls|TabsMenu",
+    title: "TabsMenu",
     decorators: [withKnobs],
     parameters: {
         docs: {

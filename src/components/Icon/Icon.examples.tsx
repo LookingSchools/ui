@@ -75,7 +75,7 @@ function renderSocialIcons(icons) {
 }
 
 export default {
-    title: "Controls|Icon",
+    title: "Icon",
     decorators: [withKnobs],
     parameters: {
         docs: {

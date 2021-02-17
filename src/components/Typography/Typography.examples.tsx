@@ -4,7 +4,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { Typography } from "./Typography.bundle";
 
 export default {
-    title: "Controls|Typography",
+    title: "Typography",
     decorators: [withKnobs],
     parameters: {
         docs: {

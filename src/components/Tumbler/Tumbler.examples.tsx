@@ -4,7 +4,7 @@ import { withKnobs, select, text, boolean } from "@storybook/addon-knobs";
 import { Tumbler } from "./Tumbler.bundle";
 
 export default {
-    title: "Controls|Tumbler",
+    title: "Tumbler",
     decorators: [withKnobs],
     parameters: {
         docs: {

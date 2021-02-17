@@ -4,7 +4,7 @@ import { withKnobs, select, text, boolean } from "@storybook/addon-knobs";
 import { Checkbox } from "./Checkbox.bundle";
 
 export default {
-    title: "Controls|Checkbox",
+    title: "Checkbox",
     decorators: [withKnobs],
     parameters: {
         docs: {

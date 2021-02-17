@@ -4,7 +4,7 @@ import { withKnobs, color, select } from "@storybook/addon-knobs";
 import { Separator, Thickness, Width } from "./Separator";
 
 export default {
-    title: "Controls|Separator",
+    title: "Separator",
     decorators: [withKnobs],
     parameters: {
         docs: {

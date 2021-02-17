@@ -11,7 +11,7 @@ import { withThemeDefault } from "./_theme/Radiobutton_theme_default";
 const Radiobutton = compose(composeU(withSizeS, withSizeM), composeU(withThemeDefault))(RadiobuttonPresenter);
 
 export default {
-    title: "Controls|Radiobutton",
+    title: "Radiobutton",
     decorators: [withKnobs],
     parameters: {
         docs: {

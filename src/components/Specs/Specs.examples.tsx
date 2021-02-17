@@ -68,7 +68,7 @@ export const SpecsGroup = () => {
 };
 
 export default {
-    title: "Controls|Specs",
+    title: "Specs",
     decorators: [withKnobs],
     parameters: {
         docs: {

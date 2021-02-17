@@ -5,7 +5,7 @@ import { Image } from "./Image";
 import { Spin } from "../Spin/Spin.bundle";
 
 export default {
-    title: "Controls|Image",
+    title: "Image",
     decorators: [withKnobs],
     parameters: {
         docs: {

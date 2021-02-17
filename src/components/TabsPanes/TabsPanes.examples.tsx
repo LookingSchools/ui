@@ -5,7 +5,7 @@ import { Radiobox } from "../Radiobox/Radiobox.bundle";
 import { TabsPanes } from "./TabsPanes";
 
 export default {
-    title: "Controls|TabsPanes",
+    title: "TabsPanes",
     decorators: [withKnobs],
     parameters: {
         docs: {

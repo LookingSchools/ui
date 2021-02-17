@@ -7,7 +7,7 @@ import { BottomBar } from "./BottomBar";
 import { Icon } from "../Icon/Icon.bundle";
 
 export default {
-    title: "Controls|BottomBar",
+    title: "BottomBar",
     decorators: [withKnobs],
     parameters: {
         docs: {

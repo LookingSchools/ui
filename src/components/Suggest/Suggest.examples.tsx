@@ -5,7 +5,7 @@ import { Suggest } from "./Suggest";
 import { fetchData } from "./fetchData";
 
 export default {
-    title: "Controls|Suggest",
+    title: "Suggest",
     decorators: [withKnobs],
     parameters: {
         docs: {

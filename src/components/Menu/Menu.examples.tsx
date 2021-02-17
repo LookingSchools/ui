@@ -16,7 +16,7 @@ const items = [
 ];
 
 export default {
-    title: "Controls|Menu",
+    title: "Menu",
     decorators: [withKnobs],
     parameters: {
         docs: {

@@ -6,7 +6,7 @@ import { Device } from "../_internal_/Device/Device";
 import { Slider } from "./Slider.bundle";
 
 export default {
-    title: "Controls|Slider",
+    title: "Slider",
     decorators: [withKnobs],
     parameters: {
         docs: {

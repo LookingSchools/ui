@@ -7,7 +7,7 @@ import * as keyset from "./Cookie.i18n";
 import { Cookie } from "./Cookie.bundle";
 
 export default {
-    title: "Controls|Cookie",
+    title: "Cookie",
     decorators: [withKnobs],
     parameters: {
         docs: {

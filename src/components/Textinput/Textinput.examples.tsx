@@ -5,7 +5,7 @@ import { Textinput } from "./Textinput.bundle";
 import { Icon } from "../Icon/Icon.bundle";
 
 export default {
-    title: "Controls|Textinput",
+    title: "Textinput",
     decorators: [withKnobs],
     parameters: {
         docs: {

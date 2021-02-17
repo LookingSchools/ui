@@ -3,7 +3,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { Rating } from "./Rating.bundle";
 
 export default {
-    title: "Controls|Rating",
+    title: "Rating",
     decorators: [withKnobs],
     parameters: {
         docs: {

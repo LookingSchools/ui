@@ -4,7 +4,7 @@ import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 import { Spin } from "./Spin.bundle";
 
 export default {
-    title: "Controls|Spin",
+    title: "Spin",
     decorators: [withKnobs],
     parameters: {
         docs: {

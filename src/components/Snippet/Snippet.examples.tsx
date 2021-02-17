@@ -21,7 +21,7 @@ const Container = ({ width, children }: { width: number; children: ReactChild })
 );
 
 export default {
-    title: "Controls|Snippet",
+    title: "Snippet",
     decorators: [
         withKnobs,
         (story: () => {}) => <div style={{ margin: "20px", display: "flex", flexWrap: "wrap" }}>{story()}</div>,

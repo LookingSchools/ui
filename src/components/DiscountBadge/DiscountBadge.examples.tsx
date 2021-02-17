@@ -4,7 +4,7 @@ import * as stubData from "./datastub";
 import { DiscountBadge, IDiscountBadgeProps } from "./DiscountBadge.bundle";
 
 export default {
-    title: "Controls|DiscountBadge",
+    title: "DiscountBadge",
     decorators: [withKnobs],
     parameters: {
         docs: {

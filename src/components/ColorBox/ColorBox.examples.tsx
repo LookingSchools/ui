@@ -4,7 +4,7 @@ import { withKnobs, select } from "@storybook/addon-knobs";
 import { ColorBox } from "./ColorBox.bundle";
 
 export default {
-    title: "Controls|ColorBox",
+    title: "ColorBox",
     decorators: [withKnobs],
     parameters: {
         docs: {
