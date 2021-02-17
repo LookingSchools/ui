@@ -2,6 +2,10 @@ src/
 packages/
 .config/
 .storybook/
+.stylelintrc
+.gitignore
+.git
+.DS_Store
 stories/
 dist/
 @types/
@@ -9,5 +13,8 @@ babel.config.js
 tsconfig.prod.json
 tsconfig.json
 postcss.config.js
-.stylelintrc
-.gitignore
+node_modules/
+package-lock.json
+._*
+npm-debug.log
+.npmrc
