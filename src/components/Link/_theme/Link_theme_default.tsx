@@ -1,14 +1,14 @@
-import React from "react";
-import { withBemMod } from "@bem-react/core";
+import React from 'react';
+import { withBemMod } from '@bem-react/core';
 
-import { cnLink } from "../Link";
-import "./Link_theme_default.scss";
+import { cnLink } from '../Link';
+import './Link_theme_default.scss';
 
 export interface ILinkThemeDefaultProps {
-  /**
-   * Стилевое оформление ссылки
-   */
-  theme?: "default";
+    /**
+     * Стилевое оформление ссылки
+     */
+    theme?: 'default';
 }
 
 /**
@@ -16,7 +16,7 @@ export interface ILinkThemeDefaultProps {
  * @param {ILinkThemeDefaultProps} props
  */
 export const withThemeDefault = withBemMod<ILinkThemeDefaultProps>(
-  cnLink(),
-  { theme: "default" },
-  Link => ({ theme, ...props }) => <Link {...props} />
+    cnLink(),
+    { theme: 'default' },
+    Link => ({ theme, ...props }) => <Link {...props} />
 );

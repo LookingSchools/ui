@@ -1,230 +1,180 @@
-import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
-import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
-import { withDocs } from "@storybook-addons/docs";
+import React, { useState } from 'react';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
+import { withDocs } from '@storybook-addons/docs';
 
-import { Textinput } from "./Textinput.bundle";
-import { Icon } from "../Icon/Icon.bundle";
-storiesOf("Controls|Textinput", module)
-  .addDecorator(withKnobs)
-  .addDecorator(
-    withDocs({
-      readme: {
-        content: require("./Textinput.md").default
-      }
-    })
-  )
-  .add("playground", () => {
-    const [value, setValue] = useState("");
-    const theme = select("theme", ["default", "search"], "default") as any;
-    const size = select("size", ["l", "m", "s"], "m") as any;
-    const pin = select(
-      "pin",
-      [
-        "",
-        "brick-round",
-        "clear-clear",
-        "clear-round",
-        "round-brick",
-        "round-clear",
-        "round-round"
-      ],
-      ""
-    ) as any;
+import { Textinput } from './Textinput.bundle';
+import { Icon } from '../Icon/Icon.bundle';
+storiesOf('Controls|Textinput', module)
+    .addDecorator(withKnobs)
+    .addDecorator(
+        withDocs({
+            readme: {
+                content: require('./Textinput.md').default,
+            },
+        })
+    )
+    .add('playground', () => {
+        const [value, setValue] = useState('');
+        const theme = select('theme', ['default', 'search'], 'default') as any;
+        const size = select('size', ['l', 'm', 's'], 'm') as any;
+        const pin = select(
+            'pin',
+            ['', 'brick-round', 'clear-clear', 'clear-round', 'round-brick', 'round-clear', 'round-round'],
+            ''
+        ) as any;
 
-    const type = select("type", ["text", "password", "number"], "text");
-    const hasClear = boolean("hasClear", false);
-    const disabled = boolean("disabled", false);
-    const state = select("state", ["error", ""], "") as any;
-    const hint = text("hint", "");
+        const type = select('type', ['text', 'password', 'number'], 'text');
+        const hasClear = boolean('hasClear', false);
+        const disabled = boolean('disabled', false);
+        const state = select('state', ['error', ''], '') as any;
+        const hint = text('hint', '');
 
-    return (
-      <div>
-        <Textinput
-          disabled={disabled}
-          theme={theme}
-          size={size}
-          pin={pin}
-          hasClear={hasClear}
-          placeholder="Placeholder"
-          value={value}
-          type={type}
-          onChange={event => setValue(event.target.value)}
-          onClearClick={() => setValue("")}
-          state={state}
-          hint={hint}
-        />
-      </div>
-    );
-  });
+        return (
+            <div>
+                <Textinput
+                    disabled={disabled}
+                    theme={theme}
+                    size={size}
+                    pin={pin}
+                    hasClear={hasClear}
+                    placeholder="Placeholder"
+                    value={value}
+                    type={type}
+                    onChange={event => setValue(event.target.value)}
+                    onClearClick={() => setValue('')}
+                    state={state}
+                    hint={hint}
+                />
+            </div>
+        );
+    });
 
-storiesOf("Controls|Textinput/", module)
-  .addDecorator(
-    withDocs({
-      readme: {
-        content: require("./Textinput.md").default
-      }
-    })
-  )
-  .add("_baseline", () => (
-    <div style={{ display: "inline-block", width: 330 }}>
-      <Textinput
-        baseline
-        size="m"
-        theme="default"
-        defaultValue="Hello"
-        style={{ margin: 4, width: 150 }}
-      />
-      <Textinput
-        baseline
-        size="s"
-        theme="default"
-        defaultValue="World"
-        style={{ margin: 4, width: 150 }}
-      />
-    </div>
-  ))
-  .add("_hasClear", () => {
-    const [value1, setValue1] = useState("");
-    const [value2, setValue2] = useState("");
-
-    return (
-      <>
-        <div style={{ padding: 4 }}>
-          <Textinput
-            hasClear
-            size="m"
-            theme="default"
-            value={value1}
-            onChange={event => setValue1(event.target.value)}
-            onClearClick={() => setValue1("")}
-          />
+storiesOf('Controls|Textinput/', module)
+    .addDecorator(
+        withDocs({
+            readme: {
+                content: require('./Textinput.md').default,
+            },
+        })
+    )
+    .add('_baseline', () => (
+        <div style={{ display: 'inline-block', width: 330 }}>
+            <Textinput baseline size="m" theme="default" defaultValue="Hello" style={{ margin: 4, width: 150 }} />
+            <Textinput baseline size="s" theme="default" defaultValue="World" style={{ margin: 4, width: 150 }} />
         </div>
-        <div style={{ padding: 4 }}>
-          <Textinput
-            hasClear
-            size="m"
-            theme="default"
-            value={value2}
-            onChange={event => setValue2(event.target.value)}
-            onClearClick={() => setValue2("")}
-          />
-        </div>
-      </>
-    );
-  })
-  .add("_pin", () => {
-    const rPins = [
-      "round-round",
-      "round-clear",
-      "clear-round",
-      "round-brick",
-      "brick-round"
-    ];
-    return (
-      <>
-        <p>Поля со скругленными уголками</p>
-        {rPins.map(pin => (
-          <Textinput
-            key={pin}
-            size="m"
-            theme="default"
-            pin={pin}
-            value={`pin=${pin}`}
-          />
-        ))}
-        <p>Поле без боковых границ</p>
-        <Textinput
-          size="m"
-          theme="default"
-          pin="clear-clear"
-          value="pin=clear-clear"
-        />
-      </>
-    );
-  })
-  .add("_size", () => (
-    <>
-    <div style={{ padding: 4 }}>
-        <Textinput size="l" theme="default" defaultValue="size l" />
-      </div>
-      <div style={{ padding: 4 }}>
-        <Textinput size="m" theme="default" defaultValue="size m" />
-      </div>
-      <div style={{ padding: 4 }}>
-        <Textinput size="s" theme="default" defaultValue="size s" />
-      </div>
-    </>
-  ))
-  .add("_type", () => (
-    <>
-      <div style={{ padding: 4 }}>
-        <Textinput size="m" theme="default" type="number" defaultValue="200" />
-      </div>
-      <div style={{ padding: 4 }}>
-        <Textinput
-          size="m"
-          theme="default"
-          type="password"
-          defaultValue="secret"
-        />
-      </div>
-    </>
-  ))
-  .add("_theme", () => Theme())
-  .add("_disabled", () => Disabled())
-  .add("state", () => State());
+    ))
+    .add('_hasClear', () => {
+        const [value1, setValue1] = useState('');
+        const [value2, setValue2] = useState('');
+
+        return (
+            <>
+                <div style={{ padding: 4 }}>
+                    <Textinput
+                        hasClear
+                        size="m"
+                        theme="default"
+                        value={value1}
+                        onChange={event => setValue1(event.target.value)}
+                        onClearClick={() => setValue1('')}
+                    />
+                </div>
+                <div style={{ padding: 4 }}>
+                    <Textinput
+                        hasClear
+                        size="m"
+                        theme="default"
+                        value={value2}
+                        onChange={event => setValue2(event.target.value)}
+                        onClearClick={() => setValue2('')}
+                    />
+                </div>
+            </>
+        );
+    })
+    .add('_pin', () => {
+        const rPins = ['round-round', 'round-clear', 'clear-round', 'round-brick', 'brick-round'];
+        return (
+            <>
+                <p>Поля со скругленными уголками</p>
+                {rPins.map(pin => (
+                    <Textinput key={pin} size="m" theme="default" pin={pin} value={`pin=${pin}`} />
+                ))}
+                <p>Поле без боковых границ</p>
+                <Textinput size="m" theme="default" pin="clear-clear" value="pin=clear-clear" />
+            </>
+        );
+    })
+    .add('_size', () => (
+        <>
+            <div style={{ padding: 4 }}>
+                <Textinput size="l" theme="default" defaultValue="size l" />
+            </div>
+            <div style={{ padding: 4 }}>
+                <Textinput size="m" theme="default" defaultValue="size m" />
+            </div>
+            <div style={{ padding: 4 }}>
+                <Textinput size="s" theme="default" defaultValue="size s" />
+            </div>
+        </>
+    ))
+    .add('_type', () => (
+        <>
+            <div style={{ padding: 4 }}>
+                <Textinput size="m" theme="default" type="number" defaultValue="200" />
+            </div>
+            <div style={{ padding: 4 }}>
+                <Textinput size="m" theme="default" type="password" defaultValue="secret" />
+            </div>
+        </>
+    ))
+    .add('_theme', () => Theme())
+    .add('_disabled', () => Disabled())
+    .add('state', () => State());
 
 export const Disabled = () => (
-  <>
-    <Textinput size="m" theme="default" disabled defaultValue="theme default" />
-  </>
+    <>
+        <Textinput size="m" theme="default" disabled defaultValue="theme default" />
+    </>
 );
 
 export const Theme = () => {
-  const [value1, setValue1] = useState("");
-  const [value2, setValue2] = useState("");
+    const [value1, setValue1] = useState('');
+    const [value2, setValue2] = useState('');
 
- return (
-  <>
-    <div style={{ padding: 4 }}>
-      <h3>Theme Default</h3>
-      <Textinput 
-        size="m"
-        hasClear
-        theme="default"    
-        value={value1}
-        onChange={event => setValue1(event.target.value)}
-        onClearClick={() => setValue1("")}
-      />
-      </div>
-      <div style={{ padding: 4 }}>
-        <h3>Theme Search</h3>
-        <Textinput 
-          size="m" 
-          theme="search"
-          iconRight={(
-            <Icon glyph="search" size="s" />
-          )}
-          hasClear
-          placeholder="Найти школы и курсы"
-          value={value2}
-          onChange={event => setValue2(event.target.value)}
-          onClearClick={() => setValue2("")}
-          />
-      </div>
-    </>
-    )
+    return (
+        <>
+            <div style={{ padding: 4 }}>
+                <h3>Theme Default</h3>
+                <Textinput
+                    size="m"
+                    hasClear
+                    theme="default"
+                    value={value1}
+                    onChange={event => setValue1(event.target.value)}
+                    onClearClick={() => setValue1('')}
+                />
+            </div>
+            <div style={{ padding: 4 }}>
+                <h3>Theme Search</h3>
+                <Textinput
+                    size="m"
+                    theme="search"
+                    iconRight={<Icon glyph="search" size="s" />}
+                    hasClear
+                    placeholder="Найти школы и курсы"
+                    value={value2}
+                    onChange={event => setValue2(event.target.value)}
+                    onClearClick={() => setValue2('')}
+                />
+            </div>
+        </>
+    );
 };
 
 export const State = () => (
-  <>
-    <Textinput
-      state="error"
-      hint="Error message"
-      size="m"
-      theme="default"
-      defaultValue="theme default"
-    />
-  </>
+    <>
+        <Textinput state="error" hint="Error message" size="m" theme="default" defaultValue="theme default" />
+    </>
 );

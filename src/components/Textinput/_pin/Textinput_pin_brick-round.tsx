@@ -1,14 +1,14 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { ITextinputProps, cnTextinput } from "../Textinput";
-import "../_hasPin/Textinput_hasPin.scss";
-import "./Textinput_pin_brick-round.scss";
+import { ITextinputProps, cnTextinput } from '../Textinput';
+import '../_hasPin/Textinput_hasPin.scss';
+import './Textinput_pin_brick-round.scss';
 
 export interface ITextinputPinBrickRoundProps {
-  /**
-   * Форма текстового поля.
-   */
-  pin?: "brick-round";
+    /**
+     * Форма текстового поля.
+     */
+    pin?: 'brick-round';
 }
 
 /**
@@ -16,9 +16,6 @@ export interface ITextinputPinBrickRoundProps {
  * Используется для группировки текстового поля с другими блоками, например, с кнопками.
  * @param {ITextinputPinBrickRoundProps} props
  */
-export const withPinBrickRound = withBemMod<
-  ITextinputPinBrickRoundProps,
-  ITextinputProps
->(cnTextinput(), {
-  pin: "brick-round"
+export const withPinBrickRound = withBemMod<ITextinputPinBrickRoundProps, ITextinputProps>(cnTextinput(), {
+    pin: 'brick-round',
 });

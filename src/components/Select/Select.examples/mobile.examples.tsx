@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { withKnobs, select, boolean, object } from '@storybook/addon-knobs';
 
 import { Select } from '../Select.bundle/mobile';
-import { EXAMPLE_MOBILE_TOKEN,  parameters } from './examples-config';
+import { EXAMPLE_MOBILE_TOKEN, parameters } from './examples-config';
 
 export default {
     title: EXAMPLE_MOBILE_TOKEN,
@@ -30,13 +30,13 @@ export const Playground = () => {
     const options = object('options', rawOptions);
 
     return (
-        <div ref={scopeRef} style={{ position: 'relative' }} >
+        <div ref={scopeRef} style={{ position: 'relative' }}>
             <Select
                 disabled={disabled}
                 theme={theme}
                 size={size}
                 value={value}
-                onChange={(event) => setValue(event.target.value)}
+                onChange={event => setValue(event.target.value)}
                 options={options}
             />
         </div>

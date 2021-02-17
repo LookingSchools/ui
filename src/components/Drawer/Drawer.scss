@@ -1,6 +1,6 @@
 /* Усиливаем селектор, т.к. Drawer является миксом для Popup
    из-за этого стили могут приезжать не в правильном порядке */
-   .Drawer[class] {
+.Drawer[class] {
     position: fixed;
     top: 0;
     left: 0;

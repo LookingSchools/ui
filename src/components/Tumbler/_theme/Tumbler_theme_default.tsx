@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnTumbler } from "../Tumbler";
-import "./Tumbler_theme_default.scss";
+import { cnTumbler } from '../Tumbler';
+import './Tumbler_theme_default.scss';
 
 export type TumblerThemeDefaultProps = {
-  /**
-   * Внешний вид переключателя
-   */
-  theme?: "default";
+    /**
+     * Внешний вид переключателя
+     */
+    theme?: 'default';
 };
 
 /**
@@ -15,7 +15,4 @@ export type TumblerThemeDefaultProps = {
  *
  * @param {TumblerThemeDefaultProps} props
  */
-export const withThemeDefault = withBemMod<TumblerThemeDefaultProps>(
-  cnTumbler(),
-  { theme: "default" }
-);
+export const withThemeDefault = withBemMod<TumblerThemeDefaultProps>(cnTumbler(), { theme: 'default' });

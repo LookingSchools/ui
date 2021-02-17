@@ -1,17 +1,17 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnPopup } from "../Popup";
-import "./Popup_nonvisual.scss";
+import { cnPopup } from '../Popup';
+import './Popup_nonvisual.scss';
 
 export interface IPopupNonvisualProps {
-  /**
-   * Убирает стили попапа влияющие на визуальный стиль
-   */
-  nonvisual?: boolean;
+    /**
+     * Убирает стили попапа влияющие на визуальный стиль
+     */
+    nonvisual?: boolean;
 }
 
 /**
-* Модификатор который убирает стили попапа влияющие на визуальный стиль.
-* @param {IPopupNonvisualProps} props
-*/
+ * Модификатор который убирает стили попапа влияющие на визуальный стиль.
+ * @param {IPopupNonvisualProps} props
+ */
 export const withNonvisual = withBemMod<IPopupNonvisualProps>(cnPopup(), { nonvisual: true });

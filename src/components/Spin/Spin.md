@@ -6,13 +6,13 @@
 
 ```js
 // src/App.ts
-import React from "react"
-import { compose } from "@bem-react/core"
+import React from 'react'
+import { compose } from '@bem-react/core'
 import {
   Spin as SpinBase,
   withSizeM,
   withThemePrimary,
-} from "@lookingschools/ui/Spin"
+} from '@lookingschools/ui/Spin'
 
 // Композиция из различных модификаторов
 const Spin = compose(withSizeM, withThemePrimary)(SpinBase)
@@ -37,6 +37,7 @@ const App = () => {
 {{%story::desktop:lego-components-spin-desktop--position%}}
 
 ## Свойства
+
 | Свойство   | Тип                         | Описание                                  |
 | ---------- | --------------------------- | ----------------------------------------- |
 | innerRef?  | `RefObject<HTMLDivElement>` | Ссылка на корневой DOM-элемент компонента |

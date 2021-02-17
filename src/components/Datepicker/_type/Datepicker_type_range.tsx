@@ -1,13 +1,13 @@
 import React, { useCallback, useState, useMemo, useEffect, createRef } from 'react';
 import { withBemMod, compose, composeU, ExtractProps } from '@bem-react/core';
 import { Button as ButtonBase } from '../../Button/Button';
-import { withThemeDefault} from '../../Button/_theme/Button_theme_default';
-import { withThemePrimary} from '../../Button/_theme/Button_theme_primary';
+import { withThemeDefault } from '../../Button/_theme/Button_theme_default';
+import { withThemePrimary } from '../../Button/_theme/Button_theme_primary';
 import { withSizeM as ButtonSizeM } from '../../Button/_size/Button_size_m';
 
 import { Textinput as TextinputBase } from '../../Textinput/Textinput';
 import { withThemeDefault as TextinputWithThemeDefault } from '../../Textinput/_theme/Textinput_theme_default';
-import { withSizeM } from '../../Textinput/_size/Textinput_size_m'
+import { withSizeM } from '../../Textinput/_size/Textinput_size_m';
 
 import { cnDatepicker, DatepickerProps, DatepickerSelectedDate } from '../Datepicker';
 
@@ -89,7 +89,7 @@ export const withTypeRange = withBemMod<DatepickerTypeRangeProps, DatepickerProp
             } = props;
             const [value, setValue] = useState<DatepickerSelectedDate[]>(selected || []);
             const [currentSelecting, setCurrentSelecting] = useState<TCurrentDateSelecting>(
-                TCurrentDateSelecting.First,
+                TCurrentDateSelecting.First
             );
 
             const startInputRef = createRef<HTMLInputElement>();
@@ -100,9 +100,9 @@ export const withTypeRange = withBemMod<DatepickerTypeRangeProps, DatepickerProp
             }, [borders]);
 
             useEffect(() => {
-                currentSelecting === TCurrentDateSelecting.First ?
-                    (startInputRef.current && startInputRef.current.focus()) :
-                    (endInputRef.current && endInputRef.current.focus());
+                currentSelecting === TCurrentDateSelecting.First
+                    ? startInputRef.current && startInputRef.current.focus()
+                    : endInputRef.current && endInputRef.current.focus();
             }, [startInputRef, endInputRef, currentSelecting]);
 
             useEffect(() => {
@@ -115,9 +115,9 @@ export const withTypeRange = withBemMod<DatepickerTypeRangeProps, DatepickerProp
                     const clickValue = new Date(e.currentTarget.dataset.date);
 
                     const newValue =
-                        currentSelecting === TCurrentDateSelecting.First ?
-                            [clickValue, value && value[1]] :
-                            [value && value[0], clickValue];
+                        currentSelecting === TCurrentDateSelecting.First
+                            ? [clickValue, value && value[1]]
+                            : [value && value[0], clickValue];
 
                     if (isShouldReplaceValues(newValue)) {
                         setValue([newValue[1], newValue[0]]);
@@ -125,13 +125,13 @@ export const withTypeRange = withBemMod<DatepickerTypeRangeProps, DatepickerProp
                         setValue(newValue);
 
                         setCurrentSelecting(
-                            currentSelecting === TCurrentDateSelecting.First ?
-                                TCurrentDateSelecting.Second :
-                                TCurrentDateSelecting.First,
+                            currentSelecting === TCurrentDateSelecting.First
+                                ? TCurrentDateSelecting.Second
+                                : TCurrentDateSelecting.First
                         );
                     }
                 },
-                [onItemClick, value, currentSelecting, setCurrentSelecting],
+                [onItemClick, value, currentSelecting, setCurrentSelecting]
             );
 
             const submitHandler = useCallback(() => {
@@ -201,5 +201,5 @@ export const withTypeRange = withBemMod<DatepickerTypeRangeProps, DatepickerProp
                 </WrappedComponent>
             );
         };
-    },
+    }
 );

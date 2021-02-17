@@ -1,35 +1,31 @@
-import React, { ReactNode, FC } from "react";
+import React, { ReactNode, FC } from 'react';
 
-import { cnTabsPanes } from "../TabsPanes";
+import { cnTabsPanes } from '../TabsPanes';
 
 export interface ITabsPanesPaneProps {
-  /**
-   * Содержимое вкладки
-   */
-  content?: ReactNode;
+    /**
+     * Содержимое вкладки
+     */
+    content?: ReactNode;
 
-  /**
-   * Неактивное состояние вкладки
-   */
-  disabled?: boolean;
+    /**
+     * Неактивное состояние вкладки
+     */
+    disabled?: boolean;
 
-  /**
-   * Дополнительный класс
-   */
-  className?: string;
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 
-  /**
-   * Уникальный id компонента
-   */
-  id?: string;
+    /**
+     * Уникальный id компонента
+     */
+    id?: string;
 }
 
-export const TabsPanesPane: FC<ITabsPanesPaneProps> = ({
-  content,
-  className,
-  ...props
-}) => (
-  <div {...props} role="tabpanel" className={cnTabsPanes("Pane", [className])}>
-    {content}
-  </div>
+export const TabsPanesPane: FC<ITabsPanesPaneProps> = ({ content, className, ...props }) => (
+    <div {...props} role="tabpanel" className={cnTabsPanes('Pane', [className])}>
+        {content}
+    </div>
 );

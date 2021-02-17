@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnButton } from "../Button";
-import "./Button_pin_circle-brick.scss";
+import { cnButton } from '../Button';
+import './Button_pin_circle-brick.scss';
 
 export interface IButtonPinCircleBrickProps {
-  /**
-   * Форма кнопки
-   */
-  pin?: "circle-brick";
+    /**
+     * Форма кнопки
+     */
+    pin?: 'circle-brick';
 }
 
 /**
@@ -15,7 +15,4 @@ export interface IButtonPinCircleBrickProps {
  * Используется для группировки кнопок поля с другими компонентами.
  * @param {IButtonPinCircleBrickProps} props
  */
-export const withPinCircleBrick = withBemMod<IButtonPinCircleBrickProps>(
-  cnButton(),
-  { pin: "circle-brick" }
-);
+export const withPinCircleBrick = withBemMod<IButtonPinCircleBrickProps>(cnButton(), { pin: 'circle-brick' });

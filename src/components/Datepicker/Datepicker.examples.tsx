@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { storiesOf } from "@storybook/react";
+import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withDocs } from "@storybook-addons/docs";
+import { withDocs } from '@storybook-addons/docs';
 import { compose, composeU } from '@bem-react/core';
 
 import { Button } from '../Button/Button.bundle';
@@ -12,10 +12,7 @@ import { withContainerPopup } from './_container/Datepicker_container_popup';
 import { withTypeSingle } from './_type/Datepicker_type_single';
 import { withTypeRange } from './_type/Datepicker_type_range';
 
-const Datepicker = compose(
-    composeU(withTypeSingle, withTypeRange),
-    withContainerPopup,
-)(DatepickerBase);
+const Datepicker = compose(composeU(withTypeSingle, withTypeRange), withContainerPopup)(DatepickerBase);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DatePicker = (props: any) => {
@@ -52,22 +49,20 @@ const DatePicker = (props: any) => {
     );
 };
 
-storiesOf("Controls|Datepicker/", module)
-  .addDecorator(withKnobs)
-  .addDecorator(
-    withDocs({
-      readme: {
-        content: require("./Datepicker.md").default
-      }
-    })
-  )
-  .add("playground", () => {
-    return (
-        <div style={{ display: 'grid', gap: '10px' }}>
-            <DatePicker type="single" container="popup" />
-            <DatePicker type="range" container="popup" />
-        </div>
-    );
-  });
-
-
+storiesOf('Controls|Datepicker/', module)
+    .addDecorator(withKnobs)
+    .addDecorator(
+        withDocs({
+            readme: {
+                content: require('./Datepicker.md').default,
+            },
+        })
+    )
+    .add('playground', () => {
+        return (
+            <div style={{ display: 'grid', gap: '10px' }}>
+                <DatePicker type="single" container="popup" />
+                <DatePicker type="range" container="popup" />
+            </div>
+        );
+    });

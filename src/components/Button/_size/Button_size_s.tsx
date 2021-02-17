@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnButton } from "../Button";
-import "./Button_size_s.scss";
+import { cnButton } from '../Button';
+import './Button_size_s.scss';
 
 export interface IButtonSizeSProps {
-  /**
-   * Размер кнопки
-   */
-  size?: "s";
+    /**
+     * Размер кнопки
+     */
+    size?: 's';
 }
 
 /**
@@ -15,5 +15,5 @@ export interface IButtonSizeSProps {
  * @param {IButtonSizeSProps} props
  */
 export const withSizeS = withBemMod<IButtonSizeSProps>(cnButton(), {
-  size: "s"
+    size: 's',
 });

@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnTumbler } from "../Tumbler";
-import "./Tumbler_size_l.scss";
+import { cnTumbler } from '../Tumbler';
+import './Tumbler_size_l.scss';
 
 export type TumblerSizeLProps = {
-  /**
-   * Размер переключателя
-   */
-  size?: "l";
+    /**
+     * Размер переключателя
+     */
+    size?: 'l';
 };
 
 /**
@@ -16,5 +16,5 @@ export type TumblerSizeLProps = {
  * @param {TumblerSizeLProps} props
  */
 export const withSizeL = withBemMod<TumblerSizeLProps>(cnTumbler(), {
-  size: "l"
+    size: 'l',
 });

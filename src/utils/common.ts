@@ -8,10 +8,10 @@ export function debounce(fn: Function, timeout: number, invokeAsap?: boolean, ct
 
         clearTimeout(timer);
 
-        timer = setTimeout(function() {
+        timer = (setTimeout(function() {
             invokeAsap || fn.apply(ctx, args);
             timer = undefined;
-        }, timeout) as unknown as number; // TS думает что setTimeout вернёт NodeJS.Timer
+        }, timeout) as unknown) as number; // TS думает что setTimeout вернёт NodeJS.Timer
     };
 
     debounce.stop = function() {
@@ -20,4 +20,4 @@ export function debounce(fn: Function, timeout: number, invokeAsap?: boolean, ct
     };
 
     return debounce;
-};
+}

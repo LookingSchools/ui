@@ -21,7 +21,7 @@ describe('render-override', () => {
                     renderComponent={({ children }, Component) => <Component>{children} overridden</Component>}
                 >
                     original
-                </HookUnitCase>,
+                </HookUnitCase>
             );
             expect(getByTestId('original-1')).toBeInTheDocument();
             expect(getByText('original overridden')).toBeInTheDocument();
@@ -29,7 +29,7 @@ describe('render-override', () => {
 
         test('should keep mount overriden component after rerender', () => {
             const { rerender, getByTestId } = render(
-                <HookMapUnitCase renderComponent={(props, Input) => <Input {...props} />} />,
+                <HookMapUnitCase renderComponent={(props, Input) => <Input {...props} />} />
             );
             getByTestId('original-input-1').focus();
             expect(getByTestId('original-input-1')).toHaveFocus();
@@ -39,7 +39,7 @@ describe('render-override', () => {
 
         test('should update all overriden components', () => {
             const { rerender, getByTestId } = render(
-                <HookMapUnitCase renderComponent={(props, Input) => <Input {...props} />} />,
+                <HookMapUnitCase renderComponent={(props, Input) => <Input {...props} />} />
             );
             rerender(<HookMapUnitCase renderComponent={(props, Input) => <Input value="next" {...props} />} />);
             expect(getByTestId('original-input-1')).toHaveValue('next');
@@ -57,7 +57,7 @@ describe('render-override', () => {
 
         test('should override render with original component', () => {
             const { rerender, getByTestId, getByText } = render(
-                <SingleProviderUnitCase>original</SingleProviderUnitCase>,
+                <SingleProviderUnitCase>original</SingleProviderUnitCase>
             );
             expect(getByTestId('original-1')).toBeInTheDocument();
             rerender(
@@ -65,7 +65,7 @@ describe('render-override', () => {
                     renderComponent={({ children }, Component) => <Component>{children} overridden</Component>}
                 >
                     original
-                </SingleProviderUnitCase>,
+                </SingleProviderUnitCase>
             );
             expect(getByTestId('original-1')).toBeInTheDocument();
             expect(getByText('original overridden')).toBeInTheDocument();
@@ -75,7 +75,7 @@ describe('render-override', () => {
     describe('MultiRenderOverrideProvider', () => {
         test('should override render with original component', () => {
             const { rerender, getByTestId, getByText } = render(
-                <MultiProviderUnitCase>original</MultiProviderUnitCase>,
+                <MultiProviderUnitCase>original</MultiProviderUnitCase>
             );
             expect(getByTestId('original-1')).toBeInTheDocument();
             expect(getByTestId('original-2')).toBeInTheDocument();
@@ -85,7 +85,7 @@ describe('render-override', () => {
                     renderComponent2={({ children }, Component) => <Component>{children} overridden 2</Component>}
                 >
                     original
-                </MultiProviderUnitCase>,
+                </MultiProviderUnitCase>
             );
             expect(getByTestId('original-1')).toBeInTheDocument();
             expect(getByTestId('original-2')).toBeInTheDocument();

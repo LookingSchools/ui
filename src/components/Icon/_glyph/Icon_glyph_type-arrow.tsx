@@ -19,7 +19,7 @@ export interface IWithGlyphTypeArrowProps {
 export const withGlyphTypeArrow = withBemMod<IWithGlyphTypeArrowProps, IIconProps>(
     cnIcon(),
     { glyph: 'type-arrow' },
-    (Icon) => ({ className, ...props }) => (
+    Icon => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             {props.size === 'xs' ? (
                 <svg focusable="false" width="11" height="7" xmlns="http://www.w3.org/2000/svg">
@@ -31,5 +31,5 @@ export const withGlyphTypeArrow = withBemMod<IWithGlyphTypeArrowProps, IIconProp
                 </svg>
             )}
         </Icon>
-    ),
+    )
 );

@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnButton } from "../Button";
-import "./Button_pin_circle-clear.scss";
+import { cnButton } from '../Button';
+import './Button_pin_circle-clear.scss';
 
 export interface IButtonPinCircleClearProps {
-  /**
-   * Форма кнопки
-   */
-  pin?: "circle-clear";
+    /**
+     * Форма кнопки
+     */
+    pin?: 'circle-clear';
 }
 
 /**
@@ -15,7 +15,4 @@ export interface IButtonPinCircleClearProps {
  * Используется для группировки кнопок поля с другими компонентами.
  * @param {IButtonPinCircleClearProps} props
  */
-export const withPinCircleClear = withBemMod<IButtonPinCircleClearProps>(
-  cnButton(),
-  { pin: "circle-clear" }
-);
+export const withPinCircleClear = withBemMod<IButtonPinCircleClearProps>(cnButton(), { pin: 'circle-clear' });

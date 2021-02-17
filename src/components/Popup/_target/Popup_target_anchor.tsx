@@ -134,7 +134,7 @@ export interface IPopupTargetAnchorProps {
 
 type DefaultPropKeys = keyof typeof defaultProps;
 type WithTargetAnchorProps = Defaultize<IPopupTargetAnchorProps & IPopupProps, DefaultPropKeys>;
-type WithTargetAnchorState = { direction: Direction; forwarded: {}, isAnchorVisible: boolean };
+type WithTargetAnchorState = { direction: Direction; forwarded: {}; isAnchorVisible: boolean };
 
 /**
  * Позиционирует попап относительно элемента, который указан в свойстве `anchor`.
@@ -143,7 +143,7 @@ type WithTargetAnchorState = { direction: Direction; forwarded: {}, isAnchorVisi
 export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>(
     cnPopup(),
     { target: 'anchor' },
-    (Popup) =>
+    Popup =>
         class WithTargetAnchor extends PureComponent<WithTargetAnchorProps, WithTargetAnchorState> {
             static readonly defaultProps = defaultProps;
 
@@ -172,12 +172,12 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
 
                 console.assert(
                     props.anchor !== undefined,
-                    'Для работы "withTargetAnchor" требуется наличие свойства "anchor".',
+                    'Для работы "withTargetAnchor" требуется наличие свойства "anchor".'
                 );
 
                 console.assert(
                     props.directions.length !== 0,
-                    'Для работы "withTargetAnchor" требуется наличие хотя бы одного направления для раскрытия.',
+                    'Для работы "withTargetAnchor" требуется наличие хотя бы одного направления для раскрытия.'
                 );
             }
 
@@ -256,20 +256,18 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
             }
 
             private subscribeToEvents = () => {
-                this.anchorScrollParents = listScrollParents(this.props.anchor && this.props.anchor.current || null);
-                this.anchorScrollParents
-                    .forEach((parent: HTMLElement | Window) => {
-                        parent.addEventListener('scroll', this.updateRefsPosition);
-                    });
+                this.anchorScrollParents = listScrollParents((this.props.anchor && this.props.anchor.current) || null);
+                this.anchorScrollParents.forEach((parent: HTMLElement | Window) => {
+                    parent.addEventListener('scroll', this.updateRefsPosition);
+                });
                 window.addEventListener('resize', this.updateRefsPosition);
                 document.addEventListener('documentchange', this.updateRefsPosition);
             };
 
             private unsubscribeFromEvents = () => {
-                this.anchorScrollParents
-                    .forEach((parent: HTMLElement | Window) => {
-                        parent.removeEventListener('scroll', this.updateRefsPosition);
-                    });
+                this.anchorScrollParents.forEach((parent: HTMLElement | Window) => {
+                    parent.removeEventListener('scroll', this.updateRefsPosition);
+                });
                 window.removeEventListener('resize', this.updateRefsPosition);
                 document.removeEventListener('documentchange', this.updateRefsPosition);
             };
@@ -334,7 +332,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                     const nextViewportFactor = this.getViewportFactor(
                         popupPosition,
                         viewportDimensions,
-                        popupDimensions,
+                        popupDimensions
                     );
 
                     if (nextViewportFactor > viewportFactor || this.state.direction === nextDirection) {
@@ -475,7 +473,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
             private getPopupPosition(
                 direction: string,
                 anchorDimensions: AnchorDimensions,
-                popupDimensions: PopupDimensions,
+                popupDimensions: PopupDimensions
             ) {
                 const position = { left: 0, top: 0 };
                 const offsets = this.getOffsets();
@@ -521,7 +519,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
             private getTailPosition(
                 direction: string,
                 anchorDimensions: AnchorDimensions,
-                popupDimensions: PopupDimensions,
+                popupDimensions: PopupDimensions
             ) {
                 const position = { left: 0, top: 0 };
                 const { size, withChildren } = this.getTailDimensions();
@@ -567,7 +565,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                         tailSize +
                         offsets.tail;
                 } else if (checkSecondaryDirection(direction, 'center')) {
-                    const maybeHalfSize = withChildren ? (tailSize / 2) : tailSize;
+                    const maybeHalfSize = withChildren ? tailSize / 2 : tailSize;
                     if (checkMainDirection(direction, 'top', 'bottom')) {
                         position.left = Math.ceil(popupDimensions.popupWidth / 2) - maybeHalfSize + offsets.tail;
                     } else {
@@ -599,7 +597,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                 const viewport = this.getViewportDimensions();
                 const offsets = this.getOffsets();
 
-                return this.props.directions.map((direction) => {
+                return this.props.directions.map(direction => {
                     const res = { direction, width: 0, height: 0, left: 0, top: 0 };
 
                     if (checkMainDirection(direction, 'bottom')) {
@@ -657,19 +655,19 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
             private getViewportFactor(
                 popupPosition: Position,
                 viewportDimensions: ViewportDimensions,
-                popupDimensions: PopupDimensions,
+                popupDimensions: PopupDimensions
             ) {
                 let viewportFactor = 0;
                 const offsets = this.getOffsets();
                 const intersectionLeft = Math.max(popupPosition.left, viewportDimensions.left + offsets.viewport);
                 const intersectionRight = Math.min(
                     popupPosition.left + popupDimensions.width,
-                    viewportDimensions.right - offsets.viewport,
+                    viewportDimensions.right - offsets.viewport
                 );
                 const intersectionTop = Math.max(popupPosition.top, viewportDimensions.top + offsets.viewport);
                 const intersectionBottom = Math.min(
                     popupPosition.top + popupDimensions.height,
-                    viewportDimensions.bottom - offsets.viewport,
+                    viewportDimensions.bottom - offsets.viewport
                 );
 
                 if (intersectionLeft < intersectionRight && intersectionTop < intersectionBottom) {
@@ -702,9 +700,11 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                     const anchorTopOffset = Math.floor(anchorOffsets.top);
                     const anchorHeight = Math.floor(anchorOffsets.height);
 
-                    const vertBorder = Math.floor(checkMainDirection(this.state.direction, 'top')
-                        ? anchorTopOffset
-                        : anchorTopOffset + anchorHeight);
+                    const vertBorder = Math.floor(
+                        checkMainDirection(this.state.direction, 'top')
+                            ? anchorTopOffset
+                            : anchorTopOffset + anchorHeight
+                    );
 
                     if (vertBorder < parentTopOffset || parentTopOffset + parentHeight < vertBorder) {
                         return false;
@@ -715,9 +715,11 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                     const anchorLeftOffset = Math.floor(anchorOffsets.left);
                     const anchorWidth = Math.floor(anchorOffsets.width);
 
-                    const horizBorder = Math.floor(checkMainDirection(this.state.direction, 'left')
-                        ? anchorLeftOffset
-                        : anchorLeftOffset + anchorWidth);
+                    const horizBorder = Math.floor(
+                        checkMainDirection(this.state.direction, 'left')
+                            ? anchorLeftOffset
+                            : anchorLeftOffset + anchorWidth
+                    );
 
                     if (!(horizBorder >= parentLeftOffset && parentLeftOffset + parentWidth >= horizBorder)) {
                         return false;
@@ -726,6 +728,5 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
 
                 return true;
             }
-        } as ComponentClass<IPopupTargetAnchorProps & IPopupProps>,
-
+        } as ComponentClass<IPopupTargetAnchorProps & IPopupProps>
 );

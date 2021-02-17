@@ -1,10 +1,4 @@
-import React, {
-    ReactNode,
-    RefObject,
-    PureComponent,
-    createRef,
-    CSSProperties
-} from 'react';
+import React, { ReactNode, RefObject, PureComponent, createRef, CSSProperties } from 'react';
 import { cn } from '@bem-react/classname';
 
 import { IS_TESTING } from '../../lib/env';
@@ -36,7 +30,7 @@ export type ItemSimple = {
     /**
      * Идентификатор компонента
      */
-    id?: string
+    id?: string;
 };
 
 export type ItemGroup = {
@@ -55,8 +49,7 @@ export type MixedItem = ItemSimple | ItemGroup;
 export type ChangeEvent<T> = React.ChangeEvent<T & { name?: string; value: any }>;
 export type ChangeEventHandler<T> = (event: ChangeEvent<T>) => void;
 
-const getFlattenItems = (items: MixedItem[]): ItemSimple[] =>
-    flatMap((item) => (item.items ? item.items : item), items);
+const getFlattenItems = (items: MixedItem[]): ItemSimple[] => flatMap(item => (item.items ? item.items : item), items);
 
 const isGroup = (value: any): value is ItemGroup => value.items !== undefined;
 
@@ -174,8 +167,6 @@ export class Menu extends PureComponent<IMenuProps> {
         this.unsubscribeFromEvents();
     }
 
-
-
     render() {
         const {
             className,
@@ -188,7 +179,7 @@ export class Menu extends PureComponent<IMenuProps> {
             innerRef,
             ...props
         } = this.props;
-    
+
         const getNextItemCount = createCounter();
         const getNextGroupCount = createCounter();
 
@@ -201,9 +192,7 @@ export class Menu extends PureComponent<IMenuProps> {
                 role={value !== undefined ? 'listbox' : undefined}
                 className={cnMenu(null, [className])}
             >
-                {items.map(
-                    this.mapChildren({ Item, Group }, { getNextItemCount, getNextGroupCount, disabled }),
-                )}
+                {items.map(this.mapChildren({ Item, Group }, { getNextItemCount, getNextGroupCount, disabled }))}
             </div>
         );
     }
@@ -213,15 +202,15 @@ export class Menu extends PureComponent<IMenuProps> {
     }
 
     private mapChildren = (
-        { Item, Group}: any,
-        { getNextItemCount, getNextGroupCount, disabled }: MapChildrenProps,
+        { Item, Group }: any,
+        { getNextItemCount, getNextGroupCount, disabled }: MapChildrenProps
     ) => (item: MixedItem) => {
         if (isGroup(item)) {
             const groupIndex = getNextGroupCount();
             return (
                 <Group title={item.title} key={`group-${groupIndex}`}>
                     {item.items.map(
-                        this.mapChildren({ Item, Group }, { getNextItemCount, getNextGroupCount, disabled }),
+                        this.mapChildren({ Item, Group }, { getNextItemCount, getNextGroupCount, disabled })
                     )}
                 </Group>
             );
@@ -320,7 +309,7 @@ export class Menu extends PureComponent<IMenuProps> {
         const items = getFlattenItems(this.props.items);
         const hoveredIndex = items.reduce(
             (prevIndex, item, index) => (prevIndex < 0 && values.indexOf(item.value) !== -1 ? index : prevIndex),
-            -1,
+            -1
         );
 
         this.scrollToItem(this.innerRef, this.itemsRef[hoveredIndex]);
@@ -390,7 +379,7 @@ export class Menu extends PureComponent<IMenuProps> {
                 let prevValues = [...value];
 
                 if (prevValues.indexOf(nextValue) !== -1) {
-                    prevValues = prevValues.filter((prevValue) => prevValue !== nextValue);
+                    prevValues = prevValues.filter(prevValue => prevValue !== nextValue);
                 } else {
                     prevValues.push(nextValue);
                 }

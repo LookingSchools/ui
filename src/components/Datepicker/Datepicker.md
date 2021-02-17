@@ -82,12 +82,12 @@ const App: React.FC = () => {
 
 ## Свойства
 
-| Свойство   | Тип      | Описание              |
-| ---------- | -------- | --------------------- |
-| borders? | `Date[]` | Границы выбора даты |
-| className? | `string` | Дополнительный класс у корневого DOM-элемента |
-| footer? | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | Футер |
-| header? | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | Заголовок |
-| onChange? | `(selected: Date \| Date[]) => void` | Обработчик изменения даты |
-| onClose? | `() => void` | Обработчик закрытия модального окна и отмены выбора |
-| selected? | `Date \| Date[]` | Выбранная дата/даты |
+| Свойство   | Тип                                                                                                                                                                                                                                                               | Описание                                            |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| borders?   | `Date[]`                                                                                                                                                                                                                                                          | Границы выбора даты                                 |
+| className? | `string`                                                                                                                                                                                                                                                          | Дополнительный класс у корневого DOM-элемента       |
+| footer?    | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | Футер                                               |
+| header?    | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | Заголовок                                           |
+| onChange?  | `(selected: Date \| Date[]) => void`                                                                                                                                                                                                                              | Обработчик изменения даты                           |
+| onClose?   | `() => void`                                                                                                                                                                                                                                                      | Обработчик закрытия модального окна и отмены выбора |
+| selected?  | `Date \| Date[]`                                                                                                                                                                                                                                                  | Выбранная дата/даты                                 |

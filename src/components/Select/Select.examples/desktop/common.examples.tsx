@@ -20,7 +20,6 @@ const options = [
     { value: 'g', content: 'Фазан' },
 ];
 
-
 const rawOptions = [
     { value: 1, content: 1 },
     { value: 2, content: 2 },
@@ -50,7 +49,7 @@ export const Playground = () => {
                 size={size}
                 value={value}
                 renderControl={renderControl}
-                onChange={(event) => setValue(event.target.value)}
+                onChange={event => setValue(event.target.value)}
                 options={options}
             />
         </div>
@@ -74,7 +73,7 @@ export const Width = () => {
                 theme="default"
                 width="max"
                 value={value1}
-                onChange={(event) => setValue1(event.target.value)}
+                onChange={event => setValue1(event.target.value)}
                 options={options}
             />
             <Select
@@ -82,7 +81,7 @@ export const Width = () => {
                 size="m"
                 theme="default"
                 value={value2}
-                onChange={(event) => setValue2(event.target.value)}
+                onChange={event => setValue2(event.target.value)}
                 options={options}
             />
         </div>
@@ -105,7 +104,7 @@ export const Size = () => {
                 size="m"
                 theme="default"
                 value={value1}
-                onChange={(event) => setValue1(event.target.value)}
+                onChange={event => setValue1(event.target.value)}
                 options={options}
             />{' '}
             <Select
@@ -113,7 +112,7 @@ export const Size = () => {
                 size="s"
                 theme="default"
                 value={value2}
-                onChange={(event) => setValue2(event.target.value)}
+                onChange={event => setValue2(event.target.value)}
                 options={options}
             />
         </div>
@@ -135,7 +134,7 @@ export const Theme = () => {
                 theme="default"
                 size="m"
                 value={value}
-                onChange={(event) => setValue(event.target.value)}
+                onChange={event => setValue(event.target.value)}
                 options={options}
             />
         </div>
@@ -157,7 +156,7 @@ export const Icon = () => {
                 theme="default"
                 size="m"
                 value={value}
-                onChange={(event) => setValue(event.target.value)}
+                onChange={event => setValue(event.target.value)}
                 options={options}
                 iconProps={{
                     glyph: 'type-arrow',

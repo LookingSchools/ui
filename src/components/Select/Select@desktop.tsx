@@ -324,7 +324,7 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
 
     private onActiveItemChange = (id: string) => {
         this.setState({ activeDescendant: id });
-    }
+    };
 
     private onMenuChange = (event: ChangeEvent<HTMLElement>) => {
         // Сюда приходит событие из Menu
@@ -369,7 +369,7 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
         let bestHeight = 0;
         const { width: menuWidth } = this.menuRef.current.getBoundingClientRect();
 
-        this.drawingParams.forEach((params) => {
+        this.drawingParams.forEach(params => {
             if (params.width >= menuWidth && params.height > bestHeight) {
                 bestHeight = params.height;
             }

@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnButton } from "../Button";
-import "./Button_theme_clear.scss";
+import { cnButton } from '../Button';
+import './Button_theme_clear.scss';
 
 export interface IButtonThemeClearProps {
-  /**
-   * Стилевое оформление кнопки
-   */
-  theme?: "clear";
+    /**
+     * Стилевое оформление кнопки
+     */
+    theme?: 'clear';
 }
 
 /**
@@ -15,5 +15,5 @@ export interface IButtonThemeClearProps {
  * @param {IButtonThemeClearProps} props
  */
 export const withThemeClear = withBemMod<IButtonThemeClearProps>(cnButton(), {
-  theme: "clear"
+    theme: 'clear',
 });

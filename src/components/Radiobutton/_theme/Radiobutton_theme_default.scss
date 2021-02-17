@@ -8,11 +8,11 @@
 
 /* :after — фон */
 .Radiobutton.Radiobutton_theme_default .Radiobutton-Radio::after {
-    background-color: rgba(38, 49, 129, 0.15);
+    background-color: rgba(38, 49, 129, .15);
 }
 
 .Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_checked::after {
-    background-color:rgba(38, 49, 129, 0.3);
+    background-color: rgba(38, 49, 129, .3);
 }
 
 .Radiobutton.Radiobutton_theme_default .Radiobutton-Radio_disabled::after {

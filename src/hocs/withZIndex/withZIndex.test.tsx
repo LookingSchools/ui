@@ -19,7 +19,7 @@ describe('withZIndex', () => {
     let wrapper1: Nullable<ReactWrapper> = null;
 
     afterEach(() => {
-        [wrapper, wrapper1].forEach((wrapper) => {
+        [wrapper, wrapper1].forEach(wrapper => {
             wrapper && wrapper.length && wrapper.unmount();
         });
     });

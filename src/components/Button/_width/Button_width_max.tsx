@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnButton } from "../Button";
-import "./Button_width_max.scss";
+import { cnButton } from '../Button';
+import './Button_width_max.scss';
 
 export interface IButtonWidthMaxProps {
-  /**
-   * Ширина кнопки
-   */
-  width?: "max";
+    /**
+     * Ширина кнопки
+     */
+    width?: 'max';
 }
 
 /**
@@ -15,5 +15,5 @@ export interface IButtonWidthMaxProps {
  * @param {IButtonWidthMaxProps} props
  */
 export const withWidthMax = withBemMod<IButtonWidthMaxProps>(cnButton(), {
-  width: "max"
+    width: 'max',
 });

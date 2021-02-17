@@ -26,12 +26,9 @@ export const withContainerPopup = withBemMod<IDatepickerContainerPopupProps, Dat
 
             return (
                 <Modal visible={visible} theme="default" onClose={props.onClose}>
-                    <WrappedComponent
-                        className={cnCalendar({ container: 'popup' }, [className])}
-                        {...props}
-                    />
+                    <WrappedComponent className={cnCalendar({ container: 'popup' }, [className])} {...props} />
                 </Modal>
             );
         };
-    },
+    }
 );

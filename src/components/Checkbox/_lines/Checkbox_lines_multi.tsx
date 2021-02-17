@@ -1,16 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnCheckbox } from "../Checkbox";
-import "./Checkbox_lines_multi.scss";
+import { cnCheckbox } from '../Checkbox';
+import './Checkbox_lines_multi.scss';
 
 export interface ICheckboxLinesMultiProps {
-  lines?: "multi";
+    lines?: 'multi';
 }
 
 /**
  * @param {ICheckboxLinesMultiProps} props
  */
-export const withLinesMulti = withBemMod<ICheckboxLinesMultiProps>(
-  cnCheckbox(),
-  { lines: "multi" }
-);
+export const withLinesMulti = withBemMod<ICheckboxLinesMultiProps>(cnCheckbox(), { lines: 'multi' });

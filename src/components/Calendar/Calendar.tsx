@@ -24,11 +24,7 @@ export interface CalendarProps {
 export const cnCalendar = cn('Calendar');
 
 export const Calendar: FC<CalendarProps> = ({ className, children }) => {
-    return (
-        <div className={cnCalendar(null, [className])}>
-            {children}
-        </div>
-    );
+    return <div className={cnCalendar(null, [className])}>{children}</div>;
 };
 
 export { CalendarI18n } from './Calendar.i18n';

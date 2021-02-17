@@ -4,7 +4,7 @@
 }
 
 .Menu_theme_clear .Menu-Group {
-    border-top: 1px solid rgba(38, 49, 129, 0.12);
+    border-top: 1px solid rgba(38, 49, 129, .12);
 }
 
 .Menu_theme_clear .Menu-Group:first-child {
@@ -14,7 +14,7 @@
 .Menu_theme_clear .Menu-Title {
     cursor: default;
 
-    color: rgba(38, 49, 129, 0.7);
+    color: rgba(38, 49, 129, .7);
 }
 
 /**
@@ -35,7 +35,7 @@
 .Menu_theme_clear .Menu-Item.Menu-Item_disabled {
     cursor: default;
 
-    color:rgba(38, 49, 129, 0.15);
+    color: rgba(38, 49, 129, .15);
 }
 
 .Menu_theme_clear .Menu-Item.Menu-Item_checked {
@@ -44,5 +44,5 @@
 
 .Menu_theme_clear .Menu-Item:hover,
 .Menu_theme_clear .Menu-Item.Menu-Item_hovered {
-    background-color: #E8F0FE;
+    background-color: #e8f0fe;
 }

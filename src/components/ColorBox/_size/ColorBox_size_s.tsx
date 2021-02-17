@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnColorBox } from "../ColorBox";
-import "./ColorBox_size_s.scss";
+import { cnColorBox } from '../ColorBox';
+import './ColorBox_size_s.scss';
 
 export interface IColorBoxSizeSProps {
-  /**
-   * Размер радио-бокса
-   */
-  size?: "s";
+    /**
+     * Размер радио-бокса
+     */
+    size?: 's';
 }
 
 /**
@@ -15,5 +15,5 @@ export interface IColorBoxSizeSProps {
  * @param {IColorBoxSizeSProps} props
  */
 export const withSizeS = withBemMod<IColorBoxSizeSProps>(cnColorBox(), {
-  size: "s"
+    size: 's',
 });

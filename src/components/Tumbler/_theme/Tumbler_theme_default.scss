@@ -10,7 +10,7 @@
 }
 
 .Tumbler_theme_default .Tumbler-Button {
-    background-color: rgba(38, 49, 129, 0.15);
+    background-color: rgba(38, 49, 129, .15);
 
     transition: background-color 100ms linear;
 }
@@ -69,7 +69,7 @@
 
 /* check */
 .Tumbler_theme_default[class] .Tumbler-Button[aria-pressed='true'] {
-    background-color: #067AFF;
+    background-color: #067aff;
 }
 
 .Tumbler_theme_default[class] .Tumbler-Button[aria-pressed='true']::after {
@@ -86,16 +86,16 @@
 }
 
 .Tumbler_theme_default[aria-disabled='true'][class] .Tumbler-Label {
-    color: rgba(38, 49, 129, 0.3);
+    color: rgba(38, 49, 129, .3);
 }
 
 /* hover */
 .Tumbler_theme_default .Tumbler-Button:hover {
-    background-color: rgba(38, 49, 129, 0.3);
+    background-color: rgba(38, 49, 129, .3);
 }
 
 .Tumbler_theme_default[aria-disabled='true'][class] .Tumbler-Button {
-    background-color: rgba(38, 49, 129, 0.07);
+    background-color: rgba(38, 49, 129, .07);
 }
 
 /* press */
@@ -112,7 +112,7 @@
 }
 
 .Tumbler_theme_default[class] .Tumbler-Button[aria-pressed='true']:hover {
-    background-color: #0062D1;
+    background-color: #0062d1;
 }
 
 /* focus */

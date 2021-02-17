@@ -15,33 +15,27 @@ export type Tab = {
 
 export type BottomBarProps = {
     tabs: Array<Tab>;
-}
+};
 
 const cnBottomBar = cn('BottomBar');
 
-const BottomBarTab: React.FC<Tab & { index: number; }> = props => {
+const BottomBarTab: React.FC<Tab & { index: number }> = props => {
     const { tip, text, icon, isActive, onClick, index, linkComponent } = props;
-    const onTabClick = useCallback((e: React.MouseEvent<HTMLElement>) => {
-        onClick && onClick(e, index);
-    }, [onClick, index]);
+    const onTabClick = useCallback(
+        (e: React.MouseEvent<HTMLElement>) => {
+            onClick && onClick(e, index);
+        },
+        [onClick, index]
+    );
 
     const Component = linkComponent || 'div';
 
     return (
-        <div
-            className={cnBottomBar('Tab', { active: isActive })}
-        >
+        <div className={cnBottomBar('Tab', { active: isActive })}>
             <div className={cnBottomBar('Link')} onClick={onTabClick}>
                 <Component>
-                    {icon && (
-                        <div className={cnBottomBar('Icon')}>{icon}</div>
-                    )}
-                    {tip === undefined ?
-                        null :
-                        (
-                            <div className={cnBottomBar('Tip')}>{tip}</div>
-                        )
-                    }
+                    {icon && <div className={cnBottomBar('Icon')}>{icon}</div>}
+                    {tip === undefined ? null : <div className={cnBottomBar('Tip')}>{tip}</div>}
                     <div className={cnBottomBar('Text')}>{text}</div>
                 </Component>
             </div>
@@ -52,9 +46,9 @@ const BottomBarTab: React.FC<Tab & { index: number; }> = props => {
 export const BottomBar: React.FC<BottomBarProps> = ({ tabs }) => {
     return (
         <div className={cnBottomBar()}>
-            {
-                tabs.map((tab, i) => <BottomBarTab {...tab} key={tab.text} index={i} />)
-            }
+            {tabs.map((tab, i) => (
+                <BottomBarTab {...tab} key={tab.text} index={i} />
+            ))}
         </div>
     );
 };

@@ -1,77 +1,68 @@
-import React, {
-  FC,
-  RefObject,
-  ChangeEventHandler,
-  KeyboardEventHandler
-} from "react";
+import React, { FC, RefObject, ChangeEventHandler, KeyboardEventHandler } from 'react';
 
-import { cnCheckbox } from "../Checkbox";
-import "./Checkbox-Control.scss";
+import { cnCheckbox } from '../Checkbox';
+import './Checkbox-Control.scss';
 
 export interface ICheckboxControlProps {
-  /**
-   * Ссылка на DOM элемент нативного инпута
-   */
-  controlRef?: RefObject<HTMLInputElement>;
+    /**
+     * Ссылка на DOM элемент нативного инпута
+     */
+    controlRef?: RefObject<HTMLInputElement>;
 
-  /**
-   * Дополнительный класс
-   */
-  className?: string;
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 
-  /**
-   * Обработчик изменения значения
-   */
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+    /**
+     * Обработчик изменения значения
+     */
+    onChange?: ChangeEventHandler<HTMLInputElement>;
 
-  /**
-   * Имя компонента
-   */
-  name?: string;
+    /**
+     * Имя компонента
+     */
+    name?: string;
 
-  /**
-   * HTML-атрибут `autoComplete`
-   */
-  autoComplete?: string;
+    /**
+     * HTML-атрибут `autoComplete`
+     */
+    autoComplete?: string;
 
-  /**
-   * HTML атрибут `disabled`
-   */
-  disabled?: boolean;
+    /**
+     * HTML атрибут `disabled`
+     */
+    disabled?: boolean;
 
-  /**
-   * Чекбокс был выбран
-   */
-  checked?: boolean;
+    /**
+     * Чекбокс был выбран
+     */
+    checked?: boolean;
 
-  /**
-   * Уникальный id компонента
-   */
-  id?: string;
+    /**
+     * Уникальный id компонента
+     */
+    id?: string;
 
-  /**
-   * Обработчик события `onKeyUp`
-   */
-  onKeyUp?: KeyboardEventHandler<HTMLInputElement>;
+    /**
+     * Обработчик события `onKeyUp`
+     */
+    onKeyUp?: KeyboardEventHandler<HTMLInputElement>;
 
-  /**
-   * Обработчик события `onKeyDown`
-   */
-  onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
+    /**
+     * Обработчик события `onKeyDown`
+     */
+    onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
 }
 
-export const CheckboxControl: FC<ICheckboxControlProps> = ({
-  controlRef,
-  className,
-  ...props
-}) => (
-  <input
-    {...props}
-    // Отключаем autoComplete, чтобы в FireFox
-    // не сохранялось значение при перезагрузке страницы.
-    autoComplete="off"
-    className={cnCheckbox("Control", null, [className])}
-    ref={controlRef}
-    type="checkbox"
-  />
+export const CheckboxControl: FC<ICheckboxControlProps> = ({ controlRef, className, ...props }) => (
+    <input
+        {...props}
+        // Отключаем autoComplete, чтобы в FireFox
+        // не сохранялось значение при перезагрузке страницы.
+        autoComplete="off"
+        className={cnCheckbox('Control', null, [className])}
+        ref={controlRef}
+        type="checkbox"
+    />
 );

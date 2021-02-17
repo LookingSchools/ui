@@ -8,26 +8,26 @@
 
 ```ts
 // src/App.ts
-import React, { useState } from "react"
-import { compose } from "@bem-react/core"
+import React, { useState } from 'react'
+import { compose } from '@bem-react/core'
 import {
   Textarea as TextareaDesktop,
   withViewDefault,
   withSizeM,
-} from "@lookingschools/ui/Textarea"
+} from '@lookingschools/ui/Textarea'
 
 // Композиция из различных модификаторов
 const Textarea = compose(withViewDefault, withSizeM)(TextareaDesktop)
 
 const App = () => {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState('')
 
   return (
     <Textarea
       size="m"
       theme="default"
       value={value}
-      onChange={(event) => setValue(event.target.value)}
+      onChange={event => setValue(event.target.value)}
     />
   )
 }
@@ -68,6 +68,7 @@ const App = () => {
 {{%story::desktop:lego-components-textarea-desktop--state%}}
 
 ## Свойства
+
 | Свойство      | Тип                                                                                                                                                                                                                                                               | Описание                                                                                                                                                                                           |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | onClick?      | `(event: MouseEvent<HTMLElement, MouseEvent>) => void`                                                                                                                                                                                                            | Событие, которое вызывается при нажатии на компонент                                                                                                                                               |

@@ -4,13 +4,11 @@ import { color, number, select, withKnobs, array } from '@storybook/addon-knobs'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import { BottomBar } from './BottomBar';
-import { Icon } from "../Icon/Icon.bundle"
+import { Icon } from '../Icon/Icon.bundle';
 
 export default {
     title: 'Controls|BottomBar',
-    decorators: [
-        withKnobs,
-    ],
+    decorators: [withKnobs],
     parameters: {
         docs: {
             readme: require('./README.md'),
@@ -23,17 +21,11 @@ export default {
 };
 
 const imgBuilder = (src: any) => {
-    return (<Icon glyph={src} size="m" />);
+    return <Icon glyph={src} size="m" />;
 };
 
 export const Playground = () => {
-    const icons = array('Images src', [
-        "course",
-        "search",
-        "create-course",
-        "profile",
-        "menu"
-    ]);
+    const icons = array('Images src', ['course', 'search', 'create-course', 'profile', 'menu']);
 
     const texts = array('Texts', ['Курсы', 'Поиск', 'Создать школу', 'Профиль', 'Меню']);
     const urls = array('URLs', ['https://google.com']);
@@ -62,16 +54,16 @@ export const Playground = () => {
     `;
 
     const tabs = texts.filter(Boolean).map((text, index) => {
-        const linkComponent: React.FC = ({ children }) => (<a href={urls[index]}>{children}</a>);
+        const linkComponent: React.FC = ({ children }) => <a href={urls[index]}>{children}</a>;
 
         return {
             text,
             icon: imgBuilder(icons[index]),
-        
-            isActive: active === (index + 1),
+
+            isActive: active === index + 1,
             linkComponent: urls[index] ? linkComponent : undefined,
             onClick: action(`on ${text} tab click!`),
-            tip: tipPosition === (index + 1) ? tipValue : undefined,
+            tip: tipPosition === index + 1 ? tipValue : undefined,
         };
     });
 

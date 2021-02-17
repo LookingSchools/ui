@@ -1,32 +1,32 @@
-import React, { RefObject, FC } from "react";
-import { cn } from "@bem-react/classname";
+import React, { RefObject, FC } from 'react';
+import { cn } from '@bem-react/classname';
 
-import { Nullable } from "../../typings/utility-types";
-import { ITabsPanesPaneProps, TabsPanesPane } from "./Pane/TabsPanes-Pane";
+import { Nullable } from '../../typings/utility-types';
+import { ITabsPanesPaneProps, TabsPanesPane } from './Pane/TabsPanes-Pane';
 
 export interface ITabsPanesProps {
-  /**
-   * Идентификатор отображаемой вкладки.
-   */
-  activePane?: string;
+    /**
+     * Идентификатор отображаемой вкладки.
+     */
+    activePane?: string;
 
-  /**
-   * Набор вкладок.
-   */
-  panes: ITabsPanesPaneProps[];
+    /**
+     * Набор вкладок.
+     */
+    panes: ITabsPanesPaneProps[];
 
-  /**
-   * Ссылка на корневой DOM-элемент компонента.
-   */
-  innerRef?: RefObject<HTMLDivElement>;
+    /**
+     * Ссылка на корневой DOM-элемент компонента.
+     */
+    innerRef?: RefObject<HTMLDivElement>;
 
-  /**
-   * Дополнительный класс.
-   */
-  className?: string;
+    /**
+     * Дополнительный класс.
+     */
+    className?: string;
 }
 
-export const cnTabsPanes = cn("TabsPanes");
+export const cnTabsPanes = cn('TabsPanes');
 
 /**
  * Компонент для создания вкладок с разным содержимым.
@@ -34,43 +34,27 @@ export const cnTabsPanes = cn("TabsPanes");
  *
  * @param {ITabsPanesProps} props
  */
-export const TabsPanes: FC<ITabsPanesProps> = ({
-  activePane,
-  className,
-  innerRef,
-  panes,
-  ...props
-}) => {
-  const currentPane = panes.reduce<Nullable<ITabsPanesPaneProps>>(
-    (acc, pane) => {
-      if (acc !== null) {
-        return acc;
-      }
-      return pane.id === activePane ? pane : null;
-    },
-    null
-  );
+export const TabsPanes: FC<ITabsPanesProps> = ({ activePane, className, innerRef, panes, ...props }) => {
+    const currentPane = panes.reduce<Nullable<ITabsPanesPaneProps>>((acc, pane) => {
+        if (acc !== null) {
+            return acc;
+        }
+        return pane.id === activePane ? pane : null;
+    }, null);
 
-  if (currentPane === null) {
-    if (process.env.NODE_ENV !== "production") {
-      console.warn(
-        `Панель с id "${activePane}" не найдена в списке элементов.`
-      );
+    if (currentPane === null) {
+        if (process.env.NODE_ENV !== 'production') {
+            console.warn(`Панель с id "${activePane}" не найдена в списке элементов.`);
+        }
     }
-  }
 
-  const { id, ...paneProps }: any = currentPane || {};
+    const { id, ...paneProps }: any = currentPane || {};
 
-  return (
-    <div
-      {...props}
-      ref={innerRef}
-      role="tabpanel"
-      className={cnTabsPanes(null, [className])}
-    >
-      {currentPane && <TabsPanesPane {...paneProps} />}
-    </div>
-  );
+    return (
+        <div {...props} ref={innerRef} role="tabpanel" className={cnTabsPanes(null, [className])}>
+            {currentPane && <TabsPanesPane {...paneProps} />}
+        </div>
+    );
 };
 
 TabsPanes.displayName = cnTabsPanes();

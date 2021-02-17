@@ -1,11 +1,11 @@
 /* common */
 .Menu_theme_default {
     color: #000;
-    background-color:  rgba(38, 49, 129, 0.07)
+    background-color: rgba(38, 49, 129, .07);
 }
 
 .Menu_theme_default .Menu-Group {
-    border-top: 1px solid  rgba(38, 49, 129, 0.12);
+    border-top: 1px solid  rgba(38, 49, 129, .12);
 }
 
 .Menu_theme_default .Menu-Group:first-child {
@@ -19,7 +19,7 @@
 }
 
 .Menu_theme_default .Menu-Title {
-    color: rgba(38, 49, 129, 0.7);
+    color: rgba(38, 49, 129, .7);
 }
 
 .Menu_theme_default .Menu-Item {
@@ -55,11 +55,11 @@
 /* disable */
 .Menu_theme_default.Menu_disabled .Menu-Item,
 .Menu_theme_default .Menu-Item.Menu-Item_disabled {
-    color:rgba(38, 49, 129, 0.15);
+    color: rgba(38, 49, 129, .15);
 }
 
 /* hover */
 .Menu_theme_default .Menu-Item.Menu-Item_hovered {
     color: #000;
-    background-color:rgba(38, 49, 129, .12);
+    background-color: rgba(38, 49, 129, .12);
 }

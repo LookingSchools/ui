@@ -1,30 +1,25 @@
-import React, {
-  PureComponent,
-  MouseEventHandler,
-  MouseEvent,
-  createRef
-} from "react";
-import { withBemMod } from "@bem-react/core";
+import React, { PureComponent, MouseEventHandler, MouseEvent, createRef } from 'react';
+import { withBemMod } from '@bem-react/core';
 
-import { ITextareaProps, cnTextarea } from "../Textarea";
-import { TextareaClear as Clear } from "../Clear/Textarea-Clear";
-import "./Textarea_hasClear.scss";
+import { ITextareaProps, cnTextarea } from '../Textarea';
+import { TextareaClear as Clear } from '../Clear/Textarea-Clear';
+import './Textarea_hasClear.scss';
 
 export interface ITextareaHasClearProps {
-  /**
-   * Наличие крестика для очистки текстового поля.
-   */
-  hasClear?: boolean;
+    /**
+     * Наличие крестика для очистки текстового поля.
+     */
+    hasClear?: boolean;
 
-  /**
-   * Обработчик клика по крестику.
-   */
-  onClearClick?: MouseEventHandler<HTMLSpanElement>;
+    /**
+     * Обработчик клика по крестику.
+     */
+    onClearClick?: MouseEventHandler<HTMLSpanElement>;
 
-  /**
-   * @internal
-   */
-  theme?: string;
+    /**
+     * @internal
+     */
+    theme?: string;
 }
 
 /**
@@ -32,79 +27,77 @@ export interface ITextareaHasClearProps {
  * @param {ITextareaHasClearProps} props
  */
 export const withHasClear = withBemMod<ITextareaHasClearProps, ITextareaProps>(
-  cnTextarea(),
-  { hasClear: true },
-  Textarea =>
-    class WithHasClear extends PureComponent<
-      ITextareaHasClearProps & ITextareaProps
-    > {
-      private readonly controlRef = createRef<HTMLTextAreaElement>();
+    cnTextarea(),
+    { hasClear: true },
+    Textarea =>
+        class WithHasClear extends PureComponent<ITextareaHasClearProps & ITextareaProps> {
+            private readonly controlRef = createRef<HTMLTextAreaElement>();
 
-      componentDidMount() {
-        if (this.props.controlRef !== undefined) {
-          // @ts-ignore (Объект readonly только в рамках интерфейса)
-          this.props.controlRef.current = this.controlRef.current;
-        }
-      }
-
-      render() {
-        const {
-          addonBefore,
-          // Извлекаем свойства, т.к. они не нужны на DOM узле
-          // FIXME: https://github.com/bem/bem-react/issues/381
-          onClearClick: _onClearClick,
-          hasClear: _hasClear,
-          ...props
-        } = this.props;
-
-        return (
-          <Textarea
-            {...props}
-            controlRef={this.controlRef}
-            addonBefore={
-              <>
-                <Clear
-                  onClick={this.onClick}
-                  onMouseDown={this.onMouseDown}
-                  theme={this.props.theme}
-                  visible={Boolean(this.props.value)}
-                />
-                {addonBefore}
-              </>
+            componentDidMount() {
+                if (this.props.controlRef !== undefined) {
+                    // @ts-ignore (Объект readonly только в рамках интерфейса)
+                    this.props.controlRef.current = this.controlRef.current;
+                }
             }
-          />
-        );
-      }
 
-      private onMouseDown = (event: MouseEvent<HTMLSpanElement>) => {
-        // Предотвращаем потерю фокуса у элемента Control.
-        event.preventDefault();
-      };
+            render() {
+                const {
+                    addonBefore,
+                    // Извлекаем свойства, т.к. они не нужны на DOM узле
+                    // FIXME: https://github.com/bem/bem-react/issues/381
+                    onClearClick: _onClearClick,
+                    hasClear: _hasClear,
+                    ...props
+                } = this.props;
 
-      private onClick = (event: MouseEvent<HTMLSpanElement>) => {
-        if (this.controlRef.current !== null && !event.isDefaultPrevented()) {
-          this.controlRef.current.focus();
+                return (
+                    <Textarea
+                        {...props}
+                        controlRef={this.controlRef}
+                        addonBefore={
+                            <>
+                                <Clear
+                                    onClick={this.onClick}
+                                    onMouseDown={this.onMouseDown}
+                                    theme={this.props.theme}
+                                    visible={Boolean(this.props.value)}
+                                />
+                                {addonBefore}
+                            </>
+                        }
+                    />
+                );
+            }
 
-          if (this.props.onChange !== undefined) {
-            const originalValue = this.controlRef.current.value;
+            private onMouseDown = (event: MouseEvent<HTMLSpanElement>) => {
+                // Предотвращаем потерю фокуса у элемента Control.
+                event.preventDefault();
+            };
 
-            // Создаем синтетическое событие для эмуляции очистки контрола.
-            const syntheticEvent = Object.create(event);
-            syntheticEvent.target = this.controlRef.current;
-            syntheticEvent.currentTarget = this.controlRef.current;
+            private onClick = (event: MouseEvent<HTMLSpanElement>) => {
+                if (this.controlRef.current !== null && !event.isDefaultPrevented()) {
+                    this.controlRef.current.focus();
 
-            this.controlRef.current.value = "";
+                    if (this.props.onChange !== undefined) {
+                        const originalValue = this.controlRef.current.value;
 
-            this.props.onChange(syntheticEvent);
-            // Восстанавливаем предыдущее значение на тот случай,
-            // если в обработчике onChange не было установлено пустое значение.
-            this.controlRef.current.value = originalValue;
-          }
+                        // Создаем синтетическое событие для эмуляции очистки контрола.
+                        const syntheticEvent = Object.create(event);
+                        syntheticEvent.target = this.controlRef.current;
+                        syntheticEvent.currentTarget = this.controlRef.current;
+
+                        this.controlRef.current.value = '';
+
+                        this.props.onChange(syntheticEvent);
+                        // Восстанавливаем предыдущее значение на тот случай,
+                        // если в обработчике onChange не было установлено пустое значение.
+                        this.controlRef.current.value = originalValue;
+                    }
+                }
+
+                if (this.props.onClearClick !== undefined) {
+                    this.props.onClearClick(event);
+                }
+            };
         }
-
-        if (this.props.onClearClick !== undefined) {
-          this.props.onClearClick(event);
-        }
-      };
-    }
 );

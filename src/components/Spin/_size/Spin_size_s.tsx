@@ -1,17 +1,17 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnSpin } from "../Spin";
-import "./Spin_size_s.scss";
+import { cnSpin } from '../Spin';
+import './Spin_size_s.scss';
 
 export interface ISpinSizeSProps {
-  /**
-   * Размер индикатора загрузки.
-   */
-  size?: "s";
+    /**
+     * Размер индикатора загрузки.
+     */
+    size?: 's';
 }
 
 /**
  * Модификатор, отвечающий за размер индикатора загрузки.
  * @param {ISpinSizeSProps} props
  */
-export const withSizeS = withBemMod<ISpinSizeSProps>(cnSpin(), { size: "s" });
+export const withSizeS = withBemMod<ISpinSizeSProps>(cnSpin(), { size: 's' });

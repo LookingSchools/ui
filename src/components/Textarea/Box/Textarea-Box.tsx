@@ -1,21 +1,17 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { cnTextarea } from "../Textarea";
-import "./Textarea-Box.scss";
+import { cnTextarea } from '../Textarea';
+import './Textarea-Box.scss';
 
 export interface TextareaBoxProps {
-  /**
-   * Дополнительный класс.
-   */
-  className?: string;
+    /**
+     * Дополнительный класс.
+     */
+    className?: string;
 }
 
-export const TextareaBox: FC<TextareaBoxProps> = ({
-  className,
-  children,
-  ...props
-}) => (
-  <span {...props} className={cnTextarea("Box", null, [className])}>
-    {children}
-  </span>
+export const TextareaBox: FC<TextareaBoxProps> = ({ className, children, ...props }) => (
+    <span {...props} className={cnTextarea('Box', null, [className])}>
+        {children}
+    </span>
 );

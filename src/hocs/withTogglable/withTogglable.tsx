@@ -16,7 +16,7 @@ export interface IWithTogglableProps {
  * ХОК позволяющий управлять состоянием открытия и закрытия.
  */
 export const withTogglable = <T extends IWithTogglableProps>(
-    WrappedComponent: ComponentType<T>,
+    WrappedComponent: ComponentType<T>
 ): ComponentClass<T & IWithTogglableProps> => {
     return class WithTogglable extends PureComponent<T & IWithTogglableProps> {
         state = {

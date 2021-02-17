@@ -2,8 +2,8 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { withBemMod, compose, composeU, ExtractProps } from '@bem-react/core';
 
 import { Button as ButtonBase } from '../../Button/Button';
-import { withThemeDefault} from '../../Button/_theme/Button_theme_default';
-import { withThemePrimary} from '../../Button/_theme/Button_theme_primary';
+import { withThemeDefault } from '../../Button/_theme/Button_theme_default';
+import { withThemePrimary } from '../../Button/_theme/Button_theme_primary';
 import { withSizeM as ButtonSizeM } from '../../Button/_size/Button_size_m';
 import { cnDatepicker, DatepickerProps, DatepickerSelectedDate } from '../Datepicker';
 
@@ -57,7 +57,7 @@ export const withTypeSingle = withBemMod<DatepickerTypeSingleProps, DatepickerPr
 
                     setValue(newValue as Date);
                 },
-                [onItemClick, value],
+                [onItemClick, value]
             );
 
             useEffect(() => {
@@ -78,5 +78,5 @@ export const withTypeSingle = withBemMod<DatepickerTypeSingleProps, DatepickerPr
                 </WrappedComponent>
             );
         };
-    },
+    }
 );

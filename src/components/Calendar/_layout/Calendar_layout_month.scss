@@ -37,7 +37,7 @@
 
     text-align: center;
 
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, .8);
 }
 
 .Calendar-Item.Calendar-Item_selected {
@@ -68,7 +68,7 @@
 }
 
 .Calendar-Item_disabled .Calendar-ItemContent {
-    opacity: 0.25;
+    opacity: .25;
 }
 
 .Calendar-Item_disabled::before {

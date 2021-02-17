@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnRadiobox } from "../Radiobox";
-import "./Radiobox_size_m.scss";
+import { cnRadiobox } from '../Radiobox';
+import './Radiobox_size_m.scss';
 
 export interface IRadioboxSizeMProps {
-  /**
-   * Размер радио-бокса
-   */
-  size?: "m";
+    /**
+     * Размер радио-бокса
+     */
+    size?: 'm';
 }
 
 /**
@@ -15,5 +15,5 @@ export interface IRadioboxSizeMProps {
  * @param {IRadioboxSizeMProps} props
  */
 export const withSizeM = withBemMod<IRadioboxSizeMProps>(cnRadiobox(), {
-  size: "m"
+    size: 'm',
 });

@@ -62,13 +62,13 @@ export const DrawerContent: FC<IDrawerContentProps> = ({
 
     const curtainStyle = useMemo(
         () => ({ transform: springTransform, ...(maxSize && { [axis === 'x' ? 'maxWidth' : 'maxHeight']: maxSize }) }),
-        [springTransform, maxSize, axis],
+        [springTransform, maxSize, axis]
     );
 
     /**
      * Обработчик drag событий с корневого DOM элемента шторки
      */
-    useDrag<IDragStateData>(dragObserverRef, (dragState) => {
+    useDrag<IDragStateData>(dragObserverRef, dragState => {
         if (!visible || !contentRef.current) return;
 
         const {

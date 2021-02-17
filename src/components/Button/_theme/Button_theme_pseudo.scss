@@ -9,7 +9,7 @@
 }
 
 .Button_theme_pseudo::before {
-    background-color: #E8F0FE;
+    background-color: #e8f0fe;
 
     transition: background-color .15s linear;
 }
@@ -49,7 +49,7 @@
 
 /* hover */
 .Button_theme_pseudo:not([aria-disabled='true']):hover::before {
-    background-color: #B8D2FF;
+    background-color: #b8d2ff;
 }
 
 /* check */

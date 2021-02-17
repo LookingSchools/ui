@@ -9,7 +9,7 @@
 }
 
 .Select_baseline .Button_width_auto .Button-Text {
-    /* 
+    /*
     Фикс для firefox - при добавлении свойства overflow: hidden, у элемента перестает работать baseline */
     overflow: -moz-hidden-unscrollable;
 }

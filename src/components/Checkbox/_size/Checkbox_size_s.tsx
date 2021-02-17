@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnCheckbox } from "../Checkbox";
-import "./Checkbox_size_s.scss";
+import { cnCheckbox } from '../Checkbox';
+import './Checkbox_size_s.scss';
 
 export interface ICheckboxSizeSProps {
-  /**
-   * Размер переключателя
-   */
-  size?: "s";
+    /**
+     * Размер переключателя
+     */
+    size?: 's';
 }
 
 /**
@@ -15,5 +15,5 @@ export interface ICheckboxSizeSProps {
  * @param {ICheckboxSizeSProps} props
  */
 export const withSizeS = withBemMod<ICheckboxSizeSProps>(cnCheckbox(), {
-  size: "s"
+    size: 's',
 });

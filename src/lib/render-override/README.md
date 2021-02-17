@@ -40,7 +40,7 @@ const ElementOriginal = ({ children }) => <div>{children}</div>
 const MyComponent = ({ renderElement }) => (
   <>
     <RenderOverrideProvider component={ElementOriginal} render={renderElement}>
-      {(Element) => <Element />}
+      {Element => <Element />}
     </RenderOverrideProvider>
   </>
 )
@@ -100,4 +100,3 @@ const App = () => {
   )
 }
 ```
-

@@ -1,13 +1,13 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnTextarea } from "../Textarea";
-import "./Textarea_size_m.scss";
+import { cnTextarea } from '../Textarea';
+import './Textarea_size_m.scss';
 
 export interface ITextareaSizeMProps {
-  /**
-   * Размер текстового поля.
-   */
-  size?: "m";
+    /**
+     * Размер текстового поля.
+     */
+    size?: 'm';
 }
 
 /**
@@ -15,5 +15,5 @@ export interface ITextareaSizeMProps {
  * @param {ITextareaSizeMProps} props
  */
 export const withSizeM = withBemMod<ITextareaSizeMProps>(cnTextarea(), {
-  size: "m"
+    size: 'm',
 });

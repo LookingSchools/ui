@@ -307,7 +307,7 @@ export const Select = class extends PureComponent<SelectProps> {
     }
 
     private getOptionsText(options: Option[], values: any[]) {
-        return flatMap((option) => (option.items ? option.items : option), options)
+        return flatMap(option => (option.items ? option.items : option), options)
             .filter((option: OptionSimple) => values.indexOf(option.value) !== -1)
             .map((option: OptionSimple) => option.checkedText || option.content)
             .join(', ');

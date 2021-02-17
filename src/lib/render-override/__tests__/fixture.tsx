@@ -33,7 +33,7 @@ export const HookMapUnitCase: FC<{ renderComponent?: RenderOverride }> = ({ rend
     const Component = useRenderOverride(InputComponent, renderComponent);
     return (
         <>
-            {[1, 2].map((index) => (
+            {[1, 2].map(index => (
                 <Component idx={index} key={index} />
             ))}
         </>
@@ -47,7 +47,7 @@ export const HookUnitCase: FC<{ renderComponent?: RenderOverride }> = ({ renderC
 
 export const SingleProviderUnitCase: FC<{ renderComponent?: RenderOverride }> = ({ renderComponent, children }) => (
     <RenderOverrideProvider component={OriginalComponent1} render={renderComponent}>
-        {(Component) => <Component>{children}</Component>}
+        {Component => <Component>{children}</Component>}
     </RenderOverrideProvider>
 );
 
@@ -56,7 +56,10 @@ export const MultiProviderUnitCase: FC<{
     renderComponent2?: RenderOverride;
 }> = ({ renderComponent1, renderComponent2, children }) => (
     <MultiRenderOverrideProvider
-        components={[[OriginalComponent1, renderComponent1], [OriginalComponent2, renderComponent2]]}
+        components={[
+            [OriginalComponent1, renderComponent1],
+            [OriginalComponent2, renderComponent2],
+        ]}
     >
         {(Component1: any, Component2: any) => (
             <>

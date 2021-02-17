@@ -1,10 +1,10 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnPrice } from "../Price";
-import "./Price_empty.scss";
+import { cnPrice } from '../Price';
+import './Price_empty.scss';
 
 export interface IPriceEmptyProps {
-  empty?: boolean;
+    empty?: boolean;
 }
 
 /**
@@ -12,5 +12,5 @@ export interface IPriceEmptyProps {
  * @param {IPriceEmptyProps} props
  */
 export const withEmpty = withBemMod<IPriceEmptyProps>(cnPrice(), {
-  empty: true
+    empty: true,
 });

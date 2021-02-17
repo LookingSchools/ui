@@ -8,7 +8,4 @@ import './Control/Select-Control.scss';
 
 export * from './Select';
 
-export const Select = compose(
-    withRegistry(selectRegistry),
-    withNativeControl as Wrapper<ISelectProps>,
-)(SelectCommon);
+export const Select = compose(withRegistry(selectRegistry), withNativeControl as Wrapper<ISelectProps>)(SelectCommon);

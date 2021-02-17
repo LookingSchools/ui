@@ -14,7 +14,7 @@ import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect';
  *   return <div>{value}</div>
  * }
  *
-  * function ComponentB() {
+ * function ComponentB() {
  *   const [value, setValue] = useSharedState()
  *   return <div>{value}</div>
  * }
@@ -24,7 +24,7 @@ export function createGlobalState<S = any>(initialState?: S) {
         state: initialState,
         setState(state: S) {
             store.state = state;
-            store.setters.forEach((setter) => setter(store.state));
+            store.setters.forEach(setter => setter(store.state));
         },
         setters: [],
     };

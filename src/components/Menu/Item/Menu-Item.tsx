@@ -17,7 +17,7 @@ export interface IMenuItemProps {
     onMouseEnter?: MouseEventHandler<HTMLDivElement>;
     onMouseLeave?: MouseEventHandler<HTMLDivElement>;
     onClick?: MouseEventHandler<HTMLDivElement>;
-    id: string
+    id: string;
 }
 
 const Icon = withGlyphCheck(GlyphIcon);
@@ -34,7 +34,6 @@ export const MenuItem: FC<IMenuItemProps> = ({
     id,
     ...props
 }) => {
-
     return (
         <div
             {...props}
@@ -52,7 +51,7 @@ export const MenuItem: FC<IMenuItemProps> = ({
                     hovered,
                     type,
                 },
-                [className],
+                [className]
             )}
         >
             {needIconGlyph && <Icon glyph="check" />}

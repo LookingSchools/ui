@@ -35,7 +35,7 @@ const inRange = (selectedTime: SelectedTime[], date: number) => {
 const getExtendedMonthTable = (
     date: Date,
     isDisabled: CalendarLayoutMonthProps['isDisabledItem'],
-    borders: CalendarProps['borders'],
+    borders: CalendarProps['borders']
 ) => {
     const items: DateItem[] = getMonthTable(date);
     const bordersTime = borders ? borders.map(b => normalizeDate(b).getTime()) : null;
@@ -62,7 +62,7 @@ export type CalendarItemHandlers = {
 const CalendarItem = (
     Item: DateItemExtended,
     selectedTime?: SelectedTime[] | SelectedTime,
-    handlers?: CalendarItemHandlers,
+    handlers?: CalendarItemHandlers
 ) => {
     const { text, isWeekend, isCurrentMonth, isFirstDay, isLastDay, date, isDisabled } = Item;
 
@@ -128,13 +128,14 @@ export const CalendarLayoutMonth: FC<CalendarLayoutMonthProps & CalendarProps> =
         isDisabledItem,
         borders,
     ]);
-    const weekDays: string[] = useMemo(() =>
-        days.slice(0, 7).map(({ date }) => CalendarI18n.getWeekDayName(date)), [days]);
+    const weekDays: string[] = useMemo(() => days.slice(0, 7).map(({ date }) => CalendarI18n.getWeekDayName(date)), [
+        days,
+    ]);
 
     const selectedTime = useMemo(() => {
-        return Array.isArray(selected) ?
-            selected.map(date => (date ? normalizeDate(date).getTime() : undefined)) :
-            selected && normalizeDate(selected).getTime();
+        return Array.isArray(selected)
+            ? selected.map(date => (date ? normalizeDate(date).getTime() : undefined))
+            : selected && normalizeDate(selected).getTime();
     }, [selected]);
 
     const nextMonthHandler = useCallback(() => {
@@ -172,7 +173,7 @@ export const CalendarLayoutMonth: FC<CalendarLayoutMonthProps & CalendarProps> =
             {showDays && (
                 <div className={cnCalendar('Days')}>
                     {days.map(item =>
-                        CalendarItem(item, selectedTime, { onMouseOver: onItemHover, onClick: onItemClick }),
+                        CalendarItem(item, selectedTime, { onMouseOver: onItemHover, onClick: onItemClick })
                     )}
                 </div>
             )}
@@ -191,5 +192,5 @@ export const withLayoutMonth = withBemMod<CalendarLayoutMonthProps, CalendarProp
                 </WrappedComponent>
             );
         };
-    },
+    }
 );

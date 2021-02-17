@@ -63,12 +63,12 @@ export function withControl<T extends IWithControlProps>(WrappedComponent: Compo
             if (nextProps.disabled) {
                 this.setState({ focused: false, pressed: false });
             }
-            
+
             if (nextProps.hovered) {
-            this.setState({
-                hovered: nextProps.disabled ? false : this.state.hovered || nextProps.hovered,
-            });
-        }
+                this.setState({
+                    hovered: nextProps.disabled ? false : this.state.hovered || nextProps.hovered,
+                });
+            }
         }
 
         render() {

@@ -71,8 +71,7 @@ export interface IDrawerProps extends PropsWithChildren<PartialPopupProps> {
  * Используется для создания шторки.
  * @param {IDrawerProps} props
  */
-export const Drawer: FC<IDrawerProps> = (props) => {
-
+export const Drawer: FC<IDrawerProps> = props => {
     const { className, visible, nested, direction = 'bottom', innerRef, animation } = props;
 
     // прогресс открытия шторки от 0 до 1
