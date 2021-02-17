@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_glyph.scss';
-import './Icon_glyph_type-arrow.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_glyph.scss";
+import "./Icon_glyph_type-arrow.scss";
 
 export interface IWithGlyphTypeArrowProps {
     /**
      * Символ иконки
      */
-    glyph?: 'type-arrow';
+    glyph?: "type-arrow";
 }
 
 /**
@@ -18,10 +18,10 @@ export interface IWithGlyphTypeArrowProps {
  */
 export const withGlyphTypeArrow = withBemMod<IWithGlyphTypeArrowProps, IIconProps>(
     cnIcon(),
-    { glyph: 'type-arrow' },
-    Icon => ({ className, ...props }) => (
+    { glyph: "type-arrow" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
-            {props.size === 'xs' ? (
+            {props.size === "xs" ? (
                 <svg focusable="false" width="11" height="7" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.25 1L5.5 4.6 1.75 1 1 1.72 5.5 6 10 1.72 9.25 1z" />
                 </svg>

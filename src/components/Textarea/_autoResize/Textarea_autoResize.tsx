@@ -1,11 +1,11 @@
-import React, { PureComponent, createRef, ComponentType, ComponentClass } from 'react';
+import React, { PureComponent, createRef, ComponentType, ComponentClass } from "react";
 
-import { mergeRefs } from '../../../lib/mergeRefs';
-import { ITextareaProps, cnTextarea } from '../Textarea';
-import { throttle } from '../../../lib/throttle';
-import { getDisplayName } from '../../../lib/getDisplayName';
+import { mergeRefs } from "../../../lib/mergeRefs";
+import { ITextareaProps, cnTextarea } from "../Textarea";
+import { throttle } from "../../../lib/throttle";
+import { getDisplayName } from "../../../lib/getDisplayName";
 
-import './Textarea_autoResize.scss';
+import "./Textarea_autoResize.scss";
 
 /**
  * Модификатор который увеличивает размер контрола при наборе текста.
@@ -24,7 +24,7 @@ export function withAutoResize<T extends ITextareaProps>(WrappedComponent: Compo
             this.forwardRefs();
             this.saveInitialHeight();
             this.updateHeight();
-            window.addEventListener('resize', this.onResize);
+            window.addEventListener("resize", this.onResize);
         }
 
         componentDidUpdate(): void {
@@ -33,7 +33,7 @@ export function withAutoResize<T extends ITextareaProps>(WrappedComponent: Compo
         }
 
         componentWillUnmount(): void {
-            window.removeEventListener('resize', this.onResize);
+            window.removeEventListener("resize", this.onResize);
         }
 
         render() {

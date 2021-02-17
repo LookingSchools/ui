@@ -1,4 +1,4 @@
-import { Omit } from '../typings/utility-types';
+import { Omit } from "../typings/utility-types";
 
 /**
  * Возвращает новый объект с ключами из `object` за исключением тех которые указаны в `keys`.

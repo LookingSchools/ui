@@ -1,14 +1,14 @@
-import React from 'react';
-import { IClassNameProps } from '@bem-react/core';
+import React from "react";
+import { IClassNameProps } from "@bem-react/core";
 
-import { cnScroller } from '../Scroller';
-import { ScrollerContext, IScrollerContext } from '../Scroller';
+import { cnScroller } from "../Scroller";
+import { ScrollerContext, IScrollerContext } from "../Scroller";
 
 export interface IScrollerItem {
     children: (props: IClassNameProps) => React.ReactElement<{}>;
 }
 
-const cnScrollerItem = cnScroller('Item');
+const cnScrollerItem = cnScroller("Item");
 
 export class ScrollerItem extends React.PureComponent<IScrollerItem> {
     private scrollerContext?: IScrollerContext;

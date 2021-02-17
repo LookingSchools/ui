@@ -1,6 +1,6 @@
-import React, { ReactNode, FC } from 'react';
+import React, { ReactNode, FC } from "react";
 
-import { cnTabsPanes } from '../TabsPanes';
+import { cnTabsPanes } from "../TabsPanes";
 
 export interface ITabsPanesPaneProps {
     /**
@@ -25,7 +25,7 @@ export interface ITabsPanesPaneProps {
 }
 
 export const TabsPanesPane: FC<ITabsPanesPaneProps> = ({ content, className, ...props }) => (
-    <div {...props} role="tabpanel" className={cnTabsPanes('Pane', [className])}>
+    <div {...props} role="tabpanel" className={cnTabsPanes("Pane", [className])}>
         {content}
     </div>
 );

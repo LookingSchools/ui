@@ -1,19 +1,17 @@
-import React, { createRef, PureComponent } from 'react';
-import { compose, composeU } from '@bem-react/core';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean, text, object } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React, { createRef, PureComponent } from "react";
+import { compose } from "@bem-react/core";
+import { withKnobs, select, boolean, text, object } from "@storybook/addon-knobs";
 
 // Popup
-import { Popup as PopupBase } from './Popup';
-import { withNonvisual } from './_nonvisual/Popup_nonvisual';
-import { withTargetAnchor } from './_target/Popup_target_anchor';
-import { withThemeDefault } from './_theme/Popup_theme_default';
+import { Popup as PopupBase } from "./Popup";
+import { withNonvisual } from "./_nonvisual/Popup_nonvisual";
+import { withTargetAnchor } from "./_target/Popup_target_anchor";
+import { withThemeDefault } from "./_theme/Popup_theme_default";
 
 // Button
-import { Button as ButtonBase } from '../Button/Button';
-import { withThemeDefault as withButtonThemeDefault } from '../Button/_theme/Button_theme_default';
-import { withSizeM as withButtonSizeM } from '../Button/_size/Button_size_m';
+import { Button as ButtonBase } from "../Button/Button";
+import { withThemeDefault as withButtonThemeDefault } from "../Button/_theme/Button_theme_default";
+import { withSizeM as withButtonSizeM } from "../Button/_size/Button_size_m";
 
 const Button = compose(withButtonThemeDefault, withButtonSizeM)(ButtonBase);
 
@@ -25,18 +23,18 @@ const anchorRef1 = createRef();
 const anchorRef2 = createRef();
 
 const allDirections = [
-    'bottom-left',
-    'bottom-center',
-    'bottom-right',
-    'top-left',
-    'top-center',
-    'top-right',
-    'right-top',
-    'right-center',
-    'right-bottom',
-    'left-top',
-    'left-center',
-    'left-bottom',
+    "bottom-left",
+    "bottom-center",
+    "bottom-right",
+    "top-left",
+    "top-center",
+    "top-right",
+    "right-top",
+    "right-center",
+    "right-bottom",
+    "left-top",
+    "left-center",
+    "left-bottom",
 ];
 
 class BaseExample extends PureComponent {
@@ -50,8 +48,8 @@ class BaseExample extends PureComponent {
             popup5Visible: true,
             popup6Visible: true,
         };
-        this.onClick = id => () => {
-            const computedKey = id + 'Visible';
+        this.onClick = (id) => () => {
+            const computedKey = id + "Visible";
             this.setState({ [computedKey]: !this.state[computedKey] });
         };
     }
@@ -60,9 +58,9 @@ class BaseExample extends PureComponent {
 class ThemeShowcase extends BaseExample {
     render() {
         return (
-            <div style={{ position: 'relative', display: 'flex' }} ref={scopeRef1}>
+            <div style={{ position: "relative", display: "flex" }} ref={scopeRef1}>
                 <Button
-                    onClick={this.onClick('popup2')}
+                    onClick={this.onClick("popup2")}
                     innerRef={anchorRef2}
                     theme="default"
                     size="m"
@@ -75,11 +73,11 @@ class ThemeShowcase extends BaseExample {
                     target="anchor"
                     anchor={anchorRef2}
                     scope={scopeRef1}
-                    directions={['bottom-center']}
+                    directions={["bottom-center"]}
                     theme="default"
                     visible={this.state.popup2Visible}
                 >
-                    <div style={{ padding: 8, fontFamily: 'Arial' }}>Default</div>
+                    <div style={{ padding: 8, fontFamily: "Arial" }}>Default</div>
                 </Popup>
             </div>
         );
@@ -89,9 +87,9 @@ class ThemeShowcase extends BaseExample {
 class TargetShowcase extends BaseExample {
     render() {
         return (
-            <div style={{ position: 'relative' }} ref={scopeRef1}>
+            <div style={{ position: "relative" }} ref={scopeRef1}>
                 <Button
-                    onClick={this.onClick('popup1')}
+                    onClick={this.onClick("popup1")}
                     innerRef={anchorRef1}
                     size="m"
                     theme="default"
@@ -103,13 +101,13 @@ class TargetShowcase extends BaseExample {
                     target="anchor"
                     anchor={anchorRef1}
                     forceRender
-                    directions={['bottom-left']}
+                    directions={["bottom-left"]}
                     scope={scopeRef1}
                     theme="default"
                     visible={this.state.popup1Visible}
                     style={{ maxWidth: 280 }}
                 >
-                    <div style={{ padding: 16, fontFamily: 'Arial' }}>
+                    <div style={{ padding: 16, fontFamily: "Arial" }}>
                         Общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом.
                     </div>
                 </Popup>
@@ -132,22 +130,22 @@ class DirectionsShowcase extends BaseExample {
 
     render() {
         return (
-            <div style={{ position: 'relative', top: 25, left: 100 }} ref={scopeRef1}>
+            <div style={{ position: "relative", top: 25, left: 100 }} ref={scopeRef1}>
                 <div
                     style={{
-                        background: '#e6e6e6',
+                        background: "#e6e6e6",
                         height: 100,
                         width: 320,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         borderRadius: 3,
                     }}
                     ref={anchorRef1}
                 >
                     Anchor
                 </div>
-                {allDirections.map(direction => (
+                {allDirections.map((direction) => (
                     <Popup
                         key={direction}
                         anchor={anchorRef1}
@@ -159,7 +157,7 @@ class DirectionsShowcase extends BaseExample {
                         theme="default"
                         visible={this.state.directionsVisible}
                     >
-                        <div style={{ padding: 4, fontFamily: 'Arial' }}>{direction}</div>
+                        <div style={{ padding: 4, fontFamily: "Arial" }}>{direction}</div>
                     </Popup>
                 ))}
             </div>
@@ -176,13 +174,13 @@ class ScopeShowcase extends BaseExample {
                     style={{
                         height: 50,
                         maxWidth: 200,
-                        border: '2px dashed #c4c4c4',
-                        color: '#c4c4c4',
+                        border: "2px dashed #c4c4c4",
+                        color: "#c4c4c4",
                     }}
                 >
-                    {'Scope 1'}
+                    {"Scope 1"}
                     <Popup forceRender theme="default" visible scope={scopeRef1}>
-                        <div style={{ padding: 4, fontFamily: 'Arial' }}>Opens in Scope 1</div>
+                        <div style={{ padding: 4, fontFamily: "Arial" }}>Opens in Scope 1</div>
                     </Popup>
                 </div>
                 <div
@@ -190,14 +188,14 @@ class ScopeShowcase extends BaseExample {
                     style={{
                         height: 50,
                         maxWidth: 200,
-                        border: '2px dashed #c4c4c4',
+                        border: "2px dashed #c4c4c4",
                         borderTop: 0,
-                        color: '#c4c4c4',
+                        color: "#c4c4c4",
                     }}
                 >
-                    {'Scope 2'}
+                    {"Scope 2"}
                     <Popup forceRender theme="default" scope={scopeRef2} visible>
-                        <div style={{ padding: 4, fontFamily: 'Arial' }}>Opens in Scope 2</div>
+                        <div style={{ padding: 4, fontFamily: "Arial" }}>Opens in Scope 2</div>
                     </Popup>
                 </div>
             </>
@@ -219,8 +217,8 @@ class PositionShowcase extends BaseExample {
                         left: 16,
                     }}
                 >
-                    <div style={{ padding: 16, fontFamily: 'Arial' }}>
-                        <pre>{'position={{\n  top: 16,\n  left: 16\n}}'}</pre>
+                    <div style={{ padding: 16, fontFamily: "Arial" }}>
+                        <pre>{"position={{\n  top: 16,\n  left: 16\n}}"}</pre>
                     </div>
                 </Popup>
             </div>
@@ -228,62 +226,82 @@ class PositionShowcase extends BaseExample {
     }
 }
 
-storiesOf('Controls|Popup/', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Popup.md').default,
-            },
-        })
-    )
-    .add('playground', () => {
-        const visible = boolean('visible', true);
-        const nonvisual = boolean('nonvisual', false);
-        const children = text(
-            'children',
-            'Общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом.'
-        );
-        const theme = select('theme', ['default', ''], 'default');
-        const position = object('position ', { top: 0, left: 0 });
-        const direction = select('direction', allDirections, 'bottom-center');
+export default {
+    title: "Controls|Popup",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Popup.md"),
+        },
+    },
+};
 
-        return (
-            <div ref={scopeRef1} style={{ position: 'relative' }}>
-                <Popup
-                    forceRender
-                    scope={scopeRef1}
-                    theme={theme}
-                    direction={direction}
-                    visible={visible}
-                    nonvisual={nonvisual}
-                    position={position}
-                    style={{ maxWidth: 280 }}
+export const Playground = () => {
+    const visible = boolean("visible", true);
+    const nonvisual = boolean("nonvisual", false);
+    const children = text(
+        "children",
+        "Общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом."
+    );
+    const theme = select("theme", ["default", ""], "default");
+    const position = object("position ", { top: 0, left: 0 });
+    const direction = select("direction", allDirections, "bottom-center");
+
+    return (
+        <div ref={scopeRef1} style={{ position: "relative" }}>
+            <Popup
+                forceRender
+                scope={scopeRef1}
+                theme={theme}
+                direction={direction}
+                visible={visible}
+                nonvisual={nonvisual}
+                position={position}
+                style={{ maxWidth: 280 }}
+            >
+                <div
+                    style={{
+                        padding: 16,
+                        fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+                    }}
                 >
-                    <div
-                        style={{
-                            padding: 16,
-                            fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-                        }}
-                    >
-                        {children}
-                    </div>
-                </Popup>
-            </div>
-        );
-    });
+                    {children}
+                </div>
+            </Popup>
+        </div>
+    );
+};
 
-storiesOf('Controls|Popup/', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Popup.md').default,
-            },
-        })
-    )
-    .add('_target_anchor', () => <TargetShowcase />)
-    .add('_theme', () => <ThemeShowcase />)
-    .add('directions', () => <DirectionsShowcase />)
-    .add('position', () => <PositionShowcase />)
-    .add('scope', () => <ScopeShowcase />);
+Playground.story = {
+    name: "playground",
+};
+
+export const Target = () => <TargetShowcase />;
+
+Target.story = {
+    name: "_target_anchor",
+};
+
+export const Theme = () => <ThemeShowcase />;
+
+Theme.story = {
+    name: "theme",
+};
+
+export const Directions = () => <DirectionsShowcase />;
+
+Directions.story = {
+    name: "directions",
+};
+
+export const Position = () => <PositionShowcase />;
+
+Position.story = {
+    name: "position",
+};
+
+export const Scope = () => <ScopeShowcase />;
+
+Scope.story = {
+    name: "scope",
+};

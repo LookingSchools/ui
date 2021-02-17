@@ -1,17 +1,17 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { cnRating } from '../Rating';
+import { cnRating } from "../Rating";
 
-import './Rating_size_s.scss';
-import { IRatingProps } from '../Rating';
+import "./Rating_size_s.scss";
+import { IRatingProps } from "../Rating";
 
 export interface IRatingSizeS {
-    size?: 's';
+    size?: "s";
 }
 
 export const withSizeS = withBemMod<IRatingSizeS, IRatingProps>(
     cnRating(),
-    { size: 's' },
-    WrappedComponent => withBemModprops => <WrappedComponent starSize={12} {...withBemModprops} />
+    { size: "s" },
+    (WrappedComponent) => (withBemModprops) => <WrappedComponent starSize={12} {...withBemModprops} />
 );

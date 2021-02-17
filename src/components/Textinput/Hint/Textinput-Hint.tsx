@@ -1,7 +1,7 @@
-import React, { FC, AnimationEventHandler } from 'react';
+import React, { FC, AnimationEventHandler } from "react";
 
-import { cnTextinput } from '../Textinput';
-import './Textinput-Hint.scss';
+import { cnTextinput } from "../Textinput";
+import "./Textinput-Hint.scss";
 
 export interface TextinputHintProps {
     leave: boolean;
@@ -9,7 +9,7 @@ export interface TextinputHintProps {
 }
 
 export const TextinputHint: FC<TextinputHintProps> = ({ leave, onAnimationEnd, children }) => (
-    <span className={cnTextinput('Hint', { leave })} onAnimationEnd={onAnimationEnd}>
+    <span className={cnTextinput("Hint", { leave })} onAnimationEnd={onAnimationEnd}>
         {children}
     </span>
 );

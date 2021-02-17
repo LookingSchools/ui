@@ -10,18 +10,18 @@ import React, {
     KeyboardEvent,
     ReactNode,
     FocusEventHandler,
-} from 'react';
-import { cn } from '@bem-react/classname';
+} from "react";
+import { cn } from "@bem-react/classname";
 
-import '../../polyfills/pointerfocus';
-import { forceUtilityFocus } from '../../lib/pointerfocus';
-import { Keys, isKeyCode } from '../../lib/keyboard';
-import { mergeRefs } from '../../lib/mergeRefs';
-import { useUniqId } from '../../hooks/useUniqId';
-import { TumblerLabel as Label } from './Label/Tumbler-Label';
-import { TumblerButton as Button } from './Button/Tumbler-Button';
-import { TumblerControl as Control } from './Control/Tumbler-Control';
-import './Tumbler.scss';
+import "../../polyfills/pointerfocus";
+import { forceUtilityFocus } from "../../lib/pointerfocus";
+import { Keys, isKeyCode } from "../../lib/keyboard";
+import { mergeRefs } from "../../lib/mergeRefs";
+import { useUniqId } from "../../hooks/useUniqId";
+import { TumblerLabel as Label } from "./Label/Tumbler-Label";
+import { TumblerButton as Button } from "./Button/Tumbler-Button";
+import { TumblerControl as Control } from "./Control/Tumbler-Control";
+import "./Tumbler.scss";
 
 export const CHECKED_KEYS = [Keys.RIGHT, Keys.UP];
 export const UNCHECKED_KEYS = [Keys.LEFT, Keys.DOWN];
@@ -109,7 +109,7 @@ export type TumblerProps = {
     tabIndex?: number;
 };
 
-export const cnTumbler = cn('Tumbler');
+export const cnTumbler = cn("Tumbler");
 
 /**
  * Компонент, предназначенный для создания переключателя.
@@ -122,7 +122,7 @@ export const TumblerCommon: FC<TumblerProps> = ({
     controlRef: htmlControlRef,
     disabled,
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    id = useUniqId('xuniq'),
+    id = useUniqId("xuniq"),
     innerRef,
     labelAfter,
     labelBefore,
@@ -248,4 +248,4 @@ export const Tumbler: FC<TumblerProps> = ({ checked, onKeyDown: htmlOnKeyDown, .
     return <TumblerCommon checked={checked} onKeyDown={onKeyDown} {...props} />;
 };
 
-Tumbler.displayName = 'Tumbler';
+Tumbler.displayName = "Tumbler";

@@ -1,7 +1,7 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnPopup } from '../Popup';
-import './Popup_nonvisual.scss';
+import { cnPopup } from "../Popup";
+import "./Popup_nonvisual.scss";
 
 export interface IPopupNonvisualProps {
     /**

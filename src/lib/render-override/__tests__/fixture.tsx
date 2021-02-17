@@ -1,14 +1,14 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState } from "react";
 
 import {
     RenderOverride,
     useRenderOverride,
     RenderOverrideProvider,
     MultiRenderOverrideProvider,
-} from '../render-override';
+} from "../render-override";
 
 const OriginalComponent1: FC = ({ children }) => {
-    const [id] = useState('1');
+    const [id] = useState("1");
     return (
         <div id={id} data-testid="original-1">
             {children}
@@ -16,7 +16,7 @@ const OriginalComponent1: FC = ({ children }) => {
     );
 };
 const OriginalComponent2: FC = ({ children }) => {
-    const [id] = useState('2');
+    const [id] = useState("2");
     return (
         <div id={id} data-testid="original-2">
             {children}
@@ -25,7 +25,7 @@ const OriginalComponent2: FC = ({ children }) => {
 };
 
 const InputComponent: FC<{ value?: string; idx: number }> = ({ value, idx }) => {
-    const [id] = useState('1');
+    const [id] = useState("1");
     return <input value={value || id} onChange={() => null} data-testid={`original-input-${idx}`} />;
 };
 
@@ -33,7 +33,7 @@ export const HookMapUnitCase: FC<{ renderComponent?: RenderOverride }> = ({ rend
     const Component = useRenderOverride(InputComponent, renderComponent);
     return (
         <>
-            {[1, 2].map(index => (
+            {[1, 2].map((index) => (
                 <Component idx={index} key={index} />
             ))}
         </>
@@ -47,7 +47,7 @@ export const HookUnitCase: FC<{ renderComponent?: RenderOverride }> = ({ renderC
 
 export const SingleProviderUnitCase: FC<{ renderComponent?: RenderOverride }> = ({ renderComponent, children }) => (
     <RenderOverrideProvider component={OriginalComponent1} render={renderComponent}>
-        {Component => <Component>{children}</Component>}
+        {(Component) => <Component>{children}</Component>}
     </RenderOverrideProvider>
 );
 

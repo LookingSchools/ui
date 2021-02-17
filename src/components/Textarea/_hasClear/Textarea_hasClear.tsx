@@ -1,9 +1,9 @@
-import React, { PureComponent, MouseEventHandler, MouseEvent, createRef } from 'react';
-import { withBemMod } from '@bem-react/core';
+import React, { PureComponent, MouseEventHandler, MouseEvent, createRef } from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { ITextareaProps, cnTextarea } from '../Textarea';
-import { TextareaClear as Clear } from '../Clear/Textarea-Clear';
-import './Textarea_hasClear.scss';
+import { ITextareaProps, cnTextarea } from "../Textarea";
+import { TextareaClear as Clear } from "../Clear/Textarea-Clear";
+import "./Textarea_hasClear.scss";
 
 export interface ITextareaHasClearProps {
     /**
@@ -29,7 +29,7 @@ export interface ITextareaHasClearProps {
 export const withHasClear = withBemMod<ITextareaHasClearProps, ITextareaProps>(
     cnTextarea(),
     { hasClear: true },
-    Textarea =>
+    (Textarea) =>
         class WithHasClear extends PureComponent<ITextareaHasClearProps & ITextareaProps> {
             private readonly controlRef = createRef<HTMLTextAreaElement>();
 
@@ -86,7 +86,7 @@ export const withHasClear = withBemMod<ITextareaHasClearProps, ITextareaProps>(
                         syntheticEvent.target = this.controlRef.current;
                         syntheticEvent.currentTarget = this.controlRef.current;
 
-                        this.controlRef.current.value = '';
+                        this.controlRef.current.value = "";
 
                         this.props.onChange(syntheticEvent);
                         // Восстанавливаем предыдущее значение на тот случай,

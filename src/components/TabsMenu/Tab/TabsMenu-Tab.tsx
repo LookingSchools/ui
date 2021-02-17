@@ -1,8 +1,8 @@
 /* eslint-disable no-nested-ternary */
-import React, { MouseEventHandler, RefObject, ReactNode, KeyboardEventHandler, FC } from 'react';
+import React, { MouseEventHandler, RefObject, ReactNode, KeyboardEventHandler, FC } from "react";
 
-import { cnTabsMenu } from '../TabsMenu';
-import './TabsMenu-Tab.scss';
+import { cnTabsMenu } from "../TabsMenu";
+import "./TabsMenu-Tab.scss";
 
 export interface ITabsMenuTabProps {
     /**
@@ -77,7 +77,7 @@ export const TabsMenuTab: FC<ITabsMenuTabProps> = ({
         aria-selected={active}
         ref={innerRef}
         className={cnTabsMenu(
-            'Tab',
+            "Tab",
             {
                 active,
                 disabled,

@@ -1,19 +1,19 @@
-import React, { ComponentType, RefObject, PureComponent, createRef } from 'react';
+import React, { ComponentType, RefObject, PureComponent, createRef } from "react";
 
-import { isKeyCode, Keys } from '../../lib/keyboard';
-import { getDisplayName } from '../../lib/getDisplayName';
-import { mergeRefs } from '../../lib/mergeRefs';
-import { canUseDOM } from '../../lib/canUseDOM';
+import { isKeyCode, Keys } from "../../lib/keyboard";
+import { getDisplayName } from "../../lib/getDisplayName";
+import { mergeRefs } from "../../lib/mergeRefs";
+import { canUseDOM } from "../../lib/canUseDOM";
 
-let POINTER_DOWN = 'pointerdown';
-let POINTER_UP = 'pointerup';
+let POINTER_DOWN = "pointerdown";
+let POINTER_UP = "pointerup";
 
 if (canUseDOM()) {
     if (!(window as any).PointerEvent) {
-        POINTER_DOWN = 'mousedown';
-        POINTER_UP = 'mouseup';
+        POINTER_DOWN = "mousedown";
+        POINTER_UP = "mouseup";
         if (!(window as any).MouseEvent) {
-            POINTER_UP = 'click';
+            POINTER_UP = "click";
         }
     }
 }
@@ -91,13 +91,13 @@ export const withOutsideClick = <TProps extends IWrappedComponentProps>(WrappedC
         subscribeToEvents() {
             document.addEventListener(POINTER_DOWN, this.onPointerDown as EventListener);
             document.addEventListener(POINTER_UP, this.onPointerUp as EventListener);
-            document.addEventListener('keydown', this.onKeyDown);
+            document.addEventListener("keydown", this.onKeyDown);
         }
 
         unsubscribeFromEvents() {
             document.removeEventListener(POINTER_DOWN, this.onPointerDown as EventListener);
             document.removeEventListener(POINTER_UP, this.onPointerUp as EventListener);
-            document.removeEventListener('keydown', this.onKeyDown);
+            document.removeEventListener("keydown", this.onKeyDown);
         }
 
         onPointerDown = (event: PointerEvent) => {

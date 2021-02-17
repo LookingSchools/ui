@@ -1,47 +1,46 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, number } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
-import { Device } from '../_internal_/Device/Device';
+import React from "react";
+import { action } from "@storybook/addon-actions";
+import { withKnobs, number } from "@storybook/addon-knobs";
+import { Device } from "../_internal_/Device/Device";
 
-import { Slider } from './Slider';
+import { Slider } from "./Slider.bundle";
 
-storiesOf('Controls|Slider/', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Slider.md').default,
-            },
-        })
-    )
-    .add('playground', () => {
-        const count = number('Count', 5);
-        const activeIndex = number('activeIndex', 0);
+export default {
+    title: "Controls|Slider",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Slider.md"),
+        },
+    },
+};
 
-        const colors = ['red', 'green', 'black', 'yellow', 'blue', 'orange'];
+export const Playground = () => {
+    const count = number("Count", 5);
+    const activeIndex = number("activeIndex", 0);
 
-        return (
-            <Device>
-                <Slider
-                    className={'Slider-Storybook'}
-                    activeIndex={activeIndex}
-                    onSlideChange={action('onSlideChange')}
-                >
-                    {[...Array(count)].map((_, index) => {
-                        return (
-                            <div
-                                style={{
-                                    width: '100px',
-                                    height: '100px',
-                                    backgroundColor: colors[index % 6],
-                                }}
-                                key={index}
-                            />
-                        );
-                    })}
-                </Slider>
-            </Device>
-        );
-    });
+    const colors = ["red", "green", "black", "yellow", "blue", "orange"];
+
+    return (
+        <Device>
+            <Slider className={"Slider-Storybook"} activeIndex={activeIndex} onSlideChange={action("onSlideChange")}>
+                {[...Array(count)].map((_, index) => {
+                    return (
+                        <div
+                            style={{
+                                width: "100px",
+                                height: "100px",
+                                backgroundColor: colors[index % 6],
+                            }}
+                            key={index}
+                        />
+                    );
+                })}
+            </Slider>
+        </Device>
+    );
+};
+
+Playground.story = {
+    name: "playground",
+};

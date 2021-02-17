@@ -1,7 +1,7 @@
-import React, { FC, RefObject, ChangeEventHandler, KeyboardEventHandler } from 'react';
+import React, { FC, RefObject, ChangeEventHandler, KeyboardEventHandler } from "react";
 
-import { cnCheckbox } from '../Checkbox';
-import './Checkbox-Control.scss';
+import { cnCheckbox } from "../Checkbox";
+import "./Checkbox-Control.scss";
 
 export interface ICheckboxControlProps {
     /**
@@ -61,7 +61,7 @@ export const CheckboxControl: FC<ICheckboxControlProps> = ({ controlRef, classNa
         // Отключаем autoComplete, чтобы в FireFox
         // не сохранялось значение при перезагрузке страницы.
         autoComplete="off"
-        className={cnCheckbox('Control', null, [className])}
+        className={cnCheckbox("Control", null, [className])}
         ref={controlRef}
         type="checkbox"
     />

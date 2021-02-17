@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnCheckbox } from '../Checkbox';
-import './Checkbox-Box.scss';
+import { cnCheckbox } from "../Checkbox";
+import "./Checkbox-Box.scss";
 
 export interface CheckboxBoxProps {
     /**
@@ -11,7 +11,7 @@ export interface CheckboxBoxProps {
 }
 
 export const CheckboxBox: FC<CheckboxBoxProps> = ({ className, children, ...props }) => (
-    <span {...props} className={cnCheckbox('Box', null, [className])}>
+    <span {...props} className={cnCheckbox("Box", null, [className])}>
         {children}
     </span>
 );

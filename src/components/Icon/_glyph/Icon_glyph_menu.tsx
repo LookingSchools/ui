@@ -1,21 +1,21 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_glyph.scss';
-import './Icon_glyph_menu.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_glyph.scss";
+import "./Icon_glyph_menu.scss";
 
 export interface IWithGlyphMenuProps {
     /**
      * Символ иконки
      */
-    glyph?: 'menu';
+    glyph?: "menu";
 }
 
 export const withGlyphMenu = withBemMod<IWithGlyphMenuProps, IIconProps>(
     cnIcon(),
-    { glyph: 'menu' },
-    Icon => ({ className, ...props }) => (
+    { glyph: "menu" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg width="24" height="24" fill="none">
                 <path

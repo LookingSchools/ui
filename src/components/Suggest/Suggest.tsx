@@ -1,11 +1,11 @@
-import React, { FC, useState, useRef, useCallback, useEffect, ReactNode } from 'react';
+import React, { FC, useState, useRef, useCallback, useEffect, ReactNode } from "react";
 
-import { Textinput } from '../Textinput/Textinput.bundle';
-import { Popup } from '../Popup/Popup.bundle';
-import { Menu } from '../Menu/Menu.bundle';
-import { Spin } from '../Spin/Spin.bundle';
+import { Textinput } from "../Textinput/Textinput.bundle";
+import { Popup } from "../Popup/Popup.bundle";
+import { Menu } from "../Menu/Menu.bundle";
+import { Spin } from "../Spin/Spin.bundle";
 
-import './Suggest.scss';
+import "./Suggest.scss";
 
 type SuggestProps<T> = {
     /**
@@ -13,14 +13,14 @@ type SuggestProps<T> = {
      *
      * @default "m"
      */
-    textinputSize?: 's' | 'm';
+    textinputSize?: "s" | "m";
 
     /**
      * Размер меню.
      *
      * @default "m"
      */
-    menuSize?: 's' | 'm';
+    menuSize?: "s" | "m";
 
     /**
      * Свойство по которому фильтровать данные в случае использования Object[]
@@ -62,7 +62,7 @@ type SuggestProps<T> = {
 
 const onFilterDefault = <T extends any>(data: T[], value: string): T[] =>
     // @ts-ignore
-    data.filter(item => item.toLowerCase().startsWith(value.toLowerCase()));
+    data.filter((item) => item.toLowerCase().startsWith(value.toLowerCase()));
 
 /**
  * Составной компонент Textinput + Menu.
@@ -71,8 +71,8 @@ const onFilterDefault = <T extends any>(data: T[], value: string): T[] =>
  * @param {SuggestProps} props
  */
 export const Suggest: FC<SuggestProps<any>> = ({
-    textinputSize = 'm',
-    menuSize = 'm',
+    textinputSize = "m",
+    menuSize = "m",
     loading,
     data,
     value,
@@ -87,7 +87,7 @@ export const Suggest: FC<SuggestProps<any>> = ({
     const containerRef = useRef(null);
     const popupRef = useRef(null);
 
-    const noAvalibleValues = value !== '' && values.length === 0;
+    const noAvalibleValues = value !== "" && values.length === 0;
 
     useEffect(() => {
         const onDocumentMousedown = (event: MouseEvent) => {
@@ -96,8 +96,8 @@ export const Suggest: FC<SuggestProps<any>> = ({
                 event.preventDefault();
             }
         };
-        document.addEventListener('mousedown', onDocumentMousedown);
-        return () => document.removeEventListener('mousedown', onDocumentMousedown);
+        document.addEventListener("mousedown", onDocumentMousedown);
+        return () => document.removeEventListener("mousedown", onDocumentMousedown);
     }, []);
 
     useEffect(() => {
@@ -106,8 +106,8 @@ export const Suggest: FC<SuggestProps<any>> = ({
                 setVisible(false);
             }
         };
-        document.addEventListener('keydown', onDocumentKeydown);
-        return () => document.removeEventListener('keydown', onDocumentKeydown);
+        document.addEventListener("keydown", onDocumentKeydown);
+        return () => document.removeEventListener("keydown", onDocumentKeydown);
     }, []);
 
     useEffect(() => {
@@ -126,7 +126,7 @@ export const Suggest: FC<SuggestProps<any>> = ({
     }, [data, loading, onFilter, value, valueKey]);
 
     const onChangeMenu = useCallback(
-        event => {
+        (event) => {
             onChange(event.target.value);
             setVisible(false);
         },
@@ -144,7 +144,7 @@ export const Suggest: FC<SuggestProps<any>> = ({
                 theme="default"
                 size={textinputSize}
                 value={value}
-                onChange={event => onChange(event.target.value)}
+                onChange={(event) => onChange(event.target.value)}
                 onBlur={onBlur}
                 innerRef={textinputRef}
                 iconRight={
@@ -152,9 +152,7 @@ export const Suggest: FC<SuggestProps<any>> = ({
                         <span className="Textinput-Spinner">
                             <Spin progress theme="primary" size="xxs" />
                         </span>
-                    ) : (
-                        undefined
-                    )
+                    ) : undefined
                 }
             />
             <Popup
@@ -167,7 +165,7 @@ export const Suggest: FC<SuggestProps<any>> = ({
                 innerRef={popupRef}
             >
                 {noAvalibleValues ? (
-                    <div className="Suggest-Text">{loading ? 'Загрузка...' : 'Нет допустимых значений'}</div>
+                    <div className="Suggest-Text">{loading ? "Загрузка..." : "Нет допустимых значений"}</div>
                 ) : (
                     <Menu
                         focused={visible}
@@ -175,7 +173,7 @@ export const Suggest: FC<SuggestProps<any>> = ({
                         theme="default"
                         size={menuSize}
                         onChange={onChangeMenu}
-                        items={values.map(value => ({
+                        items={values.map((value) => ({
                             value: valueKey ? value[valueKey] : value,
                             content: onRenderItem ? onRenderItem(value) : value,
                         }))}

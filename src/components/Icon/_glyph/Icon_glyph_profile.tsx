@@ -1,21 +1,21 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_glyph.scss';
-import './Icon_glyph_profile.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_glyph.scss";
+import "./Icon_glyph_profile.scss";
 
 export interface IWithGlyphProfileProps {
     /**
      * Символ иконки
      */
-    glyph?: 'profile';
+    glyph?: "profile";
 }
 
 export const withGlyphProfile = withBemMod<IWithGlyphProfileProps, IIconProps>(
     cnIcon(),
-    { glyph: 'profile' },
-    Icon => ({ className, ...props }) => (
+    { glyph: "profile" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0)">

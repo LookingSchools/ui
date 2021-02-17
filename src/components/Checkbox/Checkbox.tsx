@@ -8,28 +8,28 @@ import React, {
     RefObject,
     FocusEventHandler,
     MouseEventHandler,
-} from 'react';
-import { cn } from '@bem-react/classname';
+} from "react";
+import { cn } from "@bem-react/classname";
 
-import '../../polyfills/pointerfocus';
-import { Omit } from '../../typings/utility-types';
-import { isKeyCode, Keys } from '../../lib/keyboard';
-import { omit } from '../../lib/omit';
-import { mergeRefs } from '../../lib/mergeRefs';
-import { useUniqId } from '../../hooks/useUniqId';
-import { IWithControlProps, withControl } from '../../hocs/withControl/withControl';
-import { IWithControlProps as IWithControlDesktopProps } from '../../hocs/withControl/withControl';
-import { ICheckboxControlProps } from './Control/Checkbox-Control';
-import { CheckboxBox as Box } from './Box/Checkbox-Box';
-import { CheckboxControl as Control } from './Control/Checkbox-Control';
-import { CheckboxLabel as Label } from './Label/Checkbox-Label';
-import { CheckboxTick as Tick } from './Tick/Checkbox-Tick';
+import "../../polyfills/pointerfocus";
+import { Omit } from "../../typings/utility-types";
+import { isKeyCode, Keys } from "../../lib/keyboard";
+import { omit } from "../../lib/omit";
+import { mergeRefs } from "../../lib/mergeRefs";
+import { useUniqId } from "../../hooks/useUniqId";
+import { IWithControlProps, withControl } from "../../hocs/withControl/withControl";
+import { IWithControlProps as IWithControlDesktopProps } from "../../hocs/withControl/withControl";
+import { ICheckboxControlProps } from "./Control/Checkbox-Control";
+import { CheckboxBox as Box } from "./Box/Checkbox-Box";
+import { CheckboxControl as Control } from "./Control/Checkbox-Control";
+import { CheckboxLabel as Label } from "./Label/Checkbox-Label";
+import { CheckboxTick as Tick } from "./Tick/Checkbox-Tick";
 
-import './Checkbox.scss';
+import "./Checkbox.scss";
 
-export const cnCheckbox = cn('Checkbox');
+export const cnCheckbox = cn("Checkbox");
 
-export type CheckboxControlProps = Omit<ICheckboxControlProps, 'size'>;
+export type CheckboxControlProps = Omit<ICheckboxControlProps, "size">;
 
 export interface ICheckboxProps
     extends IWithControlProps<HTMLInputElement>,
@@ -128,7 +128,7 @@ const CheckboxPresenter: FC<ICheckboxProps> = ({
     focused,
     hovered,
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    id = useUniqId('xuniq'),
+    id = useUniqId("xuniq"),
     innerRef,
     label,
     onMouseDown,
@@ -179,7 +179,7 @@ const CheckboxPresenter: FC<ICheckboxProps> = ({
 
     const labelId = `label-${id}`;
     // FIXME: https://github.com/bem/bem-react/issues/381
-    const nextProps = omit(props as any, ['pressed', 'lines', 'theme', 'size']);
+    const nextProps = omit(props as any, ["pressed", "lines", "theme", "size"]);
 
     return (
         <span

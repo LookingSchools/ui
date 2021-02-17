@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnTextarea } from '../Textarea';
-import './Textarea-Wrap.scss';
+import { cnTextarea } from "../Textarea";
+import "./Textarea-Wrap.scss";
 
 export interface TextareaWrapProps {
     /**
@@ -11,7 +11,7 @@ export interface TextareaWrapProps {
 }
 
 export const TextareaWrap: FC<TextareaWrapProps> = ({ className, children, ...props }) => (
-    <span {...props} className={cnTextarea('Wrap', null, [className])}>
+    <span {...props} className={cnTextarea("Wrap", null, [className])}>
         {children}
     </span>
 );

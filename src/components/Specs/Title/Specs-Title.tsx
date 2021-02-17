@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { Typography } from '../../Typography/Typography.bundle';
-import { cnSpecs } from '../Specs';
+import { Typography } from "../../Typography/Typography.bundle";
+import { cnSpecs } from "../Specs";
 
 type SpecsTitleProps = {
     showSpecs: boolean;
@@ -9,9 +9,9 @@ type SpecsTitleProps = {
 };
 
 export const SpecsTitle: FC<SpecsTitleProps> = ({ showSpecs, showDescription }) => (
-    <Typography tag="h2" className={cnSpecs('Title')}>
-        {showSpecs && 'характеристики'}
-        {showSpecs && showDescription && ' и '}
-        {showDescription && 'описание'}
+    <Typography tag="h2" className={cnSpecs("Title")}>
+        {showSpecs && "характеристики"}
+        {showSpecs && showDescription && " и "}
+        {showDescription && "описание"}
     </Typography>
 );

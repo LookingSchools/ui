@@ -1,47 +1,45 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React from "react";
+import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 
-import { Spin } from './Spin.bundle';
+import { Spin } from "./Spin.bundle";
 
-storiesOf('Controls|Spin/', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Spin.md').default,
-            },
-        })
-    )
-    .add('playground', () => {
-        const theme = select('theme', ['primary'], 'primary');
-        const size = select('size', ['l', 'm', 's', 'xs', 'xxs'], 'm');
-        const position = select('position', ['', 'center'], '');
-        const progress = boolean('progress', true);
+export default {
+    title: "Controls|Spin",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Spin.md"),
+        },
+    },
+};
 
-        return (
-            <div>
-                <Spin theme={theme} progress={progress} position={position} size={size} />
-            </div>
-        );
-    });
+export const Playground = () => {
+    const theme = select("theme", ["primary"], "primary");
+    const size = select("size", ["l", "m", "s", "xs", "xxs"], "m");
+    const position = select("position", ["", "center"], "");
+    const progress = boolean("progress", true);
 
-storiesOf('Controls|Spin/', module)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Spin.md').default,
-            },
-        })
-    )
-
-    .add('_position', () => (
-        <div style={{ position: 'relative', height: 38 }}>
-            <Spin progress position="center" theme="primary" size="l" />
+    return (
+        <div>
+            <Spin theme={theme} progress={progress} position={position} size={size} />
         </div>
-    ))
-    .add('_size', () => (
+    );
+};
+
+Playground.story = {
+    name: "playground",
+};
+
+export const Theme = () => {
+    return <Spin progress theme="primary" size="m" />;
+};
+
+Theme.story = {
+    name: "theme",
+};
+
+export const Size = () => {
+    return (
         <>
             <Spin progress theme="primary" size="l" />
             <Spin progress theme="primary" size="m" />
@@ -49,5 +47,21 @@ storiesOf('Controls|Spin/', module)
             <Spin progress theme="primary" size="xs" />
             <Spin progress theme="primary" size="xxs" />
         </>
-    ))
-    .add('_theme', () => <Spin progress theme="primary" size="m" />);
+    );
+};
+
+Size.story = {
+    name: "size",
+};
+
+export const Position = () => {
+    return (
+        <div style={{ position: "relative", height: 38 }}>
+            <Spin progress position="center" theme="primary" size="l" />
+        </div>
+    );
+};
+
+Position.story = {
+    name: "position",
+};

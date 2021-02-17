@@ -1,9 +1,9 @@
-import React, { FC, RefObject } from 'react';
-import { mount, ReactWrapper } from 'enzyme';
+import React, { FC, RefObject } from "react";
+import { mount, ReactWrapper } from "enzyme";
 
-import { withZIndex } from './withZIndex';
-import { delay } from '../../internal/utils';
-import { Nullable } from '../../typings/utility-types';
+import { withZIndex } from "./withZIndex";
+import { delay } from "../../internal/utils";
+import { Nullable } from "../../typings/utility-types";
 
 type TestProps = {
     zIndex?: number;
@@ -14,37 +14,37 @@ const Test: FC<TestProps> = ({ zIndex, innerRef }) => <div style={{ zIndex: zInd
 
 const ZTest = withZIndex(Test);
 
-describe('withZIndex', () => {
+describe("withZIndex", () => {
     let wrapper: Nullable<ReactWrapper> = null;
     let wrapper1: Nullable<ReactWrapper> = null;
 
     afterEach(() => {
-        [wrapper, wrapper1].forEach(wrapper => {
+        [wrapper, wrapper1].forEach((wrapper) => {
             wrapper && wrapper.length && wrapper.unmount();
         });
     });
 
-    test('должен выставлять z-index', async () => {
+    test("должен выставлять z-index", async () => {
         wrapper = mount(<ZTest visible />);
 
         // обновляем при следующем тике
         await delay(100);
-        expect(wrapper.render().prop('style')).toHaveProperty('z-index', '1001');
+        expect(wrapper.render().prop("style")).toHaveProperty("z-index", "1001");
     });
 
-    test('должен выставлять z-index в 0 при visible: false', async () => {
+    test("должен выставлять z-index в 0 при visible: false", async () => {
         wrapper = mount(<ZTest visible />);
         wrapper.setProps({ visible: false });
 
         await delay(100);
-        expect(wrapper.render().prop('style')).toHaveProperty('z-index', '0');
+        expect(wrapper.render().prop("style")).toHaveProperty("z-index", "0");
     });
 
-    test('должен учитывать zIndexGroupLevel', async () => {
+    test("должен учитывать zIndexGroupLevel", async () => {
         wrapper = mount(<ZTest visible zIndexGroupLevel={3} />);
 
         await delay(100);
-        expect(wrapper.render().prop('style')).toHaveProperty('z-index', '4001');
+        expect(wrapper.render().prop("style")).toHaveProperty("z-index", "4001");
 
         // проверяем что после повторного открытия z-index сохранился
         wrapper.setProps({ visible: false });
@@ -52,19 +52,19 @@ describe('withZIndex', () => {
         wrapper.setProps({ visible: true });
 
         await delay(100);
-        expect(wrapper.render().prop('style')).toHaveProperty('z-index', '4001');
+        expect(wrapper.render().prop("style")).toHaveProperty("z-index", "4001");
     });
 
-    test('должен устанавливать правильный z-index для нескольких блоков', async () => {
+    test("должен устанавливать правильный z-index для нескольких блоков", async () => {
         wrapper = mount(<ZTest visible />);
         wrapper1 = mount(<ZTest visible />);
 
         await delay(100);
-        expect(wrapper.render().prop('style')).toHaveProperty('z-index', '1001');
-        expect(wrapper1.render().prop('style')).toHaveProperty('z-index', '1002');
+        expect(wrapper.render().prop("style")).toHaveProperty("z-index", "1001");
+        expect(wrapper1.render().prop("style")).toHaveProperty("z-index", "1002");
     });
 
-    test('должен правильно менять z-index при повторном появлении блока', async () => {
+    test("должен правильно менять z-index при повторном появлении блока", async () => {
         wrapper = mount(<ZTest visible />);
         wrapper1 = mount(<ZTest visible />);
 
@@ -74,20 +74,20 @@ describe('withZIndex', () => {
         wrapper.setProps({ visible: true });
 
         await delay(100);
-        expect(wrapper.render().prop('style')).toHaveProperty('z-index', '1003');
-        expect(wrapper1.render().prop('style')).toHaveProperty('z-index', '1002');
+        expect(wrapper.render().prop("style")).toHaveProperty("z-index", "1003");
+        expect(wrapper1.render().prop("style")).toHaveProperty("z-index", "1002");
     });
 
-    test('не должен резервировать z-index при удалении из DOM', async () => {
+    test("не должен резервировать z-index при удалении из DOM", async () => {
         wrapper = mount(<ZTest visible />);
 
         await delay(100);
-        expect(wrapper.render().prop('style')).toHaveProperty('z-index', '1001');
+        expect(wrapper.render().prop("style")).toHaveProperty("z-index", "1001");
         wrapper.unmount();
 
         wrapper1 = mount(<ZTest visible />);
 
         await delay(100);
-        expect(wrapper1.render().prop('style')).toHaveProperty('z-index', '1001');
+        expect(wrapper1.render().prop("style")).toHaveProperty("z-index", "1001");
     });
 });

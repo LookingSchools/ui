@@ -1,7 +1,7 @@
-import { RefObject, MutableRefObject, Ref } from 'react';
+import { RefObject, MutableRefObject, Ref } from "react";
 
-import { Maybe } from '../typings/utility-types';
-import { canUseDOM } from './canUseDOM';
+import { Maybe } from "../typings/utility-types";
+import { canUseDOM } from "./canUseDOM";
 
 /**
  * Копирует ссылку на DOM элемент из одного объекта в другой и возвращает объект со ссылкой.
@@ -16,7 +16,7 @@ export const mergeRefs = <TElement extends HTMLElement>(
     // Используем raf, т.к. ссылки устанавливаются асинхронно.
     if (canUseDOM()) {
         requestAnimationFrame(() => {
-            targets.forEach(target => {
+            targets.forEach((target) => {
                 if (source !== undefined && target !== undefined) {
                     (target as MutableRefObject<any>).current = source.current;
                 }
@@ -29,8 +29,8 @@ export const mergeRefs = <TElement extends HTMLElement>(
 // Перейти на эту функцию
 export function mergeAllRefs<TElement extends HTMLElement>(...refs: Maybe<Ref<TElement>>[]) {
     return (node: TElement | null) => {
-        refs.forEach(ref => {
-            if (typeof ref === 'function') {
+        refs.forEach((ref) => {
+            if (typeof ref === "function") {
                 ref(node);
             } else if (ref !== null && ref !== undefined) {
                 (ref as MutableRefObject<TElement | null>).current = node;

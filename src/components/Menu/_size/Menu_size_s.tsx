@@ -1,17 +1,17 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnMenu } from '../Menu';
-import './Menu_size_s.scss';
+import { cnMenu } from "../Menu";
+import "./Menu_size_s.scss";
 
 export interface IMenuSizeSProps {
     /**
      * Размер меню
      */
-    size?: 's';
+    size?: "s";
 }
 
 /**
  * Модификатор, отвечающий за размер меню.
  * @param {IMenuSizeSProps} props
  */
-export const withSizeS = withBemMod<IMenuSizeSProps>(cnMenu(), { size: 's' });
+export const withSizeS = withBemMod<IMenuSizeSProps>(cnMenu(), { size: "s" });

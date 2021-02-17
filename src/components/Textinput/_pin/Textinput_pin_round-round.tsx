@@ -1,13 +1,13 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { ITextinputProps, cnTextinput } from '../Textinput';
-import '../_hasPin/Textinput_hasPin.scss';
+import { ITextinputProps, cnTextinput } from "../Textinput";
+import "../_hasPin/Textinput_hasPin.scss";
 
 export interface ITextinputPinRoundRoundProps {
     /**
      * Форма текстового поля.
      */
-    pin?: 'round-round';
+    pin?: "round-round";
 }
 
 /**
@@ -16,5 +16,5 @@ export interface ITextinputPinRoundRoundProps {
  * @param {ITextinputPinRoundRoundProps} props
  */
 export const withPinRoundRound = withBemMod<ITextinputPinRoundRoundProps, ITextinputProps>(cnTextinput(), {
-    pin: 'round-round',
+    pin: "round-round",
 });

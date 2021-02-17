@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnRadiobox as cn } from '../Radiobox';
-import './Radiobox-Box.scss';
+import { cnRadiobox as cn } from "../Radiobox";
+import "./Radiobox-Box.scss";
 
 export interface RadioboxBoxProps {
     /**
@@ -11,7 +11,7 @@ export interface RadioboxBoxProps {
 }
 
 export const RadioboxBox: FC<RadioboxBoxProps> = ({ children, className, ...props }) => (
-    <span {...props} className={cn('Box', null, [className])}>
+    <span {...props} className={cn("Box", null, [className])}>
         {children}
     </span>
 );

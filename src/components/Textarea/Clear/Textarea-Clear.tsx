@@ -1,20 +1,20 @@
-import React, { FC, MouseEventHandler } from 'react';
-import { compose } from '@bem-react/core';
+import React, { FC, MouseEventHandler } from "react";
+import { compose } from "@bem-react/core";
 
-import { Icon as IconBase } from '../../Icon/Icon';
-import { withGlyphCross } from '../../Icon/_glyph/Icon_glyph_cross';
-import { withGlyphXSign } from '../../Icon/_glyph/Icon_glyph_x-sign';
-import { cnTextarea } from '../Textarea';
-import './Textarea-Clear.scss';
+import { Icon as IconBase } from "../../Icon/Icon";
+import { withGlyphCross } from "../../Icon/_glyph/Icon_glyph_cross";
+import { withGlyphXSign } from "../../Icon/_glyph/Icon_glyph_x-sign";
+import { cnTextarea } from "../Textarea";
+import "./Textarea-Clear.scss";
 
 const Icon = compose(withGlyphXSign, withGlyphCross)(IconBase);
 
 const getIconType = (theme?: string): any => {
-    if (theme === 'default') {
-        return { glyph: 'x-sign' };
+    if (theme === "default") {
+        return { glyph: "x-sign" };
     }
 
-    return { glyph: 'cross' };
+    return { glyph: "cross" };
 };
 
 export interface ITextareaClearProps {
@@ -45,7 +45,7 @@ export interface ITextareaClearProps {
 }
 
 export const TextareaClear: FC<ITextareaClearProps> = ({ theme, visible, ...props }) => {
-    const className = cnTextarea('Clear', { visible }, [props.className]);
+    const className = cnTextarea("Clear", { visible }, [props.className]);
 
     return <Icon {...props} {...getIconType(theme)} className={className} />;
 };

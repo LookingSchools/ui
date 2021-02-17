@@ -1,17 +1,17 @@
-import React, { Component, ComponentClass, ReactNode } from 'react';
-import { cn } from '@bem-react/classname';
-import { Image } from '../Image/Image.bundle';
-import { Button } from '../Button/Button.bundle';
-import { DiscountBadge } from '../DiscountBadge/DiscountBadge.bundle';
-import { Icon } from '../Icon/Icon.bundle';
-import { GalleryNavItem as NavItem } from './NavItem/Gallery-NavItem';
-import { GalleryModal } from './Modal/Gallery-Modal';
-import { GalleryClose } from './Close/Gallery-Close';
-import { GalleryPreview as Preview } from './Preview/Gallery-Preview';
+import React, { Component, ComponentClass, ReactNode } from "react";
+import { cn } from "@bem-react/classname";
+import { Image } from "../Image/Image.bundle";
+import { Button } from "../Button/Button.bundle";
+import { DiscountBadge } from "../DiscountBadge/DiscountBadge.bundle";
+import { Icon } from "../Icon/Icon.bundle";
+import { GalleryNavItem as NavItem } from "./NavItem/Gallery-NavItem";
+import { GalleryModal } from "./Modal/Gallery-Modal";
+import { GalleryClose } from "./Close/Gallery-Close";
+import { GalleryPreview as Preview } from "./Preview/Gallery-Preview";
 
-import './Gallery.scss';
+import "./Gallery.scss";
 
-export const cnGallery = cn('Gallery');
+export const cnGallery = cn("Gallery");
 
 interface ImagesItem {
     src: string;
@@ -81,11 +81,11 @@ export const Gallery = class extends Component<IGalleryProps, IGalleryState> {
         return (
             <div {...props} className={cnGallery(null, [className])}>
                 {discount && this.state.showDiscount && (
-                    <div className={cnGallery('Discount')}>
-                        <DiscountBadge theme="default" size="s" percent={discount} />
+                    <div className={cnGallery("Discount")}>
+                        <DiscountBadge theme="default" size="m" percent={discount} />
                     </div>
                 )}
-                <div className={cnGallery('Nav', null, [className])}>
+                <div className={cnGallery("Nav", null, [className])}>
                     <ul>
                         {images.map((img, index) => (
                             <NavItem
@@ -100,12 +100,12 @@ export const Gallery = class extends Component<IGalleryProps, IGalleryState> {
                 </div>
                 <Preview>
                     <Image src={images[id].src} alt={images[id].alt} />
-                    <span className={cnGallery('Button')}>
+                    <span className={cnGallery("Button")}>
                         <Button
                             theme="primary"
                             size="m"
                             onClick={this.openModal}
-                            iconLeft={className => <Icon glyph="plus" size="m" className={className} />}
+                            iconLeft={(className) => <Icon glyph="plus" size="m" className={className} />}
                         >
                             Увеличить
                         </Button>
@@ -128,9 +128,9 @@ export const Gallery = class extends Component<IGalleryProps, IGalleryState> {
                 onOutsideClick={this.closeModal}
                 zIndexGroupLevel={10}
             >
-                <div className={cnGallery('Modal')}>
-                    <div className={cnGallery('ModalNav')}>
-                        <div className={cnGallery('Nav', null, [this.props.className])}>
+                <div className={cnGallery("Modal")}>
+                    <div className={cnGallery("ModalNav")}>
+                        <div className={cnGallery("Nav", null, [this.props.className])}>
                             <ul>
                                 {this.props.images.map((img, index) => (
                                     <NavItem
@@ -143,9 +143,9 @@ export const Gallery = class extends Component<IGalleryProps, IGalleryState> {
                             </ul>
                         </div>
                     </div>
-                    <div className={cnGallery('ModalPreview')}>
-                        <div className={cnGallery('ModalWrap')} style={{ transitionDuration: '400ms' }}>
-                            <div className={cnGallery('ModalImage')}>
+                    <div className={cnGallery("ModalPreview")}>
+                        <div className={cnGallery("ModalWrap")} style={{ transitionDuration: "400ms" }}>
+                            <div className={cnGallery("ModalImage")}>
                                 <Image
                                     src={this.props.images[this.state.id].src}
                                     alt={this.props.images[this.state.id].alt}

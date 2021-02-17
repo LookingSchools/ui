@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_glyph.scss';
-import './Icon_glyph_sort.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_glyph.scss";
+import "./Icon_glyph_sort.scss";
 
 export interface IWithGlyphSortProps {
     /**
      * Символ иконки
      */
-    glyph?: 'sort';
+    glyph?: "sort";
 }
 
 /**
@@ -18,8 +18,8 @@ export interface IWithGlyphSortProps {
  */
 export const withGlyphSort = withBemMod<IWithGlyphSortProps, IIconProps>(
     cnIcon(),
-    { glyph: 'sort' },
-    Icon => ({ className, ...props }) => (
+    { glyph: "sort" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg width="24" height="24" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path

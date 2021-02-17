@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_glyph.scss';
-import './Icon_glyph_x-sign.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_glyph.scss";
+import "./Icon_glyph_x-sign.scss";
 
 export interface IWithGlyphXSignProps {
     /**
      * Символ иконки
      */
-    glyph?: 'x-sign';
+    glyph?: "x-sign";
 }
 
 /**
@@ -18,8 +18,8 @@ export interface IWithGlyphXSignProps {
  */
 export const withGlyphXSign = withBemMod<IWithGlyphXSignProps, IIconProps>(
     cnIcon(),
-    { glyph: 'x-sign' },
-    Icon => ({ className, ...props }) => (
+    { glyph: "x-sign" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg viewBox="0 0 20 20">
                 <path

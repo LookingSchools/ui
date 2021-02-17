@@ -6,10 +6,10 @@ import React, {
     FC,
     ReactNode,
     MouseEventHandler,
-} from 'react';
-import { cn } from '@bem-react/classname';
+} from "react";
+import { cn } from "@bem-react/classname";
 
-import './Link.scss';
+import "./Link.scss";
 
 export type ContainerElement = HTMLSpanElement | HTMLAnchorElement;
 
@@ -80,7 +80,7 @@ export interface ILinkProps {
     onClick?: MouseEventHandler<ContainerElement>;
 }
 
-export const cnLink = cn('Link');
+export const cnLink = cn("Link");
 
 /**
  * Компонент для создания ссылок.
@@ -104,10 +104,10 @@ export const Link: FC<ILinkProps> = ({
     ...props
 }) => {
     const className = cnLink(null, [props.className]);
-    const Component = as || ((href ? 'a' : ('span' as any)) as ReactLinkElement);
+    const Component = as || ((href ? "a" : ("span" as any)) as ReactLinkElement);
     let relationship = rel;
 
-    if (target === '_blank' && rel !== undefined && rel.indexOf('noopener') === -1) {
+    if (target === "_blank" && rel !== undefined && rel.indexOf("noopener") === -1) {
         // Пользовательский атрибут имеет больший приоритет
         relationship = `${rel} noopener`;
     }

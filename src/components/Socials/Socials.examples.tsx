@@ -1,21 +1,26 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React from "react";
+import { withKnobs } from "@storybook/addon-knobs";
 
-import { Socials } from './Socials.bundle';
+import { Socials } from "./Socials.bundle";
 
-storiesOf('Controls|Socials', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Socials.md').default,
-            },
-        })
-    )
-    .add('all', () => (
+export default {
+    title: "Controls|Socials",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Socials.md"),
+        },
+    },
+};
+
+export const Playground = () => {
+    return (
         <div>
-            <Socials icons={['facebook', 'instagram', 'youtube', 'twitter', 'telegram']} />
+            <Socials icons={["facebook", "instagram", "youtube", "twitter", "telegram"]} />
         </div>
-    ));
+    );
+};
+
+Playground.story = {
+    name: "playground",
+};

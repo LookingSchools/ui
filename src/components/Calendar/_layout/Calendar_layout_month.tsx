@@ -1,12 +1,12 @@
-import React, { FC, useMemo, MouseEventHandler, useCallback, useState } from 'react';
-import { withBemMod } from '@bem-react/core';
+import React, { FC, useMemo, MouseEventHandler, useCallback, useState } from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { normalizeDate, isWeekendByIndex, DateItem, getMonthTable, addMonth } from '../utils';
-import { CalendarI18n } from '../Calendar.i18n';
-import { CalendarMonth } from '../Month/CalendarMonth';
-import { CalendarProps, cnCalendar } from '../Calendar';
+import { normalizeDate, isWeekendByIndex, DateItem, getMonthTable, addMonth } from "../utils";
+import { CalendarI18n } from "../Calendar.i18n";
+import { CalendarMonth } from "../Month/CalendarMonth";
+import { CalendarProps, cnCalendar } from "../Calendar";
 
-import './Calendar_layout_month.scss';
+import "./Calendar_layout_month.scss";
 
 export interface DateItemExtended extends DateItem {
     isDisabled: boolean;
@@ -14,7 +14,7 @@ export interface DateItemExtended extends DateItem {
 }
 
 export interface CalendarLayoutMonthProps {
-    layout?: 'month';
+    layout?: "month";
     month?: Date;
     isDisabledItem?: (date: Date) => boolean;
     onItemClick?: MouseEventHandler<HTMLElement>;
@@ -34,13 +34,13 @@ const inRange = (selectedTime: SelectedTime[], date: number) => {
 
 const getExtendedMonthTable = (
     date: Date,
-    isDisabled: CalendarLayoutMonthProps['isDisabledItem'],
-    borders: CalendarProps['borders']
+    isDisabled: CalendarLayoutMonthProps["isDisabledItem"],
+    borders: CalendarProps["borders"]
 ) => {
     const items: DateItem[] = getMonthTable(date);
-    const bordersTime = borders ? borders.map(b => normalizeDate(b).getTime()) : null;
+    const bordersTime = borders ? borders.map((b) => normalizeDate(b).getTime()) : null;
 
-    return items.map(CalendarItem => {
+    return items.map((CalendarItem) => {
         const itemInRange = bordersTime ? inRange(bordersTime, CalendarItem.date.getTime()) : true;
         // проверяем только те даты которые в диапазоне
         const disabled = isDisabled && itemInRange ? isDisabled(CalendarItem.date) : false;
@@ -88,7 +88,7 @@ const CalendarItem = (
         <div
             key={itemTime}
             data-date={date}
-            className={cnCalendar('Item', {
+            className={cnCalendar("Item", {
                 disabled: isDisabled,
                 weekend: isWeekend,
                 anotherMonth: !isCurrentMonth,
@@ -101,12 +101,12 @@ const CalendarItem = (
             })}
             {...handlers}
         >
-            <div className={cnCalendar('ItemContent')}>{text}</div>
+            <div className={cnCalendar("ItemContent")}>{text}</div>
         </div>
     );
 };
 
-export const CalendarLayoutMonth: FC<CalendarLayoutMonthProps & CalendarProps> = props => {
+export const CalendarLayoutMonth: FC<CalendarLayoutMonthProps & CalendarProps> = (props) => {
     let {
         month = new Date(),
         showMonth = true,
@@ -116,7 +116,7 @@ export const CalendarLayoutMonth: FC<CalendarLayoutMonthProps & CalendarProps> =
         borders,
     } = props;
 
-    if (typeof month === 'string' || typeof month === 'number') {
+    if (typeof month === "string" || typeof month === "number") {
         month = new Date(month);
     }
 
@@ -134,28 +134,28 @@ export const CalendarLayoutMonth: FC<CalendarLayoutMonthProps & CalendarProps> =
 
     const selectedTime = useMemo(() => {
         return Array.isArray(selected)
-            ? selected.map(date => (date ? normalizeDate(date).getTime() : undefined))
+            ? selected.map((date) => (date ? normalizeDate(date).getTime() : undefined))
             : selected && normalizeDate(selected).getTime();
     }, [selected]);
 
     const nextMonthHandler = useCallback(() => {
-        setCurrentMonth(current => {
+        setCurrentMonth((current) => {
             return addMonth(current, 1);
         });
     }, []);
 
     const prevMonthHandler = useCallback(() => {
-        setCurrentMonth(current => {
+        setCurrentMonth((current) => {
             return addMonth(current, -1);
         });
     }, []);
 
     return (
-        <div className={cnCalendar({ layout: 'month' })}>
+        <div className={cnCalendar({ layout: "month" })}>
             {showDayWeek && (
-                <div className={cnCalendar('WeekDays')}>
+                <div className={cnCalendar("WeekDays")}>
                     {weekDays.map((text, index) => (
-                        <div key={text} className={cnCalendar('Item', { weekend: isWeekendByIndex(index + 1) })}>
+                        <div key={text} className={cnCalendar("Item", { weekend: isWeekendByIndex(index + 1) })}>
                             {text}
                         </div>
                     ))}
@@ -171,8 +171,8 @@ export const CalendarLayoutMonth: FC<CalendarLayoutMonthProps & CalendarProps> =
                 />
             )}
             {showDays && (
-                <div className={cnCalendar('Days')}>
-                    {days.map(item =>
+                <div className={cnCalendar("Days")}>
+                    {days.map((item) =>
                         CalendarItem(item, selectedTime, { onMouseOver: onItemHover, onClick: onItemClick })
                     )}
                 </div>
@@ -183,9 +183,9 @@ export const CalendarLayoutMonth: FC<CalendarLayoutMonthProps & CalendarProps> =
 
 export const withLayoutMonth = withBemMod<CalendarLayoutMonthProps, CalendarProps>(
     cnCalendar(),
-    { layout: 'month' },
-    WrappedComponent => {
-        return props => {
+    { layout: "month" },
+    (WrappedComponent) => {
+        return (props) => {
             return (
                 <WrappedComponent {...props}>
                     <CalendarLayoutMonth {...props} />

@@ -1,22 +1,22 @@
-import React, { RefObject, ReactNode } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { RefObject, ReactNode } from "react";
+import { cn } from "@bem-react/classname";
 
-import { useUniqId } from '../../hooks/useUniqId';
-import { Omit } from '../../typings/utility-types';
-import { IRadiobuttonControlProps } from './Control/Radiobutton-Control';
-import { RadiobuttonRadio as Radio } from './Radio/Radiobutton-Radio';
-import { RadiobuttonControl as Control } from './Control/Radiobutton-Control';
-import { RadiobuttonText as Text } from './Text/Radiobutton-Text';
+import { useUniqId } from "../../hooks/useUniqId";
+import { Omit } from "../../typings/utility-types";
+import { IRadiobuttonControlProps } from "./Control/Radiobutton-Control";
+import { RadiobuttonRadio as Radio } from "./Radio/Radiobutton-Radio";
+import { RadiobuttonControl as Control } from "./Control/Radiobutton-Control";
+import { RadiobuttonText as Text } from "./Text/Radiobutton-Text";
 
-import './Radiobutton.scss';
+import "./Radiobutton.scss";
 
-export const cnRadiobutton = cn('Radiobutton');
+export const cnRadiobutton = cn("Radiobutton");
 
 export interface IOption extends IRadiobuttonControlProps {
     label: ReactNode;
 }
 
-export interface IRadiobuttonProps extends Omit<IRadiobuttonControlProps, 'size' | 'controlRef'> {
+export interface IRadiobuttonProps extends Omit<IRadiobuttonControlProps, "size" | "controlRef"> {
     /**
      * Набор опций
      */
@@ -52,7 +52,7 @@ export const Radiobutton = ({
     value,
     className,
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    id = useUniqId('xuniq'),
+    id = useUniqId("xuniq"),
     length = options.length,
     // Извлекаем свойства, т.к. они не нужны на DOM узле
     // FIXME: https://github.com/bem/bem-react/issues/381
@@ -66,15 +66,15 @@ export const Radiobutton = ({
         <span className={cnRadiobutton(null, [className])} ref={innerRef}>
             {options
                 .map((option, index) => {
-                    const nextOption = typeof option === 'string' ? { label: option, value: option } : option;
+                    const nextOption = typeof option === "string" ? { label: option, value: option } : option;
 
                     return {
                         ...nextOption,
                         disabled: disabled || nextOption.disabled,
                         checked: value === nextOption.value,
-                        side: index === 0 ? 'left' : index == length - 1 ? 'right' : 'both',
-                        'aria-checked': value === nextOption.value,
-                        'aria-labelledby': `label-${index}-${id}`,
+                        side: index === 0 ? "left" : index == length - 1 ? "right" : "both",
+                        "aria-checked": value === nextOption.value,
+                        "aria-labelledby": `label-${index}-${id}`,
                     };
                 })
                 .map(({ label, ...option }) => (
@@ -86,7 +86,7 @@ export const Radiobutton = ({
                         key={option.value}
                     >
                         <Control {...option} {...props} />
-                        <Text id={option['aria-labelledby']}>{label}</Text>
+                        <Text id={option["aria-labelledby"]}>{label}</Text>
                     </Radio>
                 ))}
         </span>

@@ -1,10 +1,10 @@
-import React, { FC, ReactNode } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, ReactNode } from "react";
+import { cn } from "@bem-react/classname";
 
-import './Datepicker.scss';
-import { CalendarProps } from '../Calendar/Calendar';
+import "./Datepicker.scss";
+import { CalendarProps } from "../Calendar/Calendar";
 
-export const cnDatepicker = cn('Datepicker');
+export const cnDatepicker = cn("Datepicker");
 
 export interface DatepickerProps extends CalendarProps {
     /*
@@ -31,16 +31,16 @@ export interface DatepickerProps extends CalendarProps {
 
 export type DatepickerSelectedDate = Date | undefined;
 
-export const Datepicker: FC<DatepickerProps> = props => {
+export const Datepicker: FC<DatepickerProps> = (props) => {
     const { className, header, footer, children } = props;
 
     return (
         <div className={cnDatepicker(null, [className])}>
-            {header && <div className={cnDatepicker('Header')}>{header}</div>}
-            <div className={cnDatepicker('Calendar')}>{children}</div>
-            {footer && <div className={cnDatepicker('Bottom')}>{footer}</div>}
+            {header && <div className={cnDatepicker("Header")}>{header}</div>}
+            <div className={cnDatepicker("Calendar")}>{children}</div>
+            {footer && <div className={cnDatepicker("Bottom")}>{footer}</div>}
         </div>
     );
 };
 
-export { DatepickerI18n } from './Datepicker.i18n';
+export { DatepickerI18n } from "./Datepicker.i18n";

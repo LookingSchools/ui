@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_social.scss';
-import './Icon_social_twitter.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_social.scss";
+import "./Icon_social_twitter.scss";
 
 export interface IWithSocialTwitterProps {
     /**
      * Символ иконки
      */
-    social?: 'twitter';
+    social?: "twitter";
 }
 
 /**
@@ -18,8 +18,8 @@ export interface IWithSocialTwitterProps {
  */
 export const withSocialTwitter = withBemMod<IWithSocialTwitterProps, IIconProps>(
     cnIcon(),
-    { social: 'twitter' },
-    Icon => ({ className, ...props }) => (
+    { social: "twitter" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasSocial: true }, [className])}>
             <svg width="27" height="23" viewBox="0 0 27 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

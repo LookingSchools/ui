@@ -1,8 +1,8 @@
-import React, { ComponentType, RefObject, PureComponent, createRef } from 'react';
+import React, { ComponentType, RefObject, PureComponent, createRef } from "react";
 
-import { Defaultize } from '../../typings/utility-types';
-import { getDisplayName } from '../../lib/getDisplayName';
-import { mergeRefs } from '../../lib/mergeRefs';
+import { Defaultize } from "../../typings/utility-types";
+import { getDisplayName } from "../../lib/getDisplayName";
+import { mergeRefs } from "../../lib/mergeRefs";
 
 type ZIndexesStack = {
     [key: string]: number[] | undefined;

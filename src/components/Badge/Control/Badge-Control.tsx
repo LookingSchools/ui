@@ -1,7 +1,7 @@
-import React, { FC, ReactType } from 'react';
+import React, { FC, ReactType } from "react";
 
-import { cnBadge } from '../Badge';
-import './Badge-Control.scss';
+import { cnBadge } from "../Badge";
+import "./Badge-Control.scss";
 
 export interface IBadgeControlProps {
     /**
@@ -16,10 +16,10 @@ export interface IBadgeControlProps {
 }
 
 export const BadgeControl: FC<IBadgeControlProps> = ({ className, children, as, ...props }) => {
-    const Component = as || ('span' as any);
+    const Component = as || ("span" as any);
 
     return (
-        <Component {...props} className={cnBadge('Control', null, [className])}>
+        <Component {...props} className={cnBadge("Control", null, [className])}>
             {children}
         </Component>
     );

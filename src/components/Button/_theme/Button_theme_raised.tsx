@@ -1,13 +1,13 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnButton } from '../Button';
-import './Button_theme_raised.scss';
+import { cnButton } from "../Button";
+import "./Button_theme_raised.scss";
 
 export interface IButtonThemeRaisedProps {
     /**
      * Стилевое оформление кнопки
      */
-    theme?: 'raised';
+    theme?: "raised";
 }
 
 /**
@@ -15,5 +15,5 @@ export interface IButtonThemeRaisedProps {
  * @param {IButtonThemeRaisedProps} props
  */
 export const withThemeRaised = withBemMod<IButtonThemeRaisedProps>(cnButton(), {
-    theme: 'raised',
+    theme: "raised",
 });

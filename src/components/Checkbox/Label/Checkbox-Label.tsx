@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnCheckbox } from '../Checkbox';
-import './Checkbox-Label.scss';
+import { cnCheckbox } from "../Checkbox";
+import "./Checkbox-Label.scss";
 
 export interface CheckboxLabelProps {
     /**
@@ -21,7 +21,7 @@ export interface CheckboxLabelProps {
 }
 
 export const CheckboxLabel: FC<CheckboxLabelProps> = ({ children, className, ...props }) => (
-    <label aria-hidden="true" {...props} className={cnCheckbox('Label', null, [className])}>
+    <label aria-hidden="true" {...props} className={cnCheckbox("Label", null, [className])}>
         {children}
     </label>
 );

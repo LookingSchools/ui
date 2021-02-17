@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnRadiobox as cn } from '../Radiobox';
+import { cnRadiobox as cn } from "../Radiobox";
 
 export interface RadioboxTextProps {
     /**
@@ -15,7 +15,7 @@ export interface RadioboxTextProps {
 }
 
 export const RadioboxText: FC<RadioboxTextProps> = ({ children, className, ...props }) => (
-    <span {...props} className={cn('Text', null, [className])} aria-hidden="true">
+    <span {...props} className={cn("Text", null, [className])} aria-hidden="true">
         {children}
     </span>
 );

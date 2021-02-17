@@ -1,7 +1,7 @@
-import React, { RefObject, FC } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { RefObject, FC } from "react";
+import { cn } from "@bem-react/classname";
 
-import './Spin.scss';
+import "./Spin.scss";
 
 export interface ISpinProps {
     /**
@@ -20,7 +20,7 @@ export interface ISpinProps {
     className?: string;
 }
 
-export const cnSpin = cn('Spin');
+export const cnSpin = cn("Spin");
 
 /**
  * Индикатор загрузки. Отображает выполнение какого-то процесса, например загрузки сайта или медиа-файла.

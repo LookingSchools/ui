@@ -7,7 +7,7 @@ export const throttle = (callback: any) => {
         callback.apply(context, saveArgs);
     };
 
-    const throttled = function(...args: any[]) {
+    const throttled = function (...args: any[]) {
         saveArgs = args;
         if (rid === null) {
             // @ts-ignore this

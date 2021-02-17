@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React, { useState } from "react";
+import { withKnobs, select, text, boolean } from "@storybook/addon-knobs";
 
-import { Tumbler } from './Tumbler.bundle';
+import { Tumbler } from "./Tumbler.bundle";
+
+export default {
+    title: "Controls|Tumbler",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Tumbler.md"),
+        },
+    },
+};
 
 export const Playground = () => {
     const [checked, setChecked] = useState(false);
-    const theme = select('theme', ['default'], 'default') as any;
-    const size = select('size', ['s', 'm', 'l'], 'm') as any;
-    const labelBefore = text('labelBefore', '');
-    const labelAfter = text('labelAfter', '');
-    const disabled = boolean('disabled', false);
+    const theme = select("theme", ["default"], "default") as any;
+    const size = select("size", ["s", "m", "l"], "m") as any;
+    const labelBefore = text("labelBefore", "");
+    const labelAfter = text("labelAfter", "");
+    const disabled = boolean("disabled", false);
 
     return (
         <Tumbler
@@ -135,7 +143,7 @@ export const Showcase = () => {
     const [checked6, setChecked6] = useState(true);
 
     return (
-        <div style={{ backgroundColor: '#ddd' }}>
+        <div style={{ backgroundColor: "#ddd" }}>
             <div style={{ marginBottom: 8 }}>
                 <Tumbler
                     size="s"
@@ -269,16 +277,18 @@ export const Showcase = () => {
     );
 };
 
-storiesOf('Controls|Tumbler', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Tumbler.md').default,
-            },
-        })
-    )
-    .add('playground', () => Playground())
-    .add('size', () => Size())
-    .add('label', () => Label())
-    .add('showcase', () => Showcase());
+Playground.story = {
+    name: "playground",
+};
+
+Size.story = {
+    name: "size",
+};
+
+Label.story = {
+    name: "label",
+};
+
+Showcase.story = {
+    name: "showcase",
+};

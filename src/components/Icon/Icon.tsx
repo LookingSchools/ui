@@ -1,18 +1,18 @@
-import React, { FC, CSSProperties, ReactElement } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, CSSProperties, ReactElement } from "react";
+import { cn } from "@bem-react/classname";
 
-import './Icon.scss';
+import "./Icon.scss";
 
 export interface IIconProps {
     /**
      * Направление для иконки-стрелки
      */
-    direction?: 'left' | 'top' | 'right' | 'bottom';
+    direction?: "left" | "top" | "right" | "bottom";
 
     /**
      * Размер иконки
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: "xs" | "s" | "m" | "l";
 
     /**
      * CSS-стили иконки
@@ -42,7 +42,7 @@ export interface IIconProps {
     social?: string;
 }
 
-export const cnIcon = cn('Icon');
+export const cnIcon = cn("Icon");
 
 /**
  * Компонент для вставки иконки.

@@ -1,14 +1,14 @@
-import React, { ReactNode } from 'react';
-import { compose } from '@bem-react/core';
-import { cn } from '@bem-react/classname';
-import { IClassNameProps } from '@bem-react/core';
+import React, { ReactNode } from "react";
+import { compose } from "@bem-react/core";
+import { cn } from "@bem-react/classname";
+import { IClassNameProps } from "@bem-react/core";
 
-import { Link as LinkBase } from '../Link/Link.bundle';
-import { withThemeDefault } from '../Link/_theme/Link_theme_default';
+import { Link as LinkBase } from "../Link/Link.bundle";
+import { withThemeDefault } from "../Link/_theme/Link_theme_default";
 
-import './Cut.scss';
+import "./Cut.scss";
 
-export const cnCut = cn('Cut');
+export const cnCut = cn("Cut");
 
 const Link = compose(withThemeDefault)(LinkBase);
 
@@ -42,7 +42,7 @@ export interface ICutProps extends IClassNameProps {
        2)скрывается под катом иначе */
     afterContent?: React.ReactElement;
     /* размер */
-    size?: 's' | 'm' | 'l';
+    size?: "s" | "m" | "l";
 }
 
 /**
@@ -99,7 +99,7 @@ export class Cut extends React.PureComponent<ICutProps> {
 
         return (
             <div className={resultClassName} onClick={this.tryOpenClickableContent}>
-                <span className={cnCut('Visible')}>{visible}</span>
+                <span className={cnCut("Visible")}>{visible}</span>
                 {this.renderInvisibleText()}
                 {this.renderMoreLink()}
             </div>
@@ -108,7 +108,7 @@ export class Cut extends React.PureComponent<ICutProps> {
 
     renderInvisibleText() {
         return (
-            <span className={cnCut('Invisible')}>
+            <span className={cnCut("Invisible")}>
                 {this.props.invisible}
                 {this.renderAfterContent()}
                 {this.renderHideLink()}
@@ -122,9 +122,9 @@ export class Cut extends React.PureComponent<ICutProps> {
         if (!hide) return null;
 
         return (
-            <span className={cnCut('Hide')}>
+            <span className={cnCut("Hide")}>
                 <Link theme="default" onClick={this.close}>
-                    {' ' + hide}
+                    {" " + hide}
                 </Link>
             </span>
         );
@@ -132,17 +132,17 @@ export class Cut extends React.PureComponent<ICutProps> {
 
     renderMoreLink() {
         const { more } = this.props;
-        const type = typeof this.props.visible === 'string' ? 'text' : 'content';
-        let moreContent: ICutProps['more'] = ' Еще';
+        const type = typeof this.props.visible === "string" ? "text" : "content";
+        let moreContent: ICutProps["more"] = " Еще";
 
         if (more) {
             moreContent = more;
         }
 
-        const Component = type === 'text' ? 'span' : 'div';
+        const Component = type === "text" ? "span" : "div";
 
         return (
-            <Component className={cnCut('More', { type })}>
+            <Component className={cnCut("More", { type })}>
                 <Link theme="default" onClick={this.open}>
                     {moreContent}
                 </Link>

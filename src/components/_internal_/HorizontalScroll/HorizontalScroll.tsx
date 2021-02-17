@@ -1,7 +1,7 @@
-import React, { FC, RefObject, useRef, useCallback, TouchEvent, Touch } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, RefObject, useRef, useCallback, TouchEvent, Touch } from "react";
+import { cn } from "@bem-react/classname";
 
-import './HorizontalScroll.scss';
+import "./HorizontalScroll.scss";
 
 export type Props = {
     className?: string;
@@ -10,9 +10,9 @@ export type Props = {
     onError?: (err: any) => void;
 };
 
-const cnHorizontalScroll = cn('HorizontalScroll');
+const cnHorizontalScroll = cn("HorizontalScroll");
 
-export const HorizontalScroll: FC<Props> = ({ children, innerRef, contentClassName = '', className = '', onError }) => {
+export const HorizontalScroll: FC<Props> = ({ children, innerRef, contentClassName = "", className = "", onError }) => {
     const scrollStart = useRef({} as Touch);
     const scrollCompute = useRef(false);
 
@@ -54,7 +54,7 @@ export const HorizontalScroll: FC<Props> = ({ children, innerRef, contentClassNa
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
         >
-            <div ref={innerRef} className={cnHorizontalScroll('Content', [contentClassName])}>
+            <div ref={innerRef} className={cnHorizontalScroll("Content", [contentClassName])}>
                 {children}
             </div>
         </div>

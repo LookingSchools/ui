@@ -1,20 +1,20 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React from "react";
+import { withKnobs } from "@storybook/addon-knobs";
 
-import { Typography } from './Typography.bundle';
+import { Typography } from "./Typography.bundle";
 
-storiesOf('Controls|Typography', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Typography.md').default,
-            },
-        })
-    )
-    .add('all', () => (
+export default {
+    title: "Controls|Typography",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Typography.md"),
+        },
+    },
+};
+
+export const Playground = () => {
+    return (
         <div>
             <Typography tag="h1">h1. Typography</Typography>
             <Typography tag="h2">h2. Typography</Typography>
@@ -24,4 +24,9 @@ storiesOf('Controls|Typography', module)
             <Typography size="m">_size_m. Typography</Typography>
             <Typography size="s">_size_s. Typography</Typography>
         </div>
-    ));
+    );
+};
+
+Playground.story = {
+    name: "playground",
+};

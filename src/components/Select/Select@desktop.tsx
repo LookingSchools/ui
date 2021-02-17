@@ -7,20 +7,20 @@ import React, {
     createRef,
     RefObject,
     Ref,
-} from 'react';
-import { withRegistry, ComponentRegistryConsumer } from '@bem-react/di';
+} from "react";
+import { withRegistry, ComponentRegistryConsumer } from "@bem-react/di";
 
-import { Defaultize } from '../../typings/utility-types';
-import { Keys, isKeyCode } from '../../lib/keyboard';
-import { mergeAllRefs } from '../../lib/mergeRefs';
-import { RenderOverride, RenderOverrideProvider } from '../../lib/render-override';
-import { Direction, DrawingParams } from '../Popup/Popup';
-import { ChangeEvent } from '../Menu/Menu';
-import { ISelectRegistry, selectRegistry } from './Select.registry/desktop';
-import { ISelectProps as ISelectCommonProps, Select as SelectCommon, cnSelect } from './Select';
-import { toGroupOptions } from './Select.hocs/withNativeControl';
+import { Defaultize } from "../../typings/utility-types";
+import { Keys, isKeyCode } from "../../lib/keyboard";
+import { mergeAllRefs } from "../../lib/mergeRefs";
+import { RenderOverride, RenderOverrideProvider } from "../../lib/render-override";
+import { Direction, DrawingParams } from "../Popup/Popup";
+import { ChangeEvent } from "../Menu/Menu";
+import { ISelectRegistry, selectRegistry } from "./Select.registry/desktop";
+import { ISelectProps as ISelectCommonProps, Select as SelectCommon, cnSelect } from "./Select";
+import { toGroupOptions } from "./Select.hocs/withNativeControl";
 
-const POPUP_DIRECTIONS: Direction[] = ['bottom-left', 'bottom-right', 'top-left', 'top-right'];
+const POPUP_DIRECTIONS: Direction[] = ["bottom-left", "bottom-right", "top-left", "top-right"];
 
 export interface ISelectProps extends ISelectCommonProps {
     /**
@@ -54,7 +54,7 @@ export interface ISelectProps extends ISelectCommonProps {
 }
 
 const defaultProps = {
-    value: '',
+    value: "",
 };
 
 type DefaultProps = keyof typeof defaultProps;
@@ -177,7 +177,7 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
                                                 tabIndex={-1}
                                                 value={value}
                                                 ref={this.controlRef}
-                                                style={{ display: 'none' }}
+                                                style={{ display: "none" }}
                                             >
                                                 {options.map(toGroupOptions)}
                                             </select>
@@ -185,7 +185,7 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
                                         <Popup
                                             target="anchor"
                                             anchor={this.innerRef}
-                                            className={cnSelect('Popup')}
+                                            className={cnSelect("Popup")}
                                             directions={POPUP_DIRECTIONS}
                                             mainOffset={popupMainOffset}
                                             style={{ minWidth: popupMinWidth }}
@@ -198,7 +198,7 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
                                         >
                                             <Menu
                                                 width="max"
-                                                className={cnSelect('Menu')}
+                                                className={cnSelect("Menu")}
                                                 style={{ maxHeight: maxMenuHeight }}
                                                 focused={opened}
                                                 items={options}
@@ -229,18 +229,18 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
     }
 
     private subscribeToEvents = () => {
-        document.addEventListener('mousedown', this.onDocumentMouseDown);
-        window.addEventListener('resize', this.onWindowChange);
-        window.addEventListener('orientationchange', this.onWindowChange);
+        document.addEventListener("mousedown", this.onDocumentMouseDown);
+        window.addEventListener("resize", this.onWindowChange);
+        window.addEventListener("orientationchange", this.onWindowChange);
     };
 
     private unsubscribeFromEvents = () => {
-        document.removeEventListener('mousedown', this.onDocumentMouseDown);
-        window.removeEventListener('resize', this.onWindowChange);
-        window.removeEventListener('orientationchange', this.onWindowChange);
+        document.removeEventListener("mousedown", this.onDocumentMouseDown);
+        window.removeEventListener("resize", this.onWindowChange);
+        window.removeEventListener("orientationchange", this.onWindowChange);
     };
 
-    private onDocumentMouseDown = (event: DocumentEventMap['mousedown']) => {
+    private onDocumentMouseDown = (event: DocumentEventMap["mousedown"]) => {
         const popupNode = this.popupRef.current;
 
         if (popupNode !== null && popupNode.contains(event.target as HTMLElement)) {
@@ -369,7 +369,7 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
         let bestHeight = 0;
         const { width: menuWidth } = this.menuRef.current.getBoundingClientRect();
 
-        this.drawingParams.forEach(params => {
+        this.drawingParams.forEach((params) => {
             if (params.width >= menuWidth && params.height > bestHeight) {
                 bestHeight = params.height;
             }
@@ -387,6 +387,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
     };
 } as ComponentClass<ISelectProps>;
 
-export * from './Select';
+export * from "./Select";
 
 export const Select = withRegistry(selectRegistry)(SelectPresenter);

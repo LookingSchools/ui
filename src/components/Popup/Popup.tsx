@@ -9,30 +9,30 @@ import React, {
     Ref,
     useRef,
     MouseEventHandler,
-} from 'react';
-import { createPortal } from 'react-dom';
-import { cn } from '@bem-react/classname';
+} from "react";
+import { createPortal } from "react-dom";
+import { cn } from "@bem-react/classname";
 
-import { canUseDOM } from '../../lib/canUseDOM';
-import { mergeAllRefs } from '../../lib/mergeRefs';
-import { PopupTail as Tail } from './Tail/Popup-Tail';
+import { canUseDOM } from "../../lib/canUseDOM";
+import { mergeAllRefs } from "../../lib/mergeRefs";
+import { PopupTail as Tail } from "./Tail/Popup-Tail";
 
-import './Popup.scss';
-import { useUpdateEffect } from '../../hooks/useUpdateEffect';
+import "./Popup.scss";
+import { useUpdateEffect } from "../../hooks/useUpdateEffect";
 
 export type Direction =
-    | 'bottom-left'
-    | 'bottom-center'
-    | 'bottom-right'
-    | 'top-left'
-    | 'top-center'
-    | 'top-right'
-    | 'right-top'
-    | 'right-center'
-    | 'right-bottom'
-    | 'left-top'
-    | 'left-center'
-    | 'left-bottom';
+    | "bottom-left"
+    | "bottom-center"
+    | "bottom-right"
+    | "top-left"
+    | "top-center"
+    | "top-right"
+    | "right-top"
+    | "right-center"
+    | "right-bottom"
+    | "left-top"
+    | "left-center"
+    | "left-bottom";
 
 export type Position = {
     top: number;
@@ -54,7 +54,7 @@ export type DrawingParams = {
     width: number;
 };
 
-export type OnClose = (event: KeyboardEvent | MouseEvent, source: 'esc' | 'click') => void;
+export type OnClose = (event: KeyboardEvent | MouseEvent, source: "esc" | "click") => void;
 
 export interface IPopupProps {
     /**
@@ -189,7 +189,7 @@ type PopupInternalProps = IPopupProps & {
     onEscapeKeyDown?: (event: any) => void;
 };
 
-export const cnPopup = cn('Popup');
+export const cnPopup = cn("Popup");
 
 /**
  * Компонент для создания всплывающего окна (попапа).
@@ -264,7 +264,7 @@ export const Popup: FC<IPopupProps> = ({
             onClick={onClick}
         >
             {addonBefore}
-            {typeof children === 'function' ? children({ tailRef }) : children}
+            {typeof children === "function" ? children({ tailRef }) : children}
             {addonAfter}
             {unstable_onRenderTail &&
                 unstable_onRenderTail(

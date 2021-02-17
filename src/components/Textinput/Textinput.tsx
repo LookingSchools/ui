@@ -10,23 +10,23 @@ import React, {
     FocusEventHandler,
     MouseEventHandler,
     KeyboardEventHandler,
-} from 'react';
-import { cn } from '@bem-react/classname';
-import { compose } from '@bem-react/core';
+} from "react";
+import { cn } from "@bem-react/classname";
+import { compose } from "@bem-react/core";
 
-import { withAutoFocus } from '../../hocs/withAutoFocus/withAutoFocus';
-import { TextinputControl as Control } from './Control/Textinput-Control';
-import { TextinputBox as Box } from './Box/Textinput-Box';
-import { TextinputIcon as Icon } from './Icon/Textinput-Icon';
-import { TextinputHint as Hint } from './Hint/Textinput-Hint';
+import { withAutoFocus } from "../../hocs/withAutoFocus/withAutoFocus";
+import { TextinputControl as Control } from "./Control/Textinput-Control";
+import { TextinputBox as Box } from "./Box/Textinput-Box";
+import { TextinputIcon as Icon } from "./Icon/Textinput-Icon";
+import { TextinputHint as Hint } from "./Hint/Textinput-Hint";
 
-import { useUpdateEffect } from '../../hooks/useUpdateEffect';
-import { IWithControlProps, withControl } from '../../hocs/withControl/withControl';
-import { IIconProps } from '../Icon/Icon';
-import { ITextinputControlProps } from './Control/Textinput-Control';
-import './Textinput.scss';
+import { useUpdateEffect } from "../../hooks/useUpdateEffect";
+import { IWithControlProps, withControl } from "../../hocs/withControl/withControl";
+import { IIconProps } from "../Icon/Icon";
+import { ITextinputControlProps } from "./Control/Textinput-Control";
+import "./Textinput.scss";
 
-export const cnTextinput = cn('Textinput');
+export const cnTextinput = cn("Textinput");
 
 export interface ITextinputProps extends ITextinputControlProps, IWithControlProps<HTMLInputElement> {
     /**
@@ -111,7 +111,7 @@ export interface ITextinputProps extends ITextinputControlProps, IWithControlPro
      * Визуальное состояние компонента.
      * Может использоваться при проверке формы на корректность.
      */
-    state?: 'error';
+    state?: "error";
 }
 
 /**
@@ -148,9 +148,9 @@ const TextinputPresenter: FC<ITextinputProps> = ({
     const prevHint = useRef(htmlHint);
 
     useUpdateEffect(() => {
-        if (htmlHint !== '') {
+        if (htmlHint !== "") {
             setHint(htmlHint);
-        } else if (prevHint.current !== '') {
+        } else if (prevHint.current !== "") {
             setHintLeave(true);
         }
 
@@ -158,8 +158,8 @@ const TextinputPresenter: FC<ITextinputProps> = ({
     }, [htmlHint]);
 
     const onAnimationEnd = useCallback(() => {
-        if (htmlHint === '') {
-            setHint('');
+        if (htmlHint === "") {
+            setHint("");
             setHintLeave(false);
         }
     }, [htmlHint]);
@@ -183,7 +183,7 @@ const TextinputPresenter: FC<ITextinputProps> = ({
             {addonBefore}
             {iconLeft && <Icon side="left" component={iconLeft} />}
             {iconRight && <Icon side="right" component={iconRight} />}
-            <Control {...props} aria-invalid={state === 'error'} disabled={disabled} />
+            <Control {...props} aria-invalid={state === "error"} disabled={disabled} />
             <Box />
             {addonAfter}
             {hint && (

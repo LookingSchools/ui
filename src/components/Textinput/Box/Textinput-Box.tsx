@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnTextinput } from '../Textinput';
-import './Textinput-Box.scss';
+import { cnTextinput } from "../Textinput";
+import "./Textinput-Box.scss";
 
 export interface TextinputBoxProps {
     /**
@@ -11,5 +11,5 @@ export interface TextinputBoxProps {
 }
 
 export const TextinputBox: FC<TextinputBoxProps> = ({ className, ...props }) => (
-    <span {...props} className={cnTextinput('Box', null, [className])} />
+    <span {...props} className={cnTextinput("Box", null, [className])} />
 );

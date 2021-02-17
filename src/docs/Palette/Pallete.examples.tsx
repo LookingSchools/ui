@@ -1,24 +1,22 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { Typography } from '../../components/Typography/Typography.bundle';
-import { Cut } from '../../components/Cut/Cut.bundle';
-import { paletteGroup } from './Pallete';
-import { withDocs } from '@storybook-addons/docs';
+import React from "react";
+import { withKnobs } from "@storybook/addon-knobs";
+import { Typography } from "../../components/Typography/Typography.bundle";
+import { Cut } from "../../components/Cut/Cut.bundle";
+import { paletteGroup } from "./Pallete";
 
 const styleContainer = {
-    display: 'flex',
-    width: '100%',
-    flexWrap: 'wrap',
+    display: "flex",
+    width: "100%",
+    flexWrap: "wrap",
 };
 
 const styleDiv = {
-    width: '100px',
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'column',
+    width: "100px",
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
 
-    margin: '5px',
+    margin: "5px",
 };
 
 const renderPallete = (pallete: object, i: number) => {
@@ -28,14 +26,14 @@ const renderPallete = (pallete: object, i: number) => {
             <div style={styleContainer}>
                 {pallete.content.map((obj: object, i: number) => {
                     const colorStyle = {
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
                         backgroundColor: obj.color,
                         color: obj.text,
-                        width: '100px',
-                        height: '100px',
+                        width: "100px",
+                        height: "100px",
                     };
 
                     return (
@@ -54,15 +52,22 @@ const renderPallete = (pallete: object, i: number) => {
     );
 };
 
-storiesOf('Pallete', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Pallete.md').default,
-            },
-        })
-    )
-    .add('palette', () => {
-        return paletteGroup.map((group, i) => renderPallete(group, i));
-    });
+
+export default {
+    title: "Pallete",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Pallete.md"),
+        },
+    },
+};
+
+export const Playground = () => {
+
+    return paletteGroup.map((group, i) => renderPallete(group, i));
+};
+
+Playground.story = {
+    name: "playground",
+};

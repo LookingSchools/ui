@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC } from "react";
+import { cn } from "@bem-react/classname";
 
-import './GalleryMobile-Points.scss';
+import "./GalleryMobile-Points.scss";
 
-const cnGalleryMobilePoints = cn('GalleryMobilePoints');
+const cnGalleryMobilePoints = cn("GalleryMobilePoints");
 
 export type GalleryMobilePointsProps = {
     className?: string;
@@ -11,7 +11,7 @@ export type GalleryMobilePointsProps = {
     activeIndex: number;
 };
 
-export const GalleryMobilePoints: FC<GalleryMobilePointsProps> = props => {
+export const GalleryMobilePoints: FC<GalleryMobilePointsProps> = (props) => {
     const { className, count, activeIndex } = props;
 
     // Если кол-во элементов меньше 2-ух, т.е. 0 или 1, тогда не рисуем точки.
@@ -24,7 +24,7 @@ export const GalleryMobilePoints: FC<GalleryMobilePointsProps> = props => {
             {[...Array(count)].map((_, index) => (
                 <div
                     key={`point-${index}`}
-                    className={cnGalleryMobilePoints('Point', {
+                    className={cnGalleryMobilePoints("Point", {
                         active: index === activeIndex,
                     })}
                 />

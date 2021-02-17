@@ -1,8 +1,8 @@
-import { INumberInputEvent } from './numberInput';
+import { INumberInputEvent } from "./numberInput";
 
-export function getEventObject({ name, value }: INumberInputEvent['target']): INumberInputEvent {
+export function getEventObject({ name, value }: INumberInputEvent["target"]): INumberInputEvent {
     return {
-        type: 'number',
+        type: "number",
         target: { name, value },
     };
 }

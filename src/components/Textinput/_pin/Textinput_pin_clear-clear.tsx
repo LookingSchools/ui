@@ -1,14 +1,14 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { ITextinputProps, cnTextinput } from '../Textinput';
-import '../_hasPin/Textinput_hasPin.scss';
-import './Textinput_pin_clear-clear.scss';
+import { ITextinputProps, cnTextinput } from "../Textinput";
+import "../_hasPin/Textinput_hasPin.scss";
+import "./Textinput_pin_clear-clear.scss";
 
 export interface ITextinputPinClearClearProps {
     /**
      * Форма текстового поля.
      */
-    pin?: 'clear-clear';
+    pin?: "clear-clear";
 }
 
 /**
@@ -17,5 +17,5 @@ export interface ITextinputPinClearClearProps {
  * @param {ITextinputPinClearClearProps} props
  */
 export const withPinClearClear = withBemMod<ITextinputPinClearClearProps, ITextinputProps>(cnTextinput(), {
-    pin: 'clear-clear',
+    pin: "clear-clear",
 });

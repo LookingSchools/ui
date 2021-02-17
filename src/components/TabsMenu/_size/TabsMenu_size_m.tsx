@@ -1,13 +1,13 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnTabsMenu } from '../TabsMenu';
-import './TabsMenu_size_m.scss';
+import { cnTabsMenu } from "../TabsMenu";
+import "./TabsMenu_size_m.scss";
 
 export interface ITabsMenuSizeMProps {
     /**
      * Размер вкладок.
      */
-    size?: 'm';
+    size?: "m";
 }
 
 /**
@@ -15,5 +15,5 @@ export interface ITabsMenuSizeMProps {
  * @param {ITabsMenuSizeMProps} props
  */
 export const withSizeM = withBemMod<ITabsMenuSizeMProps>(cnTabsMenu(), {
-    size: 'm',
+    size: "m",
 });

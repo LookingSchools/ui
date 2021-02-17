@@ -1,8 +1,8 @@
-import React, { PureComponent, createRef, MouseEventHandler, MouseEvent } from 'react';
-import { withBemMod } from '@bem-react/core';
+import React, { PureComponent, createRef, MouseEventHandler, MouseEvent } from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { TextinputClear as Clear } from '../Clear/Textinput-Clear';
-import { ITextinputProps, cnTextinput } from '../Textinput';
+import { TextinputClear as Clear } from "../Clear/Textinput-Clear";
+import { ITextinputProps, cnTextinput } from "../Textinput";
 
 export interface ITextinputHasClearProps {
     /**
@@ -33,7 +33,7 @@ export interface ITextinputHasClearProps {
 export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>(
     cnTextinput(),
     { hasClear: true },
-    Textinput =>
+    (Textinput) =>
         class WithHasClear extends PureComponent<ITextinputHasClearProps & ITextinputProps> {
             private readonly controlRef = createRef<HTMLInputElement>();
 
@@ -91,7 +91,7 @@ export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>
                         syntheticEvent.target = this.controlRef.current;
                         syntheticEvent.currentTarget = this.controlRef.current;
 
-                        this.controlRef.current.value = '';
+                        this.controlRef.current.value = "";
 
                         this.props.onChange(syntheticEvent);
                         // Восстанавливаем предыдущее значение на тот случай,

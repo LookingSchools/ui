@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_social.scss';
-import './Icon_social_rss.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_social.scss";
+import "./Icon_social_rss.scss";
 
 export interface IWithSocialRSSProps {
     /**
      * Символ иконки
      */
-    social?: 'rss';
+    social?: "rss";
 }
 
 /**
@@ -18,8 +18,8 @@ export interface IWithSocialRSSProps {
  */
 export const withSocialRSS = withBemMod<IWithSocialRSSProps, IIconProps>(
     cnIcon(),
-    { social: 'rss' },
-    Icon => ({ className, ...props }) => (
+    { social: "rss" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasSocial: true }, [className])}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                 <path

@@ -1,8 +1,8 @@
-import React, { MouseEvent, KeyboardEvent, PureComponent, KeyboardEventHandler } from 'react';
-import { withBemMod } from '@bem-react/core';
+import React, { MouseEvent, KeyboardEvent, PureComponent, KeyboardEventHandler } from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { Keys } from '../../../lib/keyboard';
-import { ILinkProps, ContainerElement, cnLink } from '../Link';
+import { Keys } from "../../../lib/keyboard";
+import { ILinkProps, ContainerElement, cnLink } from "../Link";
 
 export interface ILinkPseudoProps {
     /**
@@ -20,7 +20,7 @@ export interface ILinkPseudoProps {
  * Модификатор, делающий из ссылки псевдоссылку.
  * @param {ILinkPseudoProps} props
  */
-export const withPseudo = withBemMod<ILinkPseudoProps, ILinkProps>(cnLink(), { pseudo: true }, Link => {
+export const withPseudo = withBemMod<ILinkPseudoProps, ILinkProps>(cnLink(), { pseudo: true }, (Link) => {
     class WithPseudo extends PureComponent<ILinkPseudoProps & ILinkProps> {
         render() {
             const { pseudo, ...props } = this.props;

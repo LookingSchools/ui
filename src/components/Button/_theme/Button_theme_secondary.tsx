@@ -1,13 +1,13 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnButton } from '../Button';
-import './Button_theme_secondary.scss';
+import { cnButton } from "../Button";
+import "./Button_theme_secondary.scss";
 
 export interface IButtonThemeSecondaryProps {
     /**
      * Стилевое оформление кнопки
      */
-    theme?: 'secondary';
+    theme?: "secondary";
 }
 
 /**
@@ -15,5 +15,5 @@ export interface IButtonThemeSecondaryProps {
  * @param {IButtonThemeSecondaryProps} props
  */
 export const withThemeSecondary = withBemMod<IButtonThemeSecondaryProps>(cnButton(), {
-    theme: 'secondary',
+    theme: "secondary",
 });

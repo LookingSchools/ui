@@ -1,14 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
 export type IArrowIcon = {
     className?: string;
-    direction?: 'left' | 'right';
+    direction?: "left" | "right";
 };
 
-export const ArrowIcon: FC<IArrowIcon> = props => {
+export const ArrowIcon: FC<IArrowIcon> = (props) => {
     return (
         <svg
-            style={{ transform: `scaleX(${props.direction === 'left' ? -1 : 1})` }}
+            style={{ transform: `scaleX(${props.direction === "left" ? -1 : 1})` }}
             className={props.className}
             width="21"
             height="14"

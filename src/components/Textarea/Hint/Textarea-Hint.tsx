@@ -1,7 +1,7 @@
-import React, { FC, AnimationEventHandler } from 'react';
+import React, { FC, AnimationEventHandler } from "react";
 
-import { cnTextarea } from '../Textarea';
-import './Textarea-Hint.scss';
+import { cnTextarea } from "../Textarea";
+import "./Textarea-Hint.scss";
 
 export interface TextareaHintProps {
     leave: boolean;
@@ -9,7 +9,7 @@ export interface TextareaHintProps {
 }
 
 export const TextareaHint: FC<TextareaHintProps> = ({ leave, onAnimationEnd, children }) => (
-    <span className={cnTextarea('Hint', { leave })} onAnimationEnd={onAnimationEnd}>
+    <span className={cnTextarea("Hint", { leave })} onAnimationEnd={onAnimationEnd}>
         {children}
     </span>
 );

@@ -1,15 +1,15 @@
-import React, { Component, RefObject, ComponentClass, createRef } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { Component, RefObject, ComponentClass, createRef } from "react";
+import { cn } from "@bem-react/classname";
 
-import { Omit, Defaultize } from '../../typings/utility-types';
-import { mergeRefs } from '../../lib/mergeRefs';
-import { ColorBoxBox as Box } from './Box/ColorBox-Box';
-import { Typography } from '../Typography/Typography.bundle';
-import { ColorBoxControl as Control } from './Control/ColorBox-Control';
-import { ColorBoxRadio as Radio, IColorBoxRadioProps } from './Radio/ColorBox-Radio';
-import './ColorBox.scss';
+import { Omit, Defaultize } from "../../typings/utility-types";
+import { mergeRefs } from "../../lib/mergeRefs";
+import { ColorBoxBox as Box } from "./Box/ColorBox-Box";
+import { Typography } from "../Typography/Typography.bundle";
+import { ColorBoxControl as Control } from "./Control/ColorBox-Control";
+import { ColorBoxRadio as Radio, IColorBoxRadioProps } from "./Radio/ColorBox-Radio";
+import "./ColorBox.scss";
 
-type PartialRadioProps = Omit<IColorBoxRadioProps, 'size' | 'controlRef'>;
+type PartialRadioProps = Omit<IColorBoxRadioProps, "size" | "controlRef">;
 
 export type RadioColorProps = PartialRadioProps & {
     /**
@@ -62,10 +62,10 @@ export type IColorBoxProps = {
     disabled?: boolean;
 };
 
-export const cnColorBox = cn('ColorBox');
+export const cnColorBox = cn("ColorBox");
 
 const defaultProps = {
-    value: '',
+    value: "",
 };
 
 type DefaultProps = keyof typeof defaultProps;
@@ -76,7 +76,7 @@ export const ColorBox = class extends Component<ColorBoxProps> {
 
     static defaultProps = defaultProps;
 
-    readonly state = { colorText: '' };
+    readonly state = { colorText: "" };
 
     private readonly innerRef = createRef<HTMLDivElement>();
 
@@ -115,17 +115,17 @@ export const ColorBox = class extends Component<ColorBoxProps> {
                             Цвет — <span>{this.state.colorText}</span>
                         </Typography>
                     </legend>
-                    <div className={cnColorBox('Colors')}>
+                    <div className={cnColorBox("Colors")}>
                         {colors
                             .map((color, index) => {
-                                const nextOption = typeof color === 'string' ? { name: color, value: color } : color;
+                                const nextOption = typeof color === "string" ? { name: color, value: color } : color;
 
                                 return {
                                     ...nextOption,
                                     disabled: disabled || nextOption.disabled,
                                     checked: value === nextOption.value,
-                                    'aria-checked': value === nextOption.value,
-                                    'aria-labelledby': `label-${index}-${this.generateUniqID(index)}`,
+                                    "aria-checked": value === nextOption.value,
+                                    "aria-labelledby": `label-${index}-${this.generateUniqID(index)}`,
                                 };
                             })
                             .map(({ name, ...color }) => (
@@ -136,7 +136,7 @@ export const ColorBox = class extends Component<ColorBoxProps> {
                                     key={color.value}
                                 >
                                     <Control {...color} {...props} />
-                                    <Box id={color['aria-labelledby']} style={{ backgroundColor: `#${color.value}` }} />
+                                    <Box id={color["aria-labelledby"]} style={{ backgroundColor: `#${color.value}` }} />
                                 </Radio>
                             ))}
                     </div>
@@ -160,9 +160,9 @@ export const ColorBox = class extends Component<ColorBoxProps> {
     private setColorText() {
         const { value, colors } = this.props;
         let colorText = colors
-            .filter(color => color.value === value)
-            .map(item => item.name)
-            .join('');
+            .filter((color) => color.value === value)
+            .map((item) => item.name)
+            .join("");
 
         this.setState({ colorText });
     }

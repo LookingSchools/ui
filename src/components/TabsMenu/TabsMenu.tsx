@@ -1,9 +1,9 @@
-import React, { KeyboardEvent, RefObject, useCallback, useMemo, createRef, FC } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { KeyboardEvent, RefObject, useCallback, useMemo, createRef, FC } from "react";
+import { cn } from "@bem-react/classname";
 
-import { isKeyCode, Keys } from '../../lib/keyboard';
-import { ITabsMenuTabProps, TabsMenuTab } from './Tab/TabsMenu-Tab';
-import './TabsMenu.scss';
+import { isKeyCode, Keys } from "../../lib/keyboard";
+import { ITabsMenuTabProps, TabsMenuTab } from "./Tab/TabsMenu-Tab";
+import "./TabsMenu.scss";
 
 export interface ITabsMenuProps {
     /**
@@ -27,7 +27,7 @@ export interface ITabsMenuProps {
      * @internal
      * @default 'vertical'
      */
-    orientation?: 'horizontal' | 'vertical';
+    orientation?: "horizontal" | "vertical";
 
     /**
      * Дополнительный класс.
@@ -35,7 +35,7 @@ export interface ITabsMenuProps {
     className?: string;
 }
 
-export const cnTabsMenu = cn('TabsMenu');
+export const cnTabsMenu = cn("TabsMenu");
 
 /**
  * Компонент для создания горизонтального меню.
@@ -46,7 +46,7 @@ export const TabsMenu: FC<ITabsMenuProps> = ({
     className,
     innerRef,
     tabs,
-    orientation = 'vertical',
+    orientation = "vertical",
     // @ts-ignore
     theme: _theme,
     // @ts-ignore

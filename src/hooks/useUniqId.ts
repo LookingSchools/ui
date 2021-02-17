@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext } from "react";
 
 type Source = {
     value: number;
@@ -12,7 +12,7 @@ const counter = createSource();
 const source = createContext(createSource());
 const getId = (source: Source) => source.value++;
 
-const generateUniqId = (context: Source, prefix = '') => {
+const generateUniqId = (context: Source, prefix = "") => {
     const id = getId(context || counter);
     return `${prefix}${id}`;
 };

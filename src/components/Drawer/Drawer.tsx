@@ -1,14 +1,14 @@
-import React, { FC, PropsWithChildren, ReactNode, useEffect, useMemo, useState } from 'react';
+import React, { FC, PropsWithChildren, ReactNode, useEffect, useMemo, useState } from "react";
 
-import { IPopupProps } from '../Popup/Popup';
-import { Popup } from '../Popup/Popup.bundle';
+import { IPopupProps } from "../Popup/Popup";
+import { Popup } from "../Popup/Popup.bundle";
 
-import { useLockBodyScroll, useSpring, useClientHeight } from './Drawer.utils';
-import { DrawerContent } from './Content/Drawer-Content';
-import { cnDrawer } from './Drawer.const';
-import './Drawer.scss';
+import { useLockBodyScroll, useSpring, useClientHeight } from "./Drawer.utils";
+import { DrawerContent } from "./Content/Drawer-Content";
+import { cnDrawer } from "./Drawer.const";
+import "./Drawer.scss";
 
-type PartialPopupProps = Pick<IPopupProps, 'keepMounted' | 'className' | 'innerRef' | 'zIndex' | 'visible' | 'scope'>;
+type PartialPopupProps = Pick<IPopupProps, "keepMounted" | "className" | "innerRef" | "zIndex" | "visible" | "scope">;
 
 export interface IDrawerAnimationParams {
     /**
@@ -53,7 +53,7 @@ export interface IDrawerProps extends PropsWithChildren<PartialPopupProps> {
     /**
      * Направление, откуда появляется шторка.
      */
-    direction?: 'bottom' | 'left' | 'right';
+    direction?: "bottom" | "left" | "right";
 
     /**
      * Максимальный размер шторки (ширина или высота в зависимости от direction).
@@ -71,8 +71,8 @@ export interface IDrawerProps extends PropsWithChildren<PartialPopupProps> {
  * Используется для создания шторки.
  * @param {IDrawerProps} props
  */
-export const Drawer: FC<IDrawerProps> = props => {
-    const { className, visible, nested, direction = 'bottom', innerRef, animation } = props;
+export const Drawer: FC<IDrawerProps> = (props) => {
+    const { className, visible, nested, direction = "bottom", innerRef, animation } = props;
 
     // прогресс открытия шторки от 0 до 1
     const [progress, setProgress] = useState<number>(0);
@@ -88,7 +88,7 @@ export const Drawer: FC<IDrawerProps> = props => {
     // решает баг в iOS: в альбомной ориентации fixed элементы с
     // height: 100% показываются некорректно если виден navigation bar
     const clientHeight = useClientHeight();
-    const popupStyle = useMemo(() => ({ height: clientHeight && clientHeight + 'px' }), [clientHeight]);
+    const popupStyle = useMemo(() => ({ height: clientHeight && clientHeight + "px" }), [clientHeight]);
 
     useLockBodyScroll(springVisible);
 

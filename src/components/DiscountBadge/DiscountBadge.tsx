@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
-import { cn } from '@bem-react/classname';
-import './DiscountBadge.scss';
+import React, { PureComponent } from "react";
+import { cn } from "@bem-react/classname";
+import "./DiscountBadge.scss";
 
-export const cnDiscountBadge = cn('DiscountBadge');
+export const cnDiscountBadge = cn("DiscountBadge");
 
 export interface IDiscountBadgeProps {
     className?: string;
@@ -24,7 +24,7 @@ export const DiscountBadge = class extends PureComponent<IDiscountBadgeProps> {
 
         return (
             <span {...props} className={cnDiscountBadge(null, [className])}>
-                <span className={cnDiscountBadge('Discount')}>{percent}</span>
+                <span className={cnDiscountBadge("Discount")}>{percent}</span>
             </span>
         );
     }

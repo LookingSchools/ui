@@ -1,7 +1,7 @@
-import React, { Dispatch, FC, SetStateAction, useMemo, useRef } from 'react';
+import React, { Dispatch, FC, SetStateAction, useMemo, useRef } from "react";
 
-import { IDrawerProps } from '../Drawer';
-import { noop, useDrag } from '../Drawer.utils';
+import { IDrawerProps } from "../Drawer";
+import { noop, useDrag } from "../Drawer.utils";
 import {
     cnDrawerContent,
     cnDrawerCurtain,
@@ -9,7 +9,7 @@ import {
     cnDrawerHandle,
     cnDrawerOverlay,
     cnDrawerTitle,
-} from '../Drawer.const';
+} from "../Drawer.const";
 
 /**
  * Промежуточное состояние компонента между событиями touchstart и touchend
@@ -41,7 +41,7 @@ export const DrawerContent: FC<IDrawerContentProps> = ({
     visible,
     onClose = noop,
     springValue,
-    direction = 'bottom',
+    direction = "bottom",
     maxSize,
     titleComponent,
     children,
@@ -51,24 +51,24 @@ export const DrawerContent: FC<IDrawerContentProps> = ({
     const dragObserverRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    const axis = direction === 'bottom' ? 'y' : 'x';
-    const inverted = direction === 'left' ? -1 : 1;
+    const axis = direction === "bottom" ? "y" : "x";
+    const inverted = direction === "left" ? -1 : 1;
 
     const springOpacity = Math.max(springValue, 0);
     const springTransform =
-        axis === 'x'
+        axis === "x"
             ? `translate3d(${(1 - springValue) * 100 * inverted}%,0,0)`
             : `translate3d(0,${(1 - springValue) * 100 * inverted}%,0)`;
 
     const curtainStyle = useMemo(
-        () => ({ transform: springTransform, ...(maxSize && { [axis === 'x' ? 'maxWidth' : 'maxHeight']: maxSize }) }),
+        () => ({ transform: springTransform, ...(maxSize && { [axis === "x" ? "maxWidth" : "maxHeight"]: maxSize }) }),
         [springTransform, maxSize, axis]
     );
 
     /**
      * Обработчик drag событий с корневого DOM элемента шторки
      */
-    useDrag<IDragStateData>(dragObserverRef, dragState => {
+    useDrag<IDragStateData>(dragObserverRef, (dragState) => {
         if (!visible || !contentRef.current) return;
 
         const {
@@ -80,9 +80,9 @@ export const DrawerContent: FC<IDrawerContentProps> = ({
             event,
         } = dragState;
 
-        const drawerSize = axis === 'x' ? contentRef.current.clientWidth : contentRef.current.clientHeight;
-        const movement = inverted * (axis === 'x' ? mx : my);
-        const velocity = inverted * (axis === 'x' ? vx : vy);
+        const drawerSize = axis === "x" ? contentRef.current.clientWidth : contentRef.current.clientHeight;
+        const movement = inverted * (axis === "x" ? mx : my);
+        const velocity = inverted * (axis === "x" ? vx : vy);
 
         if (first) {
             data.isTargetUnderContent = contentRef.current.contains(event.target as HTMLElement);
@@ -93,7 +93,7 @@ export const DrawerContent: FC<IDrawerContentProps> = ({
         }
 
         // предотвращает инерционный проскролл родительских элементов, если это возможно
-        if (event.cancelable && event.type === 'touchmove') {
+        if (event.cancelable && event.type === "touchmove") {
             if (data.isTargetUnderContent) {
                 // элемент проскроллен до верхней границы
                 if (contentRef.current.scrollTop <= 0 && my > 0) {

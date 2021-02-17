@@ -9,15 +9,15 @@ import React, {
     ReactType,
     KeyboardEventHandler,
     MouseEventHandler,
-} from 'react';
-import { cn } from '@bem-react/classname';
+} from "react";
+import { cn } from "@bem-react/classname";
 
-import { Defaultize } from '../../typings/utility-types';
-import { mergeRefs } from '../../lib/mergeRefs';
-import { Keys, KeyboardKeys, isKeyCode } from '../../lib/keyboard';
-import { IconProvider, ButtonIcon as Icon } from './Icon/Button-Icon';
-import { ButtonText as Text } from './Text/Button-Text';
-import './Button.scss';
+import { Defaultize } from "../../typings/utility-types";
+import { mergeRefs } from "../../lib/mergeRefs";
+import { Keys, KeyboardKeys, isKeyCode } from "../../lib/keyboard";
+import { IconProvider, ButtonIcon as Icon } from "./Icon/Button-Icon";
+import { ButtonText as Text } from "./Text/Button-Text";
+import "./Button.scss";
 
 export type ContainerElement = HTMLButtonElement | HTMLAnchorElement;
 
@@ -140,14 +140,14 @@ export interface IButtonState {
     pressed?: boolean;
 }
 
-export const cnButton = cn('Button');
+export const cnButton = cn("Button");
 
 const defaultProps = {
-    autoComplete: 'off',
+    autoComplete: "off",
     pressKeys: [Keys.SPACE, Keys.ENTER],
     prvntKeys: [],
-    as: 'button',
-    type: 'button' as 'button',
+    as: "button",
+    type: "button" as "button",
 };
 
 type DefaultProps = keyof typeof defaultProps;
@@ -200,7 +200,7 @@ export const Button = class extends PureComponent<ButtonProps, IButtonState> {
         const { pressed } = this.state;
         const Component = as;
 
-        const refKey = typeof as === 'string' ? 'ref' : 'innerRef';
+        const refKey = typeof as === "string" ? "ref" : "innerRef";
         (props as any)[refKey] = mergeRefs(this.internalInnerRef, innerRef, controlRef);
 
         const iconLeftOrIcon = iconLeft || icon;
@@ -222,9 +222,9 @@ export const Button = class extends PureComponent<ButtonProps, IButtonState> {
                 <>
                     {addonBefore}
                     {iconLeftOrIcon && (
-                        <Icon provider={iconLeftOrIcon} side={children && iconLeft ? 'left' : undefined} />
+                        <Icon provider={iconLeftOrIcon} side={children && iconLeft ? "left" : undefined} />
                     )}
-                    {iconRight && <Icon provider={iconRight} side={children ? 'right' : undefined} />}
+                    {iconRight && <Icon provider={iconRight} side={children ? "right" : undefined} />}
                     {children && <Text>{children}</Text>}
                     {addonAfter}
                 </>

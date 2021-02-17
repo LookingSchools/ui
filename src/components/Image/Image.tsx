@@ -1,10 +1,10 @@
-import React, { FC, useCallback, useState, useMemo, RefObject, ReactNode, MouseEventHandler, useRef } from 'react';
+import React, { FC, useCallback, useState, useMemo, RefObject, ReactNode, MouseEventHandler, useRef } from "react";
 
-import { cn } from '@bem-react/classname';
+import { cn } from "@bem-react/classname";
 
-import { mergeAllRefs } from '../../lib/mergeRefs';
+import { mergeAllRefs } from "../../lib/mergeRefs";
 
-import './Image.scss';
+import "./Image.scss";
 
 export interface IImageProps {
     /**
@@ -58,7 +58,7 @@ export interface IImageProps {
     /**
      * атрибут [loading у изображения](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading)
      */
-    loading?: 'lazy' | 'eager' | 'auto';
+    loading?: "lazy" | "eager" | "auto";
     /**
      * Ширина изображения
      */
@@ -73,9 +73,9 @@ export interface IImageProps {
     borderRadius?: number | string;
 }
 
-const cnImage = cn('Image');
+const cnImage = cn("Image");
 
-const emptyImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+const emptyImage = "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=";
 
 // const ANIMATION_DELAY_MS = 50;
 
@@ -89,7 +89,7 @@ const emptyImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAA
  * - Если картинку не удалось загрузить, то покажется стандартная картинка из свойства `fallback`
  * @param {IImageProps} props
  */
-export const Image: FC<IImageProps> = props => {
+export const Image: FC<IImageProps> = (props) => {
     const {
         src,
         src2x,
@@ -100,7 +100,7 @@ export const Image: FC<IImageProps> = props => {
         alt,
         ariaLabel,
         onClick,
-        loading = 'lazy',
+        loading = "lazy",
         width,
         height,
         borderRadius,
@@ -124,7 +124,7 @@ export const Image: FC<IImageProps> = props => {
         setFailed(true);
     }, []);
 
-    const sizeAttrs: Pick<IImageProps, 'width' | 'height' | 'borderRadius'> = {};
+    const sizeAttrs: Pick<IImageProps, "width" | "height" | "borderRadius"> = {};
     // безопасно устанавливаем стили, чтобы избежать undefined в html
     if (width !== undefined) {
         sizeAttrs.width = width;
@@ -140,7 +140,7 @@ export const Image: FC<IImageProps> = props => {
         <img
             style={sizeAttrs}
             alt={alt}
-            aria-hidden={ariaLabel ? 'false' : 'true'}
+            aria-hidden={ariaLabel ? "false" : "true"}
             aria-label={ariaLabel}
             className={cnImage(null, [className])}
             onClick={onClick}

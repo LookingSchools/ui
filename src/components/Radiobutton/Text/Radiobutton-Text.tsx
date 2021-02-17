@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnRadiobutton as cn } from '../Radiobutton';
+import { cnRadiobutton as cn } from "../Radiobutton";
 
-import './Radiobutton-Text.scss';
+import "./Radiobutton-Text.scss";
 
 export interface RadiobuttonTextProps {
     /**
@@ -17,7 +17,7 @@ export interface RadiobuttonTextProps {
 }
 
 export const RadiobuttonText: FC<RadiobuttonTextProps> = ({ children, className, ...props }) => (
-    <span {...props} className={cn('Text', null, [className])} aria-hidden="true">
+    <span {...props} className={cn("Text", null, [className])} aria-hidden="true">
         {children}
     </span>
 );

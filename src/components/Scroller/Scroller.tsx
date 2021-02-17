@@ -1,15 +1,15 @@
-import React, { MutableRefObject, createContext, PureComponent } from 'react';
-import { IClassNameProps } from '@bem-react/core';
-import { cn } from '@bem-react/classname';
+import React, { MutableRefObject, createContext, PureComponent } from "react";
+import { IClassNameProps } from "@bem-react/core";
+import { cn } from "@bem-react/classname";
 
-import { ScrollerItem } from './Item/Scroller-Item';
-import { ArrowButton } from '../_internal_/ArrowButton/ArrowButton';
+import { ScrollerItem } from "./Item/Scroller-Item";
+import { ArrowButton } from "../_internal_/ArrowButton/ArrowButton";
 
-import { debounce } from '../../utils/common';
+import { debounce } from "../../utils/common";
 
-import './Scroller.scss';
+import "./Scroller.scss";
 
-export const cnScroller = cn('Scroller');
+export const cnScroller = cn("Scroller");
 
 /**
  * Контекст скроллера.
@@ -29,8 +29,8 @@ export interface IScrollerProps extends IClassNameProps {
     hideArrowLine?: boolean;
     /** Высота, относительно которой будут отцентрированы стрелки по вертикали */
     arrowsAlignHeight?: number;
-    arrowsTheme?: 'shadow';
-    onClickArrow?: (direction: 'left' | 'right') => void;
+    arrowsTheme?: "shadow";
+    onClickArrow?: (direction: "left" | "right") => void;
     onScroll?: () => void;
     /** Позиция в карусели, после появления в видимой области, будет доскроллено до конца/начала вправо/влево */
     rightPointScrollToEnd?: number;
@@ -50,18 +50,18 @@ export interface IScrollerProps extends IClassNameProps {
 }
 
 interface IScrollerState {
-    scrollDirection: 'right' | 'left' | 'both' | 'none';
+    scrollDirection: "right" | "left" | "both" | "none";
 }
 
-const cnScrollerContainer = cnScroller('Container');
-const cnScrollerArrow = cnScroller('Arrow');
-const cnScrollerArrowShadowLeft = cnScroller('ArrowShadow', {
-    direction: 'left',
+const cnScrollerContainer = cnScroller("Container");
+const cnScrollerArrow = cnScroller("Arrow");
+const cnScrollerArrowShadowLeft = cnScroller("ArrowShadow", {
+    direction: "left",
 });
-const cnScrollerWrap = cnScroller('Wrap');
-const cnScrollerItemsWrap = cnScroller('ItemsWrap');
-const cnScrollerArrowShadowRight = cnScroller('ArrowShadow', {
-    direction: 'right',
+const cnScrollerWrap = cnScroller("Wrap");
+const cnScrollerItemsWrap = cnScroller("ItemsWrap");
+const cnScrollerArrowShadowRight = cnScroller("ArrowShadow", {
+    direction: "right",
 });
 
 function easeInOutQuad(t: number) {
@@ -100,7 +100,7 @@ export const ScrollerContext = createContext<IScrollerContext>({} as IScrollerCo
  */
 export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
     state: IScrollerState = {
-        scrollDirection: 'none',
+        scrollDirection: "none",
     };
 
     domElem?: HTMLElement;
@@ -123,7 +123,7 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.reset);
+        window.addEventListener("resize", this.reset);
 
         this.props.innerRef && (this.props.innerRef.current = this);
 
@@ -151,7 +151,7 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.reset);
+        window.removeEventListener("resize", this.reset);
         this.props.innerRef && (this.props.innerRef.current = null);
         clearTimeout(this.afterMountTimerId);
     }
@@ -159,7 +159,7 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
     render() {
         const { scrollDirection } = this.state;
         const hasArrows = !this.props.hideArrow;
-        const hasArrowShadow = this.props.arrowsTheme === 'shadow';
+        const hasArrowShadow = this.props.arrowsTheme === "shadow";
         const arrowsAlignHeight = this.props.arrowsAlignHeight;
         const arrowLine = !this.props.hideArrowLine;
         const sameHeight = this.props.sameHeight;
@@ -186,12 +186,12 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
                             <ArrowButton
                                 className={cnScrollerArrow}
                                 direction="left"
-                                visible={scrollDirection === 'left' || scrollDirection === 'both'}
+                                visible={scrollDirection === "left" || scrollDirection === "both"}
                                 arrowsAlignHeight={arrowsAlignHeight}
                                 onClick={this.scrollLeft}
                             />
                         )}
-                        {hasArrows && hasArrowShadow && (scrollDirection === 'left' || scrollDirection === 'both') && (
+                        {hasArrows && hasArrowShadow && (scrollDirection === "left" || scrollDirection === "both") && (
                             <div className={cnScrollerArrowShadowLeft} />
                         )}
                         <div className={cnScrollerWrap} onScroll={this.onScroll} ref={this.setRef}>
@@ -205,12 +205,12 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
                             <ArrowButton
                                 className={cnScrollerArrow}
                                 direction="right"
-                                visible={scrollDirection === 'right' || scrollDirection === 'both'}
+                                visible={scrollDirection === "right" || scrollDirection === "both"}
                                 arrowsAlignHeight={arrowsAlignHeight}
                                 onClick={this.scrollRight}
                             />
                         )}
-                        {hasArrows && hasArrowShadow && (scrollDirection === 'right' || scrollDirection === 'both') && (
+                        {hasArrows && hasArrowShadow && (scrollDirection === "right" || scrollDirection === "both") && (
                             <div className={cnScrollerArrowShadowRight} />
                         )}
                     </div>
@@ -274,14 +274,14 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
         const left = Math.ceil(domElem.scrollLeft);
         const hiddenWidth = Math.ceil(domElem.scrollWidth - domElem.clientWidth);
 
-        let scrollDirection: IScrollerState['scrollDirection'] = 'both';
+        let scrollDirection: IScrollerState["scrollDirection"] = "both";
 
         if (hiddenWidth <= 0) {
-            scrollDirection = 'none';
+            scrollDirection = "none";
         } else if (left <= 0) {
-            scrollDirection = 'right';
+            scrollDirection = "right";
         } else if (left >= hiddenWidth) {
-            scrollDirection = 'left';
+            scrollDirection = "left";
         }
 
         this.setState({ scrollDirection });
@@ -321,7 +321,7 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
             this.scrollBy(-scrollStep);
 
             if (this.props.onClickArrow) {
-                this.props.onClickArrow('left');
+                this.props.onClickArrow("left");
             }
         }
     }
@@ -349,7 +349,7 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
             this.scrollBy(scrollStep);
 
             if (this.props.onClickArrow) {
-                this.props.onClickArrow('right');
+                this.props.onClickArrow("right");
             }
         }
     }

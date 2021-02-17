@@ -1,22 +1,22 @@
-import React, { Component, ReactNode } from 'react';
-import { compose, composeU } from '@bem-react/core';
-import { cn } from '@bem-react/classname';
+import React, { Component, ReactNode } from "react";
+import { compose, composeU } from "@bem-react/core";
+import { cn } from "@bem-react/classname";
 
-import { Button } from '../Button/Button.bundle';
+import { Button } from "../Button/Button.bundle";
 
-import { Icon as IconBase } from '../Icon/Icon';
+import { Icon as IconBase } from "../Icon/Icon";
 // glyph
-import { withGlyphPlus } from '../Icon/_glyph/Icon_glyph_plus';
-import { withGlyphMinus } from '../Icon/_glyph/Icon_glyph_minus';
+import { withGlyphPlus } from "../Icon/_glyph/Icon_glyph_plus";
+import { withGlyphMinus } from "../Icon/_glyph/Icon_glyph_minus";
 
-import './Amountpicker.scss';
+import "./Amountpicker.scss";
 
 const Icon = compose(composeU(withGlyphPlus, withGlyphMinus))(IconBase);
 
 const MIN = 1;
 const DEFAULT_VALUE = 1;
 const MAX = 999;
-const cnAmountPicker = cn('Amountpicker');
+const cnAmountPicker = cn("Amountpicker");
 
 interface IState {
     isInputFocused: boolean;
@@ -75,13 +75,13 @@ export class Amountpicker extends Component<IProps, IState> {
                     size="m"
                     theme="primary"
                     pin="circle-circle"
-                    icon={className => <Icon glyph="minus" size="m" className={className} />}
+                    icon={(className) => <Icon glyph="minus" size="m" className={className} />}
                     onClick={this.handleDecrement}
-                    className={cnAmountPicker('Button', { type: 'dec' })}
+                    className={cnAmountPicker("Button", { type: "dec" })}
                     disabled={isDecDisabled}
                 />
                 <span
-                    className={cnAmountPicker('Count')}
+                    className={cnAmountPicker("Count")}
                     onChange={this.handleChange}
                     onBlur={this.handleBlur}
                     onFocus={this.handleFocus}
@@ -92,9 +92,9 @@ export class Amountpicker extends Component<IProps, IState> {
                     size="m"
                     theme="primary"
                     pin="circle-circle"
-                    icon={className => <Icon glyph="plus" size="m" className={className} />}
+                    icon={(className) => <Icon glyph="plus" size="m" className={className} />}
                     onClick={this.handleIncrement}
-                    className={cnAmountPicker('Button', { type: 'inc' })}
+                    className={cnAmountPicker("Button", { type: "inc" })}
                     disabled={isIncDisabled}
                 />
             </div>
@@ -152,7 +152,7 @@ export class Amountpicker extends Component<IProps, IState> {
     private setValueState(value: number | null) {
         const valueData = {
             value,
-            delta: typeof this.state.value === 'number' && typeof value === 'number' ? value - this.state.value : 0,
+            delta: typeof this.state.value === "number" && typeof value === "number" ? value - this.state.value : 0,
         };
 
         this.setState(valueData);

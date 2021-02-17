@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_glyph.scss';
-import './Icon_glyph_cross.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_glyph.scss";
+import "./Icon_glyph_cross.scss";
 
 export interface IWithGlyphCrossProps {
     /**
      * Символ иконки
      */
-    glyph?: 'cross';
+    glyph?: "cross";
 }
 
 /**
@@ -18,10 +18,10 @@ export interface IWithGlyphCrossProps {
  */
 export const withGlyphCross = withBemMod<IWithGlyphCrossProps, IIconProps>(
     cnIcon(),
-    { glyph: 'cross' },
-    Icon => ({ className, ...props }) => (
+    { glyph: "cross" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
-            {props.size === 'xs' ? (
+            {props.size === "xs" ? (
                 <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="10" height="10">
                     <path
                         fillRule="evenodd"

@@ -1,10 +1,10 @@
-import React, { FC, MouseEventHandler } from 'react';
-import { MenuText as Text } from '../Text/Menu-Text';
+import React, { FC, MouseEventHandler } from "react";
+import { MenuText as Text } from "../Text/Menu-Text";
 
-import { Icon as GlyphIcon } from '../../Icon/Icon';
-import { withGlyphCheck } from '../../Icon/_glyph/Icon_glyph_check';
+import { Icon as GlyphIcon } from "../../Icon/Icon";
+import { withGlyphCheck } from "../../Icon/_glyph/Icon_glyph_check";
 
-import { cnMenu } from '../Menu';
+import { cnMenu } from "../Menu";
 
 export interface IMenuItemProps {
     checked?: boolean;
@@ -29,7 +29,7 @@ export const MenuItem: FC<IMenuItemProps> = ({
     disabled,
     hovered,
     needIconGlyph,
-    type = 'menuitem',
+    type = "menuitem",
     innerRef,
     id,
     ...props
@@ -44,7 +44,7 @@ export const MenuItem: FC<IMenuItemProps> = ({
             role={type}
             ref={innerRef}
             className={cnMenu(
-                'Item',
+                "Item",
                 {
                     checked,
                     disabled,

@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { Cut } from '../../Cut/Cut.bundle';
-import { Typography } from '../../Typography/Typography.bundle';
-import { cnSpecs } from '../Specs';
+import { Cut } from "../../Cut/Cut.bundle";
+import { Typography } from "../../Typography/Typography.bundle";
+import { cnSpecs } from "../Specs";
 
 type SpecsDescriptionProps = {
     text: string;
@@ -11,7 +11,7 @@ type SpecsDescriptionProps = {
 
 export const SpecsDescription: FC<SpecsDescriptionProps> = ({ text, expandable = false }) => {
     return (
-        <div className={cnSpecs('Description')}>
+        <div className={cnSpecs("Description")}>
             {expandable ? (
                 <Typography>
                     <Cut hide="Скрыть" visible={text.slice(0, 320)} invisible={text.slice(320)} />

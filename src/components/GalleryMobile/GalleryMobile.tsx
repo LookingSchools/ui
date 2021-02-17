@@ -1,14 +1,14 @@
-import React, { FC, useState } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, useState } from "react";
+import { cn } from "@bem-react/classname";
 
-import { Slider } from '../Slider/Slider';
+import { Slider } from "../Slider/Slider";
 
-import { GalleryMobileItem, GalleryMobileItemProps } from './Item/GalleryMobile-Item';
-import { GalleryMobilePoints } from './Points/GalleryMobile-Points';
+import { GalleryMobileItem, GalleryMobileItemProps } from "./Item/GalleryMobile-Item";
+import { GalleryMobilePoints } from "./Points/GalleryMobile-Points";
 
-import './GalleryMobile.scss';
+import "./GalleryMobile.scss";
 
-const cnGalleryMobile = cn('GalleryMobile');
+const cnGalleryMobile = cn("GalleryMobile");
 
 type GalleryMobileProps = {
     items: Array<GalleryMobileItemProps>;
@@ -27,7 +27,7 @@ export const GalleryMobile: FC<GalleryMobileProps> = ({ className, activeIndex: 
                     <GalleryMobileItem src={src} src2x={src2x} alt={alt} key={index} />
                 ))}
             </Slider>
-            <GalleryMobilePoints className={cnGalleryMobile('Points')} activeIndex={activeIndex} count={items.length} />
+            <GalleryMobilePoints className={cnGalleryMobile("Points")} activeIndex={activeIndex} count={items.length} />
         </div>
     );
 };

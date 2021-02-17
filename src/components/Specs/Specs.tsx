@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react';
-import { Typography } from '../Typography/Typography.bundle';
-import { cn } from '@bem-react/classname';
-import { SpecsItem } from './Item/Specs-Item';
-import { Cut } from '../Cut/Cut.bundle';
-import { SpecsTitle } from './Title/Specs-Title';
-import { SpecsDescription } from './Description/Specs-Description';
+import React, { PureComponent } from "react";
+import { Typography } from "../Typography/Typography.bundle";
+import { cn } from "@bem-react/classname";
+import { SpecsItem } from "./Item/Specs-Item";
+import { Cut } from "../Cut/Cut.bundle";
+import { SpecsTitle } from "./Title/Specs-Title";
+import { SpecsDescription } from "./Description/Specs-Description";
 
-import './Specs.scss';
+import "./Specs.scss";
 
 interface ISpecsGroup {
     groupName: string;
@@ -19,7 +19,7 @@ interface ISpecsItem {
 }
 
 export interface ISpecs {
-    mode?: 'preview';
+    mode?: "preview";
     description?: {
         short: string;
         full: string;
@@ -33,7 +33,7 @@ interface IState {
     showDescription: boolean;
 }
 
-export const cnSpecs = cn('Specs');
+export const cnSpecs = cn("Specs");
 
 export class Specs extends PureComponent<ISpecs, IState> {
     public state: IState = {
@@ -69,13 +69,13 @@ export class Specs extends PureComponent<ISpecs, IState> {
         const { showDescription, showSpecs } = this.state;
         const { mode } = this.props;
 
-        if (['preview'].indexOf(mode!) === -1) {
+        if (["preview"].indexOf(mode!) === -1) {
             return null;
         }
 
         return (
             <div className={cnSpecs(null, { mode: mode! })}>
-                {mode === 'preview' && (showSpecs || showDescription) ? this.renderPreview() : null}
+                {mode === "preview" && (showSpecs || showDescription) ? this.renderPreview() : null}
                 {this.state.showMoreSpecs ? this.renderMore() : null}
             </div>
         );
@@ -91,11 +91,11 @@ export class Specs extends PureComponent<ISpecs, IState> {
             </div>
         );
         const invisible = () => (
-            <div className={cnSpecs('More', null, ['Specs-Content'])}>{showSpecs ? this.generateSpecs() : null}</div>
+            <div className={cnSpecs("More", null, ["Specs-Content"])}>{showSpecs ? this.generateSpecs() : null}</div>
         );
 
         return (
-            <div className={cnSpecs('Preview', null, ['Specs-Content'])}>
+            <div className={cnSpecs("Preview", null, ["Specs-Content"])}>
                 <SpecsTitle showSpecs={showSpecs} showDescription={showDescription} />
                 {showDescription ? <SpecsDescription text={this.props.description!.short} expandable /> : null}
                 {showSpecs ? (
@@ -109,14 +109,14 @@ export class Specs extends PureComponent<ISpecs, IState> {
         const { showSpecs } = this.state;
 
         return (
-            <div className={cnSpecs('More', null, ['Specs-Content'])}>{showSpecs ? this.generateSpecs() : null}</div>
+            <div className={cnSpecs("More", null, ["Specs-Content"])}>{showSpecs ? this.generateSpecs() : null}</div>
         );
     };
 
     private generateSpecs = () => {
         return this.props.specs!.map((value, index) =>
             index === 0 ? null : (
-                <div key={index} className={cnSpecs('GroupSpecs')}>
+                <div key={index} className={cnSpecs("GroupSpecs")}>
                     <Typography tag="h3">{value.groupName}</Typography>
                     {this.generateItems(index)}
                 </div>
@@ -136,5 +136,5 @@ export class Specs extends PureComponent<ISpecs, IState> {
     };
 }
 
-export { SpecsItem } from './Item/Specs-Item';
-export * from './Item/Specs-Item';
+export { SpecsItem } from "./Item/Specs-Item";
+export * from "./Item/Specs-Item";

@@ -1,23 +1,23 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_glyph.scss';
-import './Icon_glyph_search.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_glyph.scss";
+import "./Icon_glyph_search.scss";
 
 export interface IWithGlyphCartProps {
     /**
      * Символ иконки
      */
-    glyph?: 'search';
+    glyph?: "search";
 }
 
 export const withGlyphSearch = withBemMod<IWithGlyphCartProps, IIconProps>(
     cnIcon(),
-    { glyph: 'search' },
-    Icon => ({ className, ...props }) => (
+    { glyph: "search" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
-            {props.size === 's' ? (
+            {props.size === "s" ? (
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         fillRule="evenodd"

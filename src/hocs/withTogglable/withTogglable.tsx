@@ -1,4 +1,4 @@
-import React, { ComponentClass, ComponentType, PureComponent } from 'react';
+import React, { ComponentClass, ComponentType, PureComponent } from "react";
 
 export interface IWithTogglableProps {
     /**

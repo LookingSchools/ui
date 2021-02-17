@@ -1,7 +1,7 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnTextinput } from '../Textinput';
-import './Textinput_baseline.scss';
+import { cnTextinput } from "../Textinput";
+import "./Textinput_baseline.scss";
 
 export interface ITextinputBaselineProps {
     /**

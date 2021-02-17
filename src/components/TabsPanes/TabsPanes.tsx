@@ -1,8 +1,8 @@
-import React, { RefObject, FC } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { RefObject, FC } from "react";
+import { cn } from "@bem-react/classname";
 
-import { Nullable } from '../../typings/utility-types';
-import { ITabsPanesPaneProps, TabsPanesPane } from './Pane/TabsPanes-Pane';
+import { Nullable } from "../../typings/utility-types";
+import { ITabsPanesPaneProps, TabsPanesPane } from "./Pane/TabsPanes-Pane";
 
 export interface ITabsPanesProps {
     /**
@@ -26,7 +26,7 @@ export interface ITabsPanesProps {
     className?: string;
 }
 
-export const cnTabsPanes = cn('TabsPanes');
+export const cnTabsPanes = cn("TabsPanes");
 
 /**
  * Компонент для создания вкладок с разным содержимым.
@@ -43,7 +43,7 @@ export const TabsPanes: FC<ITabsPanesProps> = ({ activePane, className, innerRef
     }, null);
 
     if (currentPane === null) {
-        if (process.env.NODE_ENV !== 'production') {
+        if (process.env.NODE_ENV !== "production") {
             console.warn(`Панель с id "${activePane}" не найдена в списке элементов.`);
         }
     }

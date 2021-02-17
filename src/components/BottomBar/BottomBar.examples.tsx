@@ -1,21 +1,21 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
-import { color, number, select, withKnobs, array } from '@storybook/addon-knobs';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import React from "react";
+import { action } from "@storybook/addon-actions";
+import { color, number, select, withKnobs, array } from "@storybook/addon-knobs";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
-import { BottomBar } from './BottomBar';
-import { Icon } from '../Icon/Icon.bundle';
+import { BottomBar } from "./BottomBar";
+import { Icon } from "../Icon/Icon.bundle";
 
 export default {
-    title: 'Controls|BottomBar',
+    title: "Controls|BottomBar",
     decorators: [withKnobs],
     parameters: {
         docs: {
-            readme: require('./README.md'),
+            readme: require("./README.md"),
         },
         viewport: {
             viewports: INITIAL_VIEWPORTS,
-            defaultViewport: 'iphone6',
+            defaultViewport: "iphone6",
         },
     },
 };
@@ -25,18 +25,18 @@ const imgBuilder = (src: any) => {
 };
 
 export const Playground = () => {
-    const icons = array('Images src', ['course', 'search', 'create-course', 'profile', 'menu']);
+    const icons = array("Images src", ["course", "search", "create-course", "profile", "menu"]);
 
-    const texts = array('Texts', ['Курсы', 'Поиск', 'Создать школу', 'Профиль', 'Меню']);
-    const urls = array('URLs', ['https://google.com']);
-    const active = select('Active tab #', [1, 2, 3, 4, 5], 1);
-    const tipValue = number('Tip', 2);
-    const tipPosition = select('Tip tab #', [1, 2, 3, 4, 5], 1);
+    const texts = array("Texts", ["Курсы", "Поиск", "Создать школу", "Профиль", "Меню"]);
+    const urls = array("URLs", ["https://google.com"]);
+    const active = select("Active tab #", [1, 2, 3, 4, 5], 1);
+    const tipValue = number("Tip", 2);
+    const tipPosition = select("Tip tab #", [1, 2, 3, 4, 5], 1);
 
-    const accentColor = color('Accent color', '#FF0052');
-    const textColor = color('Text color', 'rgba(0, 0, 0, .5)');
-    const tipColor = color('Tip color', 'rgba(0, 0, 0, .8)');
-    const tipBgColor = color('Tip background color', '#FC0');
+    const accentColor = color("Accent color", "#FF0052");
+    const textColor = color("Text color", "rgba(0, 0, 0, .5)");
+    const tipColor = color("Tip color", "rgba(0, 0, 0, .8)");
+    const tipBgColor = color("Tip background color", "#FC0");
 
     const style = `
         .BottomBar {
@@ -76,5 +76,5 @@ export const Playground = () => {
 };
 
 Playground.story = {
-    name: 'playground',
+    name: "playground",
 };

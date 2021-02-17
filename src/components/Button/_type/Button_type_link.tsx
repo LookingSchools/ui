@@ -1,14 +1,14 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { Keys } from '../../../lib/keyboard';
-import { IButtonProps, cnButton } from '../Button';
+import { Keys } from "../../../lib/keyboard";
+import { IButtonProps, cnButton } from "../Button";
 
 export interface IButtonTypeLinkProps {
     /**
      * Тип кнопки
      */
-    type?: 'link';
+    type?: "link";
 
     /**
      * Адрес
@@ -41,12 +41,12 @@ export interface IButtonTypeLinkProps {
  */
 export const withTypeLink = withBemMod<IButtonTypeLinkProps, IButtonProps>(
     cnButton(),
-    { type: 'link' },
-    WrappedComponent => {
+    { type: "link" },
+    (WrappedComponent) => {
         return ({ type, target, rel, url, disabled, tabIndex, ...props }) => {
             let relationship = rel;
 
-            if (target === '_blank' && rel !== undefined && rel.indexOf('noopener') === -1) {
+            if (target === "_blank" && rel !== undefined && rel.indexOf("noopener") === -1) {
                 // Пользовательский атрибут имеет больший приоритет
                 relationship = `${rel} noopener`;
             }

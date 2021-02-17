@@ -1,6 +1,6 @@
-import React, { FC, RefObject, ChangeEventHandler } from 'react';
+import React, { FC, RefObject, ChangeEventHandler } from "react";
 
-import { cnTumbler } from '../Tumbler';
+import { cnTumbler } from "../Tumbler";
 
 type TumblerControlProps = {
     checked: boolean;
@@ -15,7 +15,7 @@ export const TumblerControl: FC<TumblerControlProps> = ({ id, innerRef, checked,
         id={id}
         hidden
         ref={innerRef}
-        className={cnTumbler('Control')}
+        className={cnTumbler("Control")}
         name={name}
         checked={checked}
         value={String(checked)}

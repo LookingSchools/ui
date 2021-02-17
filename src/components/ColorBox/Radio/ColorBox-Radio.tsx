@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
-import { cnColorBox as cn } from '../ColorBox';
-import './ColorBox-Radio.scss';
+import { cnColorBox as cn } from "../ColorBox";
+import "./ColorBox-Radio.scss";
 
-import { IWithControlProps, withControl } from '../../../hocs/withControl/withControl';
+import { IWithControlProps, withControl } from "../../../hocs/withControl/withControl";
 
 export interface IColorBoxRadioProps extends IWithControlProps<HTMLLabelElement> {
     /**
@@ -42,7 +42,7 @@ export const ColorBoxRadio = withControl(
         <label
             {...props}
             className={cn(
-                'Radio',
+                "Radio",
                 {
                     checked,
                     disabled,

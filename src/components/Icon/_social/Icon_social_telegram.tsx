@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_social.scss';
-import './Icon_social_telegram.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_social.scss";
+import "./Icon_social_telegram.scss";
 
 export interface IWithSocialTelegramProps {
     /**
      * Символ иконки
      */
-    social?: 'telegram';
+    social?: "telegram";
 }
 
 /**
@@ -18,8 +18,8 @@ export interface IWithSocialTelegramProps {
  */
 export const withSocialTelegram = withBemMod<IWithSocialTelegramProps, IIconProps>(
     cnIcon(),
-    { social: 'telegram' },
-    Icon => ({ className, ...props }) => (
+    { social: "telegram" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasSocial: true }, [className])}>
             <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

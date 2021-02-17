@@ -1,22 +1,22 @@
 export type Keys = Record<string, number> & Record<KeyboardKeys, number>;
 
 export type KeyboardKeys =
-    | 'BACKSPACE'
-    | 'TAB'
-    | 'ENTER'
-    | 'CAPS_LOCK'
-    | 'ESC'
-    | 'SPACE'
-    | 'PAGE_UP'
-    | 'PAGE_DOWN'
-    | 'END'
-    | 'HOME'
-    | 'LEFT'
-    | 'UP'
-    | 'RIGHT'
-    | 'DOWN'
-    | 'INSERT'
-    | 'DELETE'
+    | "BACKSPACE"
+    | "TAB"
+    | "ENTER"
+    | "CAPS_LOCK"
+    | "ESC"
+    | "SPACE"
+    | "PAGE_UP"
+    | "PAGE_DOWN"
+    | "END"
+    | "HOME"
+    | "LEFT"
+    | "UP"
+    | "RIGHT"
+    | "DOWN"
+    | "INSERT"
+    | "DELETE"
     | number;
 
 /**

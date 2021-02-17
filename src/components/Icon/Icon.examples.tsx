@@ -1,49 +1,47 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React from "react";
+import { withKnobs } from "@storybook/addon-knobs";
 
-import { Icon } from './Icon.bundle';
+import { Icon } from "./Icon.bundle";
 
 const allIcons = [
-    'cart',
-    'favorite',
-    'menu',
-    'profile',
-    'plus',
-    'minus',
-    'search',
-    'x-sign',
-    'close',
-    'cross',
-    'sort',
-    'info',
-    'tick',
-    'check',
-    'arrow-right',
-    'carets-v',
-    'type-arrow',
-    'trash',
-    'course-active',
-    'course',
-    'create-course',
+    "cart",
+    "favorite",
+    "menu",
+    "profile",
+    "plus",
+    "minus",
+    "search",
+    "x-sign",
+    "close",
+    "cross",
+    "sort",
+    "info",
+    "tick",
+    "check",
+    "arrow-right",
+    "carets-v",
+    "type-arrow",
+    "trash",
+    "course-active",
+    "course",
+    "create-course",
 ];
 
-const allSocialIcons = ['youtube', 'vk', 'telegram', 'twitter', 'rss', 'github', 'facebook', 'instagram'];
+const allSocialIcons = ["youtube", "vk", "telegram", "twitter", "rss", "github", "facebook", "instagram"];
 
 const styleContainer = {
-    display: 'flex',
-    width: '100%',
-    flexWrap: 'wrap',
+    display: "flex",
+    width: "100%",
+    flexWrap: "wrap",
 };
 
 const styleIcon = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    fontSize: '12px',
-    margin: '5px',
-    color: 'rgba(0, 0, 0, 0.5)',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    fontSize: "12px",
+    margin: "5px",
+    color: "rgba(0, 0, 0, 0.5)",
 };
 
 function renderIcons(icons) {
@@ -53,7 +51,7 @@ function renderIcons(icons) {
                 return (
                     <div key={i} style={styleIcon}>
                         <Icon glyph={icon} size="m" />
-                        <span style={{ marginTop: '10px' }}>{icon}</span>
+                        <span style={{ marginTop: "10px" }}>{icon}</span>
                     </div>
                 );
             })}
@@ -68,7 +66,7 @@ function renderSocialIcons(icons) {
                 return (
                     <div key={i} style={styleIcon}>
                         <Icon social={icon} size="m" />
-                        <span style={{ marginTop: '10px' }}>{icon}</span>
+                        <span style={{ marginTop: "10px" }}>{icon}</span>
                     </div>
                 );
             })}
@@ -76,14 +74,24 @@ function renderSocialIcons(icons) {
     );
 }
 
-storiesOf('Controls|Icon/', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Icon.md').default,
-            },
-        })
-    )
-    .add('common', () => renderIcons(allIcons))
-    .add('social', () => renderSocialIcons(allSocialIcons));
+export default {
+    title: "Controls|Icon",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Icon.md"),
+        },
+    },
+};
+
+export const Common = () => renderIcons(allIcons);
+
+Common.story = {
+    name: "common",
+};
+
+export const Social = () => renderSocialIcons(allSocialIcons);
+
+Social.story = {
+    name: "social",
+};

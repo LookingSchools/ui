@@ -1,11 +1,11 @@
-import React, { FC, useCallback, useLayoutEffect, useRef } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, useCallback, useLayoutEffect, useRef } from "react";
+import { cn } from "@bem-react/classname";
 
-import { HorizontalScroll } from '../_internal_/HorizontalScroll/HorizontalScroll';
-import { SliderItem } from './Item/Slider-Item';
-import './Slider.scss';
+import { HorizontalScroll } from "../_internal_/HorizontalScroll/HorizontalScroll";
+import { SliderItem } from "./Item/Slider-Item";
+import "./Slider.scss";
 
-export const cnSlider = cn('Slider');
+export const cnSlider = cn("Slider");
 
 export type SliderProps = {
     className?: string;
@@ -14,13 +14,13 @@ export type SliderProps = {
     onSlideChange?: (index: number) => void;
 };
 
-export const Slider: FC<SliderProps> = props => {
+export const Slider: FC<SliderProps> = (props) => {
     const { className, children, activeIndex = 0, onSlideChange } = props;
     const scrollRef = useRef<HTMLDivElement>(null);
 
     // Метод, который вызывается, когда один из слайдов стал видимым
     const onSetVisible = useCallback<(index: number) => void>(
-        index => {
+        (index) => {
             onSlideChange && onSlideChange(index);
         },
         [onSlideChange]
@@ -32,18 +32,18 @@ export const Slider: FC<SliderProps> = props => {
             const left = activeItem ? activeItem.offsetLeft - activeItem.clientWidth / 2 : 0;
 
             scrollRef.current.scrollTo
-                ? scrollRef.current.scrollTo({ left, behavior: 'smooth' })
+                ? scrollRef.current.scrollTo({ left, behavior: "smooth" })
                 : (scrollRef.current.scrollLeft = left);
         }
     }, [activeIndex, scrollRef]);
 
     return (
         <div className={cnSlider(null, [className])}>
-            <HorizontalScroll contentClassName={cnSlider('Scroll')} innerRef={scrollRef}>
+            <HorizontalScroll contentClassName={cnSlider("Scroll")} innerRef={scrollRef}>
                 {children.map((slide, index) => (
                     <SliderItem
                         key={`item-${index}`}
-                        className={cnSlider('Item')}
+                        className={cnSlider("Item")}
                         index={index}
                         onSetVisible={onSetVisible}
                     >
@@ -55,4 +55,4 @@ export const Slider: FC<SliderProps> = props => {
     );
 };
 
-Slider.displayName = 'Slider';
+Slider.displayName = "Slider";

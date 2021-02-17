@@ -1,30 +1,30 @@
-import React, { FC } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC } from "react";
+import { cn } from "@bem-react/classname";
 
 // Rating
-import { Rating } from '../Rating/Rating.bundle';
+import { Rating } from "../Rating/Rating.bundle";
 // DiscountBadge
-import { DiscountBadge, IDiscountBadgeProps } from '../DiscountBadge/DiscountBadge.bundle';
+import { DiscountBadge, IDiscountBadgeProps } from "../DiscountBadge/DiscountBadge.bundle";
 // Button
-import { Button } from '../Button/Button.bundle';
-import { Link } from '../Link/Link.bundle';
-import { Price, IPriceProps } from '../Price/Price';
-import { Cut } from '../Cut/Cut.bundle';
-import { Image, IImageProps } from '../Image/Image.bundle';
+import { Button } from "../Button/Button.bundle";
+import { Link } from "../Link/Link.bundle";
+import { Price, IPriceProps } from "../Price/Price";
+import { Cut } from "../Cut/Cut.bundle";
+import { Image, IImageProps } from "../Image/Image.bundle";
 
-import { TSuiteName, getConfig } from './suiteConfigs';
+import { TSuiteName, getConfig } from "./suiteConfigs";
 
-import './Snippet.scss';
-import './_theme/Snippet_theme_cinco.scss';
-import './_theme/Snippet_theme_siete.scss';
+import "./Snippet.scss";
+import "./_theme/Snippet_theme_cinco.scss";
+import "./_theme/Snippet_theme_siete.scss";
 
-export const cnSnippet = cn('Snippet');
+export const cnSnippet = cn("Snippet");
 
 /** тип для указания порядка вывода компонентов */
-export type TOrder = 'price' | 'rating' | 'title';
+export type TOrder = "price" | "rating" | "title";
 
 /** названия поддерживаемых тем */
-export type TThemeName = 'cinco' | 'siete';
+export type TThemeName = "cinco" | "siete";
 
 export { TSuiteName };
 
@@ -40,15 +40,15 @@ export interface ISnippetProps {
     /** Максимальная ширина сниппета */
     maxWidth?: number;
     /**  Возможность задать display='inline-block' */
-    maxWidthUnit?: 'px' | '%';
+    maxWidthUnit?: "px" | "%";
     display?: string;
     /** Единицы измерения ширины сниппета */
     /** Максимальное кол-во строк в названии */
     maxTitleLines?: 1 | 2 | 3;
     /** Объект с изображением */
     picture: {
-        src: IImageProps['src'];
-        srcSet?: IImageProps['srcSet'];
+        src: IImageProps["src"];
+        srcSet?: IImageProps["srcSet"];
     };
     addToCartButton?: {
         url: string;
@@ -58,11 +58,11 @@ export interface ISnippetProps {
     // /** Единицы измерения ширины изображения */
     // imageMaxSizeUnit?: IPropsImage['maxSizeUnit'];
     /** Цена */
-    price?: IPriceProps['price'];
+    price?: IPriceProps["price"];
     /** Старая цена */
-    oldPrice?: IPriceProps['oldPrice'];
+    oldPrice?: IPriceProps["oldPrice"];
     /** Размер скидки */
-    discountPercent?: IDiscountBadgeProps['percent'];
+    discountPercent?: IDiscountBadgeProps["percent"];
     /** Заголовок */
     title: string;
     /** Рейтинг */
@@ -72,7 +72,7 @@ export interface ISnippetProps {
     /** Показывать бейдж */
     showDiscountBadge: boolean;
     /** Тема для бэйджа */
-    discountBadgeTheme: 'default' | 'black';
+    discountBadgeTheme: "default" | "black";
     /** Показывать цену */
     showPrice: boolean;
     /** Показывать рейтинг */
@@ -85,9 +85,9 @@ export const Snippet: FC<ISnippetProps> = ({
     theme,
     url,
     suite,
-    orders = ['price', 'rating', 'title'],
+    orders = ["price", "rating", "title"],
     maxWidth,
-    maxWidthUnit = 'px',
+    maxWidthUnit = "px",
     display,
     maxTitleLines = 3,
     // imageMaxSize,
@@ -113,10 +113,10 @@ export const Snippet: FC<ISnippetProps> = ({
 
     const isShowDiscountBadge = showDiscountBadge && discountPercent > 0;
     const isShowSoldOut = showPrice && price === 0;
-    const soldOutSrc = '//yastatic.net/market-export/_/i/marketplace/sold-out.svg';
+    const soldOutSrc = "//yastatic.net/market-export/_/i/marketplace/sold-out.svg";
 
     const addToCart = !isShowSoldOut && addToCartButton && (
-        <Button className={cnSnippet('AddToCart')} theme="default" size="m">
+        <Button className={cnSnippet("AddToCart")} theme="default" size="m">
             В корзину
         </Button>
     );
@@ -126,17 +126,17 @@ export const Snippet: FC<ISnippetProps> = ({
             {...props}
             className={cnSnippet({
                 theme,
-                'opacity-content': isShowSoldOut,
-                'max-title-lines': String(maxTitleLines),
+                "opacity-content": isShowSoldOut,
+                "max-title-lines": String(maxTitleLines),
             })}
             style={{
                 maxWidth: maxWidth && `${maxWidth}${maxWidthUnit}`,
                 display: display,
             }}
         >
-            <Link className={cnSnippet('Link')} href={url} theme="default" target="_blank">
+            <Link className={cnSnippet("Link")} href={url} theme="default" target="_blank">
                 {isShowDiscountBadge ? (
-                    <div className={cnSnippet('Discount')}>
+                    <div className={cnSnippet("Discount")}>
                         <DiscountBadge
                             percent={Number(discountPercent)}
                             theme={discountBadgeTheme as any}
@@ -144,17 +144,17 @@ export const Snippet: FC<ISnippetProps> = ({
                         />
                     </div>
                 ) : null}
-                <div className={cnSnippet('Image')}>
+                <div className={cnSnippet("Image")}>
                     <Image src={picture.src} srcSet={picture.srcSet} alt={title} />
                 </div>
-                <div className={cnSnippet('Info')}>
+                <div className={cnSnippet("Info")}>
                     {showPrice ? (
-                        <div className={cnSnippet('Price')} style={{ order: getFoundIndex<TOrder>('price', orders) }}>
+                        <div className={cnSnippet("Price")} style={{ order: getFoundIndex<TOrder>("price", orders) }}>
                             <Price price={price} oldPrice={oldPrice} size={config.price.size} />
                         </div>
                     ) : null}
                     {showRating ? (
-                        <div className={cnSnippet('Rating')} style={{ order: getFoundIndex<TOrder>('rating', orders) }}>
+                        <div className={cnSnippet("Rating")} style={{ order: getFoundIndex<TOrder>("rating", orders) }}>
                             <Rating
                                 type="extended"
                                 value={rating}
@@ -165,7 +165,7 @@ export const Snippet: FC<ISnippetProps> = ({
                         </div>
                     ) : null}
                     {showTitle ? (
-                        <div className={cnSnippet('Title')} style={{ order: getFoundIndex<TOrder>('title', orders) }}>
+                        <div className={cnSnippet("Title")} style={{ order: getFoundIndex<TOrder>("title", orders) }}>
                             <Cut lineHeight={config.title.lineHeight} lines={maxTitleLines}>
                                 {title}
                             </Cut>
@@ -175,8 +175,8 @@ export const Snippet: FC<ISnippetProps> = ({
             </Link>
             {addToCart}
             {isShowSoldOut ? (
-                <div className={cnSnippet('Sold-Out')}>
-                    <img width={96} height={44} src={soldOutSrc} alt={'Разобрано'} />
+                <div className={cnSnippet("Sold-Out")}>
+                    <img width={96} height={44} src={soldOutSrc} alt={"Разобрано"} />
                 </div>
             ) : null}
         </div>
@@ -184,5 +184,5 @@ export const Snippet: FC<ISnippetProps> = ({
 };
 
 function getFoundIndex<T>(predicate: T, array: T[]): number {
-    return array.findIndex(value => value === predicate);
+    return array.findIndex((value) => value === predicate);
 }

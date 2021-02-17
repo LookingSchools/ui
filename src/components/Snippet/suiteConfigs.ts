@@ -49,7 +49,7 @@ const configList: { [key in keyof typeof SuiteName]: ISuiteConfigs } = {
       // fillParent: true,
     },
     discount: {
-      size: "s"
+      size: "m"
     },
     price: {
       size: "s"
@@ -66,7 +66,7 @@ const configList: { [key in keyof typeof SuiteName]: ISuiteConfigs } = {
       // fillParent: true,
     },
     discount: {
-      size: "s"
+      size: "m"
     },
     price: {
       size: "m"

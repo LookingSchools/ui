@@ -1,13 +1,13 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnButton } from '../Button';
-import './Button_theme_pseudo.scss';
+import { cnButton } from "../Button";
+import "./Button_theme_pseudo.scss";
 
 export interface IButtonThemePseudoProps {
     /**
      * Стилевое оформление кнопки
      */
-    theme?: 'pseudo';
+    theme?: "pseudo";
 }
 
 /**
@@ -15,5 +15,5 @@ export interface IButtonThemePseudoProps {
  * @param {IButtonThemePseudoProps} props
  */
 export const withThemePseudo = withBemMod<IButtonThemePseudoProps>(cnButton(), {
-    theme: 'pseudo',
+    theme: "pseudo",
 });

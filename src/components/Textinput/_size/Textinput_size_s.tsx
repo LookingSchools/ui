@@ -1,13 +1,13 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnTextinput } from '../Textinput';
-import './Textinput_size_s.scss';
+import { cnTextinput } from "../Textinput";
+import "./Textinput_size_s.scss";
 
 export interface ITextinputSizeSProps {
     /**
      * Размер текстового поля.
      */
-    size?: 's';
+    size?: "s";
 }
 
 /**
@@ -15,5 +15,5 @@ export interface ITextinputSizeSProps {
  * @param {ITextinputSizeSProps} props
  */
 export const withSizeS = withBemMod<ITextinputSizeSProps>(cnTextinput(), {
-    size: 's',
+    size: "s",
 });

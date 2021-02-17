@@ -1,11 +1,11 @@
-import React, { RefObject, ComponentClass, PureComponent, createRef } from 'react';
-import { withBemMod } from '@bem-react/core';
+import React, { RefObject, ComponentClass, PureComponent, createRef } from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { Defaultize } from '../../../typings/utility-types';
-import { canUseDOM } from '../../../lib/canUseDOM';
-import { mergeAllRefs } from '../../../lib/mergeRefs';
-import { Direction, IPopupProps, Position, cnPopup, DrawingParams as CalcDrawingParams } from '../Popup';
-import { listScrollParents } from '../Popup.utils/getScrollParents';
+import { Defaultize } from "../../../typings/utility-types";
+import { canUseDOM } from "../../../lib/canUseDOM";
+import { mergeAllRefs } from "../../../lib/mergeRefs";
+import { Direction, IPopupProps, Position, cnPopup, DrawingParams as CalcDrawingParams } from "../Popup";
+import { listScrollParents } from "../Popup.utils/getScrollParents";
 
 const VIEWPORT_ACCURACY_FACTOR = 0.99;
 
@@ -14,22 +14,22 @@ const checkMainDirection = (direction: string, mainFirstDirection: string, mainS
     (mainSecondDirection && direction.indexOf(mainSecondDirection) === 0);
 
 const checkSecondaryDirection = (direction: string, secondaryDirection: string) =>
-    direction.indexOf('-' + secondaryDirection) > 0;
+    direction.indexOf("-" + secondaryDirection) > 0;
 
 const defaultProps = {
     directions: [
-        'bottom-left',
-        'bottom-center',
-        'bottom-right',
-        'top-left',
-        'top-center',
-        'top-right',
-        'right-top',
-        'right-center',
-        'right-bottom',
-        'left-top',
-        'left-center',
-        'left-bottom',
+        "bottom-left",
+        "bottom-center",
+        "bottom-right",
+        "top-left",
+        "top-center",
+        "top-right",
+        "right-top",
+        "right-center",
+        "right-bottom",
+        "left-top",
+        "left-center",
+        "left-bottom",
     ],
     mainOffset: 0,
     secondaryOffset: 0,
@@ -117,7 +117,7 @@ export interface IPopupTargetAnchorProps {
     /**
      * Позиционирование попапа относительно переданного элемента
      */
-    target?: 'anchor';
+    target?: "anchor";
 
     /**
      * Отступ от края окна браузера
@@ -142,13 +142,13 @@ type WithTargetAnchorState = { direction: Direction; forwarded: {}; isAnchorVisi
  */
 export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>(
     cnPopup(),
-    { target: 'anchor' },
-    Popup =>
+    { target: "anchor" },
+    (Popup) =>
         class WithTargetAnchor extends PureComponent<WithTargetAnchorProps, WithTargetAnchorState> {
             static readonly defaultProps = defaultProps;
 
             readonly state: WithTargetAnchorState = {
-                direction: 'bottom-left',
+                direction: "bottom-left",
                 forwarded: {},
                 isAnchorVisible: true,
             };
@@ -258,18 +258,18 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
             private subscribeToEvents = () => {
                 this.anchorScrollParents = listScrollParents((this.props.anchor && this.props.anchor.current) || null);
                 this.anchorScrollParents.forEach((parent: HTMLElement | Window) => {
-                    parent.addEventListener('scroll', this.updateRefsPosition);
+                    parent.addEventListener("scroll", this.updateRefsPosition);
                 });
-                window.addEventListener('resize', this.updateRefsPosition);
-                document.addEventListener('documentchange', this.updateRefsPosition);
+                window.addEventListener("resize", this.updateRefsPosition);
+                document.addEventListener("documentchange", this.updateRefsPosition);
             };
 
             private unsubscribeFromEvents = () => {
                 this.anchorScrollParents.forEach((parent: HTMLElement | Window) => {
-                    parent.removeEventListener('scroll', this.updateRefsPosition);
+                    parent.removeEventListener("scroll", this.updateRefsPosition);
                 });
-                window.removeEventListener('resize', this.updateRefsPosition);
-                document.removeEventListener('documentchange', this.updateRefsPosition);
+                window.removeEventListener("resize", this.updateRefsPosition);
+                document.removeEventListener("documentchange", this.updateRefsPosition);
             };
 
             /**
@@ -298,7 +298,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                     const isAnchorVisible = this.props.hideWithAnchor ? this.calcIsAnchorVisible() : true;
 
                     if (this.popupRef.current !== null) {
-                        this.popupRef.current.style.display = isAnchorVisible ? '' : 'none';
+                        this.popupRef.current.style.display = isAnchorVisible ? "" : "none";
                     }
                 });
             };
@@ -315,7 +315,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
             /* eslint-enable max-len */
             private getDrawingParams(directions: Direction[]): DrawingParams {
                 const params: DrawingParams = {
-                    direction: 'bottom-left',
+                    direction: "bottom-left",
                     popupPosition: { top: 0, left: 0 },
                     tailPosition: { top: 0, left: 0 },
                 };
@@ -478,30 +478,30 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                 const position = { left: 0, top: 0 };
                 const offsets = this.getOffsets();
 
-                if (checkMainDirection(direction, 'bottom')) {
+                if (checkMainDirection(direction, "bottom")) {
                     position.top = anchorDimensions.top + anchorDimensions.height + offsets.main;
-                } else if (checkMainDirection(direction, 'top')) {
+                } else if (checkMainDirection(direction, "top")) {
                     position.top = anchorDimensions.top - popupDimensions.height - offsets.main;
-                } else if (checkMainDirection(direction, 'left')) {
+                } else if (checkMainDirection(direction, "left")) {
                     position.left = anchorDimensions.left - popupDimensions.width - offsets.main;
-                } else if (checkMainDirection(direction, 'right')) {
+                } else if (checkMainDirection(direction, "right")) {
                     position.left = anchorDimensions.left + anchorDimensions.width + offsets.main;
                 }
 
-                if (checkSecondaryDirection(direction, 'right')) {
+                if (checkSecondaryDirection(direction, "right")) {
                     position.left =
                         anchorDimensions.left + anchorDimensions.width - popupDimensions.width - offsets.secondary;
-                } else if (checkSecondaryDirection(direction, 'left')) {
+                } else if (checkSecondaryDirection(direction, "left")) {
                     position.left = anchorDimensions.left + offsets.secondary;
-                } else if (checkSecondaryDirection(direction, 'bottom')) {
+                } else if (checkSecondaryDirection(direction, "bottom")) {
                     position.top =
                         anchorDimensions.top + anchorDimensions.height - popupDimensions.height - offsets.secondary;
-                } else if (checkSecondaryDirection(direction, 'top')) {
+                } else if (checkSecondaryDirection(direction, "top")) {
                     position.top = anchorDimensions.top + offsets.secondary;
-                } else if (checkSecondaryDirection(direction, 'center')) {
-                    if (checkMainDirection(direction, 'top', 'bottom')) {
+                } else if (checkSecondaryDirection(direction, "center")) {
+                    if (checkMainDirection(direction, "top", "bottom")) {
                         position.left = anchorDimensions.left + anchorDimensions.width / 2 - popupDimensions.width / 2;
-                    } else if (checkMainDirection(direction, 'left', 'right')) {
+                    } else if (checkMainDirection(direction, "left", "right")) {
                         position.top = anchorDimensions.top + anchorDimensions.height / 2 - popupDimensions.height / 2;
                     }
                 }
@@ -528,45 +528,45 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                 const tailSize = withChildren ? size : size / 2;
                 const offsets = this.getOffsets();
 
-                if (checkMainDirection(direction, 'bottom')) {
+                if (checkMainDirection(direction, "bottom")) {
                     position.top = -tailSize;
-                } else if (checkMainDirection(direction, 'top')) {
+                } else if (checkMainDirection(direction, "top")) {
                     position.top = withChildren
                         ? popupDimensions.popupHeight
                         : Math.floor(popupDimensions.popupHeight - tailSize);
-                } else if (checkMainDirection(direction, 'left')) {
+                } else if (checkMainDirection(direction, "left")) {
                     position.left = withChildren
                         ? popupDimensions.popupWidth
                         : Math.floor(popupDimensions.popupWidth - tailSize);
-                } else if (checkMainDirection(direction, 'right')) {
+                } else if (checkMainDirection(direction, "right")) {
                     position.left = -tailSize;
                 }
 
-                if (checkSecondaryDirection(direction, 'right')) {
+                if (checkSecondaryDirection(direction, "right")) {
                     position.left =
                         popupDimensions.popupWidth -
                         Math.ceil(Math.min(popupDimensions.popupWidth, anchorDimensions.width) / 2) -
                         tailSize -
                         offsets.tail;
-                } else if (checkSecondaryDirection(direction, 'left')) {
+                } else if (checkSecondaryDirection(direction, "left")) {
                     position.left =
                         Math.ceil(Math.min(popupDimensions.popupWidth, anchorDimensions.width) / 2) -
                         tailSize +
                         offsets.tail;
-                } else if (checkSecondaryDirection(direction, 'bottom')) {
+                } else if (checkSecondaryDirection(direction, "bottom")) {
                     position.top =
                         popupDimensions.popupHeight -
                         Math.ceil(Math.min(popupDimensions.popupHeight, anchorDimensions.height) / 2) -
                         tailSize -
                         offsets.tail;
-                } else if (checkSecondaryDirection(direction, 'top')) {
+                } else if (checkSecondaryDirection(direction, "top")) {
                     position.top =
                         Math.ceil(Math.min(popupDimensions.popupHeight, anchorDimensions.height) / 2) -
                         tailSize +
                         offsets.tail;
-                } else if (checkSecondaryDirection(direction, 'center')) {
+                } else if (checkSecondaryDirection(direction, "center")) {
                     const maybeHalfSize = withChildren ? tailSize / 2 : tailSize;
-                    if (checkMainDirection(direction, 'top', 'bottom')) {
+                    if (checkMainDirection(direction, "top", "bottom")) {
                         position.left = Math.ceil(popupDimensions.popupWidth / 2) - maybeHalfSize + offsets.tail;
                     } else {
                         position.top = Math.ceil(popupDimensions.popupHeight / 2) - maybeHalfSize + offsets.tail;
@@ -597,29 +597,29 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                 const viewport = this.getViewportDimensions();
                 const offsets = this.getOffsets();
 
-                return this.props.directions.map(direction => {
+                return this.props.directions.map((direction) => {
                     const res = { direction, width: 0, height: 0, left: 0, top: 0 };
 
-                    if (checkMainDirection(direction, 'bottom')) {
+                    if (checkMainDirection(direction, "bottom")) {
                         res.top = target.top + target.height + offsets.main * 2;
                         res.height = viewport.bottom - res.top - offsets.viewport;
-                    } else if (checkMainDirection(direction, 'top')) {
+                    } else if (checkMainDirection(direction, "top")) {
                         res.height = target.top - viewport.top - offsets.main - offsets.viewport;
                         res.top = target.top - res.height - offsets.main;
                     } else {
-                        if (checkSecondaryDirection(direction, 'center')) {
+                        if (checkSecondaryDirection(direction, "center")) {
                             res.height = viewport.bottom - viewport.top - 2 * offsets.viewport;
                             res.top = target.top + (target.height - res.height) / 2;
-                        } else if (checkSecondaryDirection(direction, 'bottom')) {
+                        } else if (checkSecondaryDirection(direction, "bottom")) {
                             res.height =
                                 target.top + target.height - viewport.top - offsets.secondary - offsets.viewport;
                             res.top = target.top + target.height - res.height - offsets.secondary;
-                        } else if (checkSecondaryDirection(direction, 'top')) {
+                        } else if (checkSecondaryDirection(direction, "top")) {
                             res.top = target.top + offsets.secondary;
                             res.height = viewport.bottom - res.top - offsets.viewport;
                         }
 
-                        if (checkMainDirection(direction, 'left')) {
+                        if (checkMainDirection(direction, "left")) {
                             res.width = target.left - viewport.left - offsets.main - offsets.viewport;
                             res.left = target.left - res.width - offsets.main;
                         } else {
@@ -628,14 +628,14 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                         }
                     }
 
-                    if (checkSecondaryDirection(direction, 'right')) {
+                    if (checkSecondaryDirection(direction, "right")) {
                         res.width = target.left + target.width - viewport.left - offsets.secondary - offsets.viewport;
                         res.left = target.left + target.width - res.width - offsets.secondary;
-                    } else if (checkSecondaryDirection(direction, 'left')) {
+                    } else if (checkSecondaryDirection(direction, "left")) {
                         res.left = target.left + offsets.secondary;
                         res.width = viewport.right - res.left - offsets.viewport;
-                    } else if (checkSecondaryDirection(direction, 'center')) {
-                        if (checkMainDirection(direction, 'top', 'bottom')) {
+                    } else if (checkSecondaryDirection(direction, "center")) {
+                        if (checkMainDirection(direction, "top", "bottom")) {
                             res.width = viewport.right - viewport.left - 2 * offsets.viewport;
                             res.left = target.left + target.width / 2 - res.width / 2;
                         }
@@ -701,7 +701,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                     const anchorHeight = Math.floor(anchorOffsets.height);
 
                     const vertBorder = Math.floor(
-                        checkMainDirection(this.state.direction, 'top')
+                        checkMainDirection(this.state.direction, "top")
                             ? anchorTopOffset
                             : anchorTopOffset + anchorHeight
                     );
@@ -716,7 +716,7 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
                     const anchorWidth = Math.floor(anchorOffsets.width);
 
                     const horizBorder = Math.floor(
-                        checkMainDirection(this.state.direction, 'left')
+                        checkMainDirection(this.state.direction, "left")
                             ? anchorLeftOffset
                             : anchorLeftOffset + anchorWidth
                     );

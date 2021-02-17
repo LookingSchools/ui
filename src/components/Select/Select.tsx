@@ -9,21 +9,21 @@ import React, {
     PureComponent,
     createRef,
     Ref,
-} from 'react';
-import { cn } from '@bem-react/classname';
-import { ComponentRegistryConsumer } from '@bem-react/di';
+} from "react";
+import { cn } from "@bem-react/classname";
+import { ComponentRegistryConsumer } from "@bem-react/di";
 
-import { Omit, Defaultize } from '../../typings/utility-types';
-import { flatMap } from '../../lib/flatMap';
-import { mergeAllRefs } from '../../lib/mergeRefs';
-import { Keys } from '../../lib/keyboard';
-import { RenderOverride, MultiRenderOverrideProvider } from '../../lib/render-override';
-import { ItemSimple, ChangeEventHandler } from '../Menu/Menu';
-import { IWithTogglableProps } from '../../hocs/withTogglable/withTogglable';
-import { ISelectRegistry, IIconEnhancedProps } from './Select.registry';
-import './Button/Select-Button.scss';
-import './Menu/Select-Menu.scss';
-import './Select.scss';
+import { Omit, Defaultize } from "../../typings/utility-types";
+import { flatMap } from "../../lib/flatMap";
+import { mergeAllRefs } from "../../lib/mergeRefs";
+import { Keys } from "../../lib/keyboard";
+import { RenderOverride, MultiRenderOverrideProvider } from "../../lib/render-override";
+import { ItemSimple, ChangeEventHandler } from "../Menu/Menu";
+import { IWithTogglableProps } from "../../hocs/withTogglable/withTogglable";
+import { ISelectRegistry, IIconEnhancedProps } from "./Select.registry";
+import "./Button/Select-Button.scss";
+import "./Menu/Select-Menu.scss";
+import "./Select.scss";
 
 export type OptionSimple = ItemSimple & {
     /**
@@ -54,7 +54,7 @@ export type OptionGroup = {
  */
 export type Option = OptionSimple | OptionGroup;
 
-type SelectAllHTMLAttributes = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' | 'value'>;
+type SelectAllHTMLAttributes = Omit<SelectHTMLAttributes<HTMLSelectElement>, "size" | "value">;
 
 export interface ISelectProps extends IWithTogglableProps, SelectAllHTMLAttributes {
     /**
@@ -161,11 +161,11 @@ export interface ISelectProps extends IWithTogglableProps, SelectAllHTMLAttribut
     activeDescendant?: string;
 }
 
-export const cnSelect = cn('Select');
+export const cnSelect = cn("Select");
 
 const defaultProps = {
-    placeholder: '—',
-    value: '',
+    placeholder: "—",
+    value: "",
 };
 
 type DefaultProps = keyof typeof defaultProps;
@@ -226,8 +226,8 @@ export const Select = class extends PureComponent<SelectProps> {
         const { buttonText } = this.state;
         // Проставляем состояние `checked` только для типа `check`.
         const checked = checkable && Array.isArray(value) ? value.length > 0 : false;
-        const iconType = theme || (iconProps && iconProps.glyph) ? undefined : 'arrow';
-        const iconGlyph = theme && !(iconProps && iconProps.type) ? 'carets-v' : undefined;
+        const iconType = theme || (iconProps && iconProps.glyph) ? undefined : "arrow";
+        const iconGlyph = theme && !(iconProps && iconProps.type) ? "carets-v" : undefined;
 
         return (
             <ComponentRegistryConsumer id={cnSelect()}>
@@ -250,7 +250,7 @@ export const Select = class extends PureComponent<SelectProps> {
                                     role="listbox"
                                     aria-haspopup="true"
                                     disabled={disabled}
-                                    className={cnSelect('Button')}
+                                    className={cnSelect("Button")}
                                     innerRef={this.triggerRef}
                                     style={style}
                                     size={size}
@@ -264,7 +264,7 @@ export const Select = class extends PureComponent<SelectProps> {
                                         <TriggerIcon
                                             size={size as any}
                                             className={iconClassName}
-                                            direction={opened ? 'top' : 'bottom'}
+                                            direction={opened ? "top" : "bottom"}
                                             type={iconType}
                                             glyph={iconGlyph}
                                             {...iconProps}
@@ -307,9 +307,9 @@ export const Select = class extends PureComponent<SelectProps> {
     }
 
     private getOptionsText(options: Option[], values: any[]) {
-        return flatMap(option => (option.items ? option.items : option), options)
+        return flatMap((option) => (option.items ? option.items : option), options)
             .filter((option: OptionSimple) => values.indexOf(option.value) !== -1)
             .map((option: OptionSimple) => option.checkedText || option.content)
-            .join(', ');
+            .join(", ");
     }
 } as ComponentClass<ISelectProps>;

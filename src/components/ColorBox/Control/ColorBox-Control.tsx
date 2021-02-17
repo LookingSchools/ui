@@ -1,7 +1,7 @@
-import React, { RefObject, ChangeEventHandler, MouseEventHandler, FC } from 'react';
+import React, { RefObject, ChangeEventHandler, MouseEventHandler, FC } from "react";
 
-import { cnColorBox as cn } from '../ColorBox';
-import './ColorBox-Control.scss';
+import { cnColorBox as cn } from "../ColorBox";
+import "./ColorBox-Control.scss";
 
 export interface IColorBoxControlProps {
     /**
@@ -38,7 +38,7 @@ export interface IColorBoxControlProps {
 export const ColorBoxControl: FC<IColorBoxControlProps> = ({ controlRef, className, ...props }) => (
     <input
         {...props}
-        className={cn('Control', null, [className])}
+        className={cn("Control", null, [className])}
         // Отключаем autoComplete, чтобы в FireFox
         // не сохранялось значение при перезагрузке страницы.
         autoComplete="off"

@@ -1,1 +1,1 @@
-export * from '../TabsPanes';
+export * from "../TabsPanes";

@@ -1,9 +1,9 @@
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC, useRef, useEffect } from "react";
 
-import { useVisible } from '../../../hooks/useVisible/useVisible';
-import { cnSlider } from '../Slider';
+import { useVisible } from "../../../hooks/useVisible/useVisible";
+import { cnSlider } from "../Slider";
 
-import './Slider-Item.scss';
+import "./Slider-Item.scss";
 
 export type SliderItemProps = {
     className?: string;
@@ -12,7 +12,7 @@ export type SliderItemProps = {
     children: React.ReactNode;
 };
 
-export const SliderItem: FC<SliderItemProps> = props => {
+export const SliderItem: FC<SliderItemProps> = (props) => {
     const { className, index, children, onSetVisible } = props;
 
     const ref = useRef<HTMLDivElement | null>(null);
@@ -25,10 +25,10 @@ export const SliderItem: FC<SliderItemProps> = props => {
     }, [index, visible, onSetVisible]);
 
     return (
-        <div ref={ref} className={cnSlider('Item', ['SliderItem', className])}>
+        <div ref={ref} className={cnSlider("Item", ["SliderItem", className])}>
             {children}
         </div>
     );
 };
 
-SliderItem.displayName = 'SliderItem';
+SliderItem.displayName = "SliderItem";

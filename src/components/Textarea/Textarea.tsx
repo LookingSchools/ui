@@ -8,23 +8,23 @@ import React, {
     FocusEventHandler,
     MouseEventHandler,
     KeyboardEventHandler,
-} from 'react';
+} from "react";
 
-import { cn } from '@bem-react/classname';
-import { compose } from '@bem-react/core';
+import { cn } from "@bem-react/classname";
+import { compose } from "@bem-react/core";
 
-import { TextareaWrap as Wrap } from './Wrap/Textarea-Wrap';
-import { TextareaControl as Control } from './Control/Textarea-Control';
-import { TextareaBox as Box } from './Box/Textarea-Box';
-import { TextareaHint as Hint } from './Hint/Textarea-Hint';
+import { TextareaWrap as Wrap } from "./Wrap/Textarea-Wrap";
+import { TextareaControl as Control } from "./Control/Textarea-Control";
+import { TextareaBox as Box } from "./Box/Textarea-Box";
+import { TextareaHint as Hint } from "./Hint/Textarea-Hint";
 
-import { useUpdateEffect } from '../../hooks/useUpdateEffect';
-import { IWithControlProps, withControl } from '../../hocs/withControl/withControl';
-import { IWithControlProps as IWithControlPropsDesktop } from '../../hocs/withControl/withControl';
-import { ITextareaControlProps } from './Control/Textarea-Control';
-import { withAutoFocus } from '../../hocs/withAutoFocus/withAutoFocus';
+import { useUpdateEffect } from "../../hooks/useUpdateEffect";
+import { IWithControlProps, withControl } from "../../hocs/withControl/withControl";
+import { IWithControlProps as IWithControlPropsDesktop } from "../../hocs/withControl/withControl";
+import { ITextareaControlProps } from "./Control/Textarea-Control";
+import { withAutoFocus } from "../../hocs/withAutoFocus/withAutoFocus";
 
-import './Textarea.scss';
+import "./Textarea.scss";
 
 export interface ITextareaProps
     extends IWithControlProps<HTMLTextAreaElement>,
@@ -117,10 +117,10 @@ export interface ITextareaProps
      * Визуальное состояние компонента.
      * Может использоваться при проверке формы на корректность.
      */
-    state?: 'error';
+    state?: "error";
 }
 
-export const cnTextarea = cn('Textarea');
+export const cnTextarea = cn("Textarea");
 
 /**
  * Многострочное текстовое поле.
@@ -162,9 +162,9 @@ const TextareaBase: FC<ITextareaProps> = ({
     const prevHint = useRef(htmlHint);
 
     useUpdateEffect(() => {
-        if (htmlHint !== '') {
+        if (htmlHint !== "") {
             setHint(htmlHint);
-        } else if (prevHint.current !== '') {
+        } else if (prevHint.current !== "") {
             setHintLeave(true);
         }
 
@@ -172,8 +172,8 @@ const TextareaBase: FC<ITextareaProps> = ({
     }, [htmlHint]);
 
     const onAnimationEnd = useCallback(() => {
-        if (htmlHint === '') {
-            setHint('');
+        if (htmlHint === "") {
+            setHint("");
             setHintLeave(false);
         }
     }, [htmlHint]);
@@ -182,7 +182,7 @@ const TextareaBase: FC<ITextareaProps> = ({
         <span ref={innerRef} className={className} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             {addonBefore}
             <Wrap>
-                <Control {...props} aria-invalid={state === 'error'} disabled={disabled} />
+                <Control {...props} aria-invalid={state === "error"} disabled={disabled} />
                 <Box />
             </Wrap>
             {addonAfter}

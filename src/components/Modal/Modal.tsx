@@ -1,13 +1,13 @@
-import React, { FC, useRef } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, useRef } from "react";
+import { cn } from "@bem-react/classname";
 
-import { Popup, IPopupProps } from '../Popup/Popup';
+import { Popup, IPopupProps } from "../Popup/Popup";
 
-import './Modal.scss';
+import "./Modal.scss";
 
 type PartialPopupProps = Pick<
     IPopupProps,
-    'keepMounted' | 'className' | 'innerRef' | 'zIndex' | 'visible' | 'scope' | 'forceRender' | 'onClose' | 'onClick'
+    "keepMounted" | "className" | "innerRef" | "zIndex" | "visible" | "scope" | "forceRender" | "onClose" | "onClick"
 >;
 
 export interface IModalProps extends PartialPopupProps {
@@ -16,7 +16,7 @@ export interface IModalProps extends PartialPopupProps {
      *
      * @default 'middle'
      */
-    contentVerticalAlign?: 'top' | 'middle' | 'bottom';
+    contentVerticalAlign?: "top" | "middle" | "bottom";
 
     /**
      * Добавляет анимацию при открытии модального окна.
@@ -26,7 +26,7 @@ export interface IModalProps extends PartialPopupProps {
     hasAnimation?: boolean;
 }
 
-export const cnModal = cn('Modal');
+export const cnModal = cn("Modal");
 
 /**
  * Используется для создания всплывающих модальных окон.
@@ -35,7 +35,7 @@ export const cnModal = cn('Modal');
 export const Modal: FC<IModalProps> = ({
     children,
     className,
-    contentVerticalAlign: align = 'middle',
+    contentVerticalAlign: align = "middle",
     hasAnimation = true,
     visible,
     onClick,
@@ -51,12 +51,12 @@ export const Modal: FC<IModalProps> = ({
             unstable_hostRef={contentRef}
             onClick={onClick}
         >
-            <div className={cnModal('Table')}>
+            <div className={cnModal("Table")}>
                 <div
-                    className={cnModal('Cell', { align })}
+                    className={cnModal("Cell", { align })}
                     // style={{ verticalAlign: contentVerticalAlign }}
                 >
-                    <div className={cnModal('Content')} ref={contentRef}>
+                    <div className={cnModal("Content")} ref={contentRef}>
                         {children}
                     </div>
                 </div>

@@ -1,7 +1,7 @@
-import React, { FC, MouseEventHandler } from 'react';
+import React, { FC, MouseEventHandler } from "react";
 
-import { cnTumbler } from '../Tumbler';
-import './Tumbler-Label.scss';
+import { cnTumbler } from "../Tumbler";
+import "./Tumbler-Label.scss";
 
 type TumblerLabelProps = {
     disabled?: boolean;
@@ -16,7 +16,7 @@ export const TumblerLabel: FC<TumblerLabelProps> = ({ disabled, htmlFor, id, onC
         htmlFor={disabled ? undefined : htmlFor}
         id={id}
         onClick={onClick}
-        className={cnTumbler('Label')}
+        className={cnTumbler("Label")}
     >
         {children}
     </label>

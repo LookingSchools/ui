@@ -1,10 +1,10 @@
-import React, { FC, ReactNode, ReactType } from 'react';
-import { cn } from '@bem-react/classname';
-import { BadgeControl as Control, IBadgeControlProps } from './Control/Badge-Control';
+import React, { FC, ReactNode, ReactType } from "react";
+import { cn } from "@bem-react/classname";
+import { BadgeControl as Control, IBadgeControlProps } from "./Control/Badge-Control";
 
-import './Badge.scss';
+import "./Badge.scss";
 
-export const cnBadge = cn('Badge');
+export const cnBadge = cn("Badge");
 
 export interface IBadgeProps extends IBadgeControlProps {
     /**
@@ -44,7 +44,7 @@ export interface IBadgeProps extends IBadgeControlProps {
     /**
      * The type to use.
      */
-    type?: 'standard' | 'dot';
+    type?: "standard" | "dot";
 
     /**
      * HTML-атрибут для рендера
@@ -60,26 +60,26 @@ export const Badge: FC<IBadgeProps> = ({
     invisible: invisibleProp,
     max = 99,
     showZero = false,
-    type = 'standard',
+    type = "standard",
     color,
     background,
-    as = 'span',
+    as = "span",
     ...props
 }) => {
     let invisible = invisibleProp;
     const Component = as;
 
-    if (invisibleProp == null && ((badgeContent === 0 && !showZero) || (badgeContent == null && type !== 'dot'))) {
+    if (invisibleProp == null && ((badgeContent === 0 && !showZero) || (badgeContent == null && type !== "dot"))) {
         invisible = true;
     }
 
     let displayValue;
 
-    if (type !== 'dot' && badgeContent) {
+    if (type !== "dot" && badgeContent) {
         displayValue = badgeContent > max ? `${max}+` : badgeContent;
     }
 
-    const cnName = cnBadge({ invisible: invisible }, ['Badge_direction_top-right']);
+    const cnName = cnBadge({ invisible: invisible }, ["Badge_direction_top-right"]);
 
     const badgeStyle = {
         color: color,

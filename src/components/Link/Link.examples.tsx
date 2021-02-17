@@ -1,39 +1,35 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React from "react";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 
-import { Link } from './Link.bundle';
+import { Link } from "./Link.bundle";
 
-storiesOf('Controls|Link/', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Link.md').default,
-            },
-        })
-    )
-    .add('playground', () => {
-        const theme = select('theme', ['default', ''], 'default');
-        const href = text('href', 'https://google.com');
-        const children = text('children', 'Lookingschools');
-        return (
-            <Link theme={theme} href={href}>
-                {children}
-            </Link>
-        );
-    });
+export default {
+    title: "Controls|Link",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Link.md"),
+        },
+    },
+};
 
-storiesOf('Controls|Link/', module)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Link.md').default,
-            },
-        })
-    )
-    .add('_pseudo', () => (
+export const Playground = () => {
+    const theme = select("theme", ["default", ""], "default");
+    const href = text("href", "https://google.com");
+    const children = text("children", "Lookingschools");
+    return (
+        <Link theme={theme} href={href}>
+            {children}
+        </Link>
+    );
+};
+
+Playground.story = {
+    name: "playground",
+};
+
+export const Pseudo = () => {
+    return (
         <>
             <Link pseudo>Псевдоссылка без темы</Link>
             <br />
@@ -45,8 +41,15 @@ storiesOf('Controls|Link/', module)
                 Псевдоссылка без темы но с href оформляется иначе.
             </Link>
         </>
-    ))
-    .add('_theme', () => (
+    );
+};
+
+Pseudo.story = {
+    name: "pseudo",
+};
+
+export const Theme = () => {
+    return (
         <>
             <Link href="#" theme="black">
                 Ссылка с темой black
@@ -60,4 +63,9 @@ storiesOf('Controls|Link/', module)
                 Псевдоссылка с темой pseudo
             </Link>
         </>
-    ));
+    );
+};
+
+Theme.story = {
+    name: "theme",
+};

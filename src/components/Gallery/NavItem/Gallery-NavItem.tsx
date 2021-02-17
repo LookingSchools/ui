@@ -1,8 +1,8 @@
-import React, { FC, MouseEventHandler, RefObject, ReactNode } from 'react';
-import { Image } from '../../Image/Image.bundle';
+import React, { FC, MouseEventHandler, RefObject, ReactNode } from "react";
+import { Image } from "../../Image/Image.bundle";
 
-import { cnGallery } from '../Gallery';
-import './Gallery-NavItem.scss';
+import { cnGallery } from "../Gallery";
+import "./Gallery-NavItem.scss";
 
 export interface GalleryNavItemProps {
     /**
@@ -62,9 +62,9 @@ export const GalleryNavItem: FC<GalleryNavItemProps> = ({
             aria-selected={active}
             ref={innerRef}
             onClick={onClick}
-            className={cnGallery('NavItem', { active }, [className])}
+            className={cnGallery("NavItem", { active }, [className])}
         >
-            <Image src={src} alt={alt} className={cnGallery('Image')} />
+            <Image src={src} alt={alt} className={cnGallery("Image")} />
         </li>
     );
 };

@@ -1,25 +1,28 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, color, select } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React from "react";
+import { withKnobs, color, select } from "@storybook/addon-knobs";
 
-import { Separator, Thickness, Width } from './Separator';
+import { Separator, Thickness, Width } from "./Separator";
 
-storiesOf('Controls|Separator', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Separator.md').default,
-            },
-        })
-    )
-    .add('playground', () => {
-        return (
-            <Separator
-                thickness={select('Толщина', [Thickness.Thick, Thickness.Thin], Thickness.Thick)}
-                width={select('Ширина', [Width.Short, Width.Middle, Width.Long], Width.Middle)}
-                color={color('Цвет разделителя', ' rgba(38, 49, 129, 0.15)')}
-            />
-        );
-    });
+export default {
+    title: "Controls|Separator",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Separator.md"),
+        },
+    },
+};
+
+export const Playground = () => {
+    return (
+        <Separator
+            thickness={select("Толщина", [Thickness.Thick, Thickness.Thin], Thickness.Thick)}
+            width={select("Ширина", [Width.Short, Width.Middle, Width.Long], Width.Middle)}
+            color={color("Цвет разделителя", " rgba(38, 49, 129, 0.15)")}
+        />
+    );
+};
+
+Playground.story = {
+    name: "playground",
+};

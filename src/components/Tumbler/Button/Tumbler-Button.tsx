@@ -1,7 +1,7 @@
-import React, { FC, MouseEventHandler, KeyboardEventHandler, RefObject, FocusEventHandler } from 'react';
+import React, { FC, MouseEventHandler, KeyboardEventHandler, RefObject, FocusEventHandler } from "react";
 
-import { cnTumbler } from '../Tumbler';
-import './Tumbler-Button.scss';
+import { cnTumbler } from "../Tumbler";
+import "./Tumbler-Button.scss";
 
 type TumblerButtonProps = {
     checked: boolean;
@@ -29,7 +29,7 @@ export const TumblerButton: FC<TumblerButtonProps> = ({
     <button
         aria-labelledby={labelledBy}
         aria-pressed={checked}
-        className={cnTumbler('Button')}
+        className={cnTumbler("Button")}
         onBlur={onBlur}
         onClick={onClick}
         onFocus={onFocus}

@@ -1,21 +1,21 @@
-import React, { ReactNode, FC } from 'react';
-import { compose } from '@bem-react/core';
-import { cn } from '@bem-react/classname';
-import { Typography } from '../Typography/Typography';
-import { Button as ButtonBase } from '../Button/Button.bundle';
-import { Separator, Thickness, Width } from '../Separator/Separator';
-import { Socials } from '../Socials/Socials.bundle';
+import React, { ReactNode, FC } from "react";
+import { compose } from "@bem-react/core";
+import { cn } from "@bem-react/classname";
+import { Typography } from "../Typography/Typography";
+import { Button as ButtonBase } from "../Button/Button.bundle";
+import { Separator, Thickness, Width } from "../Separator/Separator";
+import { Socials } from "../Socials/Socials.bundle";
 
 // _size
-import { withSizeM } from '../Button/_size/Button_size_m';
+import { withSizeM } from "../Button/_size/Button_size_m";
 // _theme
-import { withThemeDefault } from '../Button/_theme/Button_theme_default';
+import { withThemeDefault } from "../Button/_theme/Button_theme_default";
 
 const Button = compose(withSizeM, withThemeDefault)(ButtonBase);
 
-import './Oops.scss';
+import "./Oops.scss";
 
-export const cnOops = cn('Oops');
+export const cnOops = cn("Oops");
 
 export interface IOopsProps {
     /**
@@ -53,7 +53,7 @@ export const Oops: FC<IOopsProps> = ({ children, className, title, subtitle, but
                 {button}
             </Button>
             <Separator thickness={Thickness.Thin} width={Width.Short} color="#D9D9D9" className="Oops-Separator" />
-            <Socials icons={['facebook', 'instagram', 'youtube', 'twitter', 'telegram']} className="Oops-Socials" />
+            <Socials icons={["facebook", "instagram", "youtube", "twitter", "telegram"]} className="Oops-Socials" />
             <Typography size="s">Подпишитесь на нас, чтобы всегда быть в курсе акций и конкурсов</Typography>
         </div>
     );

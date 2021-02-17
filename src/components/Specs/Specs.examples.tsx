@@ -1,10 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
-import { Specs } from './Specs';
-import { SpecsItem } from './Item/Specs-Item';
-import * as stubData from './datastub';
+import React from "react";
+import { withKnobs, select, text } from "@storybook/addon-knobs";
+import { Specs } from "./Specs";
+import { SpecsItem } from "./Item/Specs-Item";
+import * as stubData from "./datastub";
 
 function getText() {
     return stubData.dataDefault.description.short;
@@ -19,7 +17,7 @@ function getSpecs() {
 }
 
 function getModeKnobs() {
-    return select('Режим компонента', ['preview'], 'preview');
+    return select("Режим компонента", ["preview"], "preview");
 }
 
 export const Specification = () => {
@@ -53,33 +51,58 @@ export const SpecsDesc = () => {
 
 export const SpecsOneItem = () => {
     return (
-        <SpecsItem name={text('Название характеристики', 'Тип')} value={text('Значение характеристики', 'смартфон')} />
+        <SpecsItem name={text("Название характеристики", "Тип")} value={text("Значение характеристики", "смартфон")} />
     );
 };
 
 export const SpecsGroup = () => {
     return (
         <>
-            <SpecsItem name={'Тип'} value={'смартфон'} />
-            <SpecsItem name={'Операционная система'} value={'Android 8.1'} />
-            <SpecsItem name={'Тип корпуса'} value={'классический'} />
-            <SpecsItem name={'Материал корпуса'} value={'пластик'} />
-            <SpecsItem name={'Управление'} value={'сенсорные кнопки'} />
+            <SpecsItem name={"Тип"} value={"смартфон"} />
+            <SpecsItem name={"Операционная система"} value={"Android 8.1"} />
+            <SpecsItem name={"Тип корпуса"} value={"классический"} />
+            <SpecsItem name={"Материал корпуса"} value={"пластик"} />
+            <SpecsItem name={"Управление"} value={"сенсорные кнопки"} />
         </>
     );
 };
 
-storiesOf('Controls|Specs', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Specs.md').default,
-            },
-        })
-    )
-    .add('Характеристики', () => Specification())
-    .add('Описание', () => Description())
-    .add('Описание + Характеристики', () => SpecsDesc())
-    .add('Одна характеристика', () => SpecsOneItem())
-    .add('Блок характеристик', () => SpecsGroup());
+export default {
+    title: "Controls|Specs",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Specs.md"),
+        },
+    },
+};
+
+export const specification = () => Specification();
+
+specification.story = {
+    name: "Характеристики",
+};
+
+export const description = () => Description();
+
+description.story = {
+    name: "Описание",
+};
+
+export const desc = () => SpecsDesc();
+
+desc.story = {
+    name: "Описание + Характеристики",
+};
+
+export const oneItem = () => SpecsOneItem();
+
+oneItem.story = {
+    name: "Одна характеристика",
+};
+
+export const group = () => SpecsGroup();
+
+group.story = {
+    name: "Одна характеристика",
+};

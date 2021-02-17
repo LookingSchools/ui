@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import './Device.scss';
+import "./Device.scss";
 
 export const Device: FC = ({ children }) => {
     return (

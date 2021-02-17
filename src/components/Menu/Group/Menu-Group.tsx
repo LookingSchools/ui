@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { MenuTitle as Title } from '../Title/Menu-Title';
+import React, { FC } from "react";
+import { MenuTitle as Title } from "../Title/Menu-Title";
 
-import { cnMenu } from '../Menu';
+import { cnMenu } from "../Menu";
 
 export interface MenuGroupProps {
     /**
@@ -17,7 +17,7 @@ export interface MenuGroupProps {
 
 export const MenuGroup: FC<MenuGroupProps> = ({ children, className, title, ...props }) => {
     return (
-        <div {...props} role="group" className={cnMenu('Group', null, [className])}>
+        <div {...props} role="group" className={cnMenu("Group", null, [className])}>
             {title && <Title>{title}</Title>}
             {children}
         </div>

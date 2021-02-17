@@ -1,13 +1,13 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnMenu } from '../Menu';
-import './Menu_theme_clear.scss';
+import { cnMenu } from "../Menu";
+import "./Menu_theme_clear.scss";
 
 export interface IMenuThemeClearProps {
     /**
      * Стилевое оформление меню
      */
-    theme?: 'clear';
+    theme?: "clear";
 }
 
 /**
@@ -15,4 +15,4 @@ export interface IMenuThemeClearProps {
  * @param {IMenuThemeClearProps} props
  *
  */
-export const withThemeClear = withBemMod<IMenuThemeClearProps>(cnMenu(), { theme: 'clear' });
+export const withThemeClear = withBemMod<IMenuThemeClearProps>(cnMenu(), { theme: "clear" });

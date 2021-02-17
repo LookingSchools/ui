@@ -1,15 +1,15 @@
-import React, { ReactNode, RefObject, PureComponent, createRef, CSSProperties } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { ReactNode, RefObject, PureComponent, createRef, CSSProperties } from "react";
+import { cn } from "@bem-react/classname";
 
-import { IS_TESTING } from '../../lib/env';
-import { Keys, isKeyCode } from '../../lib/keyboard';
-import { mergeRefs } from '../../lib/mergeRefs';
-import { flatMap } from '../../lib/flatMap';
+import { IS_TESTING } from "../../lib/env";
+import { Keys, isKeyCode } from "../../lib/keyboard";
+import { mergeRefs } from "../../lib/mergeRefs";
+import { flatMap } from "../../lib/flatMap";
 
-import { MenuGroup as Group } from './Group/Menu-Group';
-import { MenuItem as Item } from './Item/Menu-Item';
+import { MenuGroup as Group } from "./Group/Menu-Group";
+import { MenuItem as Item } from "./Item/Menu-Item";
 
-import './Menu.scss';
+import "./Menu.scss";
 
 export type ItemSimple = {
     /**
@@ -49,7 +49,8 @@ export type MixedItem = ItemSimple | ItemGroup;
 export type ChangeEvent<T> = React.ChangeEvent<T & { name?: string; value: any }>;
 export type ChangeEventHandler<T> = (event: ChangeEvent<T>) => void;
 
-const getFlattenItems = (items: MixedItem[]): ItemSimple[] => flatMap(item => (item.items ? item.items : item), items);
+const getFlattenItems = (items: MixedItem[]): ItemSimple[] =>
+    flatMap((item) => (item.items ? item.items : item), items);
 
 const isGroup = (value: any): value is ItemGroup => value.items !== undefined;
 
@@ -111,7 +112,7 @@ export interface IMenuProps {
     style?: CSSProperties;
 }
 
-export const cnMenu = cn('Menu');
+export const cnMenu = cn("Menu");
 
 type MapChildrenProps = {
     getNextItemCount: () => number;
@@ -138,7 +139,7 @@ export class Menu extends PureComponent<IMenuProps> {
      */
     private itemsRef: Array<RefObject<HTMLDivElement>> = [];
 
-    private uniqId = IS_TESTING ? '0' : String(Date.now()) + Math.floor(Math.random() * 10000);
+    private uniqId = IS_TESTING ? "0" : String(Date.now()) + Math.floor(Math.random() * 10000);
 
     componentDidMount() {
         this.forwardRefs();
@@ -189,7 +190,7 @@ export class Menu extends PureComponent<IMenuProps> {
                 ref={this.innerRef}
                 aria-disabled={disabled}
                 aria-multiselectable={Array.isArray(value)}
-                role={value !== undefined ? 'listbox' : undefined}
+                role={value !== undefined ? "listbox" : undefined}
                 className={cnMenu(null, [className])}
             >
                 {items.map(this.mapChildren({ Item, Group }, { getNextItemCount, getNextGroupCount, disabled }))}
@@ -219,7 +220,7 @@ export class Menu extends PureComponent<IMenuProps> {
         const { value, theme } = this.props;
         const { hoveredIndex } = this.state;
         const values: any[] = [].concat(value as []);
-        const needIconGlyph = theme === 'default' && value !== undefined;
+        const needIconGlyph = theme === "default" && value !== undefined;
         const itemIndex = getNextItemCount();
 
         this.itemsRef[itemIndex] = createRef();
@@ -236,7 +237,7 @@ export class Menu extends PureComponent<IMenuProps> {
                 onMouseEnter={this.setHoveredOnMouseEnter(true, itemIndex)}
                 onMouseLeave={this.setHoveredOnMouseEnter(false, itemIndex)}
                 onClick={this.onMenuItemClick}
-                type={value === undefined ? value : 'option'}
+                type={value === undefined ? value : "option"}
                 innerRef={this.itemsRef[itemIndex]}
             >
                 {item.content}
@@ -291,11 +292,11 @@ export class Menu extends PureComponent<IMenuProps> {
     };
 
     private subscribeToEvents() {
-        document.addEventListener('keydown', this.onKeyDown);
+        document.addEventListener("keydown", this.onKeyDown);
     }
 
     private unsubscribeFromEvents() {
-        document.removeEventListener('keydown', this.onKeyDown);
+        document.removeEventListener("keydown", this.onKeyDown);
     }
 
     private setHoveredOnMouseEnter = (hovered: boolean, index: number) => () => {
@@ -372,14 +373,14 @@ export class Menu extends PureComponent<IMenuProps> {
 
         if (onChange !== undefined) {
             const items = getFlattenItems(this.props.items);
-            let nextValue = hoveredIndex === -1 ? '' : items[hoveredIndex].value;
+            let nextValue = hoveredIndex === -1 ? "" : items[hoveredIndex].value;
 
             // Если value является массивом, то обрабатываем этот случай как multiselect radio или check.
             if (Array.isArray(value)) {
                 let prevValues = [...value];
 
                 if (prevValues.indexOf(nextValue) !== -1) {
-                    prevValues = prevValues.filter(prevValue => prevValue !== nextValue);
+                    prevValues = prevValues.filter((prevValue) => prevValue !== nextValue);
                 } else {
                     prevValues.push(nextValue);
                 }

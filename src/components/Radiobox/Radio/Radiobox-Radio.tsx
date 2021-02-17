@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
-import { cnRadiobox as cn } from '../Radiobox';
-import './Radiobox-Radio.scss';
+import { cnRadiobox as cn } from "../Radiobox";
+import "./Radiobox-Radio.scss";
 
-import { IWithControlProps, withControl } from '../../../hocs/withControl/withControl';
+import { IWithControlProps, withControl } from "../../../hocs/withControl/withControl";
 
 export interface IRadioboxRadioProps extends IWithControlProps<HTMLLabelElement> {
     /**
@@ -37,7 +37,7 @@ export const RadioboxRadio = withControl(
         <label
             {...props}
             className={cn(
-                'Radio',
+                "Radio",
                 {
                     checked,
                     disabled,

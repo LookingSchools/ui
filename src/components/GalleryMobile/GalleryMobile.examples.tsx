@@ -1,31 +1,34 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, number } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
-import { Device } from '../_internal_/Device/Device';
-import { GalleryMobile, GalleryMobileItemProps } from './GalleryMobile';
+import React from "react";
+import { withKnobs, number } from "@storybook/addon-knobs";
+import { Device } from "../_internal_/Device/Device";
+import { GalleryMobile, GalleryMobileItemProps } from "./GalleryMobile";
 
-import * as stubData from './datastub';
+import * as stubData from "./datastub";
 
 function getImages() {
     return stubData.dataDefault.images as Array<GalleryMobileItemProps>;
 }
 
-storiesOf('Controls|GalleryMobile/', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./GalleryMobile.md').default,
-            },
-        })
-    )
-    .add('playground', () => {
-        const activeIndex = number('activeIndex', 0);
+export default {
+    title: "Controls|GalleryMobile",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./GalleryMobile.md"),
+        },
+    },
+};
 
-        return (
-            <Device>
-                <GalleryMobile className="my-gallery" activeIndex={activeIndex} items={getImages()} />
-            </Device>
-        );
-    });
+export const Playground = () => {
+    const activeIndex = number("activeIndex", 0);
+
+    return (
+        <Device>
+            <GalleryMobile className="my-gallery" activeIndex={activeIndex} items={getImages()} />
+        </Device>
+    );
+};
+
+Playground.story = {
+    name: "playground",
+};

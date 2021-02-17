@@ -1,7 +1,7 @@
-import React, { RefObject, ChangeEventHandler, MouseEventHandler, FC } from 'react';
+import React, { RefObject, ChangeEventHandler, MouseEventHandler, FC } from "react";
 
-import { cnRadiobox as cn } from '../Radiobox';
-import './Radiobox-Control.scss';
+import { cnRadiobox as cn } from "../Radiobox";
+import "./Radiobox-Control.scss";
 
 export interface IRadioboxControlProps {
     /**
@@ -48,7 +48,7 @@ export interface IRadioboxControlProps {
 export const RadioboxControl: FC<IRadioboxControlProps> = ({ controlRef, className, ...props }) => (
     <input
         {...props}
-        className={cn('Control', null, [className])}
+        className={cn("Control", null, [className])}
         // Отключаем autoComplete, чтобы в FireFox
         // не сохранялось значение при перезагрузке страницы.
         autoComplete="off"

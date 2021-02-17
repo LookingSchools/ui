@@ -1,7 +1,7 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnSelect } from '../Select';
-import './Select_baseline.scss';
+import { cnSelect } from "../Select";
+import "./Select_baseline.scss";
 
 export interface ISelectBaselineProps {
     /**

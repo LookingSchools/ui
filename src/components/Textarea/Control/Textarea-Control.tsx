@@ -1,7 +1,7 @@
-import React, { RefObject, FC, ChangeEventHandler } from 'react';
+import React, { RefObject, FC, ChangeEventHandler } from "react";
 
-import { cnTextarea } from '../Textarea';
-import './Textarea-Control.scss';
+import { cnTextarea } from "../Textarea";
+import "./Textarea-Control.scss";
 
 export interface ITextareaControlProps {
     /**
@@ -75,7 +75,7 @@ export const TextareaControl: FC<ITextareaControlProps> = ({
     <textarea
         {...props}
         ref={controlRef}
-        className={cnTextarea('Control', null, [className])}
+        className={cnTextarea("Control", null, [className])}
         cols={cols}
         rows={rows}
     />

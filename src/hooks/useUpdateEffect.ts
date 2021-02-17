@@ -1,4 +1,4 @@
-import { useRef, useEffect, DependencyList, EffectCallback } from 'react';
+import { useRef, useEffect, DependencyList, EffectCallback } from "react";
 
 /**
  * Эффект вызываемый после первого рендера.

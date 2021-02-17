@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_glyph.scss';
-import './Icon_glyph_course-active.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_glyph.scss";
+import "./Icon_glyph_course-active.scss";
 
 export interface IWithGlyphCourseActiveProps {
     /**
      * Символ иконки
      */
-    glyph?: 'course-active';
+    glyph?: "course-active";
 }
 
 /**
@@ -18,8 +18,8 @@ export interface IWithGlyphCourseActiveProps {
  */
 export const withGlyphCourseActive = withBemMod<IWithGlyphCourseActiveProps, IIconProps>(
     cnIcon(),
-    { glyph: 'course-active' },
-    Icon => ({ className, ...props }) => (
+    { glyph: "course-active" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

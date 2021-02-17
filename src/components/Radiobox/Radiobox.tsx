@@ -1,22 +1,22 @@
-import React, { FC, RefObject, ReactNode } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, RefObject, ReactNode } from "react";
+import { cn } from "@bem-react/classname";
 
-import { useUniqId } from '../../hooks/useUniqId';
-import { Omit } from '../../typings/utility-types';
-import { RadioboxBox as Box } from './Box/Radiobox-Box';
-import { RadioboxControl as Control } from './Control/Radiobox-Control';
-import { RadioboxRadio as Radio } from './Radio/Radiobox-Radio';
-import { RadioboxText as Text } from './Text/Radiobox-Text';
-import { IRadioboxControlProps } from './Control/Radiobox-Control';
-import './Radiobox.scss';
+import { useUniqId } from "../../hooks/useUniqId";
+import { Omit } from "../../typings/utility-types";
+import { RadioboxBox as Box } from "./Box/Radiobox-Box";
+import { RadioboxControl as Control } from "./Control/Radiobox-Control";
+import { RadioboxRadio as Radio } from "./Radio/Radiobox-Radio";
+import { RadioboxText as Text } from "./Text/Radiobox-Text";
+import { IRadioboxControlProps } from "./Control/Radiobox-Control";
+import "./Radiobox.scss";
 
-export const cnRadiobox = cn('Radiobox');
+export const cnRadiobox = cn("Radiobox");
 
 export interface IOption extends IRadioboxControlProps {
     label: ReactNode;
 }
 
-export interface IRadioboxProps extends Omit<IRadioboxControlProps, 'size' | 'controlRef'> {
+export interface IRadioboxProps extends Omit<IRadioboxControlProps, "size" | "controlRef"> {
     /**
      * Набор опций
      */
@@ -45,7 +45,7 @@ export const Radiobox: FC<IRadioboxProps> = ({
     value,
     className,
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    id = useUniqId('xuniq'),
+    id = useUniqId("xuniq"),
     // Извлекаем свойства, т.к. они не нужны на DOM узле
     // FIXME: https://github.com/bem/bem-react/issues/381
     // @ts-ignore
@@ -58,14 +58,14 @@ export const Radiobox: FC<IRadioboxProps> = ({
         <span className={cnRadiobox(null, [className])} ref={innerRef}>
             {options
                 .map((option, index) => {
-                    const nextOption = typeof option === 'string' ? { label: option, value: option } : option;
+                    const nextOption = typeof option === "string" ? { label: option, value: option } : option;
 
                     return {
                         ...nextOption,
                         disabled: disabled || nextOption.disabled,
                         checked: value === nextOption.value,
-                        'aria-checked': value === nextOption.value,
-                        'aria-labelledby': `label-${index}-${id}`,
+                        "aria-checked": value === nextOption.value,
+                        "aria-labelledby": `label-${index}-${id}`,
                     };
                 })
                 .map(({ label, ...option }) => (
@@ -73,7 +73,7 @@ export const Radiobox: FC<IRadioboxProps> = ({
                         <Box>
                             <Control {...option} {...props} />
                         </Box>
-                        <Text id={option['aria-labelledby']}>{label}</Text>
+                        <Text id={option["aria-labelledby"]}>{label}</Text>
                     </Radio>
                 ))}
         </span>

@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_social.scss';
-import './Icon_social_instagram.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_social.scss";
+import "./Icon_social_instagram.scss";
 
 export interface IWithSocialInstagramProps {
     /**
      * Символ иконки
      */
-    social?: 'instagram';
+    social?: "instagram";
 }
 
 /**
@@ -18,8 +18,8 @@ export interface IWithSocialInstagramProps {
  */
 export const withSocialInstagram = withBemMod<IWithSocialInstagramProps, IIconProps>(
     cnIcon(),
-    { social: 'instagram' },
-    Icon => ({ className, ...props }) => (
+    { social: "instagram" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasSocial: true }, [className])}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

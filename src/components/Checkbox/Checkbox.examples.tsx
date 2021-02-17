@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
-import { withDocs } from '@storybook-addons/docs';
+import React, { useState } from "react";
+import { withKnobs, select, text, boolean } from "@storybook/addon-knobs";
 
-import { Checkbox } from './Checkbox.bundle';
+import { Checkbox } from "./Checkbox.bundle";
+
+export default {
+    title: "Controls|Checkbox",
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            readme: require("./Checkbox.md"),
+        },
+    },
+};
 
 export const Playground = () => {
     const [checked, setChecked] = useState(false);
 
-    const label = text('label', 'Label');
-    const size = select('size', ['m', 's'], 'm') as any;
-    const theme = select('theme', ['default', ''], 'default') as any;
-    const disabled = boolean('disabled', false);
+    const label = text("label", "Label");
+    const size = select("size", ["m", "s"], "m") as any;
+    const theme = select("theme", ["default", ""], "default") as any;
+    const disabled = boolean("disabled", false);
 
     return (
         <Checkbox
@@ -64,8 +72,8 @@ export const Lines = () => {
 
     return (
         <div>
-            {'one:'}
-            {['s', 'm'].map((size: any) => (
+            {"one:"}
+            {["s", "m"].map((size: any) => (
                 <div key={size} style={{ padding: 4 }}>
                     <Checkbox
                         label="Однострочный checkbox с длинной подписью"
@@ -78,9 +86,9 @@ export const Lines = () => {
                 </div>
             ))}
             <br />
-            {'multi:'}
+            {"multi:"}
             <div style={{ padding: 4 }}>
-                {'Чекбоксы\u00a0\u00a0'}
+                {"Чекбоксы\u00a0\u00a0"}
                 <Checkbox
                     label="выравниваются"
                     theme="default"
@@ -89,7 +97,7 @@ export const Lines = () => {
                     checked={checked}
                     lines="multi"
                 />
-                {'\u00a0по базовой\u00a0\u00a0'}
+                {"\u00a0по базовой\u00a0\u00a0"}
                 <Checkbox
                     label="линии"
                     theme="default"
@@ -98,22 +106,24 @@ export const Lines = () => {
                     checked={checked}
                     lines="multi"
                 />
-                {'.'}
+                {"."}
             </div>
         </div>
     );
 };
 
-storiesOf('Controls|Checkbox', module)
-    .addDecorator(withKnobs)
-    .addDecorator(
-        withDocs({
-            readme: {
-                content: require('./Checkbox.md').default,
-            },
-        })
-    )
-    .add('playground', () => Playground())
-    .add('theme', () => Theme())
-    .add('size', () => Size())
-    .add('lines', () => Lines());
+Playground.story = {
+    name: "playground",
+};
+
+Theme.story = {
+    name: "theme",
+};
+
+Size.story = {
+    name: "size",
+};
+
+Lines.story = {
+    name: "lines",
+};

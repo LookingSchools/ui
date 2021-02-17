@@ -1,6 +1,6 @@
-import React, { ComponentType, RefObject, PureComponent, createRef } from 'react';
+import React, { ComponentType, RefObject, PureComponent, createRef } from "react";
 
-import { getDisplayName } from '../../lib/getDisplayName';
+import { getDisplayName } from "../../lib/getDisplayName";
 
 export interface IWithAutoFocusProps {
     /** Активное состояние. */

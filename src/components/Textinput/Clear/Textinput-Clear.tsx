@@ -1,25 +1,25 @@
-import React, { FC, MouseEventHandler } from 'react';
-import { compose } from '@bem-react/core';
+import React, { FC, MouseEventHandler } from "react";
+import { compose } from "@bem-react/core";
 
-import { Icon as IconPresenter } from '../../Icon/Icon';
-import { TextinputIcon as IconWrapper } from '../Icon/Textinput-Icon';
-import { withGlyphCross } from '../../Icon/_glyph/Icon_glyph_cross';
-import { withGlyphXSign } from '../../Icon/_glyph/Icon_glyph_x-sign';
+import { Icon as IconPresenter } from "../../Icon/Icon";
+import { TextinputIcon as IconWrapper } from "../Icon/Textinput-Icon";
+import { withGlyphCross } from "../../Icon/_glyph/Icon_glyph_cross";
+import { withGlyphXSign } from "../../Icon/_glyph/Icon_glyph_x-sign";
 
-import { cnTextinput } from '../Textinput';
-import './Textinput-Clear.scss';
+import { cnTextinput } from "../Textinput";
+import "./Textinput-Clear.scss";
 
 const Icon = compose(withGlyphXSign, withGlyphCross)(IconPresenter);
 
 const getIconType = (theme?: string): any => {
-    if (theme === 'default') {
-        return { glyph: 'x-sign' };
+    if (theme === "default") {
+        return { glyph: "x-sign" };
     }
-    if (theme === 'search') {
-        return { glyph: 'cross' };
+    if (theme === "search") {
+        return { glyph: "cross" };
     }
 
-    return { glyph: 'cross' };
+    return { glyph: "cross" };
 };
 
 export interface ITextinputClearProps {
@@ -58,7 +58,7 @@ export const TextinputClear: FC<ITextinputClearProps> = ({ visible, className, t
     return (
         <IconWrapper
             {...props}
-            component={<Icon {...getIconType(theme)} className={cnTextinput('Clear', { visible }, [className])} />}
+            component={<Icon {...getIconType(theme)} className={cnTextinput("Clear", { visible }, [className])} />}
         />
     );
 };

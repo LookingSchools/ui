@@ -1,5 +1,5 @@
-import React from 'react';
-import { cnRating } from '../Rating';
+import React from "react";
+import { cnRating } from "../Rating";
 
 interface IRatingStarsProps {
     value: number;
@@ -23,11 +23,11 @@ export class RatingStars extends React.PureComponent<IRatingStarsProps> {
 
         return (
             <React.Fragment>
-                <span className={cnRating('Stars')} style={{ width: `${containerWidth}px` }}>
-                    <span className={cnRating('Half')} style={{ width: `${containerWidth}px` }} />
-                    <span className={cnRating('Star')} style={{ width: `${starsWidth}px` }} />
+                <span className={cnRating("Stars")} style={{ width: `${containerWidth}px` }}>
+                    <span className={cnRating("Half")} style={{ width: `${containerWidth}px` }} />
+                    <span className={cnRating("Star")} style={{ width: `${starsWidth}px` }} />
                 </span>
-                <span className={cnRating('Rest')} style={{ width: `${restWidth}px` }} />
+                <span className={cnRating("Rest")} style={{ width: `${restWidth}px` }} />
             </React.Fragment>
         );
     }

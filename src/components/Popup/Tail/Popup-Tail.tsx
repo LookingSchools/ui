@@ -1,7 +1,7 @@
-import React, { CSSProperties, FC, Ref } from 'react';
+import React, { CSSProperties, FC, Ref } from "react";
 
-import { cnPopup } from '../Popup';
-import './Popup-Tail.scss';
+import { cnPopup } from "../Popup";
+import "./Popup-Tail.scss";
 
 export interface IPopupTailProps {
     /**
@@ -21,7 +21,7 @@ export interface IPopupTailProps {
 }
 
 export const PopupTail: FC<IPopupTailProps> = ({ className, innerRef, children, ...props }) => (
-    <div {...props} className={cnPopup('Tail', null, [className])} ref={innerRef}>
+    <div {...props} className={cnPopup("Tail", null, [className])} ref={innerRef}>
         {children}
     </div>
 );

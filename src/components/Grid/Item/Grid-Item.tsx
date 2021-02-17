@@ -1,8 +1,8 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode } from "react";
 
-import { cnGrid } from '../Grid';
+import { cnGrid } from "../Grid";
 
-import './Grid-Item.scss';
+import "./Grid-Item.scss";
 
 export type GridItemProps = {
     children: ReactNode;
@@ -11,7 +11,7 @@ export type GridItemProps = {
 };
 
 export const GridItem: FC<GridItemProps> = ({ children, className, fullWidth = false }) => {
-    return <div className={cnGrid('Item', { fullWidth }, [className])}>{children}</div>;
+    return <div className={cnGrid("Item", { fullWidth }, [className])}>{children}</div>;
 };
 
-GridItem.displayName = 'GridItem';
+GridItem.displayName = "GridItem";

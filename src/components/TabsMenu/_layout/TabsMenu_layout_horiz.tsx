@@ -1,14 +1,14 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { ITabsMenuProps, cnTabsMenu } from '../TabsMenu';
-import './TabsMenu_layout_horiz.scss';
+import { ITabsMenuProps, cnTabsMenu } from "../TabsMenu";
+import "./TabsMenu_layout_horiz.scss";
 
 export interface ITabsMenuLayoutHorizProps {
     /**
      * Расположение вкладок.
      */
-    layout?: 'horiz';
+    layout?: "horiz";
 }
 
 /**
@@ -17,6 +17,6 @@ export interface ITabsMenuLayoutHorizProps {
  */
 export const withLayoutHoriz = withBemMod<ITabsMenuLayoutHorizProps, ITabsMenuProps>(
     cnTabsMenu(),
-    { layout: 'horiz' },
-    TabsMenu => props => <TabsMenu {...props} orientation="horizontal" />
+    { layout: "horiz" },
+    (TabsMenu) => (props) => <TabsMenu {...props} orientation="horizontal" />
 );

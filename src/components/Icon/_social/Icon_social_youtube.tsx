@@ -1,15 +1,15 @@
-import React from 'react';
-import { withBemMod } from '@bem-react/core';
+import React from "react";
+import { withBemMod } from "@bem-react/core";
 
-import { IIconProps, cnIcon } from '../Icon';
-import './Icon_social.scss';
-import './Icon_social_youtube.scss';
+import { IIconProps, cnIcon } from "../Icon";
+import "./Icon_social.scss";
+import "./Icon_social_youtube.scss";
 
 export interface IWithSocialYouTubeProps {
     /**
      * Символ иконки
      */
-    social?: 'youtube';
+    social?: "youtube";
 }
 
 /**
@@ -18,8 +18,8 @@ export interface IWithSocialYouTubeProps {
  */
 export const withSocialYouTube = withBemMod<IWithSocialYouTubeProps, IIconProps>(
     cnIcon(),
-    { social: 'youtube' },
-    Icon => ({ className, ...props }) => (
+    { social: "youtube" },
+    (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasSocial: true }, [className])}>
             <svg width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
