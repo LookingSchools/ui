@@ -21,12 +21,7 @@ export const withGlyphCourse = withBemMod<IWithGlyphCourseProps, IIconProps>(
     { glyph: "course" },
     (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M18.9063 4H5.09382C4.00855 4 3.12061 4.9 3.12061 6V20C3.12061 21.1 4.00855 22 5.09382 22H18.9063C19.9916 22 20.8795 21.1 20.8795 20V6C20.8795 4.9 19.9916 4 18.9063 4ZM13.9733 18H7.06703V16H13.9733V18ZM16.9331 14H7.06703V12H16.9331V14ZM16.9331 10H7.06703V8H16.9331V10Z"
-                    fill="black"
-                />
-            </svg>
+            <svg width="0" height="0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.745 3H4.934C3.848 3 2.96 3.9 2.96 5v14c0 1.1.888 2 1.973 2h13.813c1.085 0 1.973-.9 1.973-2V5c0-1.1-.888-2-1.974-2zm-4.933 14H6.907v-2h6.907v2zm2.96-4H6.906v-2h9.866v2zm0-4H6.906V7h9.866v2z" fill="#000"/></svg>
         </Icon>
     )
 );

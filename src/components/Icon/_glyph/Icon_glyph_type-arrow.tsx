@@ -22,13 +22,9 @@ export const withGlyphTypeArrow = withBemMod<IWithGlyphTypeArrowProps, IIconProp
     (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             {props.size === "xs" ? (
-                <svg focusable="false" width="11" height="7" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.25 1L5.5 4.6 1.75 1 1 1.72 5.5 6 10 1.72 9.25 1z" />
-                </svg>
+                <svg width="11" height="7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.585l4.79-4.79a1.002 1.002 0 0 1 1.42.001c.19.187.29.442.29.707 0 .265-.11.52-.29.707l-5.5 5.496a1.005 1.005 0 0 1-1.42 0L.79 2.21a1.03 1.03 0 0 1-.29-.707c0-.265.11-.52.29-.707A1.002 1.002 0 0 1 2.21.795L7 5.585z" fill="#000"/></svg>
             ) : (
-                <svg focusable="false" width="13" height="8" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.3 1L6.5 5.7 1.7 1l-.7.7L6.5 7 12 1.7l-.7-.7z" />
-                </svg>
+                <svg width="14" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.585l4.79-4.79a1.002 1.002 0 0 1 1.42.001c.19.187.29.442.29.707 0 .265-.11.52-.29.707l-5.5 5.496a1.005 1.005 0 0 1-1.42 0L.79 2.21a1.03 1.03 0 0 1-.29-.707c0-.265.11-.52.29-.707A1.002 1.002 0 0 1 2.21.795L7 5.585z" fill="#000"/></svg>
             )}
         </Icon>
     )

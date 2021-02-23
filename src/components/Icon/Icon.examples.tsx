@@ -22,7 +22,6 @@ const allIcons = [
     "carets-v",
     "type-arrow",
     "trash",
-    "course-active",
     "course",
     "create-course",
 ];

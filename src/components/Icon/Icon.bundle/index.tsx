@@ -23,7 +23,6 @@ import { withGlyphArrowRight } from "../_glyph/Icon_glyph_arrow-right";
 import { withGlyphTypeArrow } from "../_glyph/Icon_glyph_type-arrow";
 import { withGlyphCaretsV } from "../_glyph/Icon_glyph_carets-v";
 import { withGlyphCourse } from "../_glyph/Icon_glyph_course";
-import { withGlyphCourseActive } from "../_glyph/Icon_glyph_course-active";
 import { withGlyphCreateCourse } from "../_glyph/Icon_glyph_create-course";
 
 // social
@@ -57,7 +56,6 @@ export interface IIconProps extends IIconBaseProps {
         | "type-arrow"
         | "arrow-right"
         | "course"
-        | "course-active"
         | "create-course";
 
     social?: "youtube" | "vk" | "telegram" | "rss" | "twitter" | "github" | "facebook" | "instagram";
@@ -84,7 +82,6 @@ export const Icon = compose(
         withGlyphCheck,
         withGlyphArrowRight,
         withGlyphCourse,
-        withGlyphCourseActive,
         withGlyphCreateCourse
     ),
     composeU(
