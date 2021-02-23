@@ -23,6 +23,7 @@ const allIcons = [
     "type-arrow",
     "trash",
     "course",
+    "school",
     "create-course",
 ];
 
