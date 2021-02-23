@@ -25,10 +25,13 @@ const allIcons = [
     "arrow-back",
     "arrow-forward",
     "carets-v",
+    "calendar",
     "type-arrow",
     "trash",
     "course",
     "school",
+    "share",
+    "comment",
     "create-course",
 ];
 

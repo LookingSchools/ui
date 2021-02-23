@@ -28,7 +28,10 @@ import { withGlyphArrowBack } from "../_glyph/Icon_glyph_arrow-back";
 import { withGlyphTypeArrow } from "../_glyph/Icon_glyph_type-arrow";
 import { withGlyphCaretsV } from "../_glyph/Icon_glyph_carets-v";
 import { withGlyphCourse } from "../_glyph/Icon_glyph_course";
+import { withGlyphCalendar } from "../_glyph/Icon_glyph_calendar";
+import { withGlyphComment } from "../_glyph/Icon_glyph_comment";
 import { withGlyphSchool } from "../_glyph/Icon_glyph_school";
+import { withGlyphShare } from "../_glyph/Icon_glyph_share";
 import { withGlyphCreateCourse } from "../_glyph/Icon_glyph_create-course";
 
 // social
@@ -57,6 +60,7 @@ export interface IIconProps extends IIconBaseProps {
         | "x-sign"
         | "close"
         | "cross"
+        | "calendar"
         | "sort"
         | "info"
         | "trash"
@@ -68,6 +72,8 @@ export interface IIconProps extends IIconBaseProps {
         | "arrow-forward"
         | "course"
         | "school"
+        | "share"
+        | "comment"
         | "create-course";
 
     social?: "youtube" | "vk" | "telegram" | "rss" | "twitter" | "github" | "facebook" | "instagram";
@@ -99,7 +105,10 @@ export const Icon = compose(
         withGlyphArrowForward,
         withGlyphArrowBack,
         withGlyphCourse,
+        withGlyphCalendar,
+        withGlyphComment,
         withGlyphSchool,
+        withGlyphShare,
         withGlyphCreateCourse
     ),
     composeU(
