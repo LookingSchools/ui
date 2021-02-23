@@ -8,6 +8,7 @@ import { withGlyphCart } from "../_glyph/Icon_glyph_cart";
 import { withGlyphClose } from "../_glyph/Icon_glyph_close";
 import { withGlyphCross } from "../_glyph/Icon_glyph_cross";
 import { withGlyphFavorite } from "../_glyph/Icon_glyph_favorite";
+import { withGlyphfavoriteFull } from "../_glyph/Icon_glyph_favorite-full";
 import { withGlyphLocation } from "../_glyph/Icon_glyph_location";
 import { withGlyphBell } from "../_glyph/Icon_glyph_bell";
 import { withGlyphBookmark } from "../_glyph/Icon_glyph_bookmark";
@@ -56,6 +57,7 @@ export interface IIconProps extends IIconBaseProps {
     glyph?:
         | "cart"
         | "favorite"
+        | "favorite-full"
         | "location"
         | "help"
         | "bell"
@@ -97,6 +99,7 @@ export const Icon = compose(
         withGlyphCaretsV,
         withGlyphCart,
         withGlyphFavorite,
+        withGlyphfavoriteFull,
         withGlyphLocation,
         withGlyphBell,
         withGlyphBookmark,

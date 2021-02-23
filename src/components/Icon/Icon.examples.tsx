@@ -7,6 +7,7 @@ const allIcons = [
     "cart",
     "location",
     "favorite",
+    "favorite-full",
     "bookmark",
     "bell",
     "menu",
