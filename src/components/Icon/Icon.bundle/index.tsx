@@ -22,6 +22,9 @@ import { withGlyphXSign } from "../_glyph/Icon_glyph_x-sign";
 import { withGlyphInfo } from "../_glyph/Icon_glyph_info";
 import { withGlyphTrash } from "../_glyph/Icon_glyph_trash";
 import { withGlyphArrowRight } from "../_glyph/Icon_glyph_arrow-right";
+import { withGlyphArrowLeft } from "../_glyph/Icon_glyph_arrow-left";
+import { withGlyphArrowForward } from "../_glyph/Icon_glyph_arrow-forward";
+import { withGlyphArrowBack } from "../_glyph/Icon_glyph_arrow-back";
 import { withGlyphTypeArrow } from "../_glyph/Icon_glyph_type-arrow";
 import { withGlyphCaretsV } from "../_glyph/Icon_glyph_carets-v";
 import { withGlyphCourse } from "../_glyph/Icon_glyph_course";
@@ -60,6 +63,9 @@ export interface IIconProps extends IIconBaseProps {
         | "carets-v"
         | "type-arrow"
         | "arrow-right"
+        | "arrow-left"
+        | "arrow-back"
+        | "arrow-forward"
         | "course"
         | "school"
         | "create-course";
@@ -89,6 +95,9 @@ export const Icon = compose(
         withGlyphTick,
         withGlyphCheck,
         withGlyphArrowRight,
+        withGlyphArrowLeft,
+        withGlyphArrowForward,
+        withGlyphArrowBack,
         withGlyphCourse,
         withGlyphSchool,
         withGlyphCreateCourse
