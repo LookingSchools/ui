@@ -15,6 +15,7 @@ import { withSizeS } from "../_size/Button_size_s";
 import { withThemeBlack } from "../_theme/Button_theme_black";
 import { withThemeClear } from "../_theme/Button_theme_clear";
 import { withThemeDefault } from "../_theme/Button_theme_default";
+import { withThemeTretiary } from "../_theme/Button_theme_tretiary";
 import { withThemeSecondary } from "../_theme/Button_theme_secondary";
 import { withThemePrimary } from "../_theme/Button_theme_primary";
 import { withThemePseudo } from "../_theme/Button_theme_pseudo";
@@ -50,6 +51,7 @@ export interface IButtonProps extends IButtonBaseProps {
     | "clear"
     | "secondary"
     | "default"
+    | "tretiary"
     | "pseudo"
     | "raised"
     | "primary";
@@ -64,6 +66,7 @@ export const Button = compose(
     withThemeBlack,
     withThemePrimary,
     withThemeDefault,
+    withThemeTretiary,
     withThemeClear,
     withThemePseudo,
     withThemeRaised

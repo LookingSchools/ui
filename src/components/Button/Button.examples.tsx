@@ -70,6 +70,14 @@ export const Playground = () => {
                 iconRight={(className) => <Icon glyph="plus" size="m" className={className} />}
             >
                 Button
+            </Button>{" "}
+            <Button
+                size="m"
+                theme="tretiary"
+                pin="circle-circle"
+                iconLeft={(className) => <Icon glyph="type-arrow" size="m" className={className} />}
+            >
+                Button
             </Button>
             <p>Кнопка с иконками c pin="circle-circle" и c theme="clear|pseudo|raised":</p>
             <Button
@@ -81,6 +89,12 @@ export const Playground = () => {
             <Button
                 size="m"
                 theme="pseudo"
+                pin="circle-circle"
+                icon={(className) => <Icon glyph="plus" size="m" className={className} />}
+            />{" "}
+            <Button
+                size="m"
+                theme="tretiary"
                 pin="circle-circle"
                 icon={(className) => <Icon glyph="plus" size="m" className={className} />}
             />{" "}
@@ -112,6 +126,9 @@ export const Theme = () => {
             </Button>{" "}
             <Button theme="secondary" size="m">
                 Secondary
+            </Button>{" "}
+            <Button theme="tretiary" size="m">
+                Tretiary
             </Button>{" "}
             <Button theme="clear" size="m">
                 Clear

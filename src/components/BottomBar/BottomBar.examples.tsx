@@ -45,7 +45,7 @@ export const Playground = () => {
             --bottom-bar-tip-color: ${tipColor};
             --bottom-bar-tip-bg-color: ${tipBgColor};
 
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             position: absolute;
             bottom: 0;
             left: 0;
