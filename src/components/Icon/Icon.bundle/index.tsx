@@ -30,11 +30,15 @@ import { withGlyphArrowBottom } from "../_glyph/Icon_glyph_arrow-bottom";
 import { withGlyphTypeArrow } from "../_glyph/Icon_glyph_type-arrow";
 import { withGlyphCaretsV } from "../_glyph/Icon_glyph_carets-v";
 import { withGlyphCourse } from "../_glyph/Icon_glyph_course";
+import { withGlyphEdit } from "../_glyph/Icon_glyph_edit";
 import { withGlyphCalendar } from "../_glyph/Icon_glyph_calendar";
 import { withGlyphComment } from "../_glyph/Icon_glyph_comment";
 import { withGlyphSchool } from "../_glyph/Icon_glyph_school";
 import { withGlyphShare } from "../_glyph/Icon_glyph_share";
+import { withGlyphHelp } from "../_glyph/Icon_glyph_help";
+import { withGlyphLike } from "../_glyph/Icon_glyph_like";
 import { withGlyphCreateCourse } from "../_glyph/Icon_glyph_create-course";
+import { withGlyphAuthenticAccount } from "../_glyph/Icon_glyph_authentic-account";
 
 // social
 import { withSocialYouTube } from "../_social/Icon_social_youtube";
@@ -53,9 +57,11 @@ export interface IIconProps extends IIconBaseProps {
         | "cart"
         | "favorite"
         | "location"
+        | "help"
         | "bell"
         | "bookmark"
         | "menu"
+        | "edit"
         | "profile"
         | "plus"
         | "minus"
@@ -76,6 +82,8 @@ export interface IIconProps extends IIconBaseProps {
         | "arrow-bottom"
         | "course"
         | "school"
+        | "authentic-account"
+        | "like"
         | "share"
         | "comment"
         | "create-course";
@@ -98,12 +106,16 @@ export const Icon = compose(
         withGlyphMinus,
         withGlyphSearch,
         withGlyphXSign,
+        withGlyphEdit,
+        withGlyphAuthenticAccount,
+        withGlyphLike,
         withGlyphInfo,
         withGlyphTrash,
         withGlyphClose,
         withGlyphCross,
         withGlyphSort,
         withGlyphTick,
+        withGlyphHelp,
         withGlyphCheck,
         withGlyphArrowRight,
         withGlyphArrowLeft,
