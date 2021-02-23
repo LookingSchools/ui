@@ -17,19 +17,7 @@ export const withGlyphProfile = withBemMod<IWithGlyphProfileProps, IIconProps>(
     { glyph: "profile" },
     (Icon) => ({ className, ...props }) => (
         <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
-            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0)">
-                    <path
-                        d="M14.5238 4.97596C14.5238 2.47655 12.4994 0.452148 10 0.452148C7.50061 0.452148 5.4762 2.47655 5.4762 4.97596C5.4762 7.47536 7.50061 9.49977 10 9.49977C12.4994 9.49977 14.5238 7.47536 14.5238 4.97596ZM0.952393 16.2855V17.4108C0.952393 18.0385 1.46127 18.5474 2.089 18.5474H17.911C18.5388 18.5474 19.0476 18.0385 19.0476 17.4108V16.2855C19.0476 12.3271 13.0197 11.1962 10 11.1962C6.98037 11.1962 0.952393 12.3271 0.952393 16.2855Z"
-                        fill="#24292E"
-                    />
-                </g>
-                <defs>
-                    <clipPath id="clip0">
-                        <rect width="19" height="19" fill="white" transform="translate(0.5)" />
-                    </clipPath>
-                </defs>
-            </svg>
+            <svg focusable="false" width="0" height="0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.796 7.476c0-2.5-2.024-4.524-4.524-4.524a4.523 4.523 0 0 0-4.524 4.524c0 2.5 2.025 4.524 4.524 4.524 2.5 0 4.524-2.025 4.524-4.524zM3.225 18.786v1.125c0 .628.509 1.136 1.136 1.136h15.822c.628 0 1.137-.508 1.137-1.136v-1.125c0-3.959-6.028-5.09-9.048-5.09-3.02 0-9.047 1.131-9.047 5.09z" fill="#000"/></svg>
         </Icon>
     )
 );
