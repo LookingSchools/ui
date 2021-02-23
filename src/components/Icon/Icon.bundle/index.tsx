@@ -9,6 +9,7 @@ import { withGlyphClose } from "../_glyph/Icon_glyph_close";
 import { withGlyphCross } from "../_glyph/Icon_glyph_cross";
 import { withGlyphFavorite } from "../_glyph/Icon_glyph_favorite";
 import { withGlyphLocation } from "../_glyph/Icon_glyph_location";
+import { withGlyphBell } from "../_glyph/Icon_glyph_bell";
 import { withGlyphBookmark } from "../_glyph/Icon_glyph_bookmark";
 import { withGlyphMenu } from "../_glyph/Icon_glyph_menu";
 import { withGlyphProfile } from "../_glyph/Icon_glyph_profile";
@@ -25,6 +26,7 @@ import { withGlyphArrowRight } from "../_glyph/Icon_glyph_arrow-right";
 import { withGlyphArrowLeft } from "../_glyph/Icon_glyph_arrow-left";
 import { withGlyphArrowForward } from "../_glyph/Icon_glyph_arrow-forward";
 import { withGlyphArrowBack } from "../_glyph/Icon_glyph_arrow-back";
+import { withGlyphArrowBottom } from "../_glyph/Icon_glyph_arrow-bottom";
 import { withGlyphTypeArrow } from "../_glyph/Icon_glyph_type-arrow";
 import { withGlyphCaretsV } from "../_glyph/Icon_glyph_carets-v";
 import { withGlyphCourse } from "../_glyph/Icon_glyph_course";
@@ -51,6 +53,7 @@ export interface IIconProps extends IIconBaseProps {
         | "cart"
         | "favorite"
         | "location"
+        | "bell"
         | "bookmark"
         | "menu"
         | "profile"
@@ -70,6 +73,7 @@ export interface IIconProps extends IIconBaseProps {
         | "arrow-left"
         | "arrow-back"
         | "arrow-forward"
+        | "arrow-bottom"
         | "course"
         | "school"
         | "share"
@@ -86,6 +90,7 @@ export const Icon = compose(
         withGlyphCart,
         withGlyphFavorite,
         withGlyphLocation,
+        withGlyphBell,
         withGlyphBookmark,
         withGlyphMenu,
         withGlyphProfile,
@@ -104,6 +109,7 @@ export const Icon = compose(
         withGlyphArrowLeft,
         withGlyphArrowForward,
         withGlyphArrowBack,
+        withGlyphArrowBottom,
         withGlyphCourse,
         withGlyphCalendar,
         withGlyphComment,

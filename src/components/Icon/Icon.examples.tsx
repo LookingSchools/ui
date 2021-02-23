@@ -8,6 +8,7 @@ const allIcons = [
     "location",
     "favorite",
     "bookmark",
+    "bell",
     "menu",
     "profile",
     "plus",
@@ -24,6 +25,7 @@ const allIcons = [
     "arrow-right",
     "arrow-back",
     "arrow-forward",
+    "arrow-bottom",
     "carets-v",
     "calendar",
     "type-arrow",
@@ -49,7 +51,7 @@ const styleIcon = {
     alignItems: "center",
     fontSize: "12px",
     margin: "5px",
-    color: "rgba(0, 0, 0, 0.5)",
+    color: "rgba(38, 49, 129, 0.50)",
 };
 
 function renderIcons(icons) {
