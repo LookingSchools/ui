@@ -5,7 +5,9 @@ import { Icon } from "./Icon.bundle";
 
 const allIcons = [
     "cart",
+    "location",
     "favorite",
+    "bookmark",
     "menu",
     "profile",
     "plus",
