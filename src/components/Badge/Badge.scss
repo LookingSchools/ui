@@ -5,7 +5,6 @@
     z-index: 1;
     top: 0;
     right: 0;
-    font-family: $font-default;
 
     display: flex;
     flex-direction: row;
@@ -19,6 +18,7 @@
     height: 20px;
     padding: 0 4px;
 
+    font-family: $font-default;
     font-size: 12px;
 
     color: $color-base;

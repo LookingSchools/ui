@@ -9,7 +9,7 @@
 }
 
 .Button_theme_tretiary::before {
-    background-color: #F4F0E7;
+    background-color: #f4f0e7;
 
     transition: background-color .15s linear;
 }
@@ -48,7 +48,7 @@
 
 /* hover */
 .Button_theme_tretiary:not([aria-disabled='true']):hover::before {
-    background-color: #E6E2DA;
+    background-color: #e6e2da;
 }
 
 /* check */

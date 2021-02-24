@@ -26,7 +26,7 @@ module.exports = {
         "font-family-no-duplicate-names": true,
         "font-weight-notation": "named-where-possible",
 
-        "function-blacklist": [],
+        "function-disallowed-list": [],
         "function-calc-no-unspaced-operator": true,
         "function-comma-newline-after": "always-multi-line",
         "function-comma-newline-before": "never-multi-line",
@@ -38,7 +38,7 @@ module.exports = {
         "function-parentheses-newline-inside": "never-multi-line",
         "function-parentheses-space-inside": "never",
         "function-url-quotes": "always",
-        "function-url-scheme-whitelist": ["https"],
+        "function-url-scheme-allowed-list": ["https"],
         // правила whitelist и blacklist взаимоисключающие
         // "function-url-scheme-blacklist": ["data"],
         "function-whitelist": null,
@@ -55,7 +55,7 @@ module.exports = {
 
         "time-min-milliseconds": 100,
 
-        "unit-blacklist": [],
+        "unit-disallowed-list": [],
         "unit-case": "lower",
         "unit-no-unknown": true,
 
@@ -70,7 +70,7 @@ module.exports = {
 
         "shorthand-property-no-redundant-values": true,
 
-        "property-blacklist": [],
+        "property-disallowed-list": [],
         "property-case": "lower",
         "property-no-unknown": true,
         "property-no-vendor-prefix": null,
@@ -83,8 +83,8 @@ module.exports = {
         "declaration-colon-space-after": "always",
         "declaration-colon-space-before": "never",
         // "declaration-no-important": true,
-        "declaration-property-unit-blacklist": {},
-        "declaration-property-value-blacklist": {},
+        "declaration-property-unit-disallowed-list": {},
+        "declaration-property-value-disallowed-list": {},
         "declaration-block-no-duplicate-properties": [true, {"ignore": ["consecutive-duplicates"]}],
         "declaration-block-no-redundant-longhand-properties": [true, {"ignoreShorthands": ["/flex-/"]}],
         "declaration-block-no-shorthand-property-overrides": true,

@@ -1,14 +1,14 @@
-import React, { ReactNode, SyntheticEvent } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { ReactNode, SyntheticEvent } from "react";
+import { cn } from "@bem-react/classname";
 
-import './Item.scss';
+import "./Item.scss";
 
-const cnListItem = cn('ListItem');
+const cnListItem = cn("ListItem");
 
 export enum SeparatorMode {
-    none = 'none',
-    full = 'full',
-    content = 'content',
+    none = "none",
+    full = "full",
+    content = "content",
 }
 
 export type ListItemProps = {
@@ -22,7 +22,7 @@ export type ListItemProps = {
     onClick?: (event: SyntheticEvent) => void;
 };
 
-export const ListItem: React.FC<ListItemProps> = props => {
+export const ListItem: React.FC<ListItemProps> = (props) => {
     const {
         children,
         icon,
@@ -35,24 +35,22 @@ export const ListItem: React.FC<ListItemProps> = props => {
         onClick,
     } = props;
 
-    const Component = linkComponent || 'div';
+    const Component = linkComponent || "div";
 
     const separatorComponent = (
-        <div className={cnListItem('Separator')}>
-            {separator || <div className={cnListItem('LineSeparator')} />}
-        </div>
+        <div className={cnListItem("Separator")}>{separator || <div className={cnListItem("LineSeparator")} />}</div>
     );
 
     return (
-        <li className={cnListItem({ arrow: hasArrow }, [className])}  onClick={onClick}>
+        <li className={cnListItem({ arrow: hasArrow }, [className])} onClick={onClick}>
             <Component>
-                <div className={cnListItem('Wrapper')}>
-                    {icon && <div className={cnListItem('Icon')}>{icon}</div>}
-                    <div className={cnListItem('ContentWrapper')}>
-                        <div className={cnListItem('ArrowContent')}>
-                            <div className={cnListItem('Content')}>
-                                <div className={cnListItem('Start')}>{children}</div>
-                                {end && <div className={cnListItem('End')}>{end}</div>}
+                <div className={cnListItem("Wrapper")}>
+                    {icon && <div className={cnListItem("Icon")}>{icon}</div>}
+                    <div className={cnListItem("ContentWrapper")}>
+                        <div className={cnListItem("ArrowContent")}>
+                            <div className={cnListItem("Content")}>
+                                <div className={cnListItem("Start")}>{children}</div>
+                                {end && <div className={cnListItem("End")}>{end}</div>}
                             </div>
                         </div>
                         {separatorMode === SeparatorMode.content && separatorComponent}
@@ -64,4 +62,4 @@ export const ListItem: React.FC<ListItemProps> = props => {
     );
 };
 
-ListItem.displayName = 'ListItem';
+ListItem.displayName = "ListItem";

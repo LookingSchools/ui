@@ -1,22 +1,22 @@
-import React from 'react';
-import { cn } from '@bem-react/classname';
+import React from "react";
+import { cn } from "@bem-react/classname";
 
-import { ListItemSkeleton } from '../Item/Skeleton/Skeleton';
+import { ListItemSkeleton } from "../Item/Skeleton/Skeleton";
 
-import './Skeleton.scss';
+import "./Skeleton.scss";
 
-const cnListSkeleton = cn('ListSkeleton');
+const cnListSkeleton = cn("ListSkeleton");
 
 export type ListSkeletonProps = {
     count?: number;
     className?: string;
 };
 
-export const ListSkeleton: React.FC<ListSkeletonProps> = props => {
+export const ListSkeleton: React.FC<ListSkeletonProps> = (props) => {
     const { count = 6, className } = props;
 
     return (
-        <div className={cnListSkeleton(null, [className])} >
+        <div className={cnListSkeleton(null, [className])}>
             {[...Array(count)].map((_, index) => (
                 <ListItemSkeleton key={index} />
             ))}
@@ -24,4 +24,4 @@ export const ListSkeleton: React.FC<ListSkeletonProps> = props => {
     );
 };
 
-ListSkeleton.displayName = 'ListSkeleton';
+ListSkeleton.displayName = "ListSkeleton";

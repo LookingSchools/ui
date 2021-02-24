@@ -30,7 +30,7 @@ import React from 'react';
 import { ListSkeleton } from '@lookingschools/ui/List';
 
 const App: React.FC = () => {
-    return <ListSkeleton className="my-list" count={6} />;
+    return <ListSkeleton count={6} />;
 };
 ```
 

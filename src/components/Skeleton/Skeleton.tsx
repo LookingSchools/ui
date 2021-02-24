@@ -1,9 +1,9 @@
-import React from 'react';
-import { cn } from '@bem-react/classname';
+import React from "react";
+import { cn } from "@bem-react/classname";
 
-import './Skeleton.scss';
+import "./Skeleton.scss";
 
-const cnSkeleton = cn('Skeleton');
+const cnSkeleton = cn("Skeleton");
 
 export type RectProps = {
     className?: string;
@@ -13,12 +13,7 @@ export type RectProps = {
 };
 
 export const Rect: React.FC<RectProps> = ({ className, width, height, borderRadius }) => {
-    return (
-        <div
-            className={cnSkeleton('Rect', [className])}
-            style={{ width, height, borderRadius }}
-        />
-    );
+    return <div className={cnSkeleton("Rect", [className])} style={{ width, height, borderRadius }} />;
 };
 
 export type TextProps = {
@@ -28,10 +23,5 @@ export type TextProps = {
 };
 
 export const Text: React.FC<TextProps> = ({ className, width, size }) => {
-    return (
-        <div
-            className={cnSkeleton('Text', [className])}
-            style={{ width, height: size }}
-        />
-    );
+    return <div className={cnSkeleton("Text", [className])} style={{ width, height: size }} />;
 };

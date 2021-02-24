@@ -1,9 +1,9 @@
-import React from 'react';
-import { cn } from '@bem-react/classname';
+import React from "react";
+import { cn } from "@bem-react/classname";
 
-import './List.scss';
+import "./List.scss";
 
-const cnList = cn('List');
+const cnList = cn("List");
 
 export type ListProps = {
     className?: string;
@@ -11,15 +11,13 @@ export type ListProps = {
 
 export const List: React.FC<ListProps> = ({ children, className }) => {
     return (
-        <div className={cnList(null, [className])} >
-            <ul className={cnList('Container')}>
-                {children}
-            </ul>
+        <div className={cnList(null, [className])}>
+            <ul className={cnList("Container")}>{children}</ul>
         </div>
     );
 };
 
-List.displayName = 'List';
+List.displayName = "List";
 
-export * from './Item/Item';
-export * from './Skeleton/Skeleton';
+export * from "./Item/Item";
+export * from "./Skeleton/Skeleton";

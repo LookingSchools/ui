@@ -27,6 +27,7 @@ npm-debug.log*
 /Icon
 /Image
 /Link
+/List
 /Menu
 /Modal
 /Oops
@@ -38,6 +39,7 @@ npm-debug.log*
 /Scroller
 /Select
 /Separator
+/Skeleton
 /Slider
 /Snippet
 /Socials
