@@ -1,12 +1,12 @@
 {
   "name": "@lookingschools/ui",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "React UI Components",
   "scripts": {
     "build": "dist-generator generate --config=./.config/build.config.js",
     "build2": "pack build -c .config/build2.config.js",
     "storybook": "start-storybook  -s ./public -p 6006",
-    "build-storybook": "build-storybook -o ./dist2",
+    "build-storybook": "build-storybook -o ./dist",
     "format:css": "stylelint './src/**/*.{scss,css}' --fix",
     "format:js": "prettier --write src/**/*.{ts,tsx,examples.tsx}",
     "format:md": "prettier --write --parser markdown --tab-width 2 --no-semi --print-width 80 src/**/*.md"

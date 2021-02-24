@@ -108,7 +108,7 @@ export class Scroller extends PureComponent<IScrollerProps, IScrollerState> {
     protected items: ScrollerItem[] = [];
     protected itemsLength = 0;
     protected skipScrollCtr?: boolean;
-    protected afterMountTimerId?: number;
+    protected afterMountTimerId?: number | any;
 
     constructor(props: IScrollerProps) {
         super(props);

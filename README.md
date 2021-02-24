@@ -11,6 +11,10 @@ npm install -S @lookingschools/ui
 npm i -P @bem-react/core @bem-react/di @bem-react/classname
 ```
 
+## Storybook
+
+[http://godfreyd.github.io/dist](http://godfreyd.github.io/dist).
+
 ## Usage
 
 Пример использования компонента с нужным набором модификаторов (предпочтительный способ):
