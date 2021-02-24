@@ -1,0 +1,65 @@
+$list-line-separator-color: #e5e5e5;
+$list-item-margin: 0;
+$list-item-icon-content-margin: 16px;
+$list-item-content-arrow-margin: 16px;
+$list-item-start-end-margin: 16px;
+$list-item-content-padding-top: 18px;
+$list-item-content-padding-bottom: 18px;
+$list-item-arrow-color: #09141f;
+$list-item-arrow-width: 9px;
+$list-item-arrow-height: 16px;
+$list-item-end-align: center;
+
+.ListItem > a {
+    text-decoration: none;
+
+    color: currentColor;
+}
+
+.ListItem-Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ListItem-Icon {
+    margin-right: 16px;
+}
+
+.ListItem-ContentWrapper {
+    flex-grow: 1;
+}
+
+.ListItem-ArrowContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ListItem-Content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: $list-item-content-padding-top;
+    padding-bottom: $list-item-content-padding-bottom;
+}
+
+.ListItem-Start {
+    flex-grow: 1;
+}
+
+.ListItem-Start + .ListItem-End {
+    align-self: $list-item-end-align;
+
+    margin-left: $list-item-start-end-margin;
+}
+
+.ListItem-LineSeparator {
+    width: 100%;
+    height: 1px;
+    margin-top: -1px;
+
+    background: $list-line-separator-color;
+}

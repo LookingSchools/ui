@@ -37,7 +37,7 @@ const MyComponent: React.FC = () => {
 
 ### Компонент
 
-{{%story:::tap-components-e-commerce-slider--playground%}}
+{{%story:::slider--playground%}}
 
 ## Свойства
 

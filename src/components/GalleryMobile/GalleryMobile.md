@@ -41,11 +41,11 @@ const App: FC = () => {
 
 ### Компонент
 
-{{%story:::tap-components-e-commerce-GalleryMobile--playground%}}
+{{%story:::GalleryMobile--playground%}}
 
 ### Скелетон
 
-{{%story:::tap-components-e-commerce-GalleryMobile--skeleton%}}
+{{%story:::GalleryMobile--skeleton%}}
 
 ## Свойства
 

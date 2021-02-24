@@ -1,0 +1,32 @@
+
+$skeleton-color: rgba(0, 0, 0, .05);
+$skeleton-animation: skeleton-loading 1.5s ease-in-out infinite;
+
+.Skeleton-Rect {
+    background-color: $skeleton-color;
+
+    animation: $skeleton-animation;
+}
+
+.Skeleton-Text {
+    height: 12px;
+
+    border-radius: 8px;
+    background-color: $skeleton-color;
+
+    animation: $skeleton-animation;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

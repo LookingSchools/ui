@@ -1,0 +1,7 @@
+$list-skeleton-item-height: 56px;
+
+.ListItemSkeleton-Rect {
+    height: $list-skeleton-item-height;
+
+    border-radius: 8px;
+}

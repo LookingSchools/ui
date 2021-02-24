@@ -78,7 +78,7 @@ const App: React.FC = () => {
 
 ## Пример
 
-{{%story:::tap-components-components-datepicker--playground%}}
+{{%story:::datepicker--playground%}}
 
 ## Свойства
 

@@ -1,0 +1,39 @@
+@import '../../theme/default.scss';
+
+$list-line-separator-color: #e5e5e5;
+$list-item-margin: 0;
+$list-item-icon-content-margin: 16px;
+$list-item-content-arrow-margin: 16px;
+$list-item-start-end-margin: 16px;
+$list-item-content-padding-top: 18px;
+$list-item-content-padding-bottom: 18px;
+$list-item-arrow-color: #09141f;
+$list-item-arrow-width: 9px;
+$list-item-arrow-height: 16px;
+$list-item-end-align: center;
+
+.List {
+    font-family: $font-default;
+
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.List .ListItem {
+    margin-bottom: $list-item-margin;
+}
+
+.List .ListItem:last-child {
+    margin-bottom: 0;
+}
+
+.List .ListItem:last-child .ListItem-Separator {
+    display: none;
+}
+
+.List-Container {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}

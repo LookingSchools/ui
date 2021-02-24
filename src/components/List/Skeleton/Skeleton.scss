@@ -1,0 +1,5 @@
+$list-skeleton-item-margin: 16px;
+
+.ListSkeleton .ListItemSkeleton + .ListItemSkeleton {
+    margin-top: $list-skeleton-item-margin;
+}

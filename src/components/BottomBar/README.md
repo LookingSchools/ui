@@ -60,7 +60,7 @@ const MyBottomBar: React.FC = () => {
 
 ## Пример
 
-{{%story:::tap-components-components-bottombar--playground%}}
+{{%story:::bottombar--playground%}}
 
 ## Свойства
 
