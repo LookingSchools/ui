@@ -1,9 +1,9 @@
 import React, { PureComponent, createRef, ComponentType, ComponentClass } from "react";
 
-import { mergeRefs } from "../../../lib/mergeRefs";
+import { mergeRefs } from "../../lib/mergeRefs";
 import { ITextareaProps, cnTextarea } from "../Textarea";
-import { throttle } from "../../../lib/throttle";
-import { getDisplayName } from "../../../lib/getDisplayName";
+import { throttle } from "../../lib/throttle";
+import { getDisplayName } from "../../lib/getDisplayName";
 
 import "./Textarea_autoResize.scss";
 

@@ -12,9 +12,9 @@ import React, {
 } from "react";
 import { cn } from "@bem-react/classname";
 
-import { Defaultize } from "../../typings/utility-types";
-import { mergeRefs } from "../../lib/mergeRefs";
-import { Keys, KeyboardKeys, isKeyCode } from "../../lib/keyboard";
+import { Defaultize } from "../typings/utility-types";
+import { mergeRefs } from "../lib/mergeRefs";
+import { Keys, KeyboardKeys, isKeyCode } from "../lib/keyboard";
 import { IconProvider, ButtonIcon as Icon } from "./Icon/Button-Icon";
 import { ButtonText as Text } from "./Text/Button-Text";
 import "./Button.scss";

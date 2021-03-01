@@ -1,0 +1,23 @@
+.MessageBox_theme_default,
+.MessageBox_theme_default .MessageBox-Close,
+.MessageBox_theme_default .Button_theme_clear {
+    color: #fff;
+}
+
+.MessageBox_theme_default .MessageBox-Tail {
+    color: #000;
+}
+
+.MessageBox_theme_default .MessageBox-Backdrop::before {
+    box-shadow: 0 6px 20px -4px rgba(0, 0, 0, .7);
+}
+
+.MessageBox_theme_default .MessageBox-Close::after,
+.MessageBox_theme_default .MessageBox-Backdrop::before {
+    background-color: #000;
+}
+
+.MessageBox_theme_default:not(.MessageBox_opaque) .MessageBox-Backdrop,
+.MessageBox_theme_default:not(.MessageBox_opaque) .MessageBox-Close:hover::after {
+    opacity: .85;
+}

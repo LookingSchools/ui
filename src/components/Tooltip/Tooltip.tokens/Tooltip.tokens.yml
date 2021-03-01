@@ -1,0 +1,84 @@
+tooltip:
+  fontFamily:
+    value: "{typography.controls.fontFamily.value}"
+
+  border:
+    radius:
+      value: 4px
+
+  size:
+    s:
+      fontSize:
+        value: "{typography.controls.size.s.fontSize.value}"
+        comment: "Размер текста у s-tooltip"
+      lineHeight:
+        value: 12px
+        comment: "Межстрочный интервал текста у s-tooltip"
+
+      content:
+        spaceAll:
+          value: 8px
+          comment: "Размер внутренних отступов у контента s-tooltip"
+
+      tail:
+        size:
+          value: 12px
+          comment: "Размер хвоста s-tooltip"
+
+    m:
+      fontSize:
+        value: "{typography.controls.size.m.fontSize.value}"
+        comment: "Размер текста у m-tooltip"
+      lineHeight:
+        value: 14px
+        comment: "Межстрочный интервал текста у m-tooltip"
+
+      content:
+        spaceAll:
+          value: 9px 10px
+          comment: "Размер внутренних отступов у контента m-tooltip"
+
+      tail:
+        size:
+          value: 24px
+          comment: "Размер хвоста m-tooltip"
+
+    l:
+      fontSize:
+        value: 16px
+        comment: "Размер текста у l-tooltip"
+      lineHeight:
+        value: 16px
+        comment: "Межстрочный интервал текста у l-tooltip"
+
+      content:
+        spaceAll:
+          value: 18px
+          comment: "Размер внутренних отступов у контента l-tooltip"
+
+      tail:
+        size:
+          value: 36px
+          comment: "Размер хвоста l-tooltip"
+
+  viewDefault:
+    shadow:
+      value: 0 10px 20px -5px rgba(0, 0, 0, .4)
+
+    fillColor:
+      base:
+        value: "{color.control.type.default.fillColor.base.value}"
+      stateSuccess:
+        value: "{color.fillColor.success.value}"
+      stateWarning:
+        value: "{color.fillColor.warning.value}"
+      stateAlert:
+        value: "{color.fillColor.alert.value}"
+
+    typoColor:
+      stateSuccess:
+        value: "{color.control.typo.faint.value}"
+      stateWarning:
+        value: "{color.control.typo.faint.value}"
+      stateAlert:
+        value: "{color.control.typo.faint.value}"

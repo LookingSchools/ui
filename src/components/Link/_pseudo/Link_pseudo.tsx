@@ -1,7 +1,7 @@
 import React, { MouseEvent, KeyboardEvent, PureComponent, KeyboardEventHandler } from "react";
 import { withBemMod } from "@bem-react/core";
 
-import { Keys } from "../../../lib/keyboard";
+import { Keys } from "../../lib/keyboard";
 import { ILinkProps, ContainerElement, cnLink } from "../Link";
 
 export interface ILinkPseudoProps {

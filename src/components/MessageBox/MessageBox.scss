@@ -1,0 +1,53 @@
+@import '../../theme/default.scss';
+
+.MessageBox {
+    position: relative;
+
+    display: inline-block;
+
+    font-family: $font-default;
+    font-size: 13px;
+    line-height: 16px;
+    user-select: none;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.MessageBox-Content {
+    position: relative;
+
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.MessageBox_layout_plain .MessageBox-Content {
+    text-align: center;
+}
+
+.MessageBox-Backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.MessageBox-Backdrop::before {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+}
+
+.MessageBox-Background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow: hidden;
+}

@@ -1,10 +1,10 @@
 import React, { ReactNode, RefObject, PureComponent, createRef, CSSProperties } from "react";
 import { cn } from "@bem-react/classname";
 
-import { IS_TESTING } from "../../lib/env";
-import { Keys, isKeyCode } from "../../lib/keyboard";
-import { mergeRefs } from "../../lib/mergeRefs";
-import { flatMap } from "../../lib/flatMap";
+import { IS_TESTING } from "../lib/env";
+import { Keys, isKeyCode } from "../lib/keyboard";
+import { mergeRefs } from "../lib/mergeRefs";
+import { flatMap } from "../lib/flatMap";
 
 import { MenuGroup as Group } from "./Group/Menu-Group";
 import { MenuItem as Item } from "./Item/Menu-Item";

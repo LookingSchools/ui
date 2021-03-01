@@ -2,12 +2,13 @@ import React, { FC, useRef } from "react";
 import { cn } from "@bem-react/classname";
 
 import { Popup, IPopupProps } from "../Popup/Popup";
+import { usePreventScroll } from '../../hooks/usePreventScroll';
 
 import "./Modal.scss";
 
 type PartialPopupProps = Pick<
     IPopupProps,
-    "keepMounted" | "className" | "innerRef" | "zIndex" | "visible" | "scope" | "forceRender" | "onClose" | "onClick"
+    'keepMounted' | 'className' | 'innerRef' | 'zIndex' | 'visible' | 'scope' | 'onClose' | 'onClick'
 >;
 
 export interface IModalProps extends PartialPopupProps {
@@ -16,7 +17,7 @@ export interface IModalProps extends PartialPopupProps {
      *
      * @default 'middle'
      */
-    contentVerticalAlign?: "top" | "middle" | "bottom";
+    contentVerticalAlign?: 'top' | 'middle' | 'bottom';
 
     /**
      * Добавляет анимацию при открытии модального окна.
@@ -24,9 +25,16 @@ export interface IModalProps extends PartialPopupProps {
      * @default true
      */
     hasAnimation?: boolean;
+
+    /**
+     * Блокирует прокрутку на теле документа, при открытом модальном окне.
+     *
+     * @default true
+     */
+    preventBodyScroll?: boolean;
 }
 
-export const cnModal = cn("Modal");
+export const cnModal = cn('Modal');
 
 /**
  * Используется для создания всплывающих модальных окон.
@@ -35,13 +43,16 @@ export const cnModal = cn("Modal");
 export const Modal: FC<IModalProps> = ({
     children,
     className,
-    contentVerticalAlign: align = "middle",
+    contentVerticalAlign: align = 'middle',
     hasAnimation = true,
     visible,
+    preventBodyScroll = true,
     onClick,
     ...props
 }) => {
     const contentRef = useRef<HTMLDivElement>(null);
+
+    usePreventScroll({ enabled: preventBodyScroll && visible });
 
     return (
         <Popup
@@ -51,13 +62,13 @@ export const Modal: FC<IModalProps> = ({
             unstable_hostRef={contentRef}
             onClick={onClick}
         >
-            <div className={cnModal("Table")}>
-                <div
-                    className={cnModal("Cell", { align })}
-                    // style={{ verticalAlign: contentVerticalAlign }}
-                >
-                    <div className={cnModal("Content")} ref={contentRef}>
-                        {children}
+            <div className={cnModal('Overlay')} />
+            <div className={cnModal('Wrapper')}>
+                <div className={cnModal('Table')}>
+                    <div className={cnModal('Cell', { align })}>
+                        <div ref={contentRef} className={cnModal('Content')}>
+                            {children}
+                        </div>
                     </div>
                 </div>
             </div>

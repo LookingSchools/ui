@@ -1,31 +1,33 @@
 .Popup-Tail {
-    position: absolute;
-    z-index: 1;
+    width: 24px;
+    height: 24px;
 
-    width: 10px;
-    height: 10px;
+    /* Отключаем взаимодействие, т.к. хвостик может накладываться на якорь */
+    pointer-events: none;
 }
 
-.Popup_direction_top-left .Popup-Tail,
-.Popup_direction_top-center .Popup-Tail,
-.Popup_direction_top-right .Popup-Tail {
-    transform: rotate(-45deg);
+.Popup-TailSvg {
+    display: block;
 }
 
-.Popup_direction_bottom-left .Popup-Tail,
-.Popup_direction_bottom-center .Popup-Tail,
-.Popup_direction_bottom-right .Popup-Tail {
-    transform: rotate(135deg);
+.Popup[data-popper-placement^='top'] .Popup-Tail {
+    top: 100%;
+
+    transform: rotate(180deg);
 }
 
-.Popup_direction_left-top .Popup-Tail,
-.Popup_direction_left-center .Popup-Tail,
-.Popup_direction_left-bottom .Popup-Tail {
-    transform: rotate(-135deg);
+.Popup[data-popper-placement^='left'] .Popup-Tail {
+    left: 100%;
+
+    transform: rotate(90deg);
 }
 
-.Popup_direction_right-top .Popup-Tail,
-.Popup_direction_right-center .Popup-Tail,
-.Popup_direction_right-bottom .Popup-Tail {
-    transform: rotate(45deg);
+.Popup[data-popper-placement^='bottom'] .Popup-Tail {
+    bottom: 100%;
+}
+
+.Popup[data-popper-placement^='right'] .Popup-Tail {
+    right: 100%;
+
+    transform: rotate(-90deg);
 }

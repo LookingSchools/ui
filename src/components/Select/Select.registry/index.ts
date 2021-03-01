@@ -6,7 +6,7 @@ import { IButtonWidthMaxProps } from '../../Button/_width/Button_width_max';
 import { IIconProps } from '../../Icon/Icon';
 import { IPopupProps } from '../../Popup/Popup';
 import { IPopupTargetAnchorProps } from '../../Popup/_target/Popup_target_anchor';
-import { IWithOutsideClickProps } from '../../../hocs/withOutsideClick/withOutsideClick';
+import { IWithOutsideClickProps } from '../../withOutsideClick/withOutsideClick';
 import { IMenuProps } from '../../Menu/Menu';
 import { IMenuWidthMaxProps } from '../../Menu/_width/Menu_width_max';
 

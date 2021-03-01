@@ -1,7 +1,7 @@
 import React from "react";
 import { withBemMod } from "@bem-react/core";
 
-import { Keys } from "../../../lib/keyboard";
+import { Keys } from "../../lib/keyboard";
 import { IButtonProps, cnButton } from "../Button";
 
 export interface IButtonTypeLinkProps {

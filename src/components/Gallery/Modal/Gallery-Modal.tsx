@@ -3,7 +3,7 @@ import { compose, IClassNameProps } from "@bem-react/core";
 import { Modal as ModalBase } from "../../Modal/Modal";
 import { IModalThemeDefaultProps, withThemeDefault } from "../../Modal/_theme/Modal_theme_default";
 
-import { withOutsideClick, IWithOutsideClickProps } from "../../../hocs/withOutsideClick/withOutsideClick";
+import { withOutsideClick, IWithOutsideClickProps } from "../../withOutsideClick/withOutsideClick";
 import { withZIndex } from "../../../hocs/withZIndex/withZIndex";
 
 import "./Gallery-Modal.scss";

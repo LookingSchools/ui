@@ -14,10 +14,10 @@ import { cn } from "@bem-react/classname";
 import { ComponentRegistryConsumer } from "@bem-react/di";
 
 import { Omit, Defaultize } from "../../typings/utility-types";
-import { flatMap } from "../../lib/flatMap";
-import { mergeAllRefs } from "../../lib/mergeRefs";
-import { Keys } from "../../lib/keyboard";
-import { RenderOverride, MultiRenderOverrideProvider } from "../../lib/render-override";
+import { flatMap } from "../lib/flatMap";
+import { mergeAllRefs } from "../lib/mergeRefs";
+import { Keys } from "../lib/keyboard";
+import { RenderOverride, MultiRenderOverrideProvider } from "../lib/render-override";
 import { ItemSimple, ChangeEventHandler } from "../Menu/Menu";
 import { IWithTogglableProps } from "../../hocs/withTogglable/withTogglable";
 import { ISelectRegistry, IIconEnhancedProps } from "./Select.registry";

@@ -2,7 +2,7 @@ import React, { FC, useCallback, useState, useMemo, RefObject, ReactNode, MouseE
 
 import { cn } from "@bem-react/classname";
 
-import { mergeAllRefs } from "../../lib/mergeRefs";
+import { mergeAllRefs } from "../lib/mergeRefs";
 
 import "./Image.scss";
 

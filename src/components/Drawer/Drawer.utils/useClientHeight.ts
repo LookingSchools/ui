@@ -1,5 +1,5 @@
 import { useCallback, useLayoutEffect, useState } from 'react';
-import { canUseDOM } from '../../../lib/canUseDOM';
+import { canUseDOM } from '../../lib/canUseDOM';
 
 /**
  * Вычисляет высоту вьюпорта

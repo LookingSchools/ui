@@ -11,9 +11,9 @@ import React, {
 import { withRegistry, ComponentRegistryConsumer } from "@bem-react/di";
 
 import { Defaultize } from "../../typings/utility-types";
-import { Keys, isKeyCode } from "../../lib/keyboard";
-import { mergeAllRefs } from "../../lib/mergeRefs";
-import { RenderOverride, RenderOverrideProvider } from "../../lib/render-override";
+import { Keys, isKeyCode } from "../lib/keyboard";
+import { mergeAllRefs } from "../lib/mergeRefs";
+import { RenderOverride, RenderOverrideProvider } from "../lib/render-override";
 import { Direction, DrawingParams } from "../Popup/Popup";
 import { ChangeEvent } from "../Menu/Menu";
 import { ISelectRegistry, selectRegistry } from "./Select.registry/desktop";

@@ -1,0 +1,23 @@
+.MessageBox_theme_promo,
+.MessageBox_theme_promo .MessageBox-Close,
+.MessageBox_theme_promo .Button_theme_clear {
+    color: #000;
+}
+
+.MessageBox_theme_promo .MessageBox-Tail {
+    color: #0057d3;
+}
+
+.MessageBox_theme_promo .MessageBox-Backdrop::before {
+    box-shadow: 0 6px 20px -4px rgba(0, 0, 0, .7);
+}
+
+.MessageBox_theme_promo .MessageBox-Close::after,
+.MessageBox_theme_promo .MessageBox-Backdrop::before {
+    background-color: #0057d3;
+}
+
+.MessageBox_theme_promo:not(.MessageBox_opaque) .MessageBox-Backdrop,
+.MessageBox_theme_promo:not(.MessageBox_opaque) .MessageBox-Close:hover::after {
+    opacity: .85;
+}

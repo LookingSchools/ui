@@ -12,6 +12,7 @@
 
     animation-duration: .1s;
     animation-timing-function: ease-out;
+
     animation-fill-mode: forwards;
 }
 
@@ -24,11 +25,12 @@
 
     content: '';
 
-    border-radius: 4px;
-    box-shadow: 0 0 0 1px rgba(38, 49, 129, .07);
+    border-radius: inherit;
+    box-shadow: 0 0 0 1px rgba(38, 49, 129, .05);
 }
 
 .Popup_theme_default.Popup_visible::before {
+    /* NOTE: ISL-5672 */
     z-index: -1;
 }
 
@@ -38,32 +40,12 @@
     margin: 0;
 }
 
-.Popup.Popup_theme_default .Popup-Tail::before {
-    position: absolute;
-    top: 0;
-    top: 1px;
-    right: 0;
-    right: 1px;
-    bottom: 0;
-    left: 0;
-
-    content: '';
-
-    border: 1px solid transparent;
-    border-bottom-color: rgba(38, 49, 129, .07);
-    border-left-color: rgba(38, 49, 129, .07);
+.Popup_theme_default .Popup-TailFill {
+    fill: #fff;
 }
 
-.Popup_theme_default .Popup-Tail::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 1px;
-    left: 1px;
-
-    content: '';
-
-    background-image: linear-gradient(to top right, #fff 50%, transparent 50%);
+.Popup_theme_default .Popup-TailBorder {
+    fill: rgba(0, 0, 0, .05);
 }
 
 /**
@@ -71,64 +53,48 @@
  * даже если у вложенного элемента скругления не будет.
  */
 .Popup.Popup_theme_default > :first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 .Popup.Popup_theme_default > :last-child {
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
 }
 
-.Popup_theme_default.Popup_direction_bottom-left,
-.Popup_theme_default.Popup_direction_bottom-center,
-.Popup_theme_default.Popup_direction_bottom-right {
-    animation-name: Popup_theme_default_bottom;
+.Popup_theme_default.Popup[data-popper-placement^='bottom'] {
+    animation-name: popup_theme_default_bottom;
 }
 
-.Popup_theme_default.Popup_direction_bottom-left.Popup_visible,
-.Popup_theme_default.Popup_direction_bottom-center.Popup_visible,
-.Popup_theme_default.Popup_direction_bottom-right.Popup_visible {
-    animation-name: Popup_theme_default_bottom_visible;
+.Popup_theme_default.Popup[data-popper-placement^='bottom'].Popup_visible {
+    animation-name: popup_theme_default_bottom_visible;
 }
 
-.Popup_theme_default.Popup_direction_top-left,
-.Popup_theme_default.Popup_direction_top-center,
-.Popup_theme_default.Popup_direction_top-right {
-    animation-name: Popup_theme_default_top;
+.Popup_theme_default.Popup[data-popper-placement^='top'] {
+    animation-name: popup_theme_default_top;
 }
 
-.Popup_theme_default.Popup_direction_top-left.Popup_visible,
-.Popup_theme_default.Popup_direction_top-center.Popup_visible,
-.Popup_theme_default.Popup_direction_top-right.Popup_visible {
-    animation-name: Popup_theme_default_top_visible;
+.Popup_theme_default.Popup[data-popper-placement^='top'].Popup_visible {
+    animation-name: popup_theme_default_top_visible;
 }
 
-.Popup_theme_default.Popup_direction_right-top,
-.Popup_theme_default.Popup_direction_right-center,
-.Popup_theme_default.Popup_direction_right-bottom {
-    animation-name: Popup_theme_default_right;
+.Popup_theme_default.Popup[data-popper-placement^='right'] {
+    animation-name: popup_theme_default_right;
 }
 
-.Popup_theme_default.Popup_direction_right-top.Popup_visible,
-.Popup_theme_default.Popup_direction_right-center.Popup_visible,
-.Popup_theme_default.Popup_direction_right-bottom.Popup_visible {
-    animation-name: Popup_theme_default_right_visible;
+.Popup_theme_default.Popup[data-popper-placement^='right'].Popup_visible {
+    animation-name: popup_theme_default_right_visible;
 }
 
-.Popup_theme_default.Popup_direction_left-top,
-.Popup_theme_default.Popup_direction_left-center,
-.Popup_theme_default.Popup_direction_left-bottom {
-    animation-name: Popup_theme_default_left;
+.Popup_theme_default.Popup[data-popper-placement^='left'] {
+    animation-name: popup_theme_default_left;
 }
 
-.Popup_theme_default.Popup_direction_left-top.Popup_visible,
-.Popup_theme_default.Popup_direction_left-center.Popup_visible,
-.Popup_theme_default.Popup_direction_left-bottom.Popup_visible {
-    animation-name: Popup_theme_default_left_visible;
+.Popup_theme_default.Popup[data-popper-placement^='left'].Popup_visible {
+    animation-name: popup_theme_default_left_visible;
 }
 
-@keyframes Popup_theme_default_bottom {
+@keyframes popup_theme_default_bottom {
     0% {
         visibility: visible;
 
@@ -154,7 +120,7 @@
     }
 }
 
-@keyframes Popup_theme_default_bottom_visible {
+@keyframes popup_theme_default_bottom_visible {
     0% {
         opacity: 0;
 
@@ -168,7 +134,7 @@
     }
 }
 
-@keyframes Popup_theme_default_top {
+@keyframes popup_theme_default_top {
     0% {
         visibility: visible;
 
@@ -194,7 +160,7 @@
     }
 }
 
-@keyframes Popup_theme_default_top_visible {
+@keyframes popup_theme_default_top_visible {
     0% {
         opacity: 0;
 
@@ -208,7 +174,7 @@
     }
 }
 
-@keyframes Popup_theme_default_right {
+@keyframes popup_theme_default_right {
     0% {
         visibility: visible;
 
@@ -234,7 +200,7 @@
     }
 }
 
-@keyframes Popup_theme_default_right_visible {
+@keyframes popup_theme_default_right_visible {
     0% {
         opacity: 0;
 
@@ -248,7 +214,7 @@
     }
 }
 
-@keyframes Popup_theme_default_left {
+@keyframes popup_theme_default_left {
     0% {
         visibility: visible;
 
@@ -274,7 +240,7 @@
     }
 }
 
-@keyframes Popup_theme_default_left_visible {
+@keyframes popup_theme_default_left_visible {
     0% {
         opacity: 0;
 

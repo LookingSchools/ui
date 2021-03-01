@@ -1,7 +1,7 @@
 import React, { KeyboardEvent, RefObject, useCallback, useMemo, createRef, FC } from "react";
 import { cn } from "@bem-react/classname";
 
-import { isKeyCode, Keys } from "../../lib/keyboard";
+import { isKeyCode, Keys } from "../lib/keyboard";
 import { ITabsMenuTabProps, TabsMenuTab } from "./Tab/TabsMenu-Tab";
 import "./TabsMenu.scss";
 

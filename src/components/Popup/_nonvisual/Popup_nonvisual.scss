@@ -1,10 +1,19 @@
-.Popup.Popup_nonvisual {
+.Popup.Popup_nonvisual[class] {
     border: 0;
+    background: none;
     box-shadow: none;
 }
 
-.Popup.Popup_nonvisual::before {
+.Popup.Popup_nonvisual[class]::before {
     content: none;
 
     box-shadow: none;
+}
+
+.Popup.Popup_nonvisual .Popup-TailFill {
+    fill: none;
+}
+
+.Popup.Popup_nonvisual .Popup-TailBorder {
+    fill: none;
 }

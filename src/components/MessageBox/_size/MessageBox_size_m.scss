@@ -1,0 +1,42 @@
+.MessageBox.MessageBox_size_m .MessageBox-Content {
+    min-width: 200px;
+    max-width: 280px;
+}
+
+.MessageBox_size_m .MessageBox-Tail {
+    width: 22px;
+    height: 22px;
+}
+
+.MessageBox_size_m.MessageBox_layout_plain .MessageBox-Content {
+    width: 280px;
+}
+
+.MessageBox_size_m.MessageBox_layout_functional .MessageBox-Content {
+    width: 280px;
+}
+
+.MessageBox_size_m.MessageBox_layout_plain .MessageBox-Content,
+.MessageBox_size_m.MessageBox_layout_functional .MessageBox-Content {
+    font-size: 13px;
+}
+
+.MessageBox_size_m.MessageBox_layout_tooltip .MessageBox-Content {
+    max-width: 320px;
+    padding: 10px 14px;
+
+    font-size: 11px;
+}
+
+.MessageBox.MessageBox_size_m .MessageBox-Backdrop::before,
+.MessageBox.MessageBox_size_m .MessageBox-Background {
+    border-radius: 7px;
+}
+
+.MessageBox.MessageBox_size_m .MessageBox-Buttons .Button2:last-child::before {
+    border-radius: calc(7px - 1px) 0;
+}
+
+.MessageBox.MessageBox_size_m .MessageBox-Buttons .Button2_width_max:only-child::before {
+    border-radius: 0 0 7px 7px;
+}

@@ -1,0 +1,11 @@
+@import '../../theme/default.scss';
+
+.Tooltip {
+    z-index: 1500;
+
+    font-family: $font-default;
+}
+
+.Tooltip.Popup2::before {
+    content: none;
+}

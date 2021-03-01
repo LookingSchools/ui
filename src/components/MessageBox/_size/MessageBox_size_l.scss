@@ -1,0 +1,37 @@
+.MessageBox.MessageBox_size_l .MessageBox-Content {
+    min-width: 300px;
+    max-width: 380px;
+    padding: 15px 20px;
+
+    font-size: 13px;
+}
+
+.MessageBox_size_l .MessageBox-Tail {
+    width: 22px;
+    height: 22px;
+}
+
+.MessageBox.MessageBox_size_l.MessageBox_layout_tooltip,
+.MessageBox.MessageBox_size_l.MessageBox_layout_plain {
+    width: 380px;
+}
+
+.MessageBox.MessageBox_size_l.MessageBox_layout_functional .MessageBox-Content {
+    width: 380px;
+
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.MessageBox.MessageBox_size_l .MessageBox-Backdrop::before,
+.MessageBox.MessageBox_size_l .MessageBox-Background {
+    border-radius: 7px;
+}
+
+.MessageBox.MessageBox_size_l .MessageBox-Buttons .Button2:last-child::before {
+    border-radius: calc(7px - 1px) 0;
+}
+
+.MessageBox.MessageBox_size_l .MessageBox-Buttons .Button2_width_max:only-child::before {
+    border-radius: 0 0 7px 7px;
+}

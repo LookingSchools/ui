@@ -3,58 +3,21 @@ import React, {
     ReactNode,
     FC,
     CSSProperties,
-    useEffect,
     useState,
     ReactElement,
     Ref,
     useRef,
     MouseEventHandler,
-} from "react";
-import { createPortal } from "react-dom";
-import { cn } from "@bem-react/classname";
-
-import { canUseDOM } from "../../lib/canUseDOM";
-import { mergeAllRefs } from "../../lib/mergeRefs";
+    useEffect,
+} from 'react';
+import { createPortal } from 'react-dom';
 import { PopupTail as Tail } from "./Tail/Popup-Tail";
+import { cn } from '@bem-react/classname';
 
-import "./Popup.scss";
-import { useUpdateEffect } from "../../hooks/useUpdateEffect";
-
-export type Direction =
-    | "bottom-left"
-    | "bottom-center"
-    | "bottom-right"
-    | "top-left"
-    | "top-center"
-    | "top-right"
-    | "right-top"
-    | "right-center"
-    | "right-bottom"
-    | "left-top"
-    | "left-center"
-    | "left-bottom";
-
-export type Position = {
-    top: number;
-    left: number;
-};
-
-export type OptionalPosition = {
-    top?: number;
-    left?: number;
-    bottom?: number;
-    right?: number;
-};
-
-export type DrawingParams = {
-    direction: Direction;
-    height: number;
-    left: number;
-    top: number;
-    width: number;
-};
-
-export type OnClose = (event: KeyboardEvent | MouseEvent, source: "esc" | "click") => void;
+import { canUseDOM } from '../lib/canUseDOM';
+import { mergeAllRefs } from '../lib/mergeRefs';
+import { OnClose, LayerManager } from '../LayerManager/LayerManager';
+import './Popup.scss';
 
 export interface IPopupProps {
     /**
@@ -66,21 +29,6 @@ export interface IPopupProps {
      * Дополнительный контент перед содержимым попапа
      */
     addonBefore?: ReactNode;
-
-    /**
-     * Задает направление хвостика. Например, если указано значение `bottom-center` — хвостик выходит из центра снизу.
-     *
-     * Свойство `direction` необходимо использовать без модификатора `target_anchor`.
-     * Чтобы задать направление раскрытия для попапа с модификатором `target_anchor`,
-     * установите свойство `directions`
-     */
-    direction?: Direction;
-
-    /**
-     * Вызывает дополнительный рендер после создания
-     * @deprecated Используйте `visible`
-     */
-    forceRender?: boolean;
 
     /**
      * Включает/отключает хвостик у попапа
@@ -100,23 +48,13 @@ export interface IPopupProps {
     keepMounted?: boolean;
 
     /**
-     * Задает позицию попапа. Свойство `position` необходимо использовать без модификатора `target_anchor`
-     */
-    position?: OptionalPosition;
-
-    /**
      * Ссылка на DOM-элемент, в котором размещается попап
      *
-     * Важно, чтобы контейнер имел `position: relative` для корректного позициоинирования.
+     * Важно, чтобы контейнер имел `position: relative` для корректного позиционирования.
      *
      * @default document.body
      */
     scope?: RefObject<HTMLElement>;
-
-    /**
-     * Задает позицию хвостика. Свойство `tailPosition` необходимо использовать без модификатора `target_anchor`.
-     */
-    tailPosition?: Position;
 
     /**
      * Ссылка на DOM-элемент хвостика
@@ -184,12 +122,7 @@ export interface IPopupProps {
     onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-type PopupInternalProps = IPopupProps & {
-    onOutsideClick?: (event: any) => void;
-    onEscapeKeyDown?: (event: any) => void;
-};
-
-export const cnPopup = cn("Popup");
+export const cnPopup = cn('Popup');
 
 /**
  * Компонент для создания всплывающего окна (попапа).
@@ -200,15 +133,11 @@ export const Popup: FC<IPopupProps> = ({
     addonBefore,
     children,
     className,
-    direction,
-    forceRender,
     hasTail,
     innerRef,
     keepMounted = true,
-    position,
     scope = { current: canUseDOM() ? document.body : null },
     style,
-    tailPosition,
     tailRef,
     tailSize,
     visible,
@@ -217,64 +146,49 @@ export const Popup: FC<IPopupProps> = ({
     onClose,
     unstable_essentialRefs = [],
     unstable_hostRef,
-    onOutsideClick,
-    onEscapeKeyDown,
     onClick,
     // Извлекаем свойства, т.к. они не нужны на DOM узле
-    // FIXME:
+    // FIXME: https://github.com/bem/bem-react/issues/381
     // @ts-ignore
     theme: _theme,
     // @ts-ignore
-    view: _view,
-    // @ts-ignore
     nonvisual: _nonvisual,
     ...props
-}: PopupInternalProps) => {
+}: IPopupProps) => {
     const [isFirstRender, forceUpdate] = useState(true);
     const containerRef = useRef(null);
+    const hostRef = unstable_hostRef || containerRef;
 
-    useUpdateEffect(() => {
+    useEffect(() => {
         if (isFirstRender && visible) {
             forceUpdate(false);
         }
-    }, []);
-
-    useEffect(() => {
-        console.assert(
-            onOutsideClick === undefined || onEscapeKeyDown === undefined,
-            'Использование функции "withOutsideClick" является устаревшим API. ' +
-                'Для закрытия используйте свойство "onClose" без использования "withOutsideClick".'
-        );
-
-        if (isFirstRender && (forceRender || visible)) {
-            forceUpdate(false);
-        }
-    }, []);
+    }, [isFirstRender, visible]);
 
     if ((!visible && !keepMounted) || !canUseDOM() || scope.current === null || isFirstRender) {
         return null;
     }
 
     return createPortal(
-        <div
-            {...props}
-            className={cnPopup({ visible, direction }, [className])}
-            ref={mergeAllRefs(containerRef, innerRef)}
-            style={{ ...style, ...position, zIndex }}
-            onClick={onClick}
-        >
-            {addonBefore}
-            {typeof children === "function" ? children({ tailRef }) : children}
-            {addonAfter}
-            {unstable_onRenderTail &&
-                unstable_onRenderTail(
-                    <Tail innerRef={tailRef} style={{ ...tailPosition, height: tailSize, width: tailSize }} />
+        <LayerManager visible={visible} onClose={onClose} essentialRefs={[hostRef, ...unstable_essentialRefs]}>
+            <div
+                {...props}
+                className={cnPopup({ visible }, [className])}
+                ref={mergeAllRefs(containerRef, innerRef)}
+                style={{ ...style, zIndex }}
+                onClick={onClick}
+            >
+                {addonBefore}
+                {typeof children === 'function' ? children({ tailRef }) : children}
+                {addonAfter}
+                {unstable_onRenderTail &&
+                    unstable_onRenderTail(<Tail ref={tailRef} style={{ height: tailSize, width: tailSize }} />)}
+                {!unstable_onRenderTail && hasTail && (
+                    <Tail ref={tailRef} style={{ height: tailSize, width: tailSize }} />
                 )}
-            {!unstable_onRenderTail && hasTail && (
-                <Tail innerRef={tailRef} style={{ ...tailPosition, height: tailSize, width: tailSize }} />
-            )}
-        </div>,
-        scope.current
+            </div>
+        </LayerManager>,
+        scope.current,
     );
 };
 

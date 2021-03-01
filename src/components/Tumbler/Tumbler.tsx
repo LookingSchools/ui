@@ -14,9 +14,9 @@ import React, {
 import { cn } from "@bem-react/classname";
 
 import "../../polyfills/pointerfocus";
-import { forceUtilityFocus } from "../../lib/pointerfocus";
-import { Keys, isKeyCode } from "../../lib/keyboard";
-import { mergeRefs } from "../../lib/mergeRefs";
+import { forceUtilityFocus } from "../lib/pointerfocus";
+import { Keys, isKeyCode } from "../lib/keyboard";
+import { mergeRefs } from "../lib/mergeRefs";
 import { useUniqId } from "../../hooks/useUniqId";
 import { TumblerLabel as Label } from "./Label/Tumbler-Label";
 import { TumblerButton as Button } from "./Button/Tumbler-Button";

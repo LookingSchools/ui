@@ -42,7 +42,7 @@ class BaseExample extends PureComponent {
         super(props);
         this.state = {
             popup1Visible: true,
-            popup2Visible: true,
+            popupVisible: true,
             popup3Visible: true,
             popup4Visible: true,
             popup5Visible: true,
@@ -60,7 +60,7 @@ class ThemeShowcase extends BaseExample {
         return (
             <div style={{ position: "relative", display: "flex" }} ref={scopeRef1}>
                 <Button
-                    onClick={this.onClick("popup2")}
+                    onClick={this.onClick("popup")}
                     innerRef={anchorRef2}
                     theme="default"
                     size="m"
@@ -75,7 +75,7 @@ class ThemeShowcase extends BaseExample {
                     scope={scopeRef1}
                     directions={["bottom-center"]}
                     theme="default"
-                    visible={this.state.popup2Visible}
+                    visible={this.state.popupVisible}
                 >
                     <div style={{ padding: 8, fontFamily: "Arial" }}>Default</div>
                 </Popup>

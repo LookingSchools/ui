@@ -12,10 +12,10 @@ import React, {
 import { cn } from "@bem-react/classname";
 
 import "../../polyfills/pointerfocus";
-import { Omit } from "../../typings/utility-types";
-import { isKeyCode, Keys } from "../../lib/keyboard";
-import { omit } from "../../lib/omit";
-import { mergeRefs } from "../../lib/mergeRefs";
+import { Omit } from "../typings/utility-types";
+import { isKeyCode, Keys } from "../lib/keyboard";
+import { omit } from "../lib/omit";
+import { mergeRefs } from "../lib/mergeRefs";
 import { useUniqId } from "../../hooks/useUniqId";
 import { IWithControlProps, withControl } from "../../hocs/withControl/withControl";
 import { IWithControlProps as IWithControlDesktopProps } from "../../hocs/withControl/withControl";

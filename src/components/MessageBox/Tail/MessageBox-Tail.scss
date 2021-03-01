@@ -1,0 +1,23 @@
+.MessageBox-Tail {
+    position: absolute;
+}
+
+.Popup[data-popper-placement^='top'] .MessageBox-Tail {
+    transform: rotate(180deg);
+}
+
+.Popup[data-popper-placement^='left'] .MessageBox-Tail {
+    left: 100%;
+
+    transform: rotate(90deg);
+}
+
+.Popup[data-popper-placement^='bottom'] .MessageBox-Tail {
+    bottom: 100%;
+}
+
+.Popup[data-popper-placement^='right'] .MessageBox-Tail {
+    right: 100%;
+
+    transform: rotate(-90deg);
+}
