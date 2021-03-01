@@ -2,7 +2,7 @@ import React, { FC, useRef } from "react";
 import { cn } from "@bem-react/classname";
 
 import { Popup, IPopupProps } from "../Popup/Popup";
-import { usePreventScroll } from '../../hooks/usePreventScroll';
+import { usePreventScroll } from '../usePreventScroll';
 
 import "./Modal.scss";
 

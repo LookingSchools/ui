@@ -1,8 +1,10 @@
-import React, { PureComponent, createRef, MouseEventHandler, MouseEvent } from "react";
-import { withBemMod } from "@bem-react/core";
+import React, { PureComponent, createRef, MouseEventHandler, MouseEvent } from 'react';
+import { withBemMod } from '@bem-react/core';
+import { ComponentRegistryConsumer } from '@bem-react/di';
 
-import { TextinputClear as Clear } from "../Clear/Textinput-Clear";
-import { ITextinputProps, cnTextinput } from "../Textinput";
+import { mergeAllRefs } from '../../lib/mergeRefs';
+import { ITextinputRegistry } from './Textinput_hasClear.registry';
+import { ITextinputProps, cnTextinput } from '../Textinput';
 
 export interface ITextinputHasClearProps {
     /**
@@ -24,6 +26,11 @@ export interface ITextinputHasClearProps {
      * @internal
      */
     size?: string;
+
+    /**
+     * @internal
+     */
+    view?: string;
 }
 
 /**
@@ -37,13 +44,6 @@ export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>
         class WithHasClear extends PureComponent<ITextinputHasClearProps & ITextinputProps> {
             private readonly controlRef = createRef<HTMLInputElement>();
 
-            componentDidMount() {
-                if (this.props.controlRef !== undefined) {
-                    // @ts-ignore (Объект readonly только в рамках интерфейса)
-                    this.props.controlRef.current = this.controlRef.current;
-                }
-            }
-
             render() {
                 const {
                     addonBefore,
@@ -51,26 +51,34 @@ export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>
                     // FIXME: https://github.com/bem/bem-react/issues/381
                     onClearClick: _onClearClick,
                     hasClear: _hasClear,
+                    controlRef,
                     ...props
                 } = this.props;
 
                 return (
-                    <Textinput
-                        {...props}
-                        controlRef={this.controlRef}
-                        addonBefore={
-                            <>
-                                <Clear
-                                    onClick={this.onClick}
-                                    onMouseDown={this.onMouseDown}
-                                    size={this.props.size}
-                                    theme={this.props.theme}
-                                    visible={Boolean(this.props.value)}
+                    <ComponentRegistryConsumer id={cnTextinput()}>
+                        {({ Clear }: ITextinputRegistry) => {
+                            return (
+                                <Textinput
+                                    {...props}
+                                    controlRef={mergeAllRefs(this.controlRef, controlRef)}
+                                    addonBefore={
+                                        <>
+                                            <Clear
+                                                onClick={this.onClick}
+                                                onMouseDown={this.onMouseDown}
+                                                size={this.props.size}
+                                                theme={this.props.theme}
+                                                view={this.props.view}
+                                                visible={Boolean(this.props.value)}
+                                            />
+                                            {addonBefore}
+                                        </>
+                                    }
                                 />
-                                {addonBefore}
-                            </>
-                        }
-                    />
+                            );
+                        }}
+                    </ComponentRegistryConsumer>
                 );
             }
 
@@ -91,7 +99,7 @@ export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>
                         syntheticEvent.target = this.controlRef.current;
                         syntheticEvent.currentTarget = this.controlRef.current;
 
-                        this.controlRef.current.value = "";
+                        this.controlRef.current.value = '';
 
                         this.props.onChange(syntheticEvent);
                         // Восстанавливаем предыдущее значение на тот случай,
@@ -104,5 +112,5 @@ export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>
                     this.props.onClearClick(event);
                 }
             };
-        }
+        },
 );

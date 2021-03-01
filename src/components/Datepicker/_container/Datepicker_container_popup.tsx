@@ -1,7 +1,7 @@
 import React from "react";
 import { withBemMod, compose } from "@bem-react/core";
 
-import { withZIndex } from "../../../hocs/withZIndex/withZIndex";
+import { withZIndex } from "../../withZIndex";
 
 import { Modal as ModalBase } from "../../Modal/Modal.bundle";
 import { DatepickerProps } from "../Datepicker";

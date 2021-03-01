@@ -2,52 +2,32 @@ import React, {
     FC,
     ReactElement,
     ReactNode,
-    RefObject,
+    Ref,
     CSSProperties,
     useState,
     useCallback,
     useRef,
-    FocusEventHandler,
     MouseEventHandler,
-    KeyboardEventHandler,
-} from "react";
-import { cn } from "@bem-react/classname";
-import { compose } from "@bem-react/core";
+} from 'react';
+import { useComponentRegistry } from '@bem-react/di';
+import { cn } from '@bem-react/classname';
 
-import { withAutoFocus } from "../../hocs/withAutoFocus/withAutoFocus";
-import { TextinputControl as Control } from "./Control/Textinput-Control";
-import { TextinputBox as Box } from "./Box/Textinput-Box";
-import { TextinputIcon as Icon } from "./Icon/Textinput-Icon";
-import { TextinputHint as Hint } from "./Hint/Textinput-Hint";
-
-import { useUpdateEffect } from "../../hooks/useUpdateEffect";
-import { IWithControlProps, withControl } from "../../hocs/withControl/withControl";
-import { IIconProps } from "../Icon/Icon";
-import { ITextinputControlProps } from "./Control/Textinput-Control";
+import { RenderOverride, useRenderOverride } from '../lib/render-override';
+import { useUniqId } from '../useUniqId';
+import { useUpdateEffect } from '../useUpdateEffect';
+import { IWithControlProps, withControl } from '../withControl/withControl';
+import { IIconProps } from '../Icon/Icon';
+import { ITextinputControlProps } from './Control/Textinput-Control';
+import { ITextinputRegistry } from './Textinput.registry';
 import "./Textinput.scss";
 
-export const cnTextinput = cn("Textinput");
+export const cnTextinput = cn('Textinput');
 
 export interface ITextinputProps extends ITextinputControlProps, IWithControlProps<HTMLInputElement> {
-    /**
-     * Событие, которое вызывается при потере фокуса компонентом. Например, при клике на другом месте экрана
-     */
-    onBlur?: FocusEventHandler<HTMLElement>;
-
     /**
      * Событие, которое вызывается при нажатии на компонент
      */
     onClick?: MouseEventHandler<HTMLElement>;
-
-    /**
-     * Событие, которое вызывается при нажатии клавиш клавиатуры
-     */
-    onKeyDown?: KeyboardEventHandler<HTMLElement>;
-
-    /**
-     * Событие, которое возникает при получении компонентом фокуса
-     */
-    onFocus?: FocusEventHandler<HTMLElement>;
 
     /**
      * Событие по своему действию похоже на `onClick` и возникает в момент нажатия кнопки мыши.
@@ -94,7 +74,7 @@ export interface ITextinputProps extends ITextinputControlProps, IWithControlPro
     /**
      * Ссылка на корневой DOM элемент компонента
      */
-    innerRef?: RefObject<HTMLSpanElement>;
+    innerRef?: Ref<HTMLSpanElement>;
 
     /**
      * Пользовательские стили на корневом DOM элементе.
@@ -111,7 +91,17 @@ export interface ITextinputProps extends ITextinputControlProps, IWithControlPro
      * Визуальное состояние компонента.
      * Может использоваться при проверке формы на корректность.
      */
-    state?: "error";
+    state?: 'error';
+
+    /**
+     * Всплывающая подсказка
+     */
+    title?: string;
+
+    /**
+     * Переопределяет компонент `Control`
+     */
+    renderControl?: RenderOverride<ITextinputControlProps>;
 }
 
 /**
@@ -134,6 +124,8 @@ const TextinputPresenter: FC<ITextinputProps> = ({
     // FIXME: https://github.com/bem/bem-react/issues/381
     pressed: _pressed,
     // @ts-ignore
+    view: _view,
+    // @ts-ignore
     pin: _pin,
     // @ts-ignore
     size: _size,
@@ -141,25 +133,30 @@ const TextinputPresenter: FC<ITextinputProps> = ({
     theme: _theme,
     hint: htmlHint,
     state,
+    title,
+    renderControl,
     ...props
 }) => {
+    const { Control: ControlOriginal, Box, Icon, Hint } = useComponentRegistry<ITextinputRegistry>(cnTextinput());
+    const Control = useRenderOverride(ControlOriginal, renderControl);
+
     const [hint, setHint] = useState(htmlHint);
     const [hintLeave, setHintLeave] = useState(false);
     const prevHint = useRef(htmlHint);
+    const hintId = useUniqId('hint');
 
     useUpdateEffect(() => {
-        if (htmlHint !== "") {
+        if (htmlHint) {
             setHint(htmlHint);
-        } else if (prevHint.current !== "") {
+        } else if (prevHint.current) {
             setHintLeave(true);
         }
-
         prevHint.current = htmlHint;
     }, [htmlHint]);
 
     const onAnimationEnd = useCallback(() => {
-        if (htmlHint === "") {
-            setHint("");
+        if (!htmlHint) {
+            setHint('');
             setHintLeave(false);
         }
     }, [htmlHint]);
@@ -171,23 +168,30 @@ const TextinputPresenter: FC<ITextinputProps> = ({
                     disabled,
                     focused,
                     iconRight: iconRight !== undefined,
+                    iconLeft: iconLeft !== undefined,
                     state,
                 },
-                [className]
+                [className],
             )}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             ref={innerRef}
             style={style}
+            title={title}
         >
             {addonBefore}
             {iconLeft && <Icon side="left" component={iconLeft} />}
             {iconRight && <Icon side="right" component={iconRight} />}
-            <Control {...props} aria-invalid={state === "error"} disabled={disabled} />
+            <Control
+                {...props}
+                aria-invalid={state === 'error'}
+                disabled={disabled}
+                aria-describedby={hint ? hintId : undefined}
+            />
             <Box />
             {addonAfter}
             {hint && (
-                <Hint leave={hintLeave} onAnimationEnd={onAnimationEnd}>
+                <Hint leave={hintLeave} onAnimationEnd={onAnimationEnd} id={hintId}>
                     {hint}
                 </Hint>
             )}
@@ -197,4 +201,4 @@ const TextinputPresenter: FC<ITextinputProps> = ({
 
 TextinputPresenter.displayName = cnTextinput();
 
-export const Textinput = compose(withControl, withAutoFocus)(TextinputPresenter);
+export const Textinput = withControl(TextinputPresenter);

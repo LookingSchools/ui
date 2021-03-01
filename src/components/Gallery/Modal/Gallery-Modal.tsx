@@ -4,7 +4,7 @@ import { Modal as ModalBase } from "../../Modal/Modal";
 import { IModalThemeDefaultProps, withThemeDefault } from "../../Modal/_theme/Modal_theme_default";
 
 import { withOutsideClick, IWithOutsideClickProps } from "../../withOutsideClick/withOutsideClick";
-import { withZIndex } from "../../../hocs/withZIndex/withZIndex";
+import { withZIndex } from "../../withZIndex";
 
 import "./Gallery-Modal.scss";
 

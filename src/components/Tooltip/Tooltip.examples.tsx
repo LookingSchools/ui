@@ -29,7 +29,7 @@ export const Playground = () => {
     const tailOffset = number('tailOffset', 0);
 
     return (
-        <div style={{ backgroundColor: 'var(--color-bg-default)' }}>
+        <div style={{ backgroundColor: '#067aff' }}>
             <Button innerRef={buttonRef} theme="default" size="m" onClick={() => setVisible(!visible)}>
                 Target
             </Button>

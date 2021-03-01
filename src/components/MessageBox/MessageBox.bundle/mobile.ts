@@ -2,8 +2,8 @@ import { compose, composeU } from '@bem-react/core';
 
 import { MessageBox as MessageBoxCommon, MessageBoxPopup as MessageBoxPopupCommon } from '../MessageBox@mobile';
 import { withViewDefault } from '../_theme/MessageBox_theme_default';
-import { withViewPromo } from '../_view/MessageBox_view_promo';
-import { withViewInverse } from '../_view/MessageBox_view_inverse';
+import { withViewPromo } from '../_view/MessageBox_theme_promo';
+import { withViewInverse } from '../_view/MessageBox_theme_inverse';
 import { withSizeL } from '../_size/MessageBox_size_l';
 import { withSizeM } from '../_size/MessageBox_size_m';
 import { withSizeS } from '../_size/MessageBox_size_s';

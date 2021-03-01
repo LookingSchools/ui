@@ -7,7 +7,7 @@ import { Popup } from '../../Popup/Popup.bundle';
 import { Menu } from '../../Menu/Menu.bundle';
 import { Icon } from '../../Icon/Icon.bundle';
 import { withTogglable } from '../../../hocs/withTogglable/withTogglable';
-import { withZIndex } from '../../../hocs/withZIndex/withZIndex';
+import { withZIndex } from '../../withZIndex';
 
 // base
 import { Select as SelectDesktop, cnSelect } from '../Select@desktop';

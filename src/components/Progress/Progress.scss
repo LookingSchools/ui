@@ -1,9 +1,9 @@
 .Progress {
     width: 100%;
-    height: var(--progressbar-height);
+    height: 2px;
 
-    border-radius: var(--progress-border-radius);
-    background-color: var(--progress-outer-fill-color);
+    border-radius: 0;
+    background-color: transparent;
 }
 
 .Progress-Inner {
@@ -11,7 +11,7 @@
     height: inherit;
 
     border-radius: inherit;
-    background-color: var(--progress-inner-fill-color);
+    background-color: #067aff;
 }
 
 .Progress_timing_linear .Progress-Inner {

@@ -19,8 +19,8 @@ import { TextareaBox as Box } from "./Box/Textarea-Box";
 import { TextareaHint as Hint } from "./Hint/Textarea-Hint";
 
 import { useUpdateEffect } from "../../hooks/useUpdateEffect";
-import { IWithControlProps, withControl } from "../../hocs/withControl/withControl";
-import { IWithControlProps as IWithControlPropsDesktop } from "../../hocs/withControl/withControl";
+import { IWithControlProps, withControl } from "../withControl";
+import { IWithControlProps as IWithControlPropsDesktop } from "../withControl";
 import { ITextareaControlProps } from "./Control/Textarea-Control";
 import { withAutoFocus } from "../../hocs/withAutoFocus/withAutoFocus";
 

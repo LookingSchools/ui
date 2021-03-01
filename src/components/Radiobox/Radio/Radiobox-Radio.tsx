@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { cnRadiobox as cn } from "../Radiobox";
 import "./Radiobox-Radio.scss";
 
-import { IWithControlProps, withControl } from "../../../hocs/withControl/withControl";
+import { IWithControlProps, withControl } from "../../withControl";
 
 export interface IRadioboxRadioProps extends IWithControlProps<HTMLLabelElement> {
     /**
