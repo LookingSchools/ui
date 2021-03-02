@@ -7,9 +7,9 @@ import React, {
     FocusEvent,
     PureComponent,
     Ref,
-} from 'react';
+} from "react";
 
-import { getDisplayName } from '../lib/getDisplayName';
+import { getDisplayName } from "../lib/getDisplayName";
 
 export interface IWithControlProps<T = Element> {
     disabled?: boolean;
@@ -107,15 +107,15 @@ export function withControl<T extends IWithControlProps>(WrappedComponent: Compo
         protected docOnMouseDown = () => {
             // необходимо слушать mouseup вне блока, иначе
             // при отпущенной вовне кнопке мыши блок остается pressed
-            document.addEventListener('mouseup', this.docOnMouseUp);
+            document.addEventListener("mouseup", this.docOnMouseUp);
             // необходимо для button2_type_link
-            document.addEventListener('dragend', this.docOnMouseUp);
+            document.addEventListener("dragend", this.docOnMouseUp);
         };
 
         protected docOnMouseUp = () => {
             this.setState({ pressed: false });
-            document.removeEventListener('mouseup', this.docOnMouseUp);
-            document.removeEventListener('dragend', this.docOnMouseUp);
+            document.removeEventListener("mouseup", this.docOnMouseUp);
+            document.removeEventListener("dragend", this.docOnMouseUp);
         };
 
         protected onFocus = (event: FocusEvent) => {

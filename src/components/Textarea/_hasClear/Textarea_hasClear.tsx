@@ -1,8 +1,10 @@
 import React, { PureComponent, MouseEventHandler, MouseEvent, createRef } from "react";
 import { withBemMod } from "@bem-react/core";
+import { ComponentRegistryConsumer } from "@bem-react/di";
 
+import { mergeAllRefs } from "../../lib/mergeRefs";
 import { ITextareaProps, cnTextarea } from "../Textarea";
-import { TextareaClear as Clear } from "../Clear/Textarea-Clear";
+import { ITextareaRegistry } from "./Textarea_hasClear.registry";
 import "./Textarea_hasClear.scss";
 
 export interface ITextareaHasClearProps {
@@ -20,6 +22,11 @@ export interface ITextareaHasClearProps {
      * @internal
      */
     theme?: string;
+
+    /**
+     * @internal
+     */
+    view?: string;
 }
 
 /**
@@ -33,13 +40,6 @@ export const withHasClear = withBemMod<ITextareaHasClearProps, ITextareaProps>(
         class WithHasClear extends PureComponent<ITextareaHasClearProps & ITextareaProps> {
             private readonly controlRef = createRef<HTMLTextAreaElement>();
 
-            componentDidMount() {
-                if (this.props.controlRef !== undefined) {
-                    // @ts-ignore (Объект readonly только в рамках интерфейса)
-                    this.props.controlRef.current = this.controlRef.current;
-                }
-            }
-
             render() {
                 const {
                     addonBefore,
@@ -47,25 +47,32 @@ export const withHasClear = withBemMod<ITextareaHasClearProps, ITextareaProps>(
                     // FIXME: https://github.com/bem/bem-react/issues/381
                     onClearClick: _onClearClick,
                     hasClear: _hasClear,
+                    controlRef,
                     ...props
                 } = this.props;
 
                 return (
-                    <Textarea
-                        {...props}
-                        controlRef={this.controlRef}
-                        addonBefore={
-                            <>
-                                <Clear
-                                    onClick={this.onClick}
-                                    onMouseDown={this.onMouseDown}
-                                    theme={this.props.theme}
-                                    visible={Boolean(this.props.value)}
+                    <ComponentRegistryConsumer id={cnTextarea()}>
+                        {({ Clear }: ITextareaRegistry) => {
+                            return (
+                                <Textarea
+                                    {...props}
+                                    controlRef={mergeAllRefs(this.controlRef, controlRef)}
+                                    addonBefore={
+                                        <>
+                                            <Clear
+                                                onClick={this.onClick}
+                                                onMouseDown={this.onMouseDown}
+                                                theme={this.props.theme}
+                                                visible={Boolean(this.props.value)}
+                                            />
+                                            {addonBefore}
+                                        </>
+                                    }
                                 />
-                                {addonBefore}
-                            </>
-                        }
-                    />
+                            );
+                        }}
+                    </ComponentRegistryConsumer>
                 );
             }
 

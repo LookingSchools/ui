@@ -8,18 +8,18 @@
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { compose } from '@bem-react/core'
+import React, { useState } from "react"
+import { compose } from "@bem-react/core"
 import {
   Radiobutton as RadiobuttonBase,
   withSizeM,
   withViewDefault,
-} from '@lookingschools/ui/Radiobutton'
+} from "@lookingschools/ui/Radiobutton"
 
 const Radiobutton = compose(withSizeM, withViewDefault)(RadiobuttonBase)
 
 const App = () => {
-  const [value, setValue] = useState('value1')
+  const [value, setValue] = useState("value1")
 
   return (
     <Radiobutton
@@ -27,11 +27,11 @@ const App = () => {
       theme="default"
       value={value}
       options={[
-        { label: 'Радио 1', value: 'value1' },
-        { label: 'Радио 2', value: 'value2' },
-        { label: 'Радио 3', value: 'value3' },
+        { label: "Радио 1", value: "value1" },
+        { label: "Радио 2", value: "value2" },
+        { label: "Радио 3", value: "value3" },
       ]}
-      onChange={event => setValue(event.target.value)}
+      onChange={(event) => setValue(event.target.value)}
     />
   )
 }

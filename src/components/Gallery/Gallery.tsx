@@ -41,7 +41,7 @@ export interface IGalleryProps {
 }
 
 export interface IGalleryState {
-    showPopup: boolean;
+    visible: boolean;
     showDiscount: boolean;
     id: number;
 }
@@ -50,20 +50,20 @@ export const Gallery = class extends Component<IGalleryProps, IGalleryState> {
     static displayName = cnGallery();
 
     public state: IGalleryState = {
-        showPopup: false,
+        visible: false,
         showDiscount: false,
         id: 0,
     };
 
     public openModal = () => {
         this.setState({
-            showPopup: true,
+            visible: true,
         });
     };
 
     public closeModal = () => {
         this.setState({
-            showPopup: false,
+            visible: false,
         });
     };
 
@@ -111,7 +111,7 @@ export const Gallery = class extends Component<IGalleryProps, IGalleryState> {
                         </Button>
                     </span>
                 </Preview>
-                {this.state.showPopup ? this.renderModal() : null}
+                {this.state.visible ? this.renderModal() : null}
             </div>
         );
     }
@@ -119,14 +119,10 @@ export const Gallery = class extends Component<IGalleryProps, IGalleryState> {
     private renderModal = () => {
         return (
             <GalleryModal
-                visible={this.state.showPopup}
-                // onCloseClick={this.closeModal}
-                // allowTouchOnContent={cnGallery('Content')}
                 theme="default"
-                hasAnimation={true}
-                onEscapeKeyDown={this.closeModal}
-                onOutsideClick={this.closeModal}
-                zIndexGroupLevel={10}
+                onClose={() => this.setState({ visible: false })}
+                visible={this.state.visible}
+                zIndexGroupLevel={20}
             >
                 <div className={cnGallery("Modal")}>
                     <div className={cnGallery("ModalNav")}>

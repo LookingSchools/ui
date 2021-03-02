@@ -6,7 +6,7 @@ import { Button } from '../../Button/Button.bundle';
 import { Popup } from '../../Popup/Popup.bundle';
 import { Menu } from '../../Menu/Menu.bundle';
 import { Icon } from '../../Icon/Icon.bundle';
-import { withTogglable } from '../../../hocs/withTogglable/withTogglable';
+import { withTogglable } from '../../withTogglable/withTogglable';
 import { withZIndex } from '../../withZIndex';
 
 // base

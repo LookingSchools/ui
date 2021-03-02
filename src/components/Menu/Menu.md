@@ -39,11 +39,11 @@ const App = () => {
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { Menu } from '@lookingschools/ui/Menu/desktop/bundle'
+import React, { useState } from "react"
+import { Menu } from "@lookingschools/ui/Menu/desktop/bundle"
 
 const App = () => {
-  const [value, setValue] = useState('a')
+  const [value, setValue] = useState("a")
 
   return (
     <Menu
@@ -51,11 +51,11 @@ const App = () => {
       theme="default"
       value={value}
       items={[
-        { value: 'a', content: 'Каждый' },
-        { value: 'b', content: 'Охотник' },
-        { value: 'c', content: 'Желает', disabled: true },
+        { value: "a", content: "Каждый" },
+        { value: "b", content: "Охотник" },
+        { value: "c", content: "Желает", disabled: true },
       ]}
-      onChange={event => setValue(event.target.value)}
+      onChange={(event) => setValue(event.target.value)}
     />
   )
 }

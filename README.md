@@ -29,7 +29,7 @@ import {
   withThemeDefault,
 } from '@lookingschools/ui/Button'
 
-const Button = compose(withSizeM, withViewDefault)(ButtonDesktop)
+const Button = compose(withSizeM, withThemeDefault)(ButtonDesktop)
 
 const App: React.FC = () => (
   <Button theme="default" size="m">

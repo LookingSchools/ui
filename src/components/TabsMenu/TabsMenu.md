@@ -16,14 +16,14 @@
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { compose } from '@bem-react/core'
+import React, { useState } from "react"
+import { compose } from "@bem-react/core"
 import {
   TabsMenu as TabsMenuDesktop,
   withSizeM,
   withLayoutHoriz,
   withViewDefault,
-} from '@lookingschools/ui/TabsMenu'
+} from "@lookingschools/ui/TabsMenu"
 
 const TabsMenu = compose(
   withSizeM,
@@ -32,17 +32,17 @@ const TabsMenu = compose(
 )(TabsMenuDesktop)
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState('tab1')
+  const [activeTab, setActiveTab] = useState("tab1")
 
   return (
     <TabsMenu
       size="m"
-      view="default"
+      theme="default"
       layout="horiz"
       activeTab={activeTab}
       tabs={[
-        { id: 'tab1', onClick: () => setActiveTab('tab1'), content: 'Tab 1' },
-        { id: 'tab2', onClick: () => setActiveTab('tab2'), content: 'Tab 2' },
+        { id: "tab1", onClick: () => setActiveTab("tab1"), content: "Tab 1" },
+        { id: "tab2", onClick: () => setActiveTab("tab2"), content: "Tab 2" },
       ]}
     />
   )

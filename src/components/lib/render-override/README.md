@@ -13,8 +13,8 @@
 **functional component**
 
 ```tsx
-import React from 'react'
-import { useRenderOverride } from '@lookingschools/ui/lib/render-override'
+import React from "react"
+import { useRenderOverride } from "@lookingschools/ui/lib/render-override"
 
 const ElementOriginal = ({ children }) => <div>{children}</div>
 
@@ -32,15 +32,15 @@ const MyComponent = ({ renderElement }) => {
 **classes component (single component)**
 
 ```tsx
-import React from 'react'
-import { RenderOverrideProvider } from '@lookingschools/ui/lib/render-override'
+import React from "react"
+import { RenderOverrideProvider } from "@lookingschools/ui/lib/render-override"
 
 const ElementOriginal = ({ children }) => <div>{children}</div>
 
 const MyComponent = ({ renderElement }) => (
   <>
     <RenderOverrideProvider component={ElementOriginal} render={renderElement}>
-      {Element => <Element />}
+      {(Element) => <Element />}
     </RenderOverrideProvider>
   </>
 )
@@ -49,8 +49,8 @@ const MyComponent = ({ renderElement }) => (
 **classes component (multi components)**
 
 ```tsx
-import React from 'react'
-import { MultiRenderOverrideProvider } from '@lookingschools/ui/lib/render-override'
+import React from "react"
+import { MultiRenderOverrideProvider } from "@lookingschools/ui/lib/render-override"
 
 const ElementOriginal1 = ({ children }) => <div>{children}</div>
 const ElementOriginal2 = ({ children }) => <div>{children}</div>
@@ -77,7 +77,7 @@ const MyComponent = ({ renderElement1, renderElement2 }) => (
 **Использование**
 
 ```tsx
-import React, { useCallback } from 'react'
+import React, { useCallback } from "react"
 
 const App = () => {
   // Для лучшей производительности рекомендуется использовать мемоизацию.

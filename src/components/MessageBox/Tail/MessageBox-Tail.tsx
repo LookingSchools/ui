@@ -1,16 +1,16 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref } from "react";
 
-import { cnMessageBox } from '../MessageBox';
-import './MessageBox-Tail.scss';
+import { cnMessageBox } from "../MessageBox";
+import "./MessageBox-Tail.scss";
 
 export type MessageBoxTailProps = {
     innerRef?: Ref<HTMLDivElement>;
-    tailType?: 'default' | 'rounded';
+    tailType?: "default" | "rounded";
 };
 
 export const MessageBoxTail: FC<MessageBoxTailProps> = ({ innerRef, tailType }) => (
-    <div ref={innerRef} className={cnMessageBox('Tail')}>
-        {tailType === 'default' ? (
+    <div ref={innerRef} className={cnMessageBox("Tail")}>
+        {tailType === "default" ? (
             <svg viewBox="0 0 20 20">
                 <path fill="currentColor" d="M20 20H0c5 0 7.949-3.872 10-9 2.051 5.128 5 9 10 9z" />
             </svg>

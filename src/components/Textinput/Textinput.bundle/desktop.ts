@@ -3,6 +3,7 @@ import { compose, composeU, ExtractProps } from '@bem-react/core';
 import { Textinput as TextinputDesktop } from '../Textinput@desktop';
 import { withDebounceInput } from '../../withDebounceInput';
 // _size
+import { withSizeL } from '../_size/Textinput_size_l';
 import { withSizeM } from '../_size/Textinput_size_m';
 import { withSizeS } from '../_size/Textinput_size_s';
 // _theme
@@ -25,7 +26,7 @@ export * from '../Textinput@desktop';
 
 export const Textinput = compose(
     withDebounceInput,
-    composeU(withSizeM, withSizeS),
+    composeU(withSizeL, withSizeM, withSizeS),
     composeU(withThemeDefault,withThemeSearch),
     composeU(
         composeU(

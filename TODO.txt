@@ -1,0 +1,14 @@
+1. Разделить темы:
+
+export * from '../_theme/Textinput_theme_default';
+export * from '../_theme/Textinput_theme_search';
+
+на 
+
+export * from '../_theme/Textinput_theme_default@desktop';
+export * from '../_theme/Textinput_theme_search@desktop';
+
+и
+
+export * from '../_theme/Textinput_theme_default@mobile';
+export * from '../_theme/Textinput_theme_search@mobile';

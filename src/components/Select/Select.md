@@ -12,39 +12,39 @@
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { compose } from '@bem-react/core'
-import { withRegistry, Registry } from '@bem-react/di'
+import React, { useState } from "react"
+import { compose } from "@bem-react/core"
+import { withRegistry, Registry } from "@bem-react/di"
 
 import {
   Select as SelectDesktop,
   cnSelect,
-} from '@lookingschools/ui/Select/desktop'
+} from "@lookingschools/ui/Select/desktop"
 
-import { withTogglable } from '@lookingschools/ui/withTogglable'
+import { withTogglable } from "@lookingschools/ui/withTogglable"
 
 import {
   Button as ButtonDesktop,
   withSizeM as withButtonSizeM,
   withThemeDefault as withButtonThemeDefault,
-} from '@lookingschools/ui/Button/desktop'
+} from "@lookingschools/ui/Button/desktop"
 
 import {
   Menu as MenuDesktop,
   withSizeM as withMenuSizeM,
   withThemeDefault as withMenuThemeDefault,
-} from '@lookingschools/ui/Menu/desktop'
+} from "@lookingschools/ui/Menu/desktop"
 
 import {
   Popup as PopupDesktop,
   withThemeDefault as withPopupThemeDefault,
   withTargetAnchor,
-} from '@lookingschools/ui/Popup/desktop'
+} from "@lookingschools/ui/Popup/desktop"
 
 import {
   Icon as IconDesktop,
   withGlyphCaretsV,
-} from '@lookingschools/ui/Icon/desktop'
+} from "@lookingschools/ui/Icon/desktop"
 
 const selectRegistry = new Registry({ id: cnSelect() })
 
@@ -57,10 +57,10 @@ const Popup = compose(withPopupThemeDefault, withTargetAnchor)(PopupDesktop)
 const Icon = compose(withGlyphCaretsV)(IconDesktop)
 
 selectRegistry
-  .set('Trigger', Button)
-  .set('Popup', Popup)
-  .set('Menu', Menu)
-  .set('Icon', Icon)
+  .set("Trigger", Button)
+  .set("Popup", Popup)
+  .set("Menu", Menu)
+  .set("Icon", Icon)
 
 const Select = compose(
   withTogglable,
@@ -68,18 +68,18 @@ const Select = compose(
 )(SelectDesktop)
 
 const App = () => {
-  const [value, setValue] = useState('a')
+  const [value, setValue] = useState("a")
 
   return (
     <Select
       size="m"
       theme="default"
-      onChange={event => setValue(event.target.value)}
+      onChange={(event) => setValue(event.target.value)}
       value={value}
       options={[
-        { value: 'a', content: 'Каждый' },
-        { value: 'b', content: 'Охотник' },
-        { value: 'c', content: 'Желает', disabled: true },
+        { value: "a", content: "Каждый" },
+        { value: "b", content: "Охотник" },
+        { value: "c", content: "Желает", disabled: true },
       ]}
     />
   )
@@ -90,22 +90,22 @@ const App = () => {
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { Select } from '@lookingschools/ui/Select/desktop/bundle'
+import React, { useState } from "react"
+import { Select } from "@lookingschools/ui/Select/desktop/bundle"
 
 const App = () => {
-  const [value, setValue] = useState('a')
+  const [value, setValue] = useState("a")
 
   return (
     <Select
       size="m"
       theme="default"
-      onChange={event => setValue(event.target.value)}
+      onChange={(event) => setValue(event.target.value)}
       value={value}
       options={[
-        { value: 'a', content: 'Каждый' },
-        { value: 'b', content: 'Охотник' },
-        { value: 'c', content: 'Желает', disabled: true },
+        { value: "a", content: "Каждый" },
+        { value: "b", content: "Охотник" },
+        { value: "c", content: "Желает", disabled: true },
       ]}
     />
   )

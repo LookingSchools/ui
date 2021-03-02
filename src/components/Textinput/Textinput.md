@@ -8,26 +8,26 @@
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { compose } from '@bem-react/core'
+import React, { useState } from "react"
+import { compose } from "@bem-react/core"
 import {
   Textinput as TextinputBase,
   withThemeDefault,
   withSizeM,
-} from '@lookingschools/ui/Textinput'
+} from "@lookingschools/ui/Textinput"
 
 // Композиция из различных модификаторов
 const Textinput = compose(withThemeDefault, withSizeM)(TextinputBase)
 
 const App = () => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("")
 
   return (
     <Textinput
       size="m"
       theme="default"
       value={value}
-      onChange={event => setValue(event.target.value)}
+      onChange={(event) => setValue(event.target.value)}
     />
   )
 }

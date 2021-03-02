@@ -1,14 +1,14 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnMessageBox } from '../MessageBox';
-import './MessageBox_theme_default.scss';
+import { cnMessageBox } from "../MessageBox";
+import "./MessageBox_theme_default.scss";
 
 export type MessageBoxThemeDefaultProps = {
-    theme?: 'default';
+    theme?: "default";
 };
 
 /**
  * Модификатор, отвечающий за внешний вид компонента.
  * @param {MessageBoxThemeDefaultProps} props
  */
-export const withThemeDefault = withBemMod<MessageBoxThemeDefaultProps>(cnMessageBox(), { theme: 'default' });
+export const withThemeDefault = withBemMod<MessageBoxThemeDefaultProps>(cnMessageBox(), { theme: "default" });

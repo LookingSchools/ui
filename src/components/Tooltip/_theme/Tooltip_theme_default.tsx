@@ -1,17 +1,17 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnTooltip } from '../Tooltip';
-import './Tooltip_theme_default.scss';
+import { cnTooltip } from "../Tooltip";
+import "./Tooltip_theme_default.scss";
 
-export type TooltipViewDefaultProps = {
+export type TooltipThemeDefaultProps = {
     /**
      * Стилевое оформление тултипа.
      */
-    theme?: 'default';
+    theme?: "default";
 };
 
 /**
  * Модификатор, отвечающий за внешний вид тултипа.
- * @param {TooltipViewDefaultProps} props
+ * @param {TooltipThemeDefaultProps} props
  */
-export const withViewDefault = withBemMod<TooltipViewDefaultProps>(cnTooltip(), { view: 'default' });
+export const withThemeDefault = withBemMod<TooltipThemeDefaultProps>(cnTooltip(), { theme: "default" });

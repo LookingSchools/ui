@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 
-import { usePreventScroll } from '.';
-import { Button } from '../Button/Button.bundle';
+import { usePreventScroll } from ".";
+import { Button } from "../Button/Button.bundle";
 
 export default {
     title: "usePreventScrolle",
@@ -51,7 +51,7 @@ export const Playground = () => {
         <>
             <style>{styles}</style>
             <Button theme="default" size="m" onClick={toggle}>
-                {enabled ? 'Разблокировать scroll' : 'Заблокировать scroll'}
+                {enabled ? "Разблокировать scroll" : "Заблокировать scroll"}
             </Button>
             <div ref={containerRef} className="scrollable">
                 {content}

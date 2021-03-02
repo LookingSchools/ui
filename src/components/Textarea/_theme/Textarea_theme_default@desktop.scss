@@ -1,0 +1,14 @@
+/* hover */
+/* TODO: Усиливаем селектор для ie11 (оторвать после */
+.Textarea_theme_default.Textarea_hovered .Textarea-Box[class] {
+    border-color: rgba(38, 49, 129, .3);
+    background-color: #fff;
+}
+
+.Textarea_theme_default .Textarea-Clear.Textarea-Clear:hover {
+    color: #000;
+}
+
+.Textarea_theme_default.Textarea_hovered.Textarea_state_error .Textarea-Box {
+    border-color: #f33;
+}

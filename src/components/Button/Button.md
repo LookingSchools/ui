@@ -7,13 +7,13 @@
 ## Пример вызова
 
 ```js
-import React from 'react'
-import { compose } from '@bem-react/core'
+import React from "react"
+import { compose } from "@bem-react/core"
 import {
   Button as ButtonBase,
   withThemeSecondary,
   withSizeM,
-} from '@lookingschools/ui/Button'
+} from "@lookingschools/ui/Button"
 
 // Композиция из различных модификаторов
 const Button = compose(withThemeSecondary, withSizeM)(ButtonBase)
@@ -36,7 +36,7 @@ const App = () => <Button theme="default" size="m" children="Button" />
 
 Задает стилевое оформление кнопки.
 
-**Допустимые значения:** `"default"`, `"action"`, `"secondary"`.
+**Допустимые значения:** `"default"`, `"primary"`, `"secondary"`, `"tretiary"`.
 
 {{%story::desktop:lookingschools-components-button-desktop--theme%}}
 

@@ -1,4 +1,4 @@
-import React, { FC, RefObject, ChangeEventHandler, KeyboardEventHandler } from "react";
+import React, { FC, Ref, ChangeEventHandler, KeyboardEventHandler } from "react";
 
 import { cnCheckbox } from "../Checkbox";
 import "./Checkbox-Control.scss";
@@ -7,7 +7,7 @@ export interface ICheckboxControlProps {
     /**
      * Ссылка на DOM элемент нативного инпута
      */
-    controlRef?: RefObject<HTMLInputElement>;
+    controlRef?: Ref<HTMLInputElement>;
 
     /**
      * Дополнительный класс
@@ -23,11 +23,6 @@ export interface ICheckboxControlProps {
      * Имя компонента
      */
     name?: string;
-
-    /**
-     * HTML-атрибут `autoComplete`
-     */
-    autoComplete?: string;
 
     /**
      * HTML атрибут `disabled`
@@ -53,11 +48,24 @@ export interface ICheckboxControlProps {
      * Обработчик события `onKeyDown`
      */
     onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
+
+    /**
+     * Целое число, определяющее должен ли переключатель участвовать
+     * в последовательной навигации по всей странице с помощью клавиатуры
+     */
+    tabIndex?: number;
+
+    /**
+     * Устанавливает в компоненте обязательное состояние
+     */
+    required?: boolean;
 }
 
-export const CheckboxControl: FC<ICheckboxControlProps> = ({ controlRef, className, ...props }) => (
+export const CheckboxControl: FC<ICheckboxControlProps> = ({ controlRef, className, tabIndex, required, ...props }) => (
     <input
         {...props}
+        tabIndex={tabIndex}
+        required={required}
         // Отключаем autoComplete, чтобы в FireFox
         // не сохранялось значение при перезагрузке страницы.
         autoComplete="off"

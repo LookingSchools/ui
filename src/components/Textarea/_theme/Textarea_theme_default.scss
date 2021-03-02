@@ -57,19 +57,6 @@
     background-color: rgba(38, 49, 129, .15);
 }
 
-.Textarea_theme_default.Textarea_hovered .Textarea-Box[class] {
-    border-color: rgba(38, 49, 129, .3);
-    background-color: #fff;
-}
-
-.Textarea_theme_default .Textarea-Clear.Textarea-Clear:hover {
-    color: #000;
-}
-
-.Textarea_theme_default.Textarea_hovered.Textarea_state_error .Textarea-Box {
-    border-color: #f33;
-}
-
 /* focus */
 .Textarea.Textarea_theme_default.Textarea_focused .Textarea-Box {
     border-color: rgba(38, 49, 129, .7);

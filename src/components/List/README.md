@@ -9,29 +9,29 @@
 ### Компонент
 
 ```typescript jsx
-import React from 'react';
-import { List, ListItem } from '@lookingschools/ui/List';
+import React from "react"
+import { List, ListItem } from "@lookingschools/ui/List"
 
 const App: React.FC = () => {
-    return  (
-        <List>
-            <ListItem>Распродажи</ListItem>
-            <ListItem>Новинки</ListItem>
-            <ListItem>Выйти</ListItem>
-        </List>
-    );
-};
+  return (
+    <List>
+      <ListItem>Распродажи</ListItem>
+      <ListItem>Новинки</ListItem>
+      <ListItem>Выйти</ListItem>
+    </List>
+  )
+}
 ```
 
 ### Скелетон
 
 ```typescript jsx
-import React from 'react';
-import { ListSkeleton } from '@lookingschools/ui/List';
+import React from "react"
+import { ListSkeleton } from "@lookingschools/ui/List"
 
 const App: React.FC = () => {
-    return <ListSkeleton count={6} />;
-};
+  return <ListSkeleton count={6} />
+}
 ```
 
 ## Примеры
@@ -63,8 +63,8 @@ const App: React.FC = () => {
 
 ### Компонент
 
-| Переменная                         | Тип          | Описание                                                  |
-| ---------------------------------- | ------------ | --------------------------------------------------------- |
+| Переменная                        | Тип          | Описание                                                  |
+| --------------------------------- | ------------ | --------------------------------------------------------- |
 | $list-line-separator-color        | `color`      | Цвет разделяющей элементы линии по умолчанию              |
 | $list-item-margin                 | `px`         | Расстояние между двумя соседними элементами               |
 | $list-item-icon-content-margin    | `px`         | Минимальное расстояние между иконкой и содержимым         |
@@ -79,8 +79,8 @@ const App: React.FC = () => {
 
 ### Скелетон
 
-| Переменная                  | Тип  | Описание                                        |
-| --------------------------- | ---- | ----------------------------------------------- |
+| Переменная                 | Тип  | Описание                                        |
+| -------------------------- | ---- | ----------------------------------------------- |
 | $list-skeleton-item-margin | `px` | Расстояние между соседними элементами скелетона |
 | $list-skeleton-item-height | `px` | Высота элемента скелетона                       |
 
@@ -100,67 +100,68 @@ const App: React.FC = () => {
 ### Пример использования
 
 ```typescript jsx
-import React from 'react';
-import { List, ListItem, SeparatorMode } from '@lookingschools/ui/List';
+import React from "react"
+import { List, ListItem, SeparatorMode } from "@lookingschools/ui/List"
 
 const App: React.FC = () => {
-    return  (
-        <List>
-            <ListItem
-                linkComponent={({ children }) => <a href="https://yandex.ru" target="_blank">{children}</a>}
-                hasArrow
-                separatorMode={SeparatorMode.content}
-            >
-                Яндекс
-            </ListItem>
+  return (
+    <List>
+      <ListItem
+        linkComponent={({ children }) => (
+          <a href="https://yandex.ru" target="_blank">
+            {children}
+          </a>
+        )}
+        hasArrow
+        separatorMode={SeparatorMode.content}
+      >
+        Яндекс
+      </ListItem>
 
-            <ListItem
-                className="city-button"
-                icon={<img src="/city.png" alt="city" />}
-                onClick={() => console.log('City clicked!')}
-            >
-                Москва<br/>
-                Выбрать город
-            </ListItem>
+      <ListItem
+        className="city-button"
+        icon={<img src="/city.png" alt="city" />}
+        onClick={() => console.log("City clicked!")}
+      >
+        Москва
+        <br />
+        Выбрать город
+      </ListItem>
 
-            <ListItem
-                end={<input type="checkbox" />}
-            >
-                Получать рассылку
-            </ListItem>
-        </List>
-    );
-};
+      <ListItem end={<input type="checkbox" />}>Получать рассылку</ListItem>
+    </List>
+  )
+}
 ```
 
 #### Пример использования со ссылкой из `react-router-dom`
 
 ```typescript jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { List, ListItem, SeparatorMode } from '@lookingschools/ui/List';
+import React from "react"
+import { Link } from "react-router-dom"
+import { List, ListItem, SeparatorMode } from "@lookingschools/ui/List"
 
 const App: React.FC = () => {
-    return  (
-        <List>
-            <ListItem
-                linkComponent={({ children }) => <Link to="/sales">{children}</Link>}
-                hasArrow
-                separatorMode={SeparatorMode.content}
-            >
-                Распродажи
-            </ListItem>
+  return (
+    <List>
+      <ListItem
+        linkComponent={({ children }) => <Link to="/sales">{children}</Link>}
+        hasArrow
+        separatorMode={SeparatorMode.content}
+      >
+        Распродажи
+      </ListItem>
 
-            <ListItem
-                linkComponent={({ children }) => <Link to="/new">{children}</Link>}
-                hasArrow
-                separatorMode={SeparatorMode.content}
-            >
-                Новинки
-            </ListItem>
-        </List>
-    );
-};
+      <ListItem
+        linkComponent={({ children }) => <Link to="/new">{children}</Link>}
+        hasArrow
+        separatorMode={SeparatorMode.content}
+      >
+        Новинки
+      </ListItem>
+    </List>
+  )
+}
 ```
 
 ### Свойства
@@ -178,8 +179,8 @@ const App: React.FC = () => {
 
 ```typescript jsx
 enum SeparatorMode {
-    none = 'none', // разделителя нет
-    full = 'full', // разделитель на всю ширину
-    content = 'content', // разделитель начинается после иконки
+  none = "none", // разделителя нет
+  full = "full", // разделитель на всю ширину
+  content = "content", // разделитель начинается после иконки
 }
 ```

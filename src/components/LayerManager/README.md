@@ -1,17 +1,18 @@
 # LayerManager (Internal)
 
-
 <!-- description:start -->
+
 Компонент реализующий закрытие всплывающих компонентов,
 таких как `Popup`, `Modal`, `Tooltip` и `MessageBox` в нужном порядке,
 по умолчанию используется внутри `Popup`.
+
 <!-- description:end -->
 
 ## Использование
 
 ```tsx
-import React, { useRef, useState } from 'react'
-import { LayerManager } from '@lookingschools/ui/LayerManager'
+import React, { useRef, useState } from "react"
+import { LayerManager } from "@lookingschools/ui/LayerManager"
 
 const App = () => {
   const hostRef = useRef(null)
@@ -40,10 +41,12 @@ const App = () => {
 ## Свойства
 
 <!-- props:start -->
+
 | Свойство      | Тип                                                                                                                                                                                                                                                               | Описание                                                                                    |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | visible?      | `false \| true`                                                                                                                                                                                                                                                   | Видимость слоя                                                                              |
 | onClose?      | `(event: KeyboardEvent \| MouseEvent, source: "esc" \| "click") => void`                                                                                                                                                                                          | Обработчик, вызывающийся после нажатия на клавишу esc либо мышкой на область вне контейнера |
 | children      | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | Содержимое слоя                                                                             |
 | essentialRefs | `RefObject<HTMLElement>[]`                                                                                                                                                                                                                                        | Список ссылок на DOM-узлы в рамках которых не нужно отслеживать нажатия                     |
+
 <!-- props:end -->

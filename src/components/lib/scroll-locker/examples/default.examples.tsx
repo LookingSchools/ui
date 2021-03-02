@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import * as ScrollLocker from '../ScrollLocker';
-import { Button } from '../../../Button/Button.bundle';
+import * as ScrollLocker from "../ScrollLocker";
+import { Button } from "../../../Button/Button.bundle";
 
 const styles = `
     .scrollable {
@@ -42,7 +42,7 @@ export class Default extends React.Component {
             {
                 enabled: !this.state.enabled,
             },
-            this.toggleScrollLock,
+            this.toggleScrollLock
         );
     };
 
@@ -66,7 +66,7 @@ export class Default extends React.Component {
             <>
                 <style>{styles}</style>
                 <Button theme="default" size="m" onClick={this.toggle}>
-                    {enabled ? 'Разблокировать scroll' : 'Заблокировать scroll'}
+                    {enabled ? "Разблокировать scroll" : "Заблокировать scroll"}
                 </Button>
                 <div ref={this.containerRef} className="scrollable">
                     {content}

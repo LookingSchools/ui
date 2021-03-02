@@ -1,7 +1,7 @@
 import React, { Component, RefObject, ComponentClass, createRef } from "react";
 import { cn } from "@bem-react/classname";
 
-import { Omit, Defaultize } from "../../typings/utility-types";
+import { Omit, Defaultize } from "../typings/utility-types";
 import { mergeRefs } from "../lib/mergeRefs";
 import { ColorBoxBox as Box } from "./Box/ColorBox-Box";
 import { Typography } from "../Typography/Typography.bundle";

@@ -6,13 +6,10 @@
 
 .Checkbox {
     font-family: $font-default;
-    cursor: pointer;
     user-select: none;
     white-space: nowrap; /* 1 */
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    touch-action: manipulation;
-}
 
-.Checkbox_disabled {
-    cursor: default;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    touch-action: manipulation;
 }

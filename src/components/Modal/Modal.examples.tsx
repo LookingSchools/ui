@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { Modal } from "./Modal.bundle";
-import { Button } from '../Button/Button.bundle';
+import { Button } from "../Button/Button.bundle";
 
 export default {
     title: "Modal",
@@ -23,11 +23,11 @@ export const Playground = () => {
                 Открыть
             </Button>
             <Modal theme="default" scope={scopeRef} visible={visible} onClose={() => setVisible(false)}>
-                <div style={{ padding: 16, fontFamily: 'Roboto', width: 400 }}>
+                <div style={{ padding: 16, fontFamily: "Roboto", width: 400 }}>
                     <div style={{ marginBottom: 16 }}>
                         Общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом.
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end" }}>
                         <Button theme="clear" size="m" onClick={() => setVisible(false)}>
                             Отменить
                         </Button>
@@ -46,7 +46,6 @@ Playground.story = {
 };
 
 export const Theme = () => {
-
     const scopeRef = useRef<HTMLDivElement>(null);
 
     return (

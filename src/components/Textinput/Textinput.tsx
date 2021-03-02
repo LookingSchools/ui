@@ -8,20 +8,20 @@ import React, {
     useCallback,
     useRef,
     MouseEventHandler,
-} from 'react';
-import { useComponentRegistry } from '@bem-react/di';
-import { cn } from '@bem-react/classname';
+} from "react";
+import { useComponentRegistry } from "@bem-react/di";
+import { cn } from "@bem-react/classname";
 
-import { RenderOverride, useRenderOverride } from '../lib/render-override';
-import { useUniqId } from '../useUniqId';
-import { useUpdateEffect } from '../useUpdateEffect';
-import { IWithControlProps, withControl } from '../withControl/withControl';
-import { IIconProps } from '../Icon/Icon';
-import { ITextinputControlProps } from './Control/Textinput-Control';
-import { ITextinputRegistry } from './Textinput.registry';
+import { RenderOverride, useRenderOverride } from "../lib/render-override";
+import { useUniqId } from "../useUniqId";
+import { useUpdateEffect } from "../useUpdateEffect";
+import { IWithControlProps, withControl } from "../withControl/withControl";
+import { IIconProps } from "../Icon/Icon";
+import { ITextinputControlProps } from "./Control/Textinput-Control";
+import { ITextinputRegistry } from "./Textinput.registry";
 import "./Textinput.scss";
 
-export const cnTextinput = cn('Textinput');
+export const cnTextinput = cn("Textinput");
 
 export interface ITextinputProps extends ITextinputControlProps, IWithControlProps<HTMLInputElement> {
     /**
@@ -91,7 +91,7 @@ export interface ITextinputProps extends ITextinputControlProps, IWithControlPro
      * Визуальное состояние компонента.
      * Может использоваться при проверке формы на корректность.
      */
-    state?: 'error';
+    state?: "error";
 
     /**
      * Всплывающая подсказка
@@ -124,8 +124,6 @@ const TextinputPresenter: FC<ITextinputProps> = ({
     // FIXME: https://github.com/bem/bem-react/issues/381
     pressed: _pressed,
     // @ts-ignore
-    view: _view,
-    // @ts-ignore
     pin: _pin,
     // @ts-ignore
     size: _size,
@@ -143,7 +141,7 @@ const TextinputPresenter: FC<ITextinputProps> = ({
     const [hint, setHint] = useState(htmlHint);
     const [hintLeave, setHintLeave] = useState(false);
     const prevHint = useRef(htmlHint);
-    const hintId = useUniqId('hint');
+    const hintId = useUniqId("hint");
 
     useUpdateEffect(() => {
         if (htmlHint) {
@@ -156,7 +154,7 @@ const TextinputPresenter: FC<ITextinputProps> = ({
 
     const onAnimationEnd = useCallback(() => {
         if (!htmlHint) {
-            setHint('');
+            setHint("");
             setHintLeave(false);
         }
     }, [htmlHint]);
@@ -171,7 +169,7 @@ const TextinputPresenter: FC<ITextinputProps> = ({
                     iconLeft: iconLeft !== undefined,
                     state,
                 },
-                [className],
+                [className]
             )}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
@@ -184,7 +182,7 @@ const TextinputPresenter: FC<ITextinputProps> = ({
             {iconRight && <Icon side="right" component={iconRight} />}
             <Control
                 {...props}
-                aria-invalid={state === 'error'}
+                aria-invalid={state === "error"}
                 disabled={disabled}
                 aria-describedby={hint ? hintId : undefined}
             />

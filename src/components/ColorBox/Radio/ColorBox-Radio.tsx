@@ -35,6 +35,11 @@ export interface IColorBoxRadioProps extends IWithControlProps<HTMLLabelElement>
      * Неактивное состояние всей группы переключетелей
      */
     disabled?: boolean;
+
+    /**
+     * Состояние, которое возникает при наведении на компонент курсором
+     */
+    hovered?: boolean;
 }
 
 export const ColorBoxRadio = withControl(

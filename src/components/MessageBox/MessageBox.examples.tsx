@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react';
-import { withKnobs, select, boolean, radios, text } from '@storybook/addon-knobs';
-import { Button } from '../Button/Button.bundle';
-import { Spin } from '../Spin/Spin.bundle';
-import { Progress } from '../Progress';
-import { MessageBox, Wrapper, Corner, MessageBoxPopup } from './desktop/bundle';
-import { Direction } from '../Popup/desktop/bundle';
+import React, { useRef, useState } from "react";
+import { withKnobs, select, boolean, radios, text } from "@storybook/addon-knobs";
+import { Button } from "../Button/Button.bundle";
+import { Spin } from "../Spin/Spin.bundle";
+import { Progress } from "../Progress";
+import { MessageBox, Wrapper, Corner, MessageBoxPopup } from "./desktop/bundle";
+import { Direction } from "../Popup/desktop/bundle";
 
 export default {
     title: "MessageBox",
@@ -17,54 +17,54 @@ export default {
 };
 
 const addonOptions = {
-    empty: '',
-    text: 'text',
-    icon: 'icon',
+    empty: "",
+    text: "text",
+    icon: "icon",
 };
 
 const backgroundOptions = {
-    empty: '',
-    image: 'image',
-    progress: 'progress',
+    empty: "",
+    image: "image",
+    progress: "progress",
 };
 
 const backgroundOptionToJsx = {
-    empty: '',
+    empty: "",
     image: (
         <picture>
             <img
-                style={{ filter: 'opacity(.5)', width: '100%' }}
+                style={{ filter: "opacity(.5)", width: "100%" }}
                 src="//jing.yandex-team.ru/files/axaxaman/catalogue-banner-x3.jpeg"
             />
         </picture>
     ),
-    progress: <Progress style={{ height: '100%', backgroundColor: '#2196f3' }} value={0.65} />,
+    progress: <Progress style={{ height: "100%", backgroundColor: "#2196f3" }} value={0.65} />,
 };
 
 export const Playground = () => {
-    const children = text('children', 'MessageBox-Content');
-    const size = select('size', ['s', 'm', 'l'], 's') as any;
-    const opaque = boolean('opaque', false);
-    const actionClear = boolean('with clear button', false);
-    const action = boolean('with action button', false);
-    const hasClose = boolean('has close', false);
+    const children = text("children", "MessageBox-Content");
+    const size = select("size", ["s", "m", "l"], "s") as any;
+    const opaque = boolean("opaque", false);
+    const actionClear = boolean("with clear button", false);
+    const action = boolean("with action button", false);
+    const hasClose = boolean("has close", false);
 
-    const leadingRadio = radios('leading', addonOptions, null);
-    const leading = leadingRadio === 'icon' ? <Spin theme="primary" size="s" progress /> : leadingRadio;
-    const trailingRadio = radios('trailing', addonOptions, null);
-    const trailing = trailingRadio === 'icon' ? <Spin theme="primary" size="s" progress /> : trailingRadio;
-    const backgroundRadio = radios('background', backgroundOptions, 'empty');
+    const leadingRadio = radios("leading", addonOptions, null);
+    const leading = leadingRadio === "icon" ? <Spin theme="primary" size="s" progress /> : leadingRadio;
+    const trailingRadio = radios("trailing", addonOptions, null);
+    const trailing = trailingRadio === "icon" ? <Spin theme="primary" size="s" progress /> : trailingRadio;
+    const backgroundRadio = radios("background", backgroundOptions, "empty");
     const background = (backgroundOptionToJsx as any)[backgroundRadio];
 
-    const theme = select('theme', ['default', 'promo', 'inverse'], 'default') as any;
-    const align = select('align', ['left', 'right', 'center'], 'left');
-    let layout = select('layout', ['tooltip', 'plain', 'functional'], 'tooltip');
-    if (hasClose && layout === 'tooltip') {
-        layout = 'plain';
+    const theme = select("theme", ["default", "promo", "inverse"], "default") as any;
+    const align = select("align", ["left", "right", "center"], "left");
+    let layout = select("layout", ["tooltip", "plain", "functional"], "tooltip");
+    if (hasClose && layout === "tooltip") {
+        layout = "plain";
     }
 
     return (
-        <div style={{ padding: '50px', backgroundColor: '#000' }}>
+        <div style={{ padding: "50px", backgroundColor: "#000" }}>
             <MessageBox
                 theme={theme}
                 size={size}
@@ -100,7 +100,7 @@ Playground.story = {
 };
 
 export const Buttons = () => (
-    <div style={{ padding: '16px' }}>
+    <div style={{ padding: "16px" }}>
         <MessageBox
             onClose={() => null}
             theme="default"
@@ -127,14 +127,14 @@ Buttons.story = {
 
 export const Complex = () => (
     <>
-        <div style={{ padding: '16px' }}>
+        <div style={{ padding: "16px" }}>
             <MessageBox
                 size="l"
                 theme="default"
                 onClose={() => {}}
                 background={
                     <img
-                        style={{ filter: 'opacity(.5)', width: '100%' }}
+                        style={{ filter: "opacity(.5)", width: "100%" }}
                         src="//jing.yandex-team.ru/files/axaxaman/catalogue-banner-x3.jpeg"
                     />
                 }
@@ -154,7 +154,7 @@ Complex.story = {
 };
 
 export const Corners = () => (
-    <div style={{ padding: '16px' }}>
+    <div style={{ padding: "16px" }}>
         <MessageBox
             theme="default"
             size="l"
@@ -185,7 +185,7 @@ Corners.story = {
 
 export const Layout = () => (
     <>
-        <div style={{ padding: '16px' }}>
+        <div style={{ padding: "16px" }}>
             <MessageBox
                 theme="default"
                 size="m"
@@ -208,12 +208,12 @@ export const Layout = () => (
                 Жмите сюда, скорей
             </MessageBox>
         </div>
-        <div style={{ padding: '16px' }}>
+        <div style={{ padding: "16px" }}>
             <MessageBox theme="default" size="m" layout="tooltip">
                 Пометить письмо как важное <i key="i">Shift + l</i>
             </MessageBox>
         </div>
-        <div style={{ padding: '16px' }}>
+        <div style={{ padding: "16px" }}>
             <MessageBox
                 theme="default"
                 size="m"
@@ -242,7 +242,7 @@ Layout.story = {
 
 export const Size = () => (
     <>
-        <div style={{ padding: '16px' }}>
+        <div style={{ padding: "16px" }}>
             <MessageBox
                 onClose={() => null}
                 theme="default"
@@ -258,7 +258,7 @@ export const Size = () => (
                 Новый раздел с вашими покупками
             </MessageBox>
         </div>
-        <div style={{ padding: '16px' }}>
+        <div style={{ padding: "16px" }}>
             <MessageBox
                 onClose={() => null}
                 theme="default"
@@ -274,7 +274,7 @@ export const Size = () => (
                 Новая почта <b>squorax@gmail.com</b> привязана к вашему аккаунту
             </MessageBox>
         </div>
-        <div style={{ padding: '16px' }}>
+        <div style={{ padding: "16px" }}>
             <MessageBox
                 onClose={() => null}
                 theme="default"
@@ -300,7 +300,7 @@ Size.story = {
 
 export const Theme = () => (
     <>
-        <div style={{ backgroundColor: '#fff', padding: '16px' }}>
+        <div style={{ backgroundColor: "#fff", padding: "16px" }}>
             <MessageBox
                 onClose={() => null}
                 theme="default"
@@ -319,7 +319,7 @@ export const Theme = () => (
                 Новая почта с классными темами теперь для вас!
             </MessageBox>
         </div>
-        <div style={{ backgroundColor: '#000', padding: '16px' }}>
+        <div style={{ backgroundColor: "#000", padding: "16px" }}>
             <MessageBox
                 onClose={() => null}
                 theme="inverse"
@@ -338,7 +338,7 @@ export const Theme = () => (
                 Новая почта с классными темами теперь для вас!
             </MessageBox>
         </div>
-        <div style={{ backgroundColor: '#fff', padding: '16px' }}>
+        <div style={{ backgroundColor: "#fff", padding: "16px" }}>
             <MessageBox
                 onClose={() => null}
                 theme="promo"
@@ -394,7 +394,7 @@ Text.story = {
     name: "text",
 };
 
-const DIRECTIONS: Direction[] = ['top', 'right', 'bottom', 'left'];
+const DIRECTIONS: Direction[] = ["top", "right", "bottom", "left"];
 
 export const WithPopup = () => {
     const anchorRef = useRef<HTMLDivElement>(null);
@@ -428,15 +428,15 @@ export const WithPopup = () => {
     const hidePopupArr = [hideTopCenterPopup, hideRightCenterPopup, hideBottomCenterPopup, hideLeftCenterPopup];
 
     return (
-        <div style={{ margin: 64, display: 'flex', justifyContent: 'center' }}>
+        <div style={{ margin: 64, display: "flex", justifyContent: "center" }}>
             <div
                 style={{
-                    background: '#e6e6e6',
+                    background: "#e6e6e6",
                     height: 60,
                     width: 180,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                     borderRadius: 3,
                 }}
                 ref={anchorRef}

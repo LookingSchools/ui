@@ -40,6 +40,8 @@ import { withGlyphHelp } from "../_glyph/Icon_glyph_help";
 import { withGlyphLike } from "../_glyph/Icon_glyph_like";
 import { withGlyphCreateCourse } from "../_glyph/Icon_glyph_create-course";
 import { withGlyphAuthenticAccount } from "../_glyph/Icon_glyph_authentic-account";
+import { withGlyphTypeTick } from "../_glyph/Icon_glyph_type-tick";
+import { withGlyphTypeIndeterminate } from "../_glyph/Icon_glyph_type-indeterminate";
 
 // social
 import { withSocialYouTube } from "../_social/Icon_social_youtube";
@@ -88,6 +90,8 @@ export interface IIconProps extends IIconBaseProps {
         | "like"
         | "share"
         | "comment"
+        | "type-tick"
+        | "type-indeterminate"
         | "create-course";
 
     social?: "youtube" | "vk" | "telegram" | "rss" | "twitter" | "github" | "facebook" | "instagram";
@@ -130,7 +134,9 @@ export const Icon = compose(
         withGlyphComment,
         withGlyphSchool,
         withGlyphShare,
-        withGlyphCreateCourse
+        withGlyphCreateCourse,
+        withGlyphTypeTick,
+        withGlyphTypeIndeterminate
     ),
     composeU(
         withSocialYouTube,

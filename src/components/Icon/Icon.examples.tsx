@@ -20,6 +20,8 @@ const allIcons = [
     "cross",
     "sort",
     "info",
+    "type-indeterminate",
+    "type-tick",
     "authentic-account",
     "tick",
     "check",

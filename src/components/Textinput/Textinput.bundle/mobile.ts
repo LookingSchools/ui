@@ -5,6 +5,7 @@ import {
 } from '../Textinput@mobile';
 import { withDebounceInput } from '../../withDebounceInput';
 // _size
+import { withSizeL } from '../_size/Textinput_size_l';
 import { withSizeM } from '../_size/Textinput_size_m';
 import { withSizeS } from '../_size/Textinput_size_s';
 // _theme
@@ -27,7 +28,7 @@ export * from '../Textinput@mobile';
 
 export const Textinput = compose(
     withDebounceInput,
-    composeU(withSizeM, withSizeS),
+    composeU(withSizeL, withSizeM, withSizeS),
     composeU(withThemeDefault,withThemeSearch),
     composeU(
         composeU(

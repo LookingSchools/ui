@@ -1,14 +1,12 @@
 import { FC } from "react";
 import { compose, IClassNameProps } from "@bem-react/core";
-import { Modal as ModalBase } from "../../Modal/Modal";
-import { IModalThemeDefaultProps, withThemeDefault } from "../../Modal/_theme/Modal_theme_default";
 
-import { withOutsideClick, IWithOutsideClickProps } from "../../withOutsideClick/withOutsideClick";
+import { Modal as ModalDesktop, withThemeDefault, IModalProps, IModalThemeDefaultProps } from "../../Modal/desktop";
 import { withZIndex } from "../../withZIndex";
 
 import "./Gallery-Modal.scss";
 
-export interface IGalleryModalProps extends IWithOutsideClickProps, IModalThemeDefaultProps, IClassNameProps {
+export interface IGalleryModalProps extends IModalProps, IModalThemeDefaultProps, IClassNameProps {
     /**
      * Уровень слоев `z-index` для компонент.
      *
@@ -24,4 +22,4 @@ export interface IGalleryModalProps extends IWithOutsideClickProps, IModalThemeD
     hasAnimation?: boolean;
 }
 
-export const GalleryModal: FC<IGalleryModalProps> = compose(withThemeDefault, withOutsideClick, withZIndex)(ModalBase);
+export const GalleryModal: FC<IGalleryModalProps> = compose(withThemeDefault, withZIndex)(ModalDesktop);

@@ -1,17 +1,17 @@
-import { withBemMod } from '@bem-react/core';
+import { withBemMod } from "@bem-react/core";
 
-import { cnTooltip } from '../Tooltip';
-import './Tooltip_size_l.scss';
+import { cnTooltip } from "../Tooltip";
+import "./Tooltip_size_l.scss";
 
 export type TooltipSizeLProps = {
     /**
      * Размер тултипа.
      */
-    size?: 'l';
+    size?: "l";
 };
 
 /**
  * Модификатор, отвечающий за размер тултипа.
  * @param {TooltipSizeLProps} props
  */
-export const withSizeL = withBemMod<TooltipSizeLProps>(cnTooltip(), { size: 'l' });
+export const withSizeL = withBemMod<TooltipSizeLProps>(cnTooltip(), { size: "l" });

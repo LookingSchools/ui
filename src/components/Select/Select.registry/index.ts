@@ -1,6 +1,6 @@
 import { ComponentType, CSSProperties, FocusEventHandler } from 'react';
 
-import { Omit } from '../../../typings/utility-types';
+import { Omit } from '../../typings/utility-types';
 import { IButtonProps, ContainerElement } from '../../Button/Button';
 import { IButtonWidthMaxProps } from '../../Button/_width/Button_width_max';
 import { IIconProps } from '../../Icon/Icon';
@@ -13,6 +13,7 @@ import { IMenuWidthMaxProps } from '../../Menu/_width/Menu_width_max';
 interface ITriggerEnhancedProps extends IButtonProps, IButtonWidthMaxProps {
     size?: string;
     theme?: string;
+    view?: string;
     role?: string;
     style?: CSSProperties;
     onBlur?: FocusEventHandler<ContainerElement>;
@@ -25,11 +26,13 @@ export interface IIconEnhancedProps extends IIconProps {
 
 interface IPopupEnhancedProps extends IPopupProps, IPopupTargetAnchorProps, IWithOutsideClickProps {
     theme?: string;
+    view?: string;
 }
 
 interface IMenuEnhancedProps extends Omit<IMenuProps, 'size' | 'width'>, IMenuWidthMaxProps {
     size?: string;
     theme?: string;
+    view?: string;
 }
 
 export interface ISelectRegistry {

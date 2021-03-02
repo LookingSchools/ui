@@ -9,16 +9,16 @@
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { Select } from '@lookingschools/ui/Suggest'
+import React, { useState } from "react"
+import { Select } from "@lookingschools/ui/Suggest"
 
 const App = () => {
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState("")
 
   return (
     <>
       <Suggest
-        data={['Каждый', 'Охотник', 'Желает', 'Знать', 'Где', 'Сидит', 'Фазан']}
+        data={["Каждый", "Охотник", "Желает", "Знать", "Где", "Сидит", "Фазан"]}
         value={value}
         onChange={setValue}
       />
@@ -33,21 +33,21 @@ const App = () => {
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { Select } from '@lookingschools/ui/Suggest'
+import React, { useState } from "react"
+import { Select } from "@lookingschools/ui/Suggest"
 
 const App = () => {
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState("")
   const [loading, setLoading] = React.useState(false)
   const [data, setData] = React.useState<string[]>([])
 
   React.useEffect(() => {
-    if (value === '') {
+    if (value === "") {
       setData([])
     } else if (data.length === 0) {
       setLoading(true)
-      fetchData().then(response => {
-        setData(response.map(value => value.name))
+      fetchData().then((response) => {
+        setData(response.map((value) => value.name))
         setLoading(false)
       })
     }

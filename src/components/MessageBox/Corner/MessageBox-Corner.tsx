@@ -1,28 +1,28 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnMessageBox } from '../MessageBox';
-import './MessageBox-Corner.scss';
+import { cnMessageBox } from "../MessageBox";
+import "./MessageBox-Corner.scss";
 
 export type MessageBoxCornerProps = {
-    side: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+    side: "bottom-left" | "bottom-right" | "top-left" | "top-right";
     width: number;
     height?: number;
 };
 
 const sidePositionCalc = {
-    'bottom-left': (width: number, height: number) => ({
+    "bottom-left": (width: number, height: number) => ({
         left: -Math.floor(width / 3),
         bottom: -Math.floor(height / 3),
     }),
-    'bottom-right': (width: number, height: number) => ({
+    "bottom-right": (width: number, height: number) => ({
         right: -Math.floor(width / 3),
         bottom: -Math.floor(height / 3),
     }),
-    'top-left': (width: number, height: number) => ({
+    "top-left": (width: number, height: number) => ({
         left: -Math.floor(width / 3),
         top: -Math.floor(height / 3),
     }),
-    'top-right': (width: number, height: number) => ({
+    "top-right": (width: number, height: number) => ({
         right: -Math.floor(width / 3),
         top: -Math.floor(height / 3),
     }),
@@ -39,7 +39,7 @@ export const MessageBoxCorner: FC<MessageBoxCornerProps> = ({ children, side, wi
     };
 
     return (
-        <span className={cnMessageBox('Corner')} style={style}>
+        <span className={cnMessageBox("Corner")} style={style}>
             {children}
         </span>
     );

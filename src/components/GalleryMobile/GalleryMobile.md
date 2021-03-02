@@ -10,13 +10,13 @@
 ## Пример использования
 
 ```typescript jsx
-import React, { FC } from 'react'
-import { GalleryMobile } from '@lookingschools/ui/GalleryMobile'
+import React, { FC } from "react"
+import { GalleryMobile } from "@lookingschools/ui/GalleryMobile"
 
 const items = [
-  { src: 'image1-1x.png', srcSet: 'image1-2x.png' },
-  { src: 'image2-1x.png', srcSet: 'image2-2x.png' },
-  { src: 'image3-1x.png', srcSet: 'image3-2x.png' },
+  { src: "image1-1x.png", srcSet: "image1-2x.png" },
+  { src: "image2-1x.png", srcSet: "image2-2x.png" },
+  { src: "image3-1x.png", srcSet: "image3-2x.png" },
 ]
 
 const MyComponent: FC = () => {
@@ -29,8 +29,8 @@ const MyComponent: FC = () => {
 ### Скелетон
 
 ```typescript jsx
-import React, { FC } from 'react'
-import { GalleryMobileSkeleton } from '@lookingschools/ui/GalleryMobile'
+import React, { FC } from "react"
+import { GalleryMobileSkeleton } from "@lookingschools/ui/GalleryMobile"
 
 const App: FC = () => {
   return <GalleryMobileSkeleton className="my-GalleryMobile" />

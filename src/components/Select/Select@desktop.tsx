@@ -10,17 +10,18 @@ import React, {
 } from "react";
 import { withRegistry, ComponentRegistryConsumer } from "@bem-react/di";
 
-import { Defaultize } from "../../typings/utility-types";
+import { Defaultize } from "../typings/utility-types";
 import { Keys, isKeyCode } from "../lib/keyboard";
 import { mergeAllRefs } from "../lib/mergeRefs";
 import { RenderOverride, RenderOverrideProvider } from "../lib/render-override";
-import { Direction, DrawingParams } from "../Popup/Popup";
+import { Direction } from "../Popup";
 import { ChangeEvent } from "../Menu/Menu";
+import { applyMaxHeight, applyMinWidth } from "../usePopper";
 import { ISelectRegistry, selectRegistry } from "./Select.registry/desktop";
 import { ISelectProps as ISelectCommonProps, Select as SelectCommon, cnSelect } from "./Select";
 import { toGroupOptions } from "./Select.hocs/withNativeControl";
 
-const POPUP_DIRECTIONS: Direction[] = ["bottom-left", "bottom-right", "top-left", "top-right"];
+const POPUP_DIRECTIONS: Direction[] = ["bottom-start", "bottom-end", "top-start", "top-end"];
 
 export interface ISelectProps extends ISelectCommonProps {
     /**
@@ -31,7 +32,7 @@ export interface ISelectProps extends ISelectCommonProps {
     /**
      * Ссылка на DOM-элемент, в котором размещается попап.
      *
-     * Важно, чтобы контейнер имел `position: relative` для корректного позициоинирования.
+     * Важно, чтобы контейнер имел `position: relative` для корректного позиционирования.
      *
      * @default innerRef
      */
@@ -63,18 +64,12 @@ type SelectProps = Defaultize<ISelectProps, DefaultProps>;
 const SelectPresenter = class extends PureComponent<SelectProps> {
     static displayName = `${cnSelect()}@desktop`;
 
-    readonly state = { popupMinWidth: 0, maxMenuHeight: this.props.maxHeight, activeDescendant: undefined };
-    private drawingParams: DrawingParams[] = [];
+    readonly state = { activeDescendant: undefined };
 
     /**
      * Контейнер с ссылкой на корневой DOM элемент селекта.
      */
     private readonly innerRef = createRef<HTMLSpanElement>();
-
-    /**
-     * Контейнер с ссылкой на корневой DOM элемент меню.
-     */
-    private readonly menuRef = createRef<HTMLDivElement>();
 
     /**
      * Контейнер с ссылкой на корневой DOM элемент select.
@@ -94,7 +89,7 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
     /**
      * Флаг, предотвращающий закрытие меню после клика в скроллбар (нужен исключительно для ie11).
      *
-     * @see
+     * @see https://st.yandex-team.ru/ISL-7610
      */
     private preventClosable = false;
 
@@ -114,22 +109,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
         } else if (prevProps.opened && !this.props.opened) {
             this.unsubscribeFromEvents();
         }
-
-        const isChangeOpened = !prevProps.opened && this.props.opened;
-        const inChangeValue =
-            Array.isArray(this.props.value) &&
-            Array.isArray(prevProps.value) &&
-            prevProps.value.length !== this.props.value.length;
-
-        if (isChangeOpened || inChangeValue) {
-            this.setPopupMinWidth();
-        }
-
-        if (this.drawingParams) {
-            // нужно для расчета максимальной высоты
-            // this.menuRef доступен уже после рендера menu в DOM
-            requestAnimationFrame(() => this.setMenuMaxHeight());
-        }
     }
 
     render() {
@@ -140,15 +119,13 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
             options,
             popupRef,
             size,
+            theme,
             unsafe_scope = this.innerRef,
             value,
-            theme,
             renderControl = false,
             renderMenu,
             ...props
         } = this.props;
-        const { popupMinWidth, maxMenuHeight } = this.state;
-        const popupMainOffset = theme ? 2 : 5;
 
         return (
             <ComponentRegistryConsumer id={cnSelect()}>
@@ -184,22 +161,27 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
                                         )}
                                         <Popup
                                             target="anchor"
-                                            anchor={this.innerRef}
+                                            anchor={this.triggerRef}
                                             className={cnSelect("Popup")}
-                                            directions={POPUP_DIRECTIONS}
-                                            mainOffset={popupMainOffset}
-                                            style={{ minWidth: popupMinWidth }}
+                                            direction={POPUP_DIRECTIONS}
                                             theme={theme}
                                             visible={opened}
                                             innerRef={mergeAllRefs(this.popupRef, this.props.popupRef)}
                                             onClose={this.onClosePopup}
-                                            getPossibleDrawingParams={this.onGetPossibleDrawingParams}
                                             scope={unsafe_scope}
+                                            modifiers={[
+                                                applyMinWidth,
+                                                {
+                                                    ...applyMaxHeight,
+                                                    options: {
+                                                        maxHeight: this.props.maxHeight,
+                                                    },
+                                                },
+                                            ]}
                                         >
                                             <Menu
                                                 width="max"
                                                 className={cnSelect("Menu")}
-                                                style={{ maxHeight: maxMenuHeight }}
                                                 focused={opened}
                                                 items={options}
                                                 onChange={this.onMenuChange}
@@ -207,7 +189,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
                                                 size={size}
                                                 theme={theme}
                                                 value={value}
-                                                innerRef={this.menuRef}
                                             />
                                         </Popup>
                                         {addonAfter}
@@ -245,7 +226,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
 
         if (popupNode !== null && popupNode.contains(event.target as HTMLElement)) {
             this.preventClosable = true;
-            event.preventDefault();
         }
     };
 
@@ -347,43 +327,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
         if (this.preventClosable) {
             this.preventClosable = false;
         }
-    };
-
-    private setPopupMinWidth() {
-        const triggerNode = this.triggerRef.current;
-
-        if (triggerNode !== null) {
-            // Получаем размеры триггера в следующем тике,
-            // т.к. в нем могут быть изменения влияющие на его размер.
-            requestAnimationFrame(() => {
-                this.setState({ popupMinWidth: triggerNode.clientWidth });
-            });
-        }
-    }
-
-    private setMenuMaxHeight = () => {
-        if (this.menuRef.current === null) {
-            return;
-        }
-
-        let bestHeight = 0;
-        const { width: menuWidth } = this.menuRef.current.getBoundingClientRect();
-
-        this.drawingParams.forEach((params) => {
-            if (params.width >= menuWidth && params.height > bestHeight) {
-                bestHeight = params.height;
-            }
-        });
-
-        if (bestHeight > 0) {
-            this.setState({
-                maxMenuHeight: this.props.maxHeight ? Math.min(this.props.maxHeight, bestHeight) : bestHeight,
-            });
-        }
-    };
-
-    private onGetPossibleDrawingParams = (drawingParams: DrawingParams[]) => {
-        this.drawingParams = drawingParams;
     };
 } as ComponentClass<ISelectProps>;
 

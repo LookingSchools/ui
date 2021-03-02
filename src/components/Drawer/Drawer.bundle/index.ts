@@ -2,7 +2,7 @@ import { compose } from '@bem-react/core';
 
 // base
 import { Drawer as DrawerTouchPhone } from '../Drawer';
-// _view
+// _theme
 import { withThemeDefault } from '../_theme/Drawer_theme_default';
 
 export * from '../Drawer';

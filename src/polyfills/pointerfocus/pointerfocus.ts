@@ -1,4 +1,4 @@
-import { canUseDOM } from '../../lib/canUseDOM';
+import { canUseDOM } from '../../components/lib/canUseDOM';
 
 class PointerFocus {
     private timeoutId: number;

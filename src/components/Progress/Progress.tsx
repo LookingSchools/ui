@@ -1,7 +1,7 @@
-import React, { FC, RefObject, CSSProperties } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, RefObject, CSSProperties } from "react";
+import { cn } from "@bem-react/classname";
 
-import './Progress.scss';
+import "./Progress.scss";
 
 export interface IProgressProps {
     /**
@@ -18,7 +18,7 @@ export interface IProgressProps {
     /**
      * Способ CSS-анимации при изменении ширины полосы загрузки
      */
-    timing?: 'linear';
+    timing?: "linear";
 
     /**
      * Ссылка на корневой DOM-элемент компонента
@@ -36,7 +36,7 @@ export interface IProgressProps {
     className?: string;
 }
 
-export const cnProgress = cn('Progress');
+export const cnProgress = cn("Progress");
 
 /**
  * Компонент для создания полосы прогресса.
@@ -55,7 +55,7 @@ export const Progress: FC<IProgressProps> = ({
 
     return (
         <div {...props} ref={innerRef} className={cnProgress({ timing }, [className])} style={{ ...style }}>
-            <div className={cnProgress('Inner')} style={{ width }} />
+            <div className={cnProgress("Inner")} style={{ width }} />
         </div>
     );
 };

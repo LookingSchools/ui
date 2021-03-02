@@ -1,7 +1,7 @@
 import React, { RefObject, FC } from "react";
 import { cn } from "@bem-react/classname";
 
-import { Nullable } from "../../typings/utility-types";
+import { Nullable } from "../typings/utility-types";
 import { ITabsPanesPaneProps, TabsPanesPane } from "./Pane/TabsPanes-Pane";
 
 export interface ITabsPanesProps {

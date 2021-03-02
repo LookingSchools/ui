@@ -27,7 +27,7 @@
       "dom"
     ],
     "jsx": "react",
-    "target": "es3",
+    "target": "es5",
     "declaration": true,
     "allowJs": false,
     "sourceMap": false,

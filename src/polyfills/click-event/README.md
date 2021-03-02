@@ -15,5 +15,5 @@ Safari Mobile 7.0+ (и, вероятно, более ранние версии �
 
 ```tsx
 // src/components/Component/Component@touch-phone.tsx
-import '../../polyfills/click-event'
+import "../../polyfills/click-event"
 ```

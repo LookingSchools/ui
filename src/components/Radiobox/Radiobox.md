@@ -6,18 +6,18 @@
 
 ```js
 // src/App.ts
-import React, { useState } from 'react'
-import { compose } from '@bem-react/core'
+import React, { useState } from "react"
+import { compose } from "@bem-react/core"
 import {
   Radiobox as RadioboxBase,
   withSizeM,
   withThemeDefault,
-} from '@lookingschools/ui/Radiobox/'
+} from "@lookingschools/ui/Radiobox/"
 
 const Radiobox = compose(withSizeM, withThemeDefault)(RadioboxBase)
 
 const App = () => {
-  const [value, setValue] = useState('value1')
+  const [value, setValue] = useState("value1")
 
   return (
     <Radiobox
@@ -25,11 +25,11 @@ const App = () => {
       theme="default"
       value={value}
       options={[
-        { label: 'Радио 1', value: 'value1' },
-        { label: 'Радио 2', value: 'value2' },
-        { label: 'Радио 3', value: 'value3' },
+        { label: "Радио 1", value: "value1" },
+        { label: "Радио 2", value: "value2" },
+        { label: "Радио 3", value: "value3" },
       ]}
-      onChange={event => setValue(event.target.value)}
+      onChange={(event) => setValue(event.target.value)}
     />
   )
 }

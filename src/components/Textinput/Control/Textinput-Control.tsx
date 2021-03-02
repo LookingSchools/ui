@@ -1,13 +1,13 @@
-import React, { FC, Ref, ChangeEventHandler, MouseEventHandler, KeyboardEventHandler, FocusEventHandler } from 'react';
+import React, { FC, Ref, ChangeEventHandler, MouseEventHandler, KeyboardEventHandler, FocusEventHandler } from "react";
 
-import { cnTextinput } from '../Textinput';
-import './Textinput-Control.scss';
+import { cnTextinput } from "../Textinput";
+import "./Textinput-Control.scss";
 
 export interface ITextinputControlProps {
     /**
      * HTML-атрибут `inputmode`
      */
-    inputMode?: 'decimal' | 'numeric' | 'text' | 'url' | 'email' | 'search' | 'tel';
+    inputMode?: "decimal" | "numeric" | "text" | "url" | "email" | "search" | "tel";
 
     /**
      * Ссылка на DOM элемент нативного инпута
@@ -147,7 +147,7 @@ export interface ITextinputControlProps {
 }
 
 export const TextinputControl: FC<ITextinputControlProps> = ({
-    autoComplete = 'off',
+    autoComplete = "off",
     autoFocus,
     className,
     controlRef,
@@ -178,7 +178,7 @@ export const TextinputControl: FC<ITextinputControlProps> = ({
         {...props}
         autoComplete={autoComplete}
         autoFocus={autoFocus}
-        className={cnTextinput('Control', null, [className])}
+        className={cnTextinput("Control", null, [className])}
         // @ts-ignore
         defaultValue={defaultValue}
         disabled={disabled}

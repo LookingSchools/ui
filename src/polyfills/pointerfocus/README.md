@@ -15,7 +15,7 @@
 
 ```tsx
 // src/components/Component/Component.tsx
-import '../../polyfills/pointerfocus'
+import "../../polyfills/pointerfocus"
 ```
 
 2. Описать набор необходимых стилей для фокуса:

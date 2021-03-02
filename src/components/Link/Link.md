@@ -6,9 +6,9 @@
 
 ```js
 // src/App.ts
-import React from 'react'
-import { compose } from '@bem-react/core'
-import { Link as LinkBase, withThemeDefault } from '@lookingschools/ui/Link'
+import React from "react"
+import { compose } from "@bem-react/core"
+import { Link as LinkBase, withThemeDefault } from "@lookingschools/ui/Link"
 
 // Композиция из различных модификаторов
 const Link = compose(withThemeDefault)(LinkBase)

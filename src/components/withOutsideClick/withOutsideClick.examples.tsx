@@ -1,7 +1,8 @@
-import React, { RefObject, useState, createRef } from 'react';
+import React, { RefObject, useState, createRef } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
-import { withOutsideClick } from '.';
-import { Button } from '../Button/Button.bundle';
+
+import { withOutsideClick } from ".";
+import { Button } from "../Button/Button.bundle";
 
 export default {
     title: "withOutsideClick",
@@ -18,11 +19,11 @@ const ComponentWithOutsideClick = withOutsideClick(({ visible, targetRef, ...pro
         {visible && (
             <div
                 style={{
-                    backgroundColor: 'lightgray',
-                    borderRadius: '4px',
-                    lineHeight: '70px',
-                    width: '100px',
-                    textAlign: 'center',
+                    backgroundColor: "lightgray",
+                    borderRadius: "4px",
+                    lineHeight: "70px",
+                    width: "100px",
+                    textAlign: "center",
                 }}
                 ref={targetRef as RefObject<HTMLDivElement>}
                 {...props}
@@ -38,17 +39,11 @@ export const Playground = () => {
 
     return (
         <>
-            <Button
-                theme="default"
-                size="m"
-                onClick={() => setVisible((prev) => !prev)}
-            >
+            <Button theme="default" size="m" onClick={() => setVisible((prev) => !prev)}>
                 Click
-            </Button> <br /> <br />
-            <ComponentWithOutsideClick
-                visible={visible}
-                onOutsideClick={() => setVisible(false)}
-            />
+            </Button>{" "}
+            <br /> <br />
+            <ComponentWithOutsideClick visible={visible} onOutsideClick={() => setVisible(false)} />
         </>
     );
 };
@@ -62,17 +57,11 @@ export const Esc = () => {
 
     return (
         <>
-            <Button
-                theme="default"
-                size="m"
-                onClick={() => setVisible((prev) => !prev)}
-            >
+            <Button theme="default" size="m" onClick={() => setVisible((prev) => !prev)}>
                 Click
-            </Button> <br /> <br />
-            <ComponentWithOutsideClick
-                visible={visible}
-                onEscapeKeyDown={() => setVisible(false)}
-            />
+            </Button>{" "}
+            <br /> <br />
+            <ComponentWithOutsideClick visible={visible} onEscapeKeyDown={() => setVisible(false)} />
         </>
     );
 };
@@ -89,26 +78,18 @@ export const Ignore = () => {
 
     return (
         <div>
-            <Button
-                theme="default"
-                size="m"
-                onClick={() => setVisible((prev) => !prev)}
-                innerRef={targetRef}
-            >
+            <Button theme="default" size="m" onClick={() => setVisible((prev) => !prev)} innerRef={targetRef}>
                 Click
-            </Button> &nbsp;
-            <Button
-                theme="default"
-                size="m"
-            >
+            </Button>{" "}
+            &nbsp;
+            <Button theme="default" size="m">
                 Ignore button
-            </Button> &nbsp;
-            <Button
-                theme="default"
-                size="m"
-            >
+            </Button>{" "}
+            &nbsp;
+            <Button theme="default" size="m">
                 Ignore button
-            </Button> <br /> <br />
+            </Button>{" "}
+            <br /> <br />
             <ComponentWithOutsideClick
                 visible={visible}
                 onOutsideClick={() => setVisible(false)}

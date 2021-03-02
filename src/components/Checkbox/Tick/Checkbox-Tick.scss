@@ -10,3 +10,19 @@
 .Checkbox_checked .Checkbox-Tick {
     visibility: visible;
 }
+
+/* classic design */
+.Checkbox_theme_normal .Checkbox-Tick,
+.Checkbox_theme_pseudo .Checkbox-Tick {
+    background: 50% no-repeat;
+}
+
+.Checkbox_theme_normal.Checkbox_size_m .Checkbox-Tick,
+.Checkbox_theme_pseudo.Checkbox_size_m .Checkbox-Tick {
+    background-image: url('Checkbox-Tick.assets/tick-m.svg');
+}
+
+.Checkbox_theme_normal.Checkbox_size_s .Checkbox-Tick,
+.Checkbox_theme_pseudo.Checkbox_size_s .Checkbox-Tick {
+    background-image: url('Checkbox-Tick.assets/tick-s.svg');
+}

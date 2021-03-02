@@ -1,24 +1,24 @@
-import React, { FC } from 'react';
-import { ExtractProps } from '@bem-react/core';
-import { useComponentRegistry } from '@bem-react/di';
+import React, { FC } from "react";
+import { ExtractProps } from "@bem-react/core";
+import { useComponentRegistry } from "@bem-react/di";
 
-import { MessageBox, MessageBoxProps, cnMessageBox } from './MessageBox';
-import { MessageBoxRegistry } from './MessageBox.registry/interface';
+import { MessageBox, MessageBoxProps, cnMessageBox } from "./MessageBox";
+import { MessageBoxRegistry } from "./MessageBox.registry/interface";
 
 type PopupProps = Pick<
-    ExtractProps<MessageBoxRegistry['Popup']>,
-    | 'visible'
-    | 'anchor'
-    | 'scope'
-    | 'mainOffset'
-    | 'secondaryOffset'
-    | 'motionless'
-    | 'tailOffset'
-    | 'viewportOffset'
-    | 'onClose'
-    | 'onClick'
-    | 'zIndex'
-    | 'direction'
+    ExtractProps<MessageBoxRegistry["Popup"]>,
+    | "visible"
+    | "anchor"
+    | "scope"
+    | "mainOffset"
+    | "secondaryOffset"
+    | "motionless"
+    | "tailOffset"
+    | "viewportOffset"
+    | "onClose"
+    | "onClick"
+    | "zIndex"
+    | "direction"
 >;
 
 export type MessageBoxPopupProps = MessageBoxProps & PopupProps;

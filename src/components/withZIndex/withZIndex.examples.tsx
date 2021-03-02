@@ -1,8 +1,8 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 
-import { withZIndex } from './withZIndex';
-import { Button } from '../Button/Button.bundle';
+import { withZIndex } from "./withZIndex";
+import { Button } from "../Button/Button.bundle";
 
 export default {
     title: "withZIndex",
@@ -17,9 +17,9 @@ export default {
 const Component: FC<any> = ({ zIndex, innerRef, top, left, bgColor, style, ...rest }) => (
     <div
         style={{
-            width: '50px',
-            height: '50px',
-            position: 'absolute',
+            width: "50px",
+            height: "50px",
+            position: "absolute",
             top,
             left,
             backgroundColor: bgColor,
@@ -45,7 +45,7 @@ export const Playground = () => {
 
     return (
         <>
-            <div style={{ position: 'relative', float: 'left' }}>
+            <div style={{ position: "relative", float: "left" }}>
                 <ComponentWithZIndex1
                     top={-10}
                     left={80}

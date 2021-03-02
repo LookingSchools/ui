@@ -4,7 +4,7 @@ import { compose } from '@bem-react/core';
 // Registry dependencies
 import { Button } from '../../Button/Button.bundle';
 import { Icon } from '../../Icon/Icon.bundle';
-import { withTogglable } from '../../../hocs/withTogglable/withTogglable';
+import { withTogglable } from '../../withTogglable/withTogglable';
 
 // base
 import { Select as SelectMobile, cnSelect } from '../Select@mobile';

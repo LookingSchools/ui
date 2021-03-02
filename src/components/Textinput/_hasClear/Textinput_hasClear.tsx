@@ -1,10 +1,10 @@
-import React, { PureComponent, createRef, MouseEventHandler, MouseEvent } from 'react';
-import { withBemMod } from '@bem-react/core';
-import { ComponentRegistryConsumer } from '@bem-react/di';
+import React, { PureComponent, createRef, MouseEventHandler, MouseEvent } from "react";
+import { withBemMod } from "@bem-react/core";
+import { ComponentRegistryConsumer } from "@bem-react/di";
 
-import { mergeAllRefs } from '../../lib/mergeRefs';
-import { ITextinputRegistry } from './Textinput_hasClear.registry';
-import { ITextinputProps, cnTextinput } from '../Textinput';
+import { mergeAllRefs } from "../../lib/mergeRefs";
+import { ITextinputRegistry } from "./Textinput_hasClear.registry";
+import { ITextinputProps, cnTextinput } from "../Textinput";
 
 export interface ITextinputHasClearProps {
     /**
@@ -26,11 +26,6 @@ export interface ITextinputHasClearProps {
      * @internal
      */
     size?: string;
-
-    /**
-     * @internal
-     */
-    view?: string;
 }
 
 /**
@@ -69,7 +64,6 @@ export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>
                                                 onMouseDown={this.onMouseDown}
                                                 size={this.props.size}
                                                 theme={this.props.theme}
-                                                view={this.props.view}
                                                 visible={Boolean(this.props.value)}
                                             />
                                             {addonBefore}
@@ -99,7 +93,7 @@ export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>
                         syntheticEvent.target = this.controlRef.current;
                         syntheticEvent.currentTarget = this.controlRef.current;
 
-                        this.controlRef.current.value = '';
+                        this.controlRef.current.value = "";
 
                         this.props.onChange(syntheticEvent);
                         // Восстанавливаем предыдущее значение на тот случай,
@@ -112,5 +106,5 @@ export const withHasClear = withBemMod<ITextinputHasClearProps, ITextinputProps>
                     this.props.onClearClick(event);
                 }
             };
-        },
+        }
 );

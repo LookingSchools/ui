@@ -9,15 +9,15 @@ import React, {
     useRef,
     MouseEventHandler,
     useEffect,
-} from 'react';
-import { createPortal } from 'react-dom';
+} from "react";
+import { createPortal } from "react-dom";
 import { PopupTail as Tail } from "./Tail/Popup-Tail";
-import { cn } from '@bem-react/classname';
+import { cn } from "@bem-react/classname";
 
-import { canUseDOM } from '../lib/canUseDOM';
-import { mergeAllRefs } from '../lib/mergeRefs';
-import { OnClose, LayerManager } from '../LayerManager/LayerManager';
-import './Popup.scss';
+import { canUseDOM } from "../lib/canUseDOM";
+import { mergeAllRefs } from "../lib/mergeRefs";
+import { OnClose, LayerManager } from "../LayerManager/LayerManager";
+import "./Popup.scss";
 
 export interface IPopupProps {
     /**
@@ -122,7 +122,7 @@ export interface IPopupProps {
     onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-export const cnPopup = cn('Popup');
+export const cnPopup = cn("Popup");
 
 /**
  * Компонент для создания всплывающего окна (попапа).
@@ -179,7 +179,7 @@ export const Popup: FC<IPopupProps> = ({
                 onClick={onClick}
             >
                 {addonBefore}
-                {typeof children === 'function' ? children({ tailRef }) : children}
+                {typeof children === "function" ? children({ tailRef }) : children}
                 {addonAfter}
                 {unstable_onRenderTail &&
                     unstable_onRenderTail(<Tail ref={tailRef} style={{ height: tailSize, width: tailSize }} />)}
@@ -188,7 +188,7 @@ export const Popup: FC<IPopupProps> = ({
                 )}
             </div>
         </LayerManager>,
-        scope.current,
+        scope.current
     );
 };
 

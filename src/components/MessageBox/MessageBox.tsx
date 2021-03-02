@@ -1,13 +1,13 @@
-import React, { FC, ReactNode, MouseEventHandler, Ref, RefObject } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { FC, ReactNode, MouseEventHandler, Ref, RefObject } from "react";
+import { cn } from "@bem-react/classname";
 
-import { MessageBoxClose as Close } from './Close/MessageBox-Close';
-import { MessageBoxButtons as Buttons } from './Buttons/MessageBox-Buttons';
-import { MessageBoxTail as Tail } from './Tail/MessageBox-Tail';
-import './MessageBox.scss';
+import { MessageBoxClose as Close } from "./Close/MessageBox-Close";
+import { MessageBoxButtons as Buttons } from "./Buttons/MessageBox-Buttons";
+import { MessageBoxTail as Tail } from "./Tail/MessageBox-Tail";
+import "./MessageBox.scss";
 
-export { MessageBoxCorner as Corner, MessageBoxCornerProps } from './Corner/MessageBox-Corner';
-export { MessageBoxTextWrap as Wrapper, MessageBoxTextWrapProps } from './TextWrap/MessageBox-TextWrap';
+export { MessageBoxCorner as Corner, MessageBoxCornerProps } from "./Corner/MessageBox-Corner";
+export { MessageBoxTextWrap as Wrapper, MessageBoxTextWrapProps } from "./TextWrap/MessageBox-TextWrap";
 
 export type MessageBoxProps = {
     /**
@@ -45,7 +45,7 @@ export type MessageBoxProps = {
      *
      * @default 'plain'
      */
-    layout?: 'tooltip' | 'plain' | 'functional';
+    layout?: "tooltip" | "plain" | "functional";
 
     /**
      * Ссылка на корневой DOM-элемент компонента
@@ -67,10 +67,10 @@ export type MessageBoxProps = {
      *
      * @default 'default'
      */
-    tailType?: 'default' | 'rounded';
+    tailType?: "default" | "rounded";
 };
 
-export const cnMessageBox = cn('MessageBox');
+export const cnMessageBox = cn("MessageBox");
 
 /**
  * Визуальный компонент для уведомлений, плашек и других паттернов.
@@ -84,18 +84,18 @@ export const MessageBox: FC<MessageBoxProps> = ({
     corner,
     hasTail,
     innerRef,
-    layout = 'plain',
+    layout = "plain",
     onClose,
     opaque,
     tailRef,
-    tailType = 'default',
+    tailType = "default",
 }) => (
     <div className={cnMessageBox({ opaque, layout, hasClose: Boolean(onClose) }, [className])} ref={innerRef}>
-        <div className={cnMessageBox('Backdrop')}>
+        <div className={cnMessageBox("Backdrop")}>
             {hasTail && <Tail innerRef={tailRef} tailType={tailType} />}
-            {background && <div className={cnMessageBox('Background')}>{background}</div>}
+            {background && <div className={cnMessageBox("Background")}>{background}</div>}
         </div>
-        <div className={cnMessageBox('Content')}>
+        <div className={cnMessageBox("Content")}>
             {children}
             {onClose && <Close onClick={onClose} />}
         </div>
@@ -104,4 +104,4 @@ export const MessageBox: FC<MessageBoxProps> = ({
     </div>
 );
 
-MessageBox.displayName = 'MessageBox';
+MessageBox.displayName = "MessageBox";

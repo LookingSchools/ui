@@ -1,20 +1,24 @@
 # Checkbox
 
+<!-- description:start -->
+
 Компонент для создания чекбоксов различных типов.
+
+<!-- description:end -->
 
 ## Пример использования
 
-Использование компонента:
+Использование с нужным набором модификаторов:
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { compose } from '@bem-react/core'
+import React, { useState } from "react"
+import { compose } from "@bem-react/core"
 import {
   Checkbox as CheckboxDesktop,
   withSizeM,
   withThemeDefault,
-} from '@lookingschools/ui/Checkbox'
+} from "@lookingschools/ui/Checkbox/desktop"
 
 // Композиция из различных модификаторов
 const Checkbox = compose(withSizeM, withThemeDefault)(CheckboxDesktop)
@@ -34,33 +38,63 @@ const App = () => {
 }
 ```
 
+Использование с полным набором модификаторов:
+
+```ts
+// src/App.ts
+import React, { useState } from "react"
+import { Checkbox } from "@lookingschools/ui/Checkbox/desktop/bundle"
+
+const App = () => {
+  const [checked, setChecked] = useState(false)
+
+  return (
+    <Checkbox
+      label="checkbox"
+      size="m"
+      theme="default"
+      onChange={() => setChecked(!checked)}
+      checked={checked}
+    />
+  )
+}
+```
+
 ## Примеры
-
-### Вид
-
-Чтобы изменить вид чекбокса, используйте модификатор `_theme`.
-
-{{%story::desktop:lego-components-checkbox-desktop--theme%}}
 
 ### Стилевое оформление
 
-Чтобы изменить стилевое оформление чекбокса, используйте модификатор `_theme`.
+Чтобы изменить стилевое оформление чекбокса, установите свойство `theme` в одно из указанных ниже значений.
 
-{{%story::desktop:lego-components-checkbox-desktop--theme%}}
+- `default` — стандартная тема, используется в большинстве случаев.
+- `pseudo` — прозрачная тема, используется, чтобы сделать переключатель менее заметным на странице.
+
+{{%story::desktop:controls-checkbox-desktop--theme%}}
 
 ### Размер
 
-Чтобы изменить размер чекбокса, используйте модификатор `_size`.
+Чтобы изменить размер чекбокса, установите свойство `size` в одно из следующих значений: `"m"`, `"s"`.
 
-{{%story::desktop:lego-components-checkbox-desktop--size%}}
+{{%story::desktop:controls-checkbox-desktop--size%}}
 
 ### Однострочные и многострочные подписи
 
-Чтобы задать тип подписи чекбоксу, используйте модификатор `_lines`.
+Чтобы задать тип подписи чекбоксу, установите свойство `lines` в одно из указанных ниже значений.
 
-{{%story::desktop:lego-components-checkbox-desktop--lines%}}
+- `one` — однострочная подпись. Обрезается многоточием, если ее длина превышает длину родительского элемента.
+- `multi` — многострочная подпись.
+
+{{%story::desktop:controls-checkbox-desktop--lines%}}
+
+### Переходное состояние
+
+Чтобы задать переходное состояние чекбоксу, установите свойство `indeterminate` в значение `true`.
+
+{{%story::desktop:controls-checkbox-desktop--indeterminate%}}
 
 ## Свойства
+
+<!-- props:start -->
 
 | Свойство       | Тип                                                                                                                                                                                                                                                               | Описание                                                                                                                                                                                                                                                                                                                                                                        |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -90,3 +124,9 @@ const App = () => {
 | onKeyDown?     | `(event: KeyboardEvent<HTMLInputElement>) => void`                                                                                                                                                                                                                | Обработчик события `onKeyDown`                                                                                                                                                                                                                                                                                                                                                  |
 | tabIndex?      | `number`                                                                                                                                                                                                                                                          | Целое число, определяющее, должен ли переключатель участвовать в последовательной навигации по всей странице с помощью клавиатуры                                                                                                                                                                                                                                               |
 | required?      | `false \| true`                                                                                                                                                                                                                                                   | Устанавливает в компоненте обязательное состояние                                                                                                                                                                                                                                                                                                                               |
+
+<!-- props:end -->
+
+## a11y
+
+Чтобы обеспечить доступность, при использовании свойства `indeterminate` необходимо добавить в свойство `aria-controls` все `id` дочерних элементов.

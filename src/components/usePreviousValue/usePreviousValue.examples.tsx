@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 
-import { usePreviousValue } from '.';
-import { Button } from '../Button/Button.bundle';
+import { usePreviousValue } from ".";
+import { Button } from "../Button/Button.bundle";
 
 export default {
     title: "usePreviousValue",
@@ -25,8 +25,7 @@ export const Playground = () => {
 
     return (
         <>
-            Текущее значение: {count}. &nbsp;
-            Предыдущее значение: {prevCount}. &nbsp;
+            Текущее значение: {count}. &nbsp; Предыдущее значение: {prevCount}. &nbsp;
             <Button theme="primary" size="m" onClick={() => setCount((prev) => prev + 1)}>
                 +
             </Button>
@@ -38,7 +37,6 @@ Playground.story = {
     name: "playground",
 };
 
-
 export const Rerender = () => {
     const [count, setCount] = useState(0);
     const prevCount = usePreviousValue(count);
@@ -47,11 +45,11 @@ export const Rerender = () => {
 
     return (
         <>
-            Текущее значение: {count}. &nbsp;
-            Предыдущее значение: {prevCount}. &nbsp;
+            Текущее значение: {count}. &nbsp; Предыдущее значение: {prevCount}. &nbsp;
             <Button theme="primary" size="m" onClick={() => setCount((prev) => prev + 1)}>
                 +
-            </Button> &nbsp;
+            </Button>{" "}
+            &nbsp;
             <Button theme="primary" size="m" onClick={forceUpdate}>
                 Ререндер
             </Button>

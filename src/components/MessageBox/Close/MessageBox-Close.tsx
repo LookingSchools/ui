@@ -1,16 +1,16 @@
-import React, { FC, MouseEventHandler } from 'react';
+import React, { FC, MouseEventHandler } from "react";
 
-import { cnMessageBox } from '../MessageBox';
-import './MessageBox-Close.scss';
+import { cnMessageBox } from "../MessageBox";
+import "./MessageBox-Close.scss";
 
 export type MessageBoxCloseProps = {
     onClick: MouseEventHandler<HTMLButtonElement>;
     closeText?: string;
 };
 
-export const MessageBoxClose: FC<MessageBoxCloseProps> = ({ closeText = 'Закрыть', onClick }) => {
+export const MessageBoxClose: FC<MessageBoxCloseProps> = ({ closeText = "Закрыть", onClick }) => {
     return (
-        <button className={cnMessageBox('Close')} onClick={onClick} type="button" aria-label={closeText}>
+        <button className={cnMessageBox("Close")} onClick={onClick} type="button" aria-label={closeText}>
             {/* TODO: Save as assets and require here with svgo optimization. */}
             <svg viewBox="0 0 16 16">
                 <path

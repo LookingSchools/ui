@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 
-import { withControl } from '.';
-import { Typography } from '../Typography/Typography.bundle';
-import { Button } from '../Button/Button.bundle';
+import { withControl } from ".";
+import { Typography } from "../Typography/Typography.bundle";
+import { Button } from "../Button/Button.bundle";
 
 export default {
     title: "useUniqId",
@@ -17,19 +17,19 @@ export default {
 
 const Component = (props: any) => (
     <Button {...props} theme="primary" size="m">
-        {' '}
-        Button{' '}
+        {" "}
+        Button{" "}
     </Button>
 );
 const EnhancedComponent = withControl(Component);
 
 export const Playground = () => {
-    const [curState, setCurState] = useState('No state');
+    const [curState, setCurState] = useState("No state");
 
-    const handleBlur = () => setCurState('Handle blur');
-    const handleFocus = () => setCurState('Handle focus');
-    const handleMouseDown = () => setCurState('Handle mouse down');
-    const handleMouseUp = () => setCurState('Handle mouse up');
+    const handleBlur = () => setCurState("Handle blur");
+    const handleFocus = () => setCurState("Handle focus");
+    const handleMouseDown = () => setCurState("Handle mouse down");
+    const handleMouseUp = () => setCurState("Handle mouse up");
 
     return (
         <>
@@ -38,7 +38,7 @@ export const Playground = () => {
                 onFocus={handleFocus}
                 onMouseDown={handleMouseDown}
                 onMouseUp={handleMouseUp}
-            />{' '}
+            />{" "}
             &nbsp;
             <Typography> {curState} </Typography>
         </>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { DebounceInput } from 'react-debounce-input';
+import React from "react";
+import { DebounceInput } from "react-debounce-input";
 
 export type PropConstraints<TEventTarget> = {
     value?: any;
@@ -30,20 +30,14 @@ export type Debounced = {
      * @default true
      */
     forceNotifyOnBlur?: boolean;
-}
+};
 
 const noop = () => null;
 
-export const withDebounceInput = function <
-    TEventTarget,
-    TProps extends PropConstraints<TEventTarget>
->(
-    Input: React.ComponentType<TProps>,
+export const withDebounceInput = function <TEventTarget, TProps extends PropConstraints<TEventTarget>>(
+    Input: React.ComponentType<TProps>
 ): React.ComponentType<Debounced & TProps> {
     return ({ onChange = noop, debounceTimeout = 0, ...props }: Debounced & TProps) => (
-        <DebounceInput<TEventTarget, any>
-            element={Input}
-            {...{ onChange, debounceTimeout, ...props }}
-        />
+        <DebounceInput<TEventTarget, any> element={Input} {...{ onChange, debounceTimeout, ...props }} />
     );
 };

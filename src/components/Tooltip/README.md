@@ -1,7 +1,9 @@
 # Tooltip
 
 <!-- description:start -->
+
 Компонент, использующийся для создания всплывающих подсказок.
+
 <!-- description:end -->
 
 ## Пример использования
@@ -10,18 +12,15 @@
 
 ```ts
 // src/App.ts
-import React from 'react'
-import { compose } from '@bem-react/core'
+import React from "react"
+import { compose } from "@bem-react/core"
 import {
   Tooltip as TooltipDesktop,
   withSizeM,
   withViewDefault,
-} from '@lookingschools/ui/Tooltip/desktop'
+} from "@lookingschools/ui/Tooltip/desktop"
 
-const Tooltip = compose(
-  withSizeM,
-  withViewDefault,
-)(TooltipDesktop)
+const Tooltip = compose(withSizeM, withViewDefault)(TooltipDesktop)
 
 const App = () => {
   const [visible, setVisible] = React.useState(false)
@@ -36,7 +35,7 @@ const App = () => {
       >
         Target
       </button>
-      <Tooltip view="default" size="m" anchor={buttonRef} visible={visible}>
+      <Tooltip theme="default" size="m" anchor={buttonRef} visible={visible}>
         Description
       </Tooltip>
     </>
@@ -50,8 +49,8 @@ const App = () => {
 
 ```ts
 // src/App.ts
-import React from 'react'
-import { Tooltip } from '@lookingschools/ui/Tooltip/desktop/bundle'
+import React from "react"
+import { Tooltip } from "@lookingschools/ui/Tooltip/desktop/bundle"
 
 const App = () => {
   const [visible, setVisible] = React.useState(false)
@@ -66,7 +65,7 @@ const App = () => {
       >
         Target
       </button>
-      <Tooltip view="default" size="m" anchor={buttonRef} visible={visible}>
+      <Tooltip theme="default" size="m" anchor={buttonRef} visible={visible}>
         Description
       </Tooltip>
     </>
@@ -77,14 +76,12 @@ const App = () => {
 При использовании компонента `stateful` достаточно обернуть любой react-элемент в `TooltipStateful` и задать описание в `content`.
 
 ```ts
-import React from 'react'
-import { TooltipStateful } from '@lookingschools/ui/Tooltip/desktop/bundle'
+import React from "react"
+import { TooltipStateful } from "@lookingschools/ui/Tooltip/desktop/bundle"
 
 const App = () => (
-  <TooltipStateful view="default" size="m" content="Description">
-    <button>
-      Target
-    </button>
+  <TooltipStateful theme="default" size="m" content="Description">
+    <button>Target</button>
   </TooltipStateful>
 )
 ```
@@ -118,6 +115,7 @@ const App = () => (
 Компонент частично реализует интерфейс `Popup` и `PopupTargetAnchor`.
 
 <!-- props:start -->
+
 | Свойство         | Тип                                                                                                                                                                                                                 | По умолчанию    | Описание                                                                                                                              |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | keepMounted?     | `false \| true`                                                                                                                                                                                                     | `true`          | Сохраняет контейнер в DOM после создания                                                                                              |
@@ -136,19 +134,19 @@ const App = () => (
 | state?           | `"warning" \| "alert" \| "success"`                                                                                                                                                                                 | —               | Визуальное состояние подсказки                                                                                                        |
 | direction?       | `"bottom-left" \| "bottom-center" \| "bottom-right" \| "top-left" \| "top-center" \| "top-right" \| "right-top" \| "right-center" \| "right-bottom" \| "left-top" \| "left-center" \| "left-bottom" \| Direction[]` | —               | Направление для раскрытия подсказки                                                                                                   |
 | id?              | `string`                                                                                                                                                                                                            | —               | Уникальный id подсказки                                                                                                               |
+
 <!-- props:end -->
 
 ### Stateful
 
 Компонент частично реализует интерфейс `Tooltip`.
 
-| Свойство        | Тип                                          | По умолчанию | Описание                                                        |
-| --------------- | -------------------------------------------- | ------------ | --------------------------------------------------------------  |
-| children        | `ReactNode`                                  | —            | Компонент или элемент, для которого нужно показать подсказку    |
-| content         | `ReactNode`                                  | —            | Содержимое, которое будет показано в подсказке                  |
-| trigger?        | `"click" \| "hover" \| "focus" \| Trigger[]` | `hover`      | Режим для показа подсказки; может содержать несколько значений  |
-| defaultVisible? | `false \| true`                              | `false`      | Показывает подсказку сразу видимой                              |
-
+| Свойство        | Тип                                          | По умолчанию | Описание                                                       |
+| --------------- | -------------------------------------------- | ------------ | -------------------------------------------------------------- |
+| children        | `ReactNode`                                  | —            | Компонент или элемент, для которого нужно показать подсказку   |
+| content         | `ReactNode`                                  | —            | Содержимое, которое будет показано в подсказке                 |
+| trigger?        | `"click" \| "hover" \| "focus" \| Trigger[]` | `hover`      | Режим для показа подсказки; может содержать несколько значений |
+| defaultVisible? | `false \| true`                              | `false`      | Показывает подсказку сразу видимой                             |
 
 ## Доступность
 

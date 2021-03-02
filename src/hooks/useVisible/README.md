@@ -11,8 +11,8 @@
 ## Пример использования
 
 ```typescript jsx
-import React, { useRef, useCallback } from 'react'
-import { useVisible } from '@lookingschools/ui/hooks'
+import React, { useRef, useCallback } from "react"
+import { useVisible } from "@lookingschools/ui/hooks"
 
 const Component: React.FC = () => {
   const ref = useRef()

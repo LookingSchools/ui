@@ -8,18 +8,18 @@
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import { compose } from '@bem-react/core'
+import React, { useState } from "react"
+import { compose } from "@bem-react/core"
 import {
   Tumbler as TumblerDesktop,
   withSizeM,
   withViewDefault,
-} from '@lookingschools/ui/Tumbler'
+} from "@lookingschools/ui/Tumbler"
 
 const Tumbler = compose(withSizeM, withViewDefault)(TumblerDesktop)
 
 const App = () => {
-  const [checked, setChecked] = useState('')
+  const [checked, setChecked] = useState("")
 
   return (
     <Tumbler
@@ -36,11 +36,11 @@ const App = () => {
 
 ```ts
 // src/App.ts
-import React, { useState } from 'react'
-import Tumbler from '@lookingschools/ui/Tumbler/Tumbler.bundle'
+import React, { useState } from "react"
+import Tumbler from "@lookingschools/ui/Tumbler/Tumbler.bundle"
 
 const App = () => {
-  const [checked, setChecked] = useState('')
+  const [checked, setChecked] = useState("")
 
   return (
     <Tumbler

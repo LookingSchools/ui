@@ -1,6 +1,6 @@
 import React from "react";
 import { withKnobs } from "@storybook/addon-knobs";
-import { useUniqId } from '.';
+import { useUniqId } from ".";
 
 export default {
     title: "useUniqId",
@@ -13,12 +13,13 @@ export default {
 };
 
 export const Playground = () => {
-    const id = useUniqId('componentName');
+    const id = useUniqId("componentName");
     return (
         <div id={id}>
-        I am a component <br />
-        id: <em>{id}</em>
-    </div>);
+            I am a component <br />
+            id: <em>{id}</em>
+        </div>
+    );
 };
 
 Playground.story = {

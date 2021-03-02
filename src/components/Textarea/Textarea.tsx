@@ -1,29 +1,13 @@
-import React, {
-    FC,
-    RefObject,
-    ReactNode,
-    useState,
-    useCallback,
-    useRef,
-    FocusEventHandler,
-    MouseEventHandler,
-    KeyboardEventHandler,
-} from "react";
-
+import React, { FC, Ref, ReactNode, useState, useCallback, useRef, MouseEventHandler } from "react";
+import { useComponentRegistry } from "@bem-react/di";
 import { cn } from "@bem-react/classname";
-import { compose } from "@bem-react/core";
 
-import { TextareaWrap as Wrap } from "./Wrap/Textarea-Wrap";
-import { TextareaControl as Control } from "./Control/Textarea-Control";
-import { TextareaBox as Box } from "./Box/Textarea-Box";
-import { TextareaHint as Hint } from "./Hint/Textarea-Hint";
-
-import { useUpdateEffect } from "../../hooks/useUpdateEffect";
-import { IWithControlProps, withControl } from "../withControl";
-import { IWithControlProps as IWithControlPropsDesktop } from "../withControl";
+import { RenderOverride, useRenderOverride } from "../lib/render-override";
+import { useUpdateEffect } from "../useUpdateEffect";
+import { IWithControlProps, withControl } from "../withControl/withControl";
+import { IWithControlProps as IWithControlPropsDesktop } from "../withControl/withControl@desktop";
 import { ITextareaControlProps } from "./Control/Textarea-Control";
-import { withAutoFocus } from "../../hocs/withAutoFocus/withAutoFocus";
-
+import { ITextareaRegistry } from "./Textarea.registry";
 import "./Textarea.scss";
 
 export interface ITextareaProps
@@ -31,24 +15,9 @@ export interface ITextareaProps
         IWithControlPropsDesktop<HTMLTextAreaElement>,
         ITextareaControlProps {
     /**
-     * Событие, которое вызывается при потере фокуса компонентом. Например, при клике на другом месте экрана
-     */
-    onBlur?: FocusEventHandler<HTMLElement>;
-
-    /**
      * Событие, которое вызывается при нажатии на компонент
      */
     onClick?: MouseEventHandler<HTMLElement>;
-
-    /**
-     * Событие, которое вызывается при нажатии клавиш клавиатуры
-     */
-    onKeyDown?: KeyboardEventHandler<HTMLElement>;
-
-    /**
-     * Событие, которое возникает при получении компонентом фокуса
-     */
-    onFocus?: FocusEventHandler<HTMLElement>;
 
     /**
      * Событие по своему действию похоже на `onClick` и возникает в момент нажатия на кнопку мыши.
@@ -106,7 +75,13 @@ export interface ITextareaProps
     /**
      * Ссылка на корневой DOM элемент компонента.
      */
-    innerRef?: RefObject<HTMLSpanElement>;
+    innerRef?: Ref<HTMLSpanElement>;
+
+    /**
+     * Ссылка на враппер DOM-элемента нативного инпута.
+     */
+    wrapRef?: Ref<HTMLSpanElement>;
+
     /**
      * Текст-подсказка, появляющаяся после компонента.
      * Может иметь различное визуальное оформление в зависимости от свойства `state`.
@@ -118,6 +93,16 @@ export interface ITextareaProps
      * Может использоваться при проверке формы на корректность.
      */
     state?: "error";
+
+    /**
+     * Всплывающая подсказка
+     */
+    title?: string;
+
+    /**
+     * Переопределяет компонент `Control`
+     */
+    renderControl?: RenderOverride<ITextareaControlProps>;
 }
 
 export const cnTextarea = cn("Textarea");
@@ -135,6 +120,7 @@ const TextareaBase: FC<ITextareaProps> = ({
     onMouseEnter,
     onMouseLeave,
     innerRef,
+    wrapRef,
     className: textareaClassName,
     // Извлекаем свойства, т.к. они не нужны на DOM узле
     // FIXME: https://github.com/bem/bem-react/issues/381
@@ -145,6 +131,8 @@ const TextareaBase: FC<ITextareaProps> = ({
     theme: _theme,
     hint: htmlHint,
     state,
+    title,
+    renderControl,
     ...props
 }) => {
     const className = cnTextarea(
@@ -157,31 +145,39 @@ const TextareaBase: FC<ITextareaProps> = ({
         [textareaClassName]
     );
 
+    const { Wrap, Control: ControlOriginal, Box, Hint } = useComponentRegistry<ITextareaRegistry>(cnTextarea());
+    const Control = useRenderOverride(ControlOriginal, renderControl);
+
     const [hint, setHint] = useState(htmlHint);
     const [hintLeave, setHintLeave] = useState(false);
     const prevHint = useRef(htmlHint);
 
     useUpdateEffect(() => {
-        if (htmlHint !== "") {
+        if (htmlHint) {
             setHint(htmlHint);
-        } else if (prevHint.current !== "") {
+        } else if (prevHint.current) {
             setHintLeave(true);
         }
-
         prevHint.current = htmlHint;
     }, [htmlHint]);
 
     const onAnimationEnd = useCallback(() => {
-        if (htmlHint === "") {
+        if (!htmlHint) {
             setHint("");
             setHintLeave(false);
         }
     }, [htmlHint]);
 
     return (
-        <span ref={innerRef} className={className} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <span
+            ref={innerRef}
+            className={className}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            title={title}
+        >
             {addonBefore}
-            <Wrap>
+            <Wrap innerRef={wrapRef}>
                 <Control {...props} aria-invalid={state === "error"} disabled={disabled} />
                 <Box />
             </Wrap>
@@ -197,4 +193,4 @@ const TextareaBase: FC<ITextareaProps> = ({
 
 TextareaBase.displayName = cnTextarea();
 
-export const Textarea = compose(withControl, withAutoFocus)(TextareaBase);
+export const Textarea = withControl(TextareaBase);

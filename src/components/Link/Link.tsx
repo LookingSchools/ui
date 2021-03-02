@@ -99,7 +99,7 @@ export const Link: FC<ILinkProps> = ({
     // @ts-ignore
     pseudo: _pseudo,
     // @ts-ignore
-    view: _view,
+    theme: _theme,
     as,
     ...props
 }) => {

@@ -5,26 +5,23 @@ import React, {
     useEffect,
     useRef,
     useState,
-    RefObject,
+    Ref,
     FocusEventHandler,
     MouseEventHandler,
+    ReactNode,
 } from "react";
 import { cn } from "@bem-react/classname";
+import { useComponentRegistry } from "@bem-react/di";
 
-import "../../polyfills/pointerfocus";
 import { Omit } from "../typings/utility-types";
 import { isKeyCode, Keys } from "../lib/keyboard";
 import { omit } from "../lib/omit";
-import { mergeRefs } from "../lib/mergeRefs";
-import { useUniqId } from "../../hooks/useUniqId";
-import { IWithControlProps, withControl } from "../withControl";
-import { IWithControlProps as IWithControlDesktopProps } from "../withControl";
+import { mergeAllRefs } from "../lib/mergeRefs";
+import { useUniqId } from "../useUniqId";
+import { IWithControlProps, withControl } from "../withControl/withControl";
+import { IWithControlProps as IWithControlDesktopProps } from "../withControl/withControl@desktop";
 import { ICheckboxControlProps } from "./Control/Checkbox-Control";
-import { CheckboxBox as Box } from "./Box/Checkbox-Box";
-import { CheckboxControl as Control } from "./Control/Checkbox-Control";
-import { CheckboxLabel as Label } from "./Label/Checkbox-Label";
-import { CheckboxTick as Tick } from "./Tick/Checkbox-Tick";
-
+import { ICheckboxRegistry } from "./Checkbox.registry/interface";
 import "./Checkbox.scss";
 
 export const cnCheckbox = cn("Checkbox");
@@ -96,12 +93,12 @@ export interface ICheckboxProps
     /**
      * Ссылка на корневой DOM-элемент компонента
      */
-    innerRef?: RefObject<HTMLElement>;
+    innerRef?: Ref<HTMLElement>;
 
     /**
      * Текст подписи к чекбоксу
      */
-    label?: string;
+    label?: ReactNode;
 
     /**
      * Внешний вид чекбокса
@@ -110,9 +107,30 @@ export interface ICheckboxProps
     theme?: string;
 
     /**
+     * Визуально переводит чекбокс в неопределенное состояние. Не влияет на состояние, указанное в `checked`.
+     *
+     * Может использоваться в дереве чекбоксов, чтобы показать состояние родительского чекбокса,
+     * когда хотя бы один вложенный чекбокс отмечен, но не все.
+     *
+     * Если свойство задано родительскому чекбоксу,
+     * то в `aria-controls` необходимо добавить `id` всех вложенных чекбоксов
+     */
+    indeterminate?: boolean;
+
+    /**
      * Состояние переключателя: включен или выключен
      */
     checked?: boolean;
+
+    /**
+     * Всплывающая подсказка
+     */
+    title?: string;
+
+    /**
+     * Устанавливает фокус в компонент при монтировании
+     */
+    autoFocus?: boolean;
 }
 
 /**
@@ -123,12 +141,13 @@ export interface ICheckboxProps
 const CheckboxPresenter: FC<ICheckboxProps> = ({
     checked,
     className,
-    controlRef: htmlControlRef,
+    controlRef: htmlControlRef = null,
     disabled,
     focused,
     hovered,
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    id = useUniqId("xuniq"),
+    id = useUniqId(),
+    indeterminate,
     innerRef,
     label,
     onMouseDown,
@@ -137,17 +156,32 @@ const CheckboxPresenter: FC<ICheckboxProps> = ({
     onMouseLeave,
     onKeyDown: htmlOnKeyDown,
     onKeyUp: htmlOnKeyUp,
+    tabIndex,
+    title,
+    required,
+    autoFocus,
     theme,
     // Извлекаем свойства, т.к. они не нужны на DOM узле
     // FIXME: https://github.com/bem/bem-react/issues/381
     // @ts-ignore
     size: _size,
-    // @ts-ignore
-    theme: _theme,
     ...props
 }) => {
     const [pressed, setPressed] = useState(props.pressed || false);
     const controlRef = useRef<HTMLInputElement>(null);
+    const { Box, Control, Label, Tick } = useComponentRegistry<ICheckboxRegistry>(cnCheckbox());
+
+    useEffect(() => {
+        if (autoFocus && controlRef.current !== null) {
+            controlRef.current.focus();
+        }
+    }, []);
+
+    useEffect(() => {
+        if (controlRef.current !== null && indeterminate !== undefined) {
+            controlRef.current.indeterminate = indeterminate;
+        }
+    }, [indeterminate]);
 
     useEffect(() => {
         setPressed(props.pressed || false);
@@ -183,26 +217,32 @@ const CheckboxPresenter: FC<ICheckboxProps> = ({
 
     return (
         <span
-            className={cnCheckbox({ checked: checked || checked, pressed, focused, disabled, hovered }, [className])}
+            className={cnCheckbox(
+                { checked: indeterminate || checked, pressed, focused, disabled, hovered, indeterminate },
+                [className]
+            )}
             onMouseDown={onMouseDown}
             onMouseUp={onMouseUp}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             ref={innerRef}
+            title={title}
         >
             <Box>
                 <Control
                     {...nextProps}
-                    aria-checked={checked}
+                    aria-checked={indeterminate ? "mixed" : checked}
                     aria-labelledby={labelId}
-                    checked={checked}
-                    controlRef={mergeRefs(controlRef, htmlControlRef)}
+                    checked={indeterminate || checked}
+                    controlRef={mergeAllRefs(controlRef, htmlControlRef)}
                     disabled={disabled}
                     id={id}
                     onKeyDown={onKeyDown}
                     onKeyUp={onKeyUp}
+                    tabIndex={tabIndex}
+                    required={required}
                 />
-                <Tick theme={theme} />
+                <Tick theme={theme} indeterminate={indeterminate} />
             </Box>
             {label && (
                 <Label id={labelId} htmlFor={id}>

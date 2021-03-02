@@ -2,7 +2,7 @@ import React, { RefObject, ReactNode } from "react";
 import { cn } from "@bem-react/classname";
 
 import { useUniqId } from "../../hooks/useUniqId";
-import { Omit } from "../../typings/utility-types";
+import { Omit } from "../typings/utility-types";
 import { IRadiobuttonControlProps } from "./Control/Radiobutton-Control";
 import { RadiobuttonRadio as Radio } from "./Radio/Radiobutton-Radio";
 import { RadiobuttonControl as Control } from "./Control/Radiobutton-Control";

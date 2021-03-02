@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { cnTooltip } from '../Tooltip';
-import './Tooltip-Backdrop.scss';
+import { cnTooltip } from "../Tooltip";
+import "./Tooltip-Backdrop.scss";
 
 // prettier-ignore
 export const TooltipBackdrop: FC<{}> = ({ children }) => (

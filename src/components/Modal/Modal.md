@@ -1,24 +1,50 @@
 # Modal
 
+<!-- description:start -->
+
 Используется для создания всплывающих модальных окон.
+
+<!-- description:end -->
 
 ## Пример использования
 
-```js
-import React from 'react'
-import { compose } from '@bem-react/core'
-import { Modal as ModalBase, withThemeDefault } from '@lookingschools/ui/Modal'
-import { withOutsideClick } from '@lookingschools/ui/withOutsideClick'
-import { withZIndex } from '@lookingschools/ui/withZIndex'
+Использование с нужным набором модификаторов:
+
+```ts
+import React from "react"
+import { compose } from "@bem-react/core"
+import {
+  Modal as ModalDesktop,
+  withThemeDefault,
+} from "@lookingschools/ui/Modal/desktop"
+import { withZIndex } from "@lookingschools/ui/withZIndex"
 
 // Композиция из различных модификаторов
-const Modal = compose(withThemeDefault, withOutsideClick, withZIndex)(ModalBase)
+const Modal = compose(withThemeDefault, withZIndex)(ModalDesktop)
 
 const App = () => (
   <Modal
-    onEscapeKeyDown={() => this.setState({ visible: false })}
-    onOutsideClick={() => this.setState({ visible: false })}
     theme="default"
+    onClose={() => this.setState({ visible: false })}
+    visible={this.state.visible}
+    zIndexGroupLevel={20}
+  >
+    Привет!
+  </Modal>
+)
+```
+
+Использование с полным набором модификаторов:
+
+```ts
+// src/App.ts
+import React from "react"
+import { Modal } from "@lookingschools/ui/Modal/desktop/bundle"
+
+const App = () => (
+  <Modal
+    theme="default"
+    onClose={() => this.setState({ visible: false })}
     visible={this.state.visible}
     zIndexGroupLevel={20}
   >
@@ -29,13 +55,19 @@ const App = () => (
 
 ## Примеры
 
-### Стилевое оформление меню
+### Базовое использование
 
-Чтобы изменить стилевое оформление модального окна, используйте модификатор `_theme`.
+Чтобы закрыть модальное окно, установите обработчик `onClose`, в котором измените состояние видимости. Данный обработчик вызывается при нажатии на клавишу `esc`, либо при клике за пределами содержимого модального окна.
 
-{{%story::desktop:lego-components-modal-desktop--theme%}}
+{{%story::desktop:surface-modal-desktop--playground%}}
+
+### Стилевое оформление
+
+Чтобы изменить стилевое оформление модального окна, установите свойство `theme` в значение `"default"`. На уровне `desktop` отвечает за анимацию его открытия/закрытия.
 
 ## Свойства
+
+<!-- props:start -->
 
 | Свойство              | Тип                                                                      | По умолчанию    | Описание                                                                                                                                |
 | --------------------- | ------------------------------------------------------------------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -48,5 +80,33 @@ const App = () => (
 | visible?              | `false \| true`                                                          | —               | Делает попап видимым                                                                                                                    |
 | scope?                | `RefObject<HTMLElement>`                                                 | `document.body` | Ссылка на DOM-элемент, в котором размещается попап<br>Важно, чтобы контейнер имел `position: relative` для корректного позиционирования |
 | forceRender?          | `false \| true`                                                          | —               | Вызывает дополнительный рендер после создания                                                                                           |
-| onClose?              | `(event: KeyboardEvent \| MouseEvent, source: "esc" \| "click") => void` | —               | Обработчик, вызываемый после нажатия на клавишу Еsc либо мышкой на область вне контейнера                                               |
+| onClose?              | `(event: KeyboardEvent \| MouseEvent, source: "esc" \| "click") => void` | —               | Обработчик, вызываемый после нажатия на клавишу Esc либо мышкой на область вне контейнера                                               |
 | onClick?              | `(event: MouseEvent<HTMLDivElement, MouseEvent>) => void`                | —               | Обработчик, вызываемый при срабатывании события click                                                                                   |
+
+<!-- props:end -->
+
+## Примечание
+
+- Функциональность модального окна основана на компоненте `Popup`.
+- Позиционирование компонента выполняется только с помощью CSS.
+- Анимация открытия реализована только на уровне `desktop`.
+- В модальном окне нет зацикливания фокуса.
+
+### Скрытие ползунков страницы при открытии модального окна
+
+У компонента `Modal` отсутствует встроенный механизм скрытия ползунков на странице.
+
+### Проблема с пролистыванием страницы на iOS и Android
+
+Для позиционирования модального окна поверх контента страницы в компоненте `Modal` используется CSS-стиль `position: fixed`.
+Его использование в браузерах на iOS и Android устройствах приводит к тому, что при прокрутке содержимого модального окна прокручивается и страница под ним. Это происходит из-за того, что на iOS и Android нельзя убрать прокрутку `<body>`.
+Даже если применить `overflow: hidden`, страница все равно будет прокручиваться.
+
+Варианты решения:
+
+1. При открытии модального окна замените `position:fixed; height: <window height>; overflow:hidden` на `<body>`.
+   **Недостаток:** текущее положение на странице собьется, поэтому его нужно будет запоминать и выставлять заново. При этом страница под модальным окном будет «скакать»: при его открытии она прокрутится в самое верхнее положение, а при закрытии - вернется в предыдущее.
+2. Позиционируйте модальное окно с помощью `position: absolute` и сделайте так, чтобы контент модального окна прокручивался вместе со страницей.
+   **Недостаток:** можно прокрутить модальное окно далеко вниз или вверх и «потерять» его.
+3. Предотвратите события `touchmove`, которые вызывают прокрутку не контента попапа, а самой страницы.
+   **Недостаток:** невозможно отличить события, которые вызывают прокрутку модального окна от событий, которые вызывают прокрутку страницы, т.к. технически они одинаковы.

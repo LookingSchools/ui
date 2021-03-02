@@ -1,11 +1,11 @@
 # MessageBox
 
-
-
 > **Важно!** Компонент может измениться после [дизайн-ревью](https://nda.ya.ru/t/avWGaTY33W4RHa), следите за обновлениями.
 
 <!-- description:start -->
+
 Визуальный компонент для уведомлений, плашек и других паттернов.
+
 <!-- description:end -->
 
 ## Пример подключения
@@ -14,18 +14,15 @@
 
 ```ts
 // src/App.ts
-import React from 'react'
-import { compose } from '@bem-react/core'
+import React from "react"
+import { compose } from "@bem-react/core"
 import {
   MessageBox as MessageBoxDesktop,
   withSizeM,
   withThemeDefault,
-} from '@lookingschools/ui/MessageBox/desktop'
+} from "@lookingschools/ui/MessageBox/desktop"
 
-const MessageBox = compose(
-  withSizeM,
-  withThemeDefault,
-)(MessageBoxDesktop)
+const MessageBox = compose(withSizeM, withThemeDefault)(MessageBoxDesktop)
 
 const App = () => (
   <MessageBox theme="default" size="m">
@@ -38,8 +35,8 @@ const App = () => (
 
 ```ts
 // src/App.ts
-import React from 'react'
-import { MessageBox } from '@lookingschools/ui/MessageBox/desktop/bundle'
+import React from "react"
+import { MessageBox } from "@lookingschools/ui/MessageBox/desktop/bundle"
 
 const App = () => (
   <MessageBox theme="default" size="m">
@@ -70,9 +67,9 @@ const App = () => (
 import {
   MessageBox,
   Corner,
-} from '@lookingschools/ui/MessageBox/desktop/bundle'
+} from "@lookingschools/ui/MessageBox/desktop/bundle"
 
-<MessageBox
+;<MessageBox
   theme="default"
   size="m"
   corner={
@@ -129,14 +126,14 @@ import {
 import {
   MessageBox,
   Wrapper,
-} from '@lookingschools/ui/MessageBox/desktop/bundle'
+} from "@lookingschools/ui/MessageBox/desktop/bundle"
 
-<MessageBox
+;<MessageBox
   theme="default"
   size="m"
   background={
     <img
-      style={{ filter: 'opacity(.5)', width: '100%' }}
+      style={{ filter: "opacity(.5)", width: "100%" }}
       src="//avatars.mds.yandex.net/get-dialogs/1676983/7bdc8b36f13ce872e360/catalogue-banner-x3"
     />
   }
@@ -164,9 +161,9 @@ import {
 Компонент можно показать относительно любого элемента на странице, для этого необходимо воспользоваться импортом `MessageBoxPopup`, данный компонент использует внутри себя `Popup`, а снаружи частично реализует его интерфейс.
 
 ```tsx
-import { MessageBoxPopup } from '@lookingschools/ui/MessageBox/desktop/bundle'
+import { MessageBoxPopup } from "@lookingschools/ui/MessageBox/desktop/bundle"
 
-<MessageBoxPopup
+;<MessageBoxPopup
   visible
   hasTail
   anchor={anchorRef}
@@ -185,6 +182,7 @@ import { MessageBoxPopup } from '@lookingschools/ui/MessageBox/desktop/bundle'
 ### MessageBox
 
 <!-- props:start -->
+
 | Свойство    | Тип                                                                                                                                                                                                                                                               | По умолчанию | Описание                                                                    |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------- |
 | className?  | `string`                                                                                                                                                                                                                                                          | —            | Дополнительный className                                                    |
@@ -198,16 +196,17 @@ import { MessageBoxPopup } from '@lookingschools/ui/MessageBox/desktop/bundle'
 | tailRef?    | `(instance: HTMLDivElement) => void \| RefObject<HTMLDivElement>`                                                                                                                                                                                                 | —            | Ссылка на DOM-элемент хвостика                                              |
 | hasTail?    | `false \| true`                                                                                                                                                                                                                                                   | —            | Включает/отключает хвостик у компонента                                     |
 | tailType?   | `"default" \| "rounded"`                                                                                                                                                                                                                                          | `'default'`  | Тип хвостика                                                                |
+
 <!-- props:end -->
 
 ### MessageBoxPopup
 
 Компонент частично реализует интерфейс `MessageBox`, `Popup`, `WithOutsideClick` и `PopupTargetAnchor`.
 
-| Свойство   | Тип                                                       | По умолчанию    | Описание                                                                                                                                  |
-| ---------- | --------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| visible?   | `false \| true`                                           | —               | Делает попап видимым                                                                                                                      |
-| anchor?    | `RefObject<HTMLElement>`                                  | —               | Элемент, относительно которого позиционируется попап                                                                                      |
-| scope?     | `RefObject<HTMLElement>`                                  | `document.body` | Ссылка на DOM-элемент, в котором размещается попап<br>Важно, чтобы контейнер имел `position: relative` для корректного позиционирования   |
-| direction? | `Direction | Direction[]`                                 | —               | Направление для раскрытия компонента                                                                                                      |
-| onClick?   | `(event: MouseEvent<HTMLDivElement, MouseEvent>) => void` | —               | Обработчик, вызываемый при срабатывании события click                                                                                     |
+| Свойство   | Тип                                                       | По умолчанию    | Описание                                                                                                                                |
+| ---------- | --------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| visible?   | `false \| true`                                           | —               | Делает попап видимым                                                                                                                    |
+| anchor?    | `RefObject<HTMLElement>`                                  | —               | Элемент, относительно которого позиционируется попап                                                                                    |
+| scope?     | `RefObject<HTMLElement>`                                  | `document.body` | Ссылка на DOM-элемент, в котором размещается попап<br>Важно, чтобы контейнер имел `position: relative` для корректного позиционирования |
+| direction? | `Direction                                                | Direction[]`    | —                                                                                                                                       | Направление для раскрытия компонента |
+| onClick?   | `(event: MouseEvent<HTMLDivElement, MouseEvent>) => void` | —               | Обработчик, вызываемый при срабатывании события click                                                                                   |

@@ -1,0 +1,17 @@
+@import '../../../theme/default.scss';
+
+/* hover */
+/* TODO: Усиливаем селектор для ie11 */
+.Checkbox_theme_default.Checkbox_hovered .Checkbox-Box[class]::before {
+    background-color: $color-control-bg-default-hover;
+}
+
+/* check */
+.Checkbox_theme_default.Checkbox_hovered.Checkbox_checked .Checkbox-Box[class]::before {
+    background-color: $color-control-bg-default-check-hover;
+}
+
+/* focus */
+.utilityfocus .Checkbox_theme_default.Checkbox_focused .Checkbox-Box::before {
+    box-shadow: 0 0 0 2px #f33;
+}

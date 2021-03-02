@@ -7,16 +7,16 @@
 
 ```js
 // src/App.ts
-import React, { useState } from 'react'
-import { TabsPanes } from '@lookingschools/ui/TabsPanes'
+import React, { useState } from "react"
+import { TabsPanes } from "@lookingschools/ui/TabsPanes"
 
 const App = () => {
   return (
     <TabsPanes
       activePane="1"
       panes={[
-        { id: '1', content: 'Pane 1 content' },
-        { id: '2', content: 'Pane 2 content' },
+        { id: "1", content: "Pane 1 content" },
+        { id: "2", content: "Pane 2 content" },
       ]}
     />
   )

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, Ref } from "react";
 
 import { cnTextarea } from "../Textarea";
 import "./Textarea-Wrap.scss";
@@ -8,10 +8,15 @@ export interface TextareaWrapProps {
      * Дополнительный класс.
      */
     className?: string;
+
+    /**
+     * Ссылка на враппер DOM-элемента нативного инпута.
+     */
+    innerRef?: Ref<HTMLSpanElement>;
 }
 
-export const TextareaWrap: FC<TextareaWrapProps> = ({ className, children, ...props }) => (
-    <span {...props} className={cnTextarea("Wrap", null, [className])}>
+export const TextareaWrap: FC<TextareaWrapProps> = ({ className, innerRef, children, ...props }) => (
+    <span {...props} className={cnTextarea("Wrap", null, [className])} ref={innerRef}>
         {children}
     </span>
 );

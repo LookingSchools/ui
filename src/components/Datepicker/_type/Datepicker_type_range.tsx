@@ -5,7 +5,7 @@ import { withThemeDefault } from "../../Button/_theme/Button_theme_default";
 import { withThemePrimary } from "../../Button/_theme/Button_theme_primary";
 import { withSizeM as ButtonSizeM } from "../../Button/_size/Button_size_m";
 
-import { Textinput as TextinputBase } from "../../Textinput/Textinput";
+import { Textinput as TextinputBase } from "../../Textinput/Textinput@desktop";
 import { withThemeDefault as TextinputWithThemeDefault } from "../../Textinput/_theme/Textinput_theme_default";
 import { withSizeM } from "../../Textinput/_size/Textinput_size_m";
 

@@ -13,13 +13,13 @@ import React, {
 import { cn } from "@bem-react/classname";
 import { ComponentRegistryConsumer } from "@bem-react/di";
 
-import { Omit, Defaultize } from "../../typings/utility-types";
+import { Omit, Defaultize } from "../typings/utility-types";
 import { flatMap } from "../lib/flatMap";
 import { mergeAllRefs } from "../lib/mergeRefs";
 import { Keys } from "../lib/keyboard";
 import { RenderOverride, MultiRenderOverrideProvider } from "../lib/render-override";
 import { ItemSimple, ChangeEventHandler } from "../Menu/Menu";
-import { IWithTogglableProps } from "../../hocs/withTogglable/withTogglable";
+import { IWithTogglableProps } from "../withTogglable/withTogglable";
 import { ISelectRegistry, IIconEnhancedProps } from "./Select.registry";
 import "./Button/Select-Button.scss";
 import "./Menu/Select-Menu.scss";
@@ -126,6 +126,11 @@ export interface ISelectProps extends IWithTogglableProps, SelectAllHTMLAttribut
     value?: any;
 
     /**
+     * Внешний вид компонента.
+     */
+    view?: string;
+
+    /**
      * Показывать всегда значение из свойства `placeholder` вне зависимости от выбранного значения.
      */
     showAlwaysPlaceholder?: boolean;
@@ -161,7 +166,7 @@ export interface ISelectProps extends IWithTogglableProps, SelectAllHTMLAttribut
     activeDescendant?: string;
 }
 
-export const cnSelect = cn("Select");
+export const cnSelect = cn("Select2");
 
 const defaultProps = {
     placeholder: "—",
@@ -180,8 +185,6 @@ export const Select = class extends PureComponent<SelectProps> {
 
     static defaultProps = defaultProps;
 
-    readonly state = { buttonText: this.getButtonText() };
-
     /**
      * Контейнер с ссылкой на корневой DOM элемент селекта.
      */
@@ -195,12 +198,8 @@ export const Select = class extends PureComponent<SelectProps> {
         this.forwardRefs();
     }
 
-    componentDidUpdate(prevProps: SelectProps) {
+    componentDidUpdate() {
         this.forwardRefs();
-
-        if (prevProps.value !== this.props.value || prevProps.options !== this.props.options) {
-            this.setState({ buttonText: this.getButtonText() });
-        }
     }
 
     render() {
@@ -216,6 +215,7 @@ export const Select = class extends PureComponent<SelectProps> {
             size,
             theme,
             value,
+            view,
             style,
             checkable = true,
             iconProps,
@@ -223,11 +223,10 @@ export const Select = class extends PureComponent<SelectProps> {
             renderTriggerIcon,
             activeDescendant,
         } = this.props;
-        const { buttonText } = this.state;
         // Проставляем состояние `checked` только для типа `check`.
         const checked = checkable && Array.isArray(value) ? value.length > 0 : false;
-        const iconType = theme || (iconProps && iconProps.glyph) ? undefined : "arrow";
-        const iconGlyph = theme && !(iconProps && iconProps.type) ? "carets-v" : undefined;
+        const iconType = view || (iconProps && iconProps.glyph) ? undefined : "arrow";
+        const iconGlyph = view && !(iconProps && iconProps.type) ? "carets-v" : undefined;
 
         return (
             <ComponentRegistryConsumer id={cnSelect()}>
@@ -254,8 +253,8 @@ export const Select = class extends PureComponent<SelectProps> {
                                     innerRef={this.triggerRef}
                                     style={style}
                                     size={size}
-                                    checked={checked}
                                     theme={theme}
+                                    checked={checked}
                                     onClick={onClick}
                                     onKeyDown={onKeyDown}
                                     onBlur={onBlur}
@@ -274,7 +273,7 @@ export const Select = class extends PureComponent<SelectProps> {
                                     aria-expanded={opened}
                                     aria-multiselectable={Array.isArray(value)}
                                 >
-                                    {buttonText}
+                                    {this.getButtonText()}
                                 </Trigger>
                                 {addonAfter}
                             </span>

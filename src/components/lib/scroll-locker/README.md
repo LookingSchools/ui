@@ -1,8 +1,7 @@
 # scroll-locker
 
-
-import { Default as useScrollLockerDefault } from '../__examples__/default';
-import useScrollLockerDefaultSource from '!!raw-loader!../__examples__/default';
+import { Default as useScrollLockerDefault } from '../**examples**/default';
+import useScrollLockerDefaultSource from '!!raw-loader!../**examples**/default';
 
 **Основные возможности:**
 
@@ -19,18 +18,18 @@ import useScrollLockerDefaultSource from '!!raw-loader!../__examples__/default';
 
 ```ts
 // Испортируйте модуль.
-import * as ScrollLocker from '@lookingschools/ui/lib/scroll-locker';
- 
+import * as ScrollLocker from "@lookingschools/ui/lib/scroll-locker"
+
 // Получите элемент, для которого хотите запретить прокрутку.
-const scrollableElement = document.querySelector('#someElementId');
- 
+const scrollableElement = document.querySelector("#someElementId")
+
 // В обработчике событий заблокируйте прокрутку на элементе
 // (например, при открытии модального окна или навигационного меню)
-ScrollLocker.lock(scrollableElement);
- 
+ScrollLocker.lock(scrollableElement)
+
 // В обработчике событий отмените блокировку на элементе
 // (например, при закрытии модального окна или навигационного меню)
-ScrollLocker.unlock(scrollableElement);
+ScrollLocker.unlock(scrollableElement)
 ```
 
 ### Классовый компонент

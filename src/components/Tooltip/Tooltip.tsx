@@ -1,25 +1,25 @@
-import React, { FC } from 'react';
-import { cn } from '@bem-react/classname';
-import { useComponentRegistry } from '@bem-react/di';
+import React, { FC } from "react";
+import { cn } from "@bem-react/classname";
+import { useComponentRegistry } from "@bem-react/di";
 
-import { IPopupProps } from '../Popup';
-import { IPopupTargetAnchorProps } from '../Popup/_target/Popup_target_anchor';
-import { TooltipBackdrop as Backdrop } from './Backdrop/Tooltip-Backdrop';
-import { TooltipRegistry } from './Tooltip.registry/interface';
-import './Tooltip.scss';
+import { IPopupProps } from "../Popup";
+import { IPopupTargetAnchorProps } from "../Popup/_target/Popup_target_anchor";
+import { TooltipBackdrop as Backdrop } from "./Backdrop/Tooltip-Backdrop";
+import { TooltipRegistry } from "./Tooltip.registry/interface";
+import "./Tooltip.scss";
 
-export { Direction } from '../Popup';
+export { Direction } from "../Popup";
 
-export const cnTooltip = cn('Tooltip');
+export const cnTooltip = cn("Tooltip");
 
 type PartialPopupProps = Pick<
     IPopupProps,
-    'keepMounted' | 'className' | 'hasTail' | 'innerRef' | 'zIndex' | 'visible' | 'scope' | 'onClose' | 'onClick'
+    "keepMounted" | "className" | "hasTail" | "innerRef" | "zIndex" | "visible" | "scope" | "onClose" | "onClick"
 >;
 
 type PartialPopupTargetAnchorProps = Pick<
     IPopupTargetAnchorProps,
-    'mainOffset' | 'secondaryOffset' | 'tailOffset' | 'anchor' | 'direction'
+    "mainOffset" | "secondaryOffset" | "tailOffset" | "anchor" | "direction"
 >;
 
 export type TooltipProps = PartialPopupProps &
@@ -27,7 +27,7 @@ export type TooltipProps = PartialPopupProps &
         /**
          * Визуальное состояние подсказки
          */
-        state?: 'warning' | 'alert' | 'success';
+        state?: "warning" | "alert" | "success";
 
         /**
          * Уникальный id подсказки
@@ -85,11 +85,11 @@ export const Tooltip: FC<TooltipProps> = ({
                 <Backdrop>{hasTail && tail}</Backdrop>
             )}
         >
-            <div role="tooltip" id={id} className={cnTooltip('Content')}>
+            <div role="tooltip" id={id} className={cnTooltip("Content")}>
                 {children}
             </div>
         </Popup>
     );
 };
 
-Tooltip.displayName = 'Tooltip';
+Tooltip.displayName = "Tooltip";
