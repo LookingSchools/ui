@@ -1,4 +1,6 @@
 import React, {
+    DetailedHTMLFactory,
+    ButtonHTMLAttributes,
     KeyboardEvent,
     MouseEvent,
     ComponentClass,
@@ -9,17 +11,27 @@ import React, {
     ReactType,
     KeyboardEventHandler,
     MouseEventHandler,
-} from "react";
-import { cn } from "@bem-react/classname";
+    FocusEvent,
+    Ref,
+    FocusEventHandler,
+} from 'react';
+import { cn } from '@bem-react/classname';
 
-import { Defaultize } from "../typings/utility-types";
-import { mergeRefs } from "../lib/mergeRefs";
-import { Keys, KeyboardKeys, isKeyCode } from "../lib/keyboard";
-import { IconProvider, ButtonIcon as Icon } from "./Icon/Button-Icon";
-import { ButtonText as Text } from "./Text/Button-Text";
-import "./Button.scss";
+import { Defaultize } from '../typings/utility-types';
+import { mergeAllRefs } from '../lib/mergeRefs';
+import { Keys, KeyboardKeys, isKeyCode } from '../lib/keyboard';
+import { IconProvider, ButtonIcon as Icon } from './Icon/Button-Icon';
+import { ButtonText as Text } from './Text/Button-Text';
+import './Button.scss';
 
 export type ContainerElement = HTMLButtonElement | HTMLAnchorElement;
+
+// https://st.yandex-team.ru/ISL-1667
+type ButtonEnhancedAttributes = { autoComplete?: string | null };
+type ReactButtonElement = DetailedHTMLFactory<
+    ButtonHTMLAttributes<ContainerElement> & ButtonEnhancedAttributes,
+    ContainerElement
+>;
 
 export interface IButtonProps {
     /**
@@ -60,7 +72,7 @@ export interface IButtonProps {
     /**
      * Ссылка на корневой DOM элемент компонента
      */
-    innerRef?: RefObject<HTMLElement>;
+    innerRef?: Ref<HTMLElement>;
 
     /**
      * Ссылка на DOM элемент нативного контрола
@@ -73,6 +85,11 @@ export interface IButtonProps {
      * @default [Keys.SPACE, Keys.ENTER]
      */
     pressKeys?: KeyboardKeys[];
+
+    /**
+     * Стилевое оформление для визуального выделения прогресса
+     */
+    progress?: boolean;
 
     /**
      * Набор клавиш, при нажатии на которые прерывается событие
@@ -134,24 +151,55 @@ export interface IButtonProps {
      * `onClick` в каком-то смысле является комбинацией событий `onMouseDown` и `onMouseUp`
      */
     onMouseDown?: MouseEventHandler<ContainerElement>;
+    /**
+     * Обработчик события `onMouseUp`
+     */
+    onMouseUp?: MouseEventHandler<ContainerElement>;
+    /**
+     * Обработчик события `onMouseLeave`
+     */
+    onMouseLeave?: MouseEventHandler<ContainerElement>;
+
+    /**
+     * Обработчик события `onBlur`
+     */
+    onBlur?: FocusEventHandler<ContainerElement>;
+
+    /**
+     * Всплывающая подсказка
+     */
+    title?: string;
+
+    /**
+     * HTML-атрибут `role`
+     */
+    role?: string;
 }
 
 export interface IButtonState {
     pressed?: boolean;
 }
 
-export const cnButton = cn("Button");
+export const cnButton = cn('Button');
 
 const defaultProps = {
-    autoComplete: "off",
+    autoComplete: 'off',
     pressKeys: [Keys.SPACE, Keys.ENTER],
     prvntKeys: [],
-    as: "button",
-    type: "button" as "button",
+    as: 'button',
+    type: 'button' as 'button',
 };
 
 type DefaultProps = keyof typeof defaultProps;
 type ButtonProps = Defaultize<IButtonProps, DefaultProps>;
+
+type ButtonInternalProps = {
+    view: any;
+    theme: any;
+    baseline: any;
+    pin: any;
+    width: any;
+};
 
 /**
  * Компонент для создания кнопок.
@@ -173,61 +221,66 @@ export const Button = class extends PureComponent<ButtonProps, IButtonState> {
 
     render() {
         const {
-            addonBefore,
             addonAfter,
+            addonBefore,
             autoComplete,
             checked,
             children,
-            className,
-            disabled,
-            as,
             icon,
             iconLeft,
             iconRight,
+            progress,
+            disabled,
+            as: AsComponent,
             type,
+            className,
             innerRef,
             controlRef,
-            // Извлекаем свойства, т.к. они не нужны на DOM узле
+            title,
+            role,
             pressKeys: _pressKeys,
             prvntKeys: _prvntKeys,
-            // @ts-ignore
+            // Извлекаем свойства, т.к. они не нужны на DOM узле
+            // FIXME: https://github.com/bem/bem-react/issues/381
+            view: _view,
             theme: _theme,
-            // @ts-ignore
+            baseline: _baseline,
             pin: _pin,
+            width: _width,
             ...props
-        } = this.props as ButtonProps;
-
+        } = this.props as ButtonProps & ButtonInternalProps;
         const { pressed } = this.state;
-        const Component = as;
-
-        const refKey = typeof as === "string" ? "ref" : "innerRef";
-        (props as any)[refKey] = mergeRefs(this.internalInnerRef, innerRef, controlRef);
-
+        const Component = AsComponent as ReactButtonElement;
+        const refKey = typeof AsComponent === 'string' ? 'ref' : 'innerRef';
+        (props as any)[refKey] = mergeAllRefs(this.internalInnerRef, innerRef, controlRef);
         const iconLeftOrIcon = iconLeft || icon;
 
         return (
             <Component
                 {...props}
                 type={type as any}
-                disabled={disabled}
-                className={cnButton({ checked, pressed }, [className])}
+                disabled={Boolean(progress || disabled)}
+                className={cnButton({ checked, progress, pressed }, [className])}
                 onKeyDown={this.onKeyDown}
                 onKeyUp={this.onKeyUp}
                 onClick={this.onClick}
                 onMouseDown={this.onMouseDown}
+                onMouseUp={this.onMouseUp}
+                onMouseLeave={this.onMouseLeave}
+                onBlur={this.onBlur}
                 aria-pressed={checked}
                 aria-disabled={disabled}
+                // https://st.yandex-team.ru/ISL-1667
                 autoComplete={autoComplete}
+                title={title}
+                role={role}
+                aria-busy={progress}
             >
-                <>
-                    {addonBefore}
-                    {iconLeftOrIcon && (
-                        <Icon provider={iconLeftOrIcon} side={children && iconLeft ? "left" : undefined} />
-                    )}
-                    {iconRight && <Icon provider={iconRight} side={children ? "right" : undefined} />}
-                    {children && <Text>{children}</Text>}
-                    {addonAfter}
-                </>
+                {addonBefore}
+                {iconLeftOrIcon && <Icon provider={iconLeftOrIcon} side={children && iconLeft ? 'left' : undefined} />}
+                {iconRight && <Icon provider={iconRight} side={children ? 'right' : undefined} />}
+                {children && <Text>{children}</Text>}
+                {addonAfter}
             </Component>
         );
     }
@@ -278,9 +331,32 @@ export const Button = class extends PureComponent<ButtonProps, IButtonState> {
             // Предотвращаем всплытие события, т.к. в браузерах Safari происходит blur после нажатия на кнопку.
             event.preventDefault();
         }
+        this.setState({ pressed: true });
 
         if (this.props.onMouseDown !== undefined) {
             this.props.onMouseDown(event);
         }
     };
+    protected onMouseUp = (event: MouseEvent<ContainerElement>) => {
+        this.setState({ pressed: false });
+
+        if (this.props.onMouseUp !== undefined) {
+            this.props.onMouseUp(event);
+        }
+    };
+    protected onMouseLeave = (event: MouseEvent<ContainerElement>) => {
+        this.setState({ pressed: false });
+
+        if (this.props.onMouseLeave !== undefined) {
+            this.props.onMouseLeave(event);
+        }
+    };
+
+    protected onBlur = (event: FocusEvent<ContainerElement>) => {
+        this.setState({ pressed: false });
+
+        if (this.props.onBlur !== undefined) {
+            this.props.onBlur(event);
+        }
+    }
 } as ComponentClass<IButtonProps>;

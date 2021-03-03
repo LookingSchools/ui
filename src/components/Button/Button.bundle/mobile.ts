@@ -1,7 +1,6 @@
 import { compose, composeU, ExtractProps } from '@bem-react/core';
 
-import { Button as ButtonDesktop } from '../Button@desktop';
-
+import { Button as ButtonMobile } from '../Button@mobile';
 // _size
 import { withSizeL } from "../_size/Button_size_l";
 import { withSizeM } from "../_size/Button_size_m";
@@ -32,29 +31,29 @@ import { withTypeSubmit } from "../_type/Button_type_submit";
 import { withWidthAuto } from "../_width/Button_width_auto";
 import { withWidthMax } from "../_width/Button_width_max";
 
-export * from "../Button@desktop";
+export * from '../Button@mobile';
 
 export const Button = compose(
-  composeU(withSizeL, withSizeM, withSizeS),
-  composeU(
-    withThemeSecondary,
-    withThemeBlack,
-    withThemePrimary,
-    withThemeDefault,
-    withThemeTretiary,
-    withThemeClear,
-    withThemePseudo,
-    withThemeRaised
-  ),
-  composeU(
-    withPinBrickCircle,
-    withPinCircleBrick,
-    withPinCircleCircle,
-    withPinCircleClear,
-    withPinClearCircle
-  ),
-  composeU(withWidthAuto, withWidthMax),
-  composeU(withTypeLink, withTypeSubmit)
-)(ButtonDesktop);
+    composeU(withSizeL, withSizeM, withSizeS),
+    composeU(
+      withThemeSecondary,
+      withThemeBlack,
+      withThemePrimary,
+      withThemeDefault,
+      withThemeTretiary,
+      withThemeClear,
+      withThemePseudo,
+      withThemeRaised
+    ),
+    composeU(
+      withPinBrickCircle,
+      withPinCircleBrick,
+      withPinCircleCircle,
+      withPinCircleClear,
+      withPinClearCircle
+    ),
+    composeU(withWidthAuto, withWidthMax),
+    composeU(withTypeLink, withTypeSubmit)
+  )(ButtonMobile);
 
 export type IButtonProps = ExtractProps<typeof Button>;

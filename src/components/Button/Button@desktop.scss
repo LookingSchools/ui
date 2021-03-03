@@ -1,0 +1,8 @@
+.Button {
+    cursor: pointer;
+}
+
+.Button[aria-disabled='true'],
+.Button_disabled {
+    cursor: default;
+}

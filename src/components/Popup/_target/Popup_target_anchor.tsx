@@ -1,9 +1,9 @@
-import React, { FC, RefObject, CSSProperties } from "react";
-import { withBemMod } from "@bem-react/core";
+import React, { FC, RefObject, CSSProperties } from 'react';
+import { withBemMod } from '@bem-react/core';
 
-import { PopperAnyModifiers, Direction, Boundary, usePopper } from "../../usePopper";
-import { useForkRef } from "../../useForkRef";
-import { IPopupProps, cnPopup, directions } from "../index";
+import { PopperAnyModifiers, Direction, Boundary, usePopper } from '../../usePopper';
+import { useForkRef } from '../../useForkRef';
+import { IPopupProps, cnPopup, directions } from '../index';
 
 export interface IPopupTargetAnchorProps {
     /**
@@ -49,7 +49,7 @@ export interface IPopupTargetAnchorProps {
     /**
      * Позиционирование попапа относительно переданного элемента
      */
-    target?: "anchor";
+    target?: 'anchor';
 
     /**
      * Отступ от края окна браузера
@@ -70,7 +70,7 @@ export interface IPopupTargetAnchorProps {
 }
 
 // Устанавливаем отрицательные координаты для избежания моргания при монтировании попапа.
-const initialPosition: CSSProperties = { top: -9999, left: -9999, position: "fixed" };
+const initialPosition: CSSProperties = { top: -9999, left: -9999, position: 'fixed' };
 
 /**
  * Позиционирует попап относительно элемента, который указан в свойстве `anchor`.
@@ -78,7 +78,7 @@ const initialPosition: CSSProperties = { top: -9999, left: -9999, position: "fix
  */
 export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>(
     cnPopup(),
-    { target: "anchor" },
+    { target: 'anchor' },
     (Popup) => {
         const WithTargetAnchor: FC<IPopupTargetAnchorProps & IPopupProps> = (props) => {
             const {
@@ -127,5 +127,5 @@ export const withTargetAnchor = withBemMod<IPopupTargetAnchorProps, IPopupProps>
         };
 
         return WithTargetAnchor;
-    }
+    },
 );

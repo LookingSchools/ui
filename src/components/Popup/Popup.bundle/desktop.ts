@@ -9,11 +9,12 @@ import { withTargetAnchor } from '../_target/Popup_target_anchor';
 // _theme
 import { withThemeClear } from '../_theme/Popup_theme_clear';
 import { withThemeDefault } from '../_theme/Popup_theme_default';
+import { withThemeNormal } from '../_theme/Popup_theme_normal';
 
 export * from '../Popup@desktop';
 
 export const Popup = compose(
     withNonvisual,
     withTargetAnchor,
-    composeU(withThemeClear, withThemeDefault),
+    composeU(withThemeClear, withThemeDefault, withThemeNormal),
 )(PopupDesktop);

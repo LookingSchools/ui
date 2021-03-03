@@ -28,10 +28,10 @@
     border-radius: 7px;
 }
 
-.MessageBox.MessageBox_size_l .MessageBox-Buttons .Button2:last-child::before {
+.MessageBox.MessageBox_size_l .MessageBox-Buttons .Button:last-child::before {
     border-radius: calc(7px - 1px) 0;
 }
 
-.MessageBox.MessageBox_size_l .MessageBox-Buttons .Button2_width_max:only-child::before {
+.MessageBox.MessageBox_size_l .MessageBox-Buttons .Button_width_max:only-child::before {
     border-radius: 0 0 7px 7px;
 }

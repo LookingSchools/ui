@@ -1,0 +1,242 @@
+/*
+ * 1. Предотвращает пропадание тени в iOS.
+ */
+
+.Popup_theme_normal {
+    visibility: hidden;
+
+    box-sizing: border-box;
+    margin: -9999px 0 0 -9999px;
+
+    border: 1px solid rgba(0, 0, 0, .06);
+
+    animation-duration: .1s;
+    animation-timing-function: ease-out;
+
+    animation-fill-mode: forwards;
+}
+
+.Popup_theme_normal .Popup-TailFill {
+    fill: #fff;
+}
+
+.Popup_theme_normal .Popup-TailBorder {
+    fill: rgba(0, 0, 0, .06);
+}
+
+.Popup_theme_normal::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    border-radius: .1px; /* 1 */
+    background: #fff;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .4);
+}
+
+/* NOTE: ISL-5672 */
+.Popup_theme_normal.Popup_visible::before {
+    z-index: -1;
+}
+
+.Popup_theme_normal.Popup_visible {
+    visibility: visible;
+
+    margin: 0;
+}
+
+.Popup_theme_normal.Popup[data-popper-placement^='bottom'] {
+    animation-name: popup_theme_normal_bottom;
+}
+
+.Popup_theme_normal.Popup[data-popper-placement^='bottom'].Popup_visible {
+    animation-name: popup_theme_normal_bottom_visible;
+}
+
+.Popup_theme_normal.Popup[data-popper-placement^='top'] {
+    animation-name: popup_theme_normal_top;
+}
+
+.Popup_theme_normal.Popup[data-popper-placement^='top'].Popup_visible {
+    animation-name: popup_theme_normal_top_visible;
+}
+
+.Popup_theme_normal.Popup[data-popper-placement^='right'] {
+    animation-name: popup_theme_normal_right;
+}
+
+.Popup_theme_normal.Popup[data-popper-placement^='right'].Popup_visible {
+    animation-name: popup_theme_normal_right_visible;
+}
+
+.Popup_theme_normal.Popup[data-popper-placement^='left'] {
+    animation-name: popup_theme_normal_left;
+}
+
+.Popup_theme_normal.Popup[data-popper-placement^='left'].Popup_visible {
+    animation-name: popup_theme_normal_left_visible;
+}
+
+@keyframes popup_theme_normal_bottom {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+    99% {
+        margin: 0;
+
+        transform: translateY(10px);
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px;
+
+        opacity: 0;
+    }
+}
+
+@keyframes popup_theme_normal_bottom_visible {
+    0% {
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes popup_theme_normal_top {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+    99% {
+        margin: 0;
+
+        transform: translateY(-10px);
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px;
+
+        opacity: 0;
+    }
+}
+
+@keyframes popup_theme_normal_top_visible {
+    0% {
+        opacity: 0;
+
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes popup_theme_normal_right {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+    99% {
+        margin: 0;
+
+        transform: translateX(10px);
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px;
+
+        opacity: 0;
+    }
+}
+
+@keyframes popup_theme_normal_right_visible {
+    0% {
+        opacity: 0;
+
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+@keyframes popup_theme_normal_left {
+    0% {
+        visibility: visible;
+
+        margin: 0;
+
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+    99% {
+        margin: 0;
+
+        transform: translateX(-10px);
+    }
+
+    100% {
+        visibility: hidden;
+
+        margin: -9999px 0 0 -9999px;
+
+        opacity: 0;
+    }
+}
+
+@keyframes popup_theme_normal_left_visible {
+    0% {
+        opacity: 0;
+
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}

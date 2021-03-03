@@ -13,7 +13,7 @@ import React, {
 } from "react";
 import { cn } from "@bem-react/classname";
 
-import "../../polyfills/pointerfocus";
+import "../polyfills/pointerfocus";
 import { forceUtilityFocus } from "../lib/pointerfocus";
 import { Keys, isKeyCode } from "../lib/keyboard";
 import { mergeRefs } from "../lib/mergeRefs";

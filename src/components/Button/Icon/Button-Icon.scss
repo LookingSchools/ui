@@ -4,7 +4,7 @@
  *    Подробнее: http://stackoverflow.com/questions/6744406.
  * 3. Селектор усиливается, чтобы перебить position: relative у icon_type_glyph.
  */
-.Button .Button-Icon {
+ .Button .Button-Icon {
     position: relative; /* 2 */
 
     pointer-events: none; /* 1 */

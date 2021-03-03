@@ -22,10 +22,10 @@ export const Playground = () => {
         "Общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом."
     );
     const theme = select("theme", ["default", "clear"], "default");
-    const direction = select("direction", directions, "bottom-start");
+    const direction = select("direction", directions, "bottom");
 
     return (
-        <>
+        <div style={{ marginLeft: 160, }}>
             <Button onClick={() => setVisible(!visible)} innerRef={anchorRef} size="m" theme="default">
                 Open popup
             </Button>
@@ -41,7 +41,7 @@ export const Playground = () => {
             >
                 <div style={{ padding: 16, fontFamily: "Roboto" }}>{children}</div>
             </Popup>
-        </>
+        </div>
     );
 };
 
@@ -176,7 +176,7 @@ export const Target = () => {
                 hasTail
                 target="anchor"
                 anchor={anchorRef}
-                direction="bottom-start"
+                direction="bottom"
                 theme="default"
                 visible={visible}
                 style={{ maxWidth: 280 }}

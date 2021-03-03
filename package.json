@@ -23,15 +23,24 @@
   ],
   "author": "Sergey Bocharov <Sergei-b84@bk.ru>",
   "license": "UNLICENSED",
-  "dependencies": {
-    "@lookingschools/i18n": "0.0.1",
-    "rebound": "0.1.0",
-    "tslib": "2.1.0"
-  },
   "bugs": {
     "url": "https://github.com/LookingSchools/ui/issues"
   },
   "homepage": "https://github.com/LookingSchools/ui#readme",
+  "peerDependencies": {
+    "@bem-react/classname": "^1.5.6",
+    "@bem-react/core": ">= 2.0.6",
+    "@bem-react/di": "^2.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "dependencies": {
+    "@lookingschools/i18n": "0.0.1",
+    "@popperjs/core": "2.5.4",
+    "react-range": "1.8.7",
+    "rebound": "0.1.0",
+    "tslib": "2.1.0"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.12.13",
     "@bem-react/classname": "1.5.9",

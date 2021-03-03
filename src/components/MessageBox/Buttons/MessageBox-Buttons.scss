@@ -5,19 +5,19 @@
     margin: 0;
 }
 
-.MessageBox-Buttons .Button2:last-child::before {
+.MessageBox-Buttons .Button:last-child::before {
     border-radius: calc(7px - 1px) 0;
 }
 
-.MessageBox-Buttons .Button2 {
+.MessageBox-Buttons .Button {
     margin-right: 0;
 }
 
-.MessageBox-Buttons .Button2:last-child {
+.MessageBox-Buttons .Button:last-child {
     margin-right: 0;
 }
 
-.MessageBox-Buttons .Button2:active {
+.MessageBox-Buttons .Button:active {
     /* Cause buttons should no scale inside. */
     transform: scale(1);
 }
