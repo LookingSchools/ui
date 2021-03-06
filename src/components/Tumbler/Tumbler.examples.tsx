@@ -15,7 +15,7 @@ export default {
 
 export const Playground = () => {
     const [checked, setChecked] = useState(false);
-    const theme = select("theme", ["default"], "default") as any;
+    const theme = select("theme", ["default", "primary"], "default") as any;
     const size = select("size", ["s", "m", "l"], "m") as any;
     const labelBefore = text("labelBefore", "");
     const labelAfter = text("labelAfter", "");
@@ -74,6 +74,78 @@ export const Size = () => {
         </>
     );
 };
+
+
+export const Theme = () => {
+    const [checked1, setChecked1] = useState(false);
+    const [checked2, setChecked2] = useState(false);
+
+    return (
+        <>
+        <div style={{ marginBottom: 8 }}>
+            <Tumbler
+                size="m"
+                theme="default"
+                checked={checked1}
+                onChange={() => setChecked1(!checked1)}
+                labelBefore="labelBefore"
+                labelAfter="labelAfter"
+            />
+        </div>
+        <div style={{ marginBottom: 8 }}>
+            <Tumbler
+                size="m"
+                theme="primary"
+                checked={checked2}
+                onChange={() => setChecked2(!checked2)}
+                labelBefore="labelBefore"
+                labelAfter="labelAfter"
+            />
+        </div>
+    </>
+    );
+};
+
+Theme.story = {
+    name: "theme",
+};
+
+export const Disabled = () => {
+    const [checked1, setChecked1] = useState(false);
+    const [checked2, setChecked2] = useState(false);
+
+    return (
+        <>
+        <div style={{ marginBottom: 8 }}>
+            <Tumbler
+                size="m"
+                disabled={true}
+                theme="default"
+                checked={checked1}
+                onChange={() => setChecked1(!checked1)}
+                labelBefore="labelBefore"
+                labelAfter="labelAfter"
+            />
+        </div>
+        <div style={{ marginBottom: 8 }}>
+            <Tumbler
+                size="m"
+                disabled={true}
+                theme="primary"
+                checked={checked2}
+                onChange={() => setChecked2(!checked2)}
+                labelBefore="labelBefore"
+                labelAfter="labelAfter"
+            />
+        </div>
+    </>
+    );
+};
+
+Disabled.story = {
+    name: "disabled",
+};
+
 
 export const Label = () => {
     const [checked1, setChecked1] = useState(false);

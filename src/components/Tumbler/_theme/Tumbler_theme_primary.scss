@@ -1,0 +1,121 @@
+@import '../../../theme/default.scss';
+
+/* common */
+.Tumbler_theme_primary {
+    font-family: $font-default;
+}
+
+.Tumbler_theme_primary .Tumbler-Label {
+    color: #000;
+}
+
+.Tumbler_theme_primary .Tumbler-Button {
+    background-color: rgba(6, 122, 255, 0.15);
+
+    transition: background-color 100ms linear;
+}
+
+.Tumbler_theme_primary .Tumbler-Button::after {
+    top: 2px;
+    left: 2px;
+
+    background-color: #fff;
+
+    transition: 100ms ease-out;
+    transition-property: left, transform, margin, width;
+}
+
+.Tumbler_theme_primary.Tumbler_size_s .Tumbler-Button {
+    width: 32px;
+    height: 16px;
+
+    border-radius: 8px;
+}
+
+.Tumbler_theme_primary.Tumbler_size_m .Tumbler-Button {
+    width: 40px;
+    height: 20px;
+
+    border-radius: 10px;
+}
+
+.Tumbler_theme_primary.Tumbler_size_l .Tumbler-Button {
+    width: 56px;
+    height: 28px;
+
+    border-radius: 14px;
+}
+
+.Tumbler_theme_primary.Tumbler_size_s .Tumbler-Button::after {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 6px;
+}
+
+.Tumbler_theme_primary.Tumbler_size_m .Tumbler-Button::after {
+    width: 16px;
+    height: 16px;
+
+    border-radius: 8px;
+}
+
+.Tumbler_theme_primary.Tumbler_size_l .Tumbler-Button::after {
+    width: 24px;
+    height: 24px;
+
+    border-radius: 12px;
+}
+
+/* check */
+.Tumbler_theme_primary[class] .Tumbler-Button[aria-pressed='true'] {
+    background-color: #067aff;
+}
+
+.Tumbler_theme_primary[class] .Tumbler-Button[aria-pressed='true']::after {
+    left: 100%;
+
+    margin-left: -2px;
+
+    transform: translateX(-100%);
+}
+
+/* disable */
+.Tumbler_theme_primary[aria-disabled='true'][class] {
+    pointer-events: none;
+}
+
+.Tumbler_theme_primary[aria-disabled='true'][class] .Tumbler-Label {
+    color: rgba(38, 49, 129, .3);
+}
+
+/* hover */
+.Tumbler_theme_primary .Tumbler-Button:hover {
+    background-color: rgba(6, 122, 255, 0.3);
+}
+
+.Tumbler_theme_primary[aria-disabled='true'][class] .Tumbler-Button {
+    background-color: rgba(38, 49, 129, .07);
+}
+
+/* press */
+.Tumbler_theme_primary.Tumbler_size_s .Tumbler-Button:active::after {
+    width: 14px;
+}
+
+.Tumbler_theme_primary.Tumbler_size_m .Tumbler-Button:active::after {
+    width: 18px;
+}
+
+.Tumbler_theme_primary.Tumbler_size_l .Tumbler-Button:active::after {
+    width: 26px;
+}
+
+.Tumbler_theme_primary[class] .Tumbler-Button[aria-pressed='true']:hover {
+    background-color: #0062d1;
+}
+
+/* focus */
+.utilityfocus .Tumbler_theme_primary .Tumbler-Button:focus {
+    box-shadow: 0 0 0 2px #f33;
+}
