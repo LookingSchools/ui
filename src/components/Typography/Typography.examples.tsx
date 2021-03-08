@@ -8,7 +8,7 @@ export default {
     decorators: [withKnobs],
     parameters: {
         docs: {
-            readme: require("./Typography.md"),
+            readme: require("./README.md"),
         },
     },
 };
@@ -20,6 +20,7 @@ export const Playground = () => {
             <Typography tag="h2">h2. Typography</Typography>
             <Typography tag="h3">h3. Typography</Typography>
             <Typography tag="h4">h4. Typography</Typography>
+            <Typography tag="h5">h5. Typography</Typography>
             <Typography>_size_l or Base. Typography</Typography>
             <Typography size="m">_size_m. Typography</Typography>
             <Typography size="s">_size_s. Typography</Typography>
