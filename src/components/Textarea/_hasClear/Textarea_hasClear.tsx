@@ -22,11 +22,6 @@ export interface ITextareaHasClearProps {
      * @internal
      */
     theme?: string;
-
-    /**
-     * @internal
-     */
-    view?: string;
 }
 
 /**

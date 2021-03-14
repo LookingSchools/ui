@@ -20,8 +20,7 @@ export * from '../Checkbox@mobile';
 export interface ICheckboxProps extends ICheckboxTouchPhoneProps {
     lines?: 'multi' | 'one';
     size?: 'm' | 's';
-    theme?: 'normal' | 'pseudo';
-    view?: 'default';
+    theme?: 'normal' | 'pseudo' | 'default';
     indeterminate?: boolean;
 }
 

@@ -1,1 +1,1 @@
-import './click-event.css';
+import './click-event.scss';

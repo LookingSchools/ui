@@ -21,7 +21,7 @@ import '../polyfills/pointerfocus'
 2. Описать набор необходимых стилей для фокуса:
 
 ```css
-/* src/Component/_view/Component_view@desktop.tsx */
+/* src/Component/_theme/Component_theme@desktop.tsx */
 .utilityfocus button:focus {
   outline: 2px solid #000;
 }

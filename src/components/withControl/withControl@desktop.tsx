@@ -1,6 +1,6 @@
-import React, { MouseEventHandler, ComponentType, ComponentClass, MouseEvent, PureComponent } from "react";
+import React, { MouseEventHandler, ComponentType, ComponentClass, MouseEvent, PureComponent } from 'react';
 
-import { getDisplayName } from "../lib/getDisplayName";
+import { getDisplayName } from '../lib/getDisplayName';
 
 export interface IWithControlProps<T = Element> {
     disabled?: boolean;

@@ -1,19 +1,17 @@
-import { withBemMod } from "@bem-react/core";
+import { withBemMod } from '@bem-react/core';
 
-import { cnPopup } from "../Popup";
-import "./Popup_theme_default.scss";
+import { cnPopup } from '../Popup';
+import './Popup_theme_default.scss';
 
 export interface IPopupThemeDefaultProps {
     /**
-     * Стилевое оформление попапа
+     * Внешний вид попапа
      */
-    theme?: "default";
+    theme?: 'default';
 }
 
 /**
- * Модификатор, отвечающий за стилевое оформление попапа.
+ * Модификатор, отвечающий за внешний вид попапа.
  * @param {IPopupThemeDefaultProps} props
  */
-export const withThemeDefault = withBemMod<IPopupThemeDefaultProps>(cnPopup(), {
-    theme: "default",
-});
+export const withThemeDefault = withBemMod<IPopupThemeDefaultProps>(cnPopup(), { theme: 'default' });

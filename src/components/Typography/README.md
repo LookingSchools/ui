@@ -9,7 +9,7 @@
 ```ts
 // src/App.ts
 import React from 'react'
-import { Button } from '@yandex/ui/Typography/bundle'
+import { Button } from '@lookingschools/ui/Typography/bundle'
 
 const App = () => (
   <div>

@@ -22,12 +22,12 @@ import {
   TabsMenu as TabsMenuDesktop,
   withSizeM,
   withLayoutHoriz,
-  withViewDefault,
+  withThemeDefault,
 } from "@lookingschools/ui/TabsMenu"
 
 const TabsMenu = compose(
   withSizeM,
-  withViewDefault,
+  withThemeDefault,
   withLayoutHoriz
 )(TabsMenuDesktop)
 

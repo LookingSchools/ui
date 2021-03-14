@@ -17,10 +17,10 @@ import { compose } from "@bem-react/core"
 import {
   Tooltip as TooltipDesktop,
   withSizeM,
-  withViewDefault,
+  withThemeDefault,
 } from "@lookingschools/ui/Tooltip/desktop"
 
-const Tooltip = compose(withSizeM, withViewDefault)(TooltipDesktop)
+const Tooltip = compose(withSizeM, withThemeDefault)(TooltipDesktop)
 
 const App = () => {
   const [visible, setVisible] = React.useState(false)

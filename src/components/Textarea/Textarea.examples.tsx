@@ -8,7 +8,7 @@ export default {
     decorators: [withKnobs],
     parameters: {
         docs: {
-            readme: require("./Textarea.md"),
+            readme: require("./README.md"),
         },
     },
 };
@@ -116,7 +116,7 @@ export const state = () => {
                 size="m"
                 theme="default"
                 rows={0}
-                defaultValue="view default"
+                defaultValue="theme default"
             />
         </>
     );

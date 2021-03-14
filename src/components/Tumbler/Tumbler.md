@@ -13,10 +13,10 @@ import { compose } from "@bem-react/core"
 import {
   Tumbler as TumblerDesktop,
   withSizeM,
-  withViewDefault,
+  withThemeDefault,
 } from "@lookingschools/ui/Tumbler"
 
-const Tumbler = compose(withSizeM, withViewDefault)(TumblerDesktop)
+const Tumbler = compose(withSizeM, withThemeDefault)(TumblerDesktop)
 
 const App = () => {
   const [checked, setChecked] = useState("")

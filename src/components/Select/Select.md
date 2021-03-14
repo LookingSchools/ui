@@ -1,9 +1,7 @@
 # Select
 
 <!-- description:start -->
-
 Компонент для создания раскрывающегося списка с меню.
-
 <!-- description:end -->
 
 ## Пример использования
@@ -12,39 +10,39 @@
 
 ```ts
 // src/App.ts
-import React, { useState } from "react"
-import { compose } from "@bem-react/core"
-import { withRegistry, Registry } from "@bem-react/di"
+import React, { useState } from 'react'
+import { compose } from '@bem-react/core'
+import { withRegistry, Registry } from '@bem-react/di'
 
 import {
   Select as SelectDesktop,
   cnSelect,
-} from "@lookingschools/ui/Select/desktop"
+} from '@lookingschools/ui/Select/desktop'
 
-import { withTogglable } from "@lookingschools/ui/withTogglable"
+import { withTogglable } from '@lookingschools/ui/withTogglable'
 
 import {
   Button as ButtonDesktop,
   withSizeM as withButtonSizeM,
   withThemeDefault as withButtonThemeDefault,
-} from "@lookingschools/ui/Button/desktop"
+} from '@lookingschools/ui/Button/desktop'
 
 import {
   Menu as MenuDesktop,
   withSizeM as withMenuSizeM,
   withThemeDefault as withMenuThemeDefault,
-} from "@lookingschools/ui/Menu/desktop"
+} from '@lookingschools/ui/Menu/desktop'
 
 import {
   Popup as PopupDesktop,
   withThemeDefault as withPopupThemeDefault,
   withTargetAnchor,
-} from "@lookingschools/ui/Popup/desktop"
+} from '@lookingschools/ui/Popup/desktop'
 
 import {
   Icon as IconDesktop,
   withGlyphCaretsV,
-} from "@lookingschools/ui/Icon/desktop"
+} from '@lookingschools/ui/Icon/desktop'
 
 const selectRegistry = new Registry({ id: cnSelect() })
 
@@ -57,18 +55,18 @@ const Popup = compose(withPopupThemeDefault, withTargetAnchor)(PopupDesktop)
 const Icon = compose(withGlyphCaretsV)(IconDesktop)
 
 selectRegistry
-  .set("Trigger", Button)
-  .set("Popup", Popup)
-  .set("Menu", Menu)
-  .set("Icon", Icon)
+  .set('Trigger', Button)
+  .set('Popup', Popup)
+  .set('Menu', Menu)
+  .set('Icon', Icon)
 
 const Select = compose(
   withTogglable,
-  withRegistry(selectRegistry)
+  withRegistry(selectRegistry),
 )(SelectDesktop)
 
 const App = () => {
-  const [value, setValue] = useState("a")
+  const [value, setValue] = useState('a')
 
   return (
     <Select
@@ -77,9 +75,9 @@ const App = () => {
       onChange={(event) => setValue(event.target.value)}
       value={value}
       options={[
-        { value: "a", content: "Каждый" },
-        { value: "b", content: "Охотник" },
-        { value: "c", content: "Желает", disabled: true },
+        { value: 'a', content: 'Каждый' },
+        { value: 'b', content: 'Охотник' },
+        { value: 'c', content: 'Желает', disabled: true },
       ]}
     />
   )
@@ -90,11 +88,11 @@ const App = () => {
 
 ```ts
 // src/App.ts
-import React, { useState } from "react"
-import { Select } from "@lookingschools/ui/Select/desktop/bundle"
+import React, { useState } from 'react'
+import { Select } from '@lookingschools/ui/Select/desktop/bundle'
 
 const App = () => {
-  const [value, setValue] = useState("a")
+  const [value, setValue] = useState('a')
 
   return (
     <Select
@@ -103,9 +101,9 @@ const App = () => {
       onChange={(event) => setValue(event.target.value)}
       value={value}
       options={[
-        { value: "a", content: "Каждый" },
-        { value: "b", content: "Охотник" },
-        { value: "c", content: "Желает", disabled: true },
+        { value: 'a', content: 'Каждый' },
+        { value: 'b', content: 'Охотник' },
+        { value: 'c', content: 'Желает', disabled: true },
       ]}
     />
   )
@@ -113,6 +111,12 @@ const App = () => {
 ```
 
 ## Примеры
+
+### Вид компонента
+
+Чтобы изменить вид компонента, установите свойство `theme` в значение `"default"`.
+
+{{%story::desktop:controls-select-desktop--theme%}}
 
 ### Размер компонента
 
@@ -123,7 +127,6 @@ const App = () => {
 ### Ширина компонента
 
 Чтобы изменить ширину компонента, установите свойство `width` в одно из следующих значений:
-
 - `max` — ширина определяется шириной контейнера. Если ширина текста больше ширины контейнера, текст обрезается многоточием.
 
 {{%story::desktop:controls-select-desktop--width%}}
@@ -138,30 +141,38 @@ const App = () => {
 
 {{%story::desktop:controls-select-desktop--icon%}}
 
+### Тип селекта
+
+Селект может работать в нескольких режимах:
+- `radio` — Можно выбрать одно значение (тип `value` — **примитив**).
+- `check` — Можно выбрать несколько значений (тип `value` — **массив**).
+
+{{%story::desktop:controls-select-desktop--type%}}
+
 ## Свойства
 
 <!-- props:start -->
-
 | Свойство               | Тип                                                                                                                                                                                                                                                               | По умолчанию | Описание                                                                                                                                                                                                                                                                             |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| onBlur?                | `(event: FocusEvent<HTMLElement>) => void`                                                                                                                                                                                                                        | —            | Событие, которое вызывается при потере фокуса компонентом, например при клике на другом месте экрана                                                                                                                                                                                 |
-| onClick?               | `(event: MouseEvent<HTMLElement, MouseEvent>) => void`                                                                                                                                                                                                            | —            | Событие, которое вызывается при нажатии на компонент                                                                                                                                                                                                                                 |
-| onKeyDown?             | `(event: KeyboardEvent<HTMLElement>) => void`                                                                                                                                                                                                                     | —            | Событие, которое вызывается при нажатии клавиш клавиатуры                                                                                                                                                                                                                            |
-| addonAfter?            | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | —            | Дополнительный контент после компонента `Trigger`                                                                                                                                                                                                                                    |
-| addonBefore?           | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | —            | Дополнительный контент перед компонентом `Trigger`                                                                                                                                                                                                                                   |
-| innerRef?              | `(instance: HTMLElement) => void \| RefObject<HTMLElement>`                                                                                                                                                                                                       | —            | Ссылка на корневой DOM-элемент компонента                                                                                                                                                                                                                                            |
-| options                | `Option[]`                                                                                                                                                                                                                                                        | —            | Набор опций                                                                                                                                                                                                                                                                          |
-| placeholder?           | `string`                                                                                                                                                                                                                                                          | `—`          | Вспомогательный текст внутри компонента; отображается, когда значение не выбрано                                                                                                                                                                                                     |
-| size?                  | `string`                                                                                                                                                                                                                                                          | —            | Размер компонента                                                                                                                                                                                                                                                                    |
-| theme?                 | `string`                                                                                                                                                                                                                                                          | —            | Стилевое оформление компонента                                                                                                                                                                                                                                                       |
-| triggerRef?            | `RefObject<HTMLElement>`                                                                                                                                                                                                                                          | —            | Ссылка на корневой DOM-элемент компонента `Trigger`                                                                                                                                                                                                                                  |
+| onBlur?                | `(event: FocusEvent<HTMLElement>) => void`                                                                                                                                                                                                                        | —            | Событие, которое вызывается при потере фокуса компонентом. Например, при клике на другом месте экрана.                                                                                                                                                                               |
+| onClick?               | `(event: MouseEvent<HTMLElement, MouseEvent>) => void`                                                                                                                                                                                                            | —            | Событие, которое вызывается при нажатии на компонент.                                                                                                                                                                                                                                |
+| onKeyDown?             | `(event: KeyboardEvent<HTMLElement>) => void`                                                                                                                                                                                                                     | —            | Событие, которое вызывается при нажатии клавиш клавиатуры.                                                                                                                                                                                                                           |
+| addonAfter?            | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | —            | Дополнительный контент после компонента `Trigger`.                                                                                                                                                                                                                                   |
+| addonBefore?           | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal` | —            | Дополнительный контент перед компонентом `Trigger`.                                                                                                                                                                                                                                  |
+| innerRef?              | `(instance: HTMLElement) => void \| RefObject<HTMLElement>`                                                                                                                                                                                                       | —            | Ссылка на корневой DOM элемент компонента.                                                                                                                                                                                                                                           |
+| options                | `Option[]`                                                                                                                                                                                                                                                        | —            | Набор опций.                                                                                                                                                                                                                                                                         |
+| placeholder?           | `string`                                                                                                                                                                                                                                                          | `—`          | Вспомогательный текст внутри компонента. Отображается, когда значение не выбрано.                                                                                                                                                                                                    |
+| size?                  | `string`                                                                                                                                                                                                                                                          | —            | Размер компонента.                                                                                                                                                                                                                                                                   |
+| theme?                 | `string`                                                                                                                                                                                                                                                          | —            | Стилевое оформление компонента.                                                                                                                                                                                                                                                      |
+| triggerRef?            | `RefObject<HTMLElement>`                                                                                                                                                                                                                                          | —            | Ссылка на корневой DOM элемент компонента `Trigger`.                                                                                                                                                                                                                                 |
 | value?                 | `any`                                                                                                                                                                                                                                                             | `''`         | Значение, выбранное в компоненте по умолчанию.<br>Если передана строка или число, то компонент будет работать в режиме `radio` — выбрать можно только один пункт. Если передан массив, то компонент будет работать в режиме `check` — выбрать можно произвольное количество пунктов. |
-| theme?                 | `string`                                                                                                                                                                                                                                                          | —            | Внешний вид компонента                                                                                                                                                                                                                                                               |
-| showAlwaysPlaceholder? | `false \| true`                                                                                                                                                                                                                                                   | —            | Показывать всегда значение из свойства `placeholder` вне зависимости от выбранного значения                                                                                                                                                                                          |
-| checkable?             | `false \| true`                                                                                                                                                                                                                                                   | —            | Включает/отключает модификатор `checked` на кнопке селекта                                                                                                                                                                                                                           |
-| iconProps?             | `IIconEnhancedProps`                                                                                                                                                                                                                                              | —            | Дополнительные свойства для иконки                                                                                                                                                                                                                                                   |
-| onChange?              | `(event: any) => void`                                                                                                                                                                                                                                            | —            | Обработчик изменения значения                                                                                                                                                                                                                                                        |
-| opened?                | `false \| true`                                                                                                                                                                                                                                                   | —            | Состояние открытия                                                                                                                                                                                                                                                                   |
-| setOpened?             | `(nextOpened: boolean) => void`                                                                                                                                                                                                                                   | —            | Обработчик, устанавливающий состояние открытия                                                                                                                                                                                                                                       |
-
+| showAlwaysPlaceholder? | `false \| true`                                                                                                                                                                                                                                                   | —            | Показывать всегда значение из свойства `placeholder` вне зависимости от выбранного значения.                                                                                                                                                                                         |
+| checkable?             | `false \| true`                                                                                                                                                                                                                                                   | —            | Включает/отключает модификатор `checked` на кнопке селекта.                                                                                                                                                                                                                          |
+| iconProps?             | `IIconEnhancedProps`                                                                                                                                                                                                                                              | —            | Дополнительные свойства для иконки.                                                                                                                                                                                                                                                  |
+| onChange?              | `(event: any) => void`                                                                                                                                                                                                                                            | —            | Обработчик изменения значения.                                                                                                                                                                                                                                                       |
+| renderTrigger?         | `(props: any, component: any) => ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<...>)>`                                                       | —            | Переопределяет компонент `Trigger`                                                                                                                                                                                                                                                   |
+| renderTriggerIcon?     | `(props: any, component: any) => ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<...>)>`                                                       | —            | Переопределяет компонент `TriggerIcon`                                                                                                                                                                                                                                               |
+| activeDescendant?      | `string`                                                                                                                                                                                                                                                          | —            | id активного элемента меню.                                                                                                                                                                                                                                                          |
+| opened?                | `false \| true`                                                                                                                                                                                                                                                   | —            | Состояние открытия.                                                                                                                                                                                                                                                                  |
+| setOpened?             | `(nextOpened: boolean) => void`                                                                                                                                                                                                                                   | —            | Обработчик устанавливающий состояние открытия.                                                                                                                                                                                                                                       |
 <!-- props:end -->

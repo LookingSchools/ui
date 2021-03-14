@@ -18,13 +18,13 @@ import { compose } from '@bem-react/core'
 import {
   Button as ButtonDesktop,
   withSizeM,
-  withViewDefault,
-} from '@yandex/ui/Button/desktop'
+  withThemeDefault,
+} from '@lookingschools/ui/Button/desktop'
 
-const Button = compose(withSizeM, withViewDefault)(ButtonDesktop)
+const Button = compose(withSizeM, withThemeDefault)(ButtonDesktop)
 
 const App = () => (
-  <Button view="default" size="m">
+  <Button theme="default" size="m">
     Button
   </Button>
 )
@@ -35,10 +35,10 @@ const App = () => (
 ```ts
 // src/App.ts
 import React from 'react'
-import { Button } from '@yandex/ui/Button/desktop/bundle'
+import { Button } from '@lookingschools/ui/Button/desktop/bundle'
 
 const App = () => (
-  <Button view="default" size="m">
+  <Button theme="default" size="m">
     Button
   </Button>
 )
@@ -46,15 +46,9 @@ const App = () => (
 
 ## Примеры
 
-### Вид кнопки
-
-Чтобы изменить вид кнопки, установите свойство `view` в одно из следующих значений: `"default"`, `"action"`, `"link"`, `"pseudo"`, `"clear"`, `"raised"`.
-
-{{%story::desktop:controls-button-desktop--view%}}
-
 ### Стилевое оформление
 
-Чтобы изменить стилевое оформление кнопки, установите свойство `theme` в одно из следующих значений: `"normal"`, `"action"`, `"clear"`, `"link"`, `"pseudo"`, `"raised"`, `"websearch"`.
+Чтобы изменить стилевое оформление кнопки, установите свойство `theme` в одно из следующих значений: `"default"`, `"primary"`, `"clear"`, `"link"`, `"pseudo"`, `"raised"`.
 
 {{%story::desktop:controls-button-desktop--theme%}}
 

@@ -1,36 +1,35 @@
-import React, { useState, useRef } from "react";
-import { withKnobs, select, boolean, object } from "@storybook/addon-knobs";
+import React, { useState } from 'react';
+import { withKnobs, select, boolean, object } from '@storybook/addon-knobs';
 
-import { Select } from "../Select.bundle/mobile";
-import { EXAMPLE_MOBILE_TOKEN, parameters } from "./examples-config";
+import { Select } from '../Select.bundle/mobile';
+import { EXAMPLE_TOUCH_PHONE_TOKEN, parameters } from './examples-config';
 
 export default {
-    title: EXAMPLE_MOBILE_TOKEN,
+    title: EXAMPLE_TOUCH_PHONE_TOKEN,
     decorators: [withKnobs],
     parameters,
 };
 
 const rawOptions = [
-    { value: "a", content: "Каждый" },
-    { value: "b", content: "Охотник" },
-    { value: "c", content: "Желает" },
-    { value: "d", content: "Знать" },
-    { value: "e", content: "Где", disabled: true },
-    { value: "f", content: "Сидит" },
-    { value: "g", content: "Фазан" },
+    { value: 'a', content: 'Каждый' },
+    { value: 'b', content: 'Охотник' },
+    { value: 'c', content: 'Желает' },
+    { value: 'd', content: 'Знать' },
+    { value: 'e', content: 'Где', disabled: true },
+    { value: 'f', content: 'Сидит' },
+    { value: 'g', content: 'Фазан' },
 ];
 
 export const Playground = () => {
-    const [value, setValue] = useState("a");
-    const scopeRef = useRef(null);
+    const [value, setValue] = useState('a');
 
-    const size = select("size", ["m", "s"], "m") as any;
-    const theme = select("theme", ["default", ""], "default") as any;
-    const disabled = boolean("disabled", false);
-    const options = object("options", rawOptions);
+    const size = select('size', ['m', 's'], 'm') as any;
+    const theme = select('theme', ['default', ''], 'default') as any;
+    const disabled = boolean('disabled', false);
+    const options = object('options', rawOptions);
 
     return (
-        <div ref={scopeRef} style={{ position: "relative" }}>
+        <div>
             <Select
                 disabled={disabled}
                 theme={theme}
@@ -44,5 +43,5 @@ export const Playground = () => {
 };
 
 Playground.story = {
-    name: "playground",
+    name: 'playground',
 };

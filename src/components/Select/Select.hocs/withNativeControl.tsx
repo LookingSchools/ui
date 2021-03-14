@@ -1,6 +1,6 @@
-import React, { ReactNode, FC } from "react";
+import React, { ReactNode, FC } from 'react';
 
-import { ISelectProps, Option, OptionGroup, cnSelect } from "../Select";
+import { ISelectProps, Option, OptionGroup, cnSelect } from '../Select';
 
 export const isGroup = (value: any): value is OptionGroup => {
     return value.items !== undefined;
@@ -39,7 +39,7 @@ export const withNativeControl = (Select: FC<ISelectProps>) => ({
             <>
                 <select
                     onClick={onClick}
-                    className={cnSelect("Control")}
+                    className={cnSelect('Control')}
                     multiple={Array.isArray(value)}
                     name={name}
                     onChange={onChange}

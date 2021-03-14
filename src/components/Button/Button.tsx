@@ -194,7 +194,6 @@ type DefaultProps = keyof typeof defaultProps;
 type ButtonProps = Defaultize<IButtonProps, DefaultProps>;
 
 type ButtonInternalProps = {
-    view: any;
     theme: any;
     baseline: any;
     pin: any;
@@ -241,8 +240,6 @@ export const Button = class extends PureComponent<ButtonProps, IButtonState> {
             pressKeys: _pressKeys,
             prvntKeys: _prvntKeys,
             // Извлекаем свойства, т.к. они не нужны на DOM узле
-            // FIXME: https://github.com/bem/bem-react/issues/381
-            view: _view,
             theme: _theme,
             baseline: _baseline,
             pin: _pin,

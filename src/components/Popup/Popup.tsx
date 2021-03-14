@@ -1,25 +1,14 @@
-import React, {
-    RefObject,
-    ReactNode,
-    FC,
-    CSSProperties,
-    useState,
-    ReactElement,
-    Ref,
-    useRef,
-    MouseEventHandler,
-    useEffect,
-} from "react";
-import { createPortal } from "react-dom";
-import { PopupTail as Tail } from "./Tail/Popup-Tail";
-import { cn } from "@bem-react/classname";
+import React, { RefObject, ReactNode, FC, CSSProperties, ReactElement, Ref, useRef, MouseEventHandler } from 'react';
+import { useComponentRegistry } from '@bem-react/di';
+import { cn } from '@bem-react/classname';
 
-import { canUseDOM } from "../lib/canUseDOM";
-import { mergeAllRefs } from "../lib/mergeRefs";
-import { OnClose, LayerManager } from "../LayerManager/LayerManager";
-import "./Popup.scss";
+import { useForkRef } from '../useForkRef';
+import { PortalExtendableProps, Portal } from '../Portal';
+import { OnClose, LayerManager } from '../LayerManager';
+import { IPopupRegistry } from './Popup.registry';
+import './Popup.scss';
 
-export interface IPopupProps {
+export interface IPopupProps extends PortalExtendableProps {
     /**
      * Дополнительный контент после содержимого попапа
      */
@@ -39,22 +28,6 @@ export interface IPopupProps {
      * Ссылка на корневой DOM-элемент компонента
      */
     innerRef?: Ref<HTMLDivElement>;
-
-    /**
-     * Сохраняет контейнер в DOM после создания
-     *
-     * @default true
-     */
-    keepMounted?: boolean;
-
-    /**
-     * Ссылка на DOM-элемент, в котором размещается попап
-     *
-     * Важно, чтобы контейнер имел `position: relative` для корректного позиционирования.
-     *
-     * @default document.body
-     */
-    scope?: RefObject<HTMLElement>;
 
     /**
      * Ссылка на DOM-элемент хвостика
@@ -110,19 +83,12 @@ export interface IPopupProps {
     unstable_essentialRefs?: RefObject<HTMLElement>[];
 
     /**
-     * DOM-узел в рамках которого не нужно отслеживать нажатие
-     *
-     * @internal
-     */
-    unstable_hostRef?: RefObject<HTMLElement>;
-
-    /**
      * Обработчик, вызываемый при срабатывании события click
      */
     onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-export const cnPopup = cn("Popup");
+export const cnPopup = cn('Popup');
 
 /**
  * Компонент для создания всплывающего окна (попапа).
@@ -135,8 +101,8 @@ export const Popup: FC<IPopupProps> = ({
     className,
     hasTail,
     innerRef,
-    keepMounted = true,
-    scope = { current: canUseDOM() ? document.body : null },
+    keepMounted,
+    scope,
     style,
     tailRef,
     tailSize,
@@ -145,7 +111,6 @@ export const Popup: FC<IPopupProps> = ({
     unstable_onRenderTail,
     onClose,
     unstable_essentialRefs = [],
-    unstable_hostRef,
     onClick,
     // Извлекаем свойства, т.к. они не нужны на DOM узле
     // FIXME: https://github.com/bem/bem-react/issues/381
@@ -155,40 +120,30 @@ export const Popup: FC<IPopupProps> = ({
     nonvisual: _nonvisual,
     ...props
 }: IPopupProps) => {
-    const [isFirstRender, forceUpdate] = useState(true);
     const containerRef = useRef(null);
-    const hostRef = unstable_hostRef || containerRef;
+    const { Tail } = useComponentRegistry<IPopupRegistry>(cnPopup());
 
-    useEffect(() => {
-        if (isFirstRender && visible) {
-            forceUpdate(false);
-        }
-    }, [isFirstRender, visible]);
-
-    if ((!visible && !keepMounted) || !canUseDOM() || scope.current === null || isFirstRender) {
-        return null;
-    }
-
-    return createPortal(
-        <LayerManager visible={visible} onClose={onClose} essentialRefs={[hostRef, ...unstable_essentialRefs]}>
-            <div
-                {...props}
-                className={cnPopup({ visible }, [className])}
-                ref={mergeAllRefs(containerRef, innerRef)}
-                style={{ ...style, zIndex }}
-                onClick={onClick}
-            >
-                {addonBefore}
-                {typeof children === "function" ? children({ tailRef }) : children}
-                {addonAfter}
-                {unstable_onRenderTail &&
-                    unstable_onRenderTail(<Tail ref={tailRef} style={{ height: tailSize, width: tailSize }} />)}
-                {!unstable_onRenderTail && hasTail && (
-                    <Tail ref={tailRef} style={{ height: tailSize, width: tailSize }} />
-                )}
-            </div>
-        </LayerManager>,
-        scope.current
+    return (
+        <Portal scope={scope} visible={visible} keepMounted={keepMounted}>
+            <LayerManager visible={visible} onClose={onClose} essentialRefs={[containerRef, ...unstable_essentialRefs]}>
+                <div
+                    {...props}
+                    className={cnPopup({ visible }, [className])}
+                    ref={useForkRef(containerRef, innerRef)}
+                    style={{ ...style, zIndex }}
+                    onClick={onClick}
+                >
+                    {addonBefore}
+                    {typeof children === 'function' ? children({ tailRef }) : children}
+                    {addonAfter}
+                    {unstable_onRenderTail &&
+                        unstable_onRenderTail(<Tail ref={tailRef} style={{ height: tailSize, width: tailSize }} />)}
+                    {!unstable_onRenderTail && hasTail && (
+                        <Tail ref={tailRef} style={{ height: tailSize, width: tailSize }} />
+                    )}
+                </div>
+            </LayerManager>
+        </Portal>
     );
 };
 

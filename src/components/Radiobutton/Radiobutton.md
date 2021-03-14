@@ -13,10 +13,10 @@ import { compose } from "@bem-react/core"
 import {
   Radiobutton as RadiobuttonBase,
   withSizeM,
-  withViewDefault,
+  withThemeDefault,
 } from "@lookingschools/ui/Radiobutton"
 
-const Radiobutton = compose(withSizeM, withViewDefault)(RadiobuttonBase)
+const Radiobutton = compose(withSizeM, withThemeDefault)(RadiobuttonBase)
 
 const App = () => {
   const [value, setValue] = useState("value1")

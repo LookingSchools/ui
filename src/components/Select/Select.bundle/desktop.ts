@@ -2,12 +2,15 @@ import { withRegistry, Registry } from '@bem-react/di';
 import { compose } from '@bem-react/core';
 
 // Registry dependencies
-import { Button } from '../../Button/Button.bundle';
-import { Popup } from '../../Popup/Popup.bundle';
+import { Button } from '../../Button/Button.bundle/desktop';
+import { Popup } from '../../Popup/Popup.bundle/desktop';
 import { Menu } from '../../Menu/Menu.bundle';
 import { Icon } from '../../Icon/Icon.bundle';
+// TODO
+// import { Menu } from '../../Menu/Menu.bundle/desktop';
+// import { Icon } from '../../Icon/Icon.bundle/desktop';
 import { withTogglable } from '../../withTogglable/withTogglable';
-import { withZIndex } from '../../withZIndex';
+import { withZIndex } from '../../withZIndex/withZIndex';
 
 // base
 import { Select as SelectDesktop, cnSelect } from '../Select@desktop';

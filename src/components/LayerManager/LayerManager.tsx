@@ -1,7 +1,7 @@
-import React, { FC, useEffect, RefObject, ReactNode, useCallback, useRef } from "react";
+import React, { FC, useEffect, RefObject, ReactNode, useCallback, useRef } from 'react';
 
-import { usePreviousValue } from "../usePreviousValue";
-import { useUniqId } from "../useUniqId";
+import { usePreviousValue } from '../usePreviousValue';
+import { useUniqId } from '../useUniqId';
 
 export type LayerManagerProps = {
     /**
@@ -25,7 +25,9 @@ export type LayerManagerProps = {
     essentialRefs: RefObject<HTMLElement>[];
 };
 
-export type OnClose = (event: KeyboardEvent | MouseEvent, source: "esc" | "click") => void;
+export type LayerManagerExtendableProps = Pick<LayerManagerProps, 'onClose'>;
+
+export type OnClose = (event: KeyboardEvent | MouseEvent, source: 'esc' | 'click') => void;
 
 type LayerId = string;
 type LayerTuple = [LayerId, OnClose, RefObject<HTMLElement>[]];
@@ -39,7 +41,7 @@ type EFC<T> = FC<T> & { stack: LayerTuple[] };
  * @param {LayerManagerProps}
  */
 export const LayerManager: EFC<LayerManagerProps> = ({ visible, onClose, children, essentialRefs }) => {
-    const id = useUniqId("layer");
+    const id = useUniqId('layer');
     const prevVisible = usePreviousValue(visible);
     const prevOnClose = usePreviousValue(onClose);
     const mouseDownRef = useRef<EventTarget | null>(null);
@@ -47,11 +49,11 @@ export const LayerManager: EFC<LayerManagerProps> = ({ visible, onClose, childre
     const onDocumentKeyUp = useCallback((event: KeyboardEvent) => {
         const key = event.key;
         // @fixme: ISL-9529: keyboard.ts: использовать библиотеку для клавиатурных событий
-        if (key === "Escape" || key === "Esc") {
+        if (key === 'Escape' || key === 'Esc') {
             const [layerId, layerOnClose] = LayerManager.stack[LayerManager.stack.length - 1] || [];
             // Дополнительно проверяем id слоя, чтобы не вызывать layerOnClose n-раз.
             if (layerId === id && layerOnClose !== undefined) {
-                layerOnClose(event, "esc");
+                layerOnClose(event, 'esc');
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -78,7 +80,7 @@ export const LayerManager: EFC<LayerManagerProps> = ({ visible, onClose, childre
                 .filter((ref) => ref.current !== null)
                 .some((ref) => (ref.current as HTMLElement).contains(event.target as HTMLHtmlElement));
             if (!isEssentionalClick) {
-                layerOnClose(event, "click");
+                layerOnClose(event, 'click');
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -100,18 +102,18 @@ export const LayerManager: EFC<LayerManagerProps> = ({ visible, onClose, childre
         if (visible) {
             LayerManager.stack.push([id, onClose, essentialRefs]);
 
-            document.addEventListener("keyup", onDocumentKeyUp);
-            document.addEventListener("mousedown", onDocumentMouseDown, true);
-            document.addEventListener("click", onDocumentClick, true);
+            document.addEventListener('keyup', onDocumentKeyUp);
+            document.addEventListener('mousedown', onDocumentMouseDown, true);
+            document.addEventListener('click', onDocumentClick, true);
         } else {
             // Т.к. onCloseHandlers у нас не является стейтом компонента,
             // то удаление обработчика может произойти раньше, чем его вызов,
             // поэтому используем raf для удаления в следующем тике.
             requestAnimationFrame(() => removeLayerById(id));
 
-            document.removeEventListener("keyup", onDocumentKeyUp);
-            document.removeEventListener("mousedown", onDocumentMouseDown, true);
-            document.removeEventListener("click", onDocumentClick, true);
+            document.removeEventListener('keyup', onDocumentKeyUp);
+            document.removeEventListener('mousedown', onDocumentMouseDown, true);
+            document.removeEventListener('click', onDocumentClick, true);
         }
         // Не добавляем essentialRefs в зависимости,
         // т.к. они нужны единожды при добавлении в стек.
@@ -122,9 +124,9 @@ export const LayerManager: EFC<LayerManagerProps> = ({ visible, onClose, childre
         return () => {
             requestAnimationFrame(() => removeLayerById(id));
 
-            document.removeEventListener("keyup", onDocumentKeyUp);
-            document.removeEventListener("mousedown", onDocumentMouseDown, true);
-            document.removeEventListener("click", onDocumentClick, true);
+            document.removeEventListener('keyup', onDocumentKeyUp);
+            document.removeEventListener('mousedown', onDocumentMouseDown, true);
+            document.removeEventListener('click', onDocumentClick, true);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -133,7 +135,7 @@ export const LayerManager: EFC<LayerManagerProps> = ({ visible, onClose, childre
 };
 
 LayerManager.stack = [];
-LayerManager.displayName = "LayerManager";
+LayerManager.displayName = 'LayerManager';
 
 function removeLayerById(id: string) {
     LayerManager.stack = LayerManager.stack.filter(([layerId]) => layerId !== id);

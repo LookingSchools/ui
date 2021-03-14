@@ -7,7 +7,6 @@ import { Tooltip as TooltipTouchPhone, TooltipStateful as TooltipStatefulTouchPh
 import { withSizeM } from '../_size/Tooltip_size_m';
 import { withSizeS } from '../_size/Tooltip_size_s';
 import { withSizeL } from '../_size/Tooltip_size_l';
-// _view
 import { withThemeDefault } from '../_theme/Tooltip_theme_default';
 
 export * from '../Tooltip@mobile';

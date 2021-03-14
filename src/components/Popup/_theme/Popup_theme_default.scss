@@ -8,7 +8,7 @@
     color: #000;
     border-radius: 4px;
     background-color: #fff;
-    box-shadow: 0 1.5ex 2ex -1ex rgba(38, 49, 129, .3);
+    box-shadow: 0 1.5ex 2ex -1ex rgba(0, 0, 0, .3);
 
     animation-duration: .1s;
     animation-timing-function: ease-out;
@@ -26,7 +26,7 @@
     content: '';
 
     border-radius: inherit;
-    box-shadow: 0 0 0 1px rgba(38, 49, 129, .05);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
 }
 
 .Popup_theme_default.Popup_visible::before {

@@ -1,9 +1,9 @@
 # Popup
 
+
+
 <!-- description:start -->
-
 Компонент для создания всплывающего окна (попапа).
-
 <!-- description:end -->
 
 ## Пример использования
@@ -12,15 +12,15 @@
 
 ```ts
 // src/App.ts
-import React from "react"
-import { compose } from "@bem-react/core"
+import React from 'react'
+import { compose } from '@bem-react/core'
 import {
   Popup as PopupDesktop,
-  withViewDefault,
-} from "@lookingschools/ui/Popup/desktop"
+  withThemeDefault,
+} from '@lookingschools/ui/Popup/desktop'
 
 // Композиция из различных модификаторов
-const Popup = compose(withViewDefault)(PopupDesktop)
+const Popup = compose(withThemeDefault)(PopupDesktop)
 
 const App = () => (
   <Popup visible position={{ top: 10, left: 10 }} theme="default">
@@ -33,8 +33,8 @@ const App = () => (
 
 ```ts
 // src/App.ts
-import React from "react"
-import { Popup } from "@lookingschools/ui/Popup/desktop/bundle"
+import React from 'react'
+import { Popup } from '@lookingschools/ui/Popup/desktop/bundle'
 
 const App = () => (
   <Popup visible position={{ top: 10, left: 10 }} theme="default">
@@ -51,6 +51,7 @@ const App = () => (
 
 {{%story::desktop:surface-popup-desktop--target%}}
 
+
 | Свойство                  | Тип                                        | По умолчанию                                                                                                                                                                     | Описание                                                  |
 | ------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | anchor?                   | `RefObject<HTMLElement>`                   | —                                                                                                                                                                                | Элемент, относительно которого позиционируется попап      |
@@ -65,7 +66,7 @@ const App = () => (
 
 ### Стилевое оформление
 
-Чтобы задать тему попапа, установите свойство `theme` в одно из следующих значений: `"clear"`, `"default"`.
+Чтобы задать тему попапа, установите свойство `theme` в одно из следующих значений: `"clear"`, `"normal"`.
 
 {{%story::desktop:surface-popup-desktop--theme%}}
 
@@ -90,7 +91,6 @@ const App = () => (
 ## Свойства
 
 <!-- props:start -->
-
 | Свойство               | Тип                                                                                                                                                                                                                                                                                                                           | По умолчанию    | Описание                                                                                                                                                                                                                                                                                                          |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | addonAfter?            | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal`                                                             | —               | Дополнительный контент после содержимого попапа                                                                                                                                                                                                                                                                   |
@@ -113,5 +113,4 @@ const App = () => (
 | children?              | `string \| number \| false \| true \| {} \| ReactElement<any, string \| ((props: any) => ReactElement<any, string \| ... \| (new (props: any) => Component<any, any, any>)>) \| (new (props: any) => Component<any, any, any>)> \| ReactNodeArray \| ReactPortal \| (props: { tailRef?: Ref<HTMLDivElement>; }) => ReactNode` | —               | Содержимое попапа                                                                                                                                                                                                                                                                                                 |
 | onClose?               | `(event: KeyboardEvent \| MouseEvent, source: "esc" \| "click") => void`                                                                                                                                                                                                                                                      | —               | Обработчик, вызываемый после нажатия на клавишу Esc либо мышкой на область вне контейнера                                                                                                                                                                                                                         |
 | onClick?               | `(event: MouseEvent<HTMLDivElement, MouseEvent>) => void`                                                                                                                                                                                                                                                                     | —               | Обработчик, вызываемый при срабатывании события click                                                                                                                                                                                                                                                             |
-
 <!-- props:end -->
