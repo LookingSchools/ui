@@ -1,6 +1,6 @@
 {
   "name": "@lookingschools/ui",
-  "version": "0.0.18",
+  "version": "0.0.20",
   "description": "React UI Components",
   "scripts": {
     "build": "dist-generator generate --config=./.config/build.config.js",
@@ -122,6 +122,7 @@
     "Modal",
     "Oops",
     "Popup",
+    "Portal",
     "Price",
     "Progress",
     "Radiobox",

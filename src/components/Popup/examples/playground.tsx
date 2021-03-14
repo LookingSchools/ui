@@ -4,6 +4,7 @@ import { Popup, directions } from '../../Popup/desktop/bundle';
 import { Button } from '../../Button/desktop/bundle';
 
 export const Playground = () => {
+    const scopeRef = useRef<HTMLDivElement>(null);
     const anchorRef = useRef<HTMLButtonElement>(null);
     const [visible, setVisible] = useState(!false);
     const children = text(
@@ -14,7 +15,7 @@ export const Playground = () => {
     const direction = select('direction', directions, 'bottom-start');
 
     return (
-        <>
+        <div ref={scopeRef}>
             <Button onClick={() => setVisible(!visible)} innerRef={anchorRef} size="m" theme="default">
                 Open popup
             </Button>
@@ -27,9 +28,10 @@ export const Playground = () => {
                 visible={visible}
                 style={{ maxWidth: 280 }}
                 onClose={() => setVisible(false)}
+                scope={scopeRef}
             >
-                <div style={{ padding: 16, fontFamily: 'Roboto' }}>{children}</div>
+                <div style={{ padding: 8, fontFamily: 'Roboto' }}>{children}</div>
             </Popup>
-        </>
+        </div>
     );
 };

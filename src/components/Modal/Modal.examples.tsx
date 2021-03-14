@@ -8,7 +8,7 @@ export default {
     decorators: [withKnobs],
     parameters: {
         docs: {
-            readme: require("./Modal.md"),
+            readme: require("./README.md"),
         },
     },
 };

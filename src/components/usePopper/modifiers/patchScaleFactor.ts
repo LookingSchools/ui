@@ -17,8 +17,8 @@ function patchScaleFactorFn({ state, instance }: ModifierArguments<{}>) {
         (instance as any).__patchedScaleFactor = true;
         // Вызываем обновление только в случае если у якоря есть трансформация.
         if (reference instanceof HTMLElement && hasTransformScale(reference)) {
-            // Устанавливаем задержку в 200ms для ожидания завершения большинства анимаций.
-            setTimeout(() => instance.update(), 200);
+            // Устанавливаем задержку в 0ms для ожидания завершения большинства анимаций.
+            setTimeout(() => instance.update(), 0);
         }
     }
 }

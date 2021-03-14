@@ -29,6 +29,7 @@ export const Scrollable = () => {
                         target="anchor"
                         anchor={anchorRef}
                         scope={scopeRef}
+                        direction="bottom-end"
                         theme="default"
                         visible={visible}
                         style={{ maxWidth: 280 }}

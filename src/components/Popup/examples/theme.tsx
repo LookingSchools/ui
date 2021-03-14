@@ -12,6 +12,22 @@ export const Theme = () => {
     const [visible3, setVisible3] = useState(false);
     return (
         <div ref={scopeRef} style={{ display: 'flex' }}>
+            <Button onClick={() => setVisible3(!visible3)} innerRef={anchorRef3} theme="default" size="m">
+                Open popup (theme deafult)
+            </Button>
+            <Popup
+                hasTail
+                target="anchor"
+                anchor={anchorRef3}
+                direction="bottom"
+                theme="default"
+                style={{ maxWidth: 280 }}
+                visible={visible3}
+                scope={scopeRef}
+            >
+                <div style={{ padding: 8, fontFamily: 'Roboto' }}>Общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом.</div>
+            </Popup>
+            &nbsp;
             <Button onClick={() => setVisible1(!visible1)} innerRef={anchorRef1} theme="default" size="m">
                 Open popup (theme clear)
             </Button>
@@ -42,20 +58,7 @@ export const Theme = () => {
                 <div style={{ padding: 8, fontFamily: 'Roboto' }}>Normal</div>
             </Popup>
             &nbsp;
-            <Button onClick={() => setVisible3(!visible3)} innerRef={anchorRef3} theme="default" size="m">
-                Open popup (theme deafult)
-            </Button>
-            <Popup
-                hasTail
-                target="anchor"
-                anchor={anchorRef3}
-                direction="bottom"
-                theme="default"
-                visible={visible3}
-                scope={scopeRef}
-            >
-                <div style={{ padding: 8, fontFamily: 'Roboto' }}>Default</div>
-            </Popup>
+        
         </div>
     );
 };
