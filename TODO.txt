@@ -12,3 +12,11 @@ export * from '../_theme/Textinput_theme_search@desktop';
 
 export * from '../_theme/Textinput_theme_default@mobile';
 export * from '../_theme/Textinput_theme_search@mobile';
+
+
+
+Разобраться с ошибками:
+
+React does not recognize the `hasClear` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `hasclear` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+
+Extra attributes from the server: fill-rule,clip-rule на странице 404, например.
