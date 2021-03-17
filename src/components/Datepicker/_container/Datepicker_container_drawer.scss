@@ -1,0 +1,33 @@
+.Datepicker_container_drawer .Datepicker-FooterActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    padding-top: 16px;
+}
+
+.Datepicker_container_drawer .Datepicker-Header {
+    margin-top: -8px;
+
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 44px;
+}
+
+.Datepicker.Datepicker_container_drawer {
+    width: 338px;
+}
+
+@media (max-width: 380px) {
+    .Datepicker.Datepicker_container_drawer {
+        max-width: 304px;
+    }
+}
+
+.Datepicker_container_drawer .Datepicker-FooterAction {
+    margin-right: 5px;
+}
+
+.Datepicker_container_drawer .Datepicker-FooterAction + .Datepicker-FooterAction {
+    margin-right: 0;
+    margin-left: 5px;
+}
