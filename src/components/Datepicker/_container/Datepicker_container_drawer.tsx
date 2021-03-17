@@ -13,6 +13,9 @@ export interface IDatepickerContainerDrawerProps {
     container?: "drawer";
 }
 
+const nested = false;
+const dragDisabled = false;
+const direction = "bottom";
 const animation = {
     tension: 230,
     friction: 24,
@@ -28,7 +31,7 @@ export const withContainerDrawer = withBemMod<IDatepickerContainerDrawerProps, D
             const { visible, className } = props;
 
             return (
-                <Drawer visible={visible} animation={animation} theme="default" onClose={props.onClose}>
+                <Drawer visible={visible} animation={animation} theme="default" nested={nested} dragDisabled={dragDisabled} direction={direction} onClose={props.onClose}>
                     <WrappedComponent className={cnCalendar({ container: "drawer" }, [className])} {...props} />
                 </Drawer>
             );

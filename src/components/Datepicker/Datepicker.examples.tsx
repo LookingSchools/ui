@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { compose, composeU } from "@bem-react/core";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 import { Button } from "../Button/Button.bundle";
 
 import { Datepicker as DatepickerBase } from "./Datepicker";
 import { withContainerPopup } from "./_container/Datepicker_container_popup";
+import { withContainerDrawer } from "./_container/Datepicker_container_drawer";
 
 import { withTypeSingle } from "./_type/Datepicker_type_single";
 import { withTypeRange } from "./_type/Datepicker_type_range";
@@ -17,15 +19,19 @@ export default {
         docs: {
             readme: require("./Datepicker.md"),
         },
+        viewport: {
+            viewports: INITIAL_VIEWPORTS,
+            defaultViewport: "iphone6",
+        }
     },
 };
 
-const Datepicker = compose(composeU(withTypeSingle, withTypeRange), withContainerPopup)(DatepickerBase);
+const Datepicker = compose(composeU(withTypeSingle, withTypeRange), withContainerPopup, withContainerDrawer)(DatepickerBase);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DatePicker = (props: any) => {
-    const date = new Date("2021-02-06");
-    const date2 = new Date(date.getFullYear(), date.getMonth() + 4, 10);
+    const date = new Date();
+    const date2 = new Date(date.getFullYear(), date.getMonth() + 2, 10);
 
     const [datepickerVisible, setDatepickerVisible] = useState(false);
 
@@ -68,4 +74,18 @@ export const Playground = () => {
 
 Playground.story = {
     name: "playground",
+};
+
+
+export const Drawer = () => {
+    return (
+        <div style={{ display: "grid", gap: "10px" }}>
+            <DatePicker type="single" container="drawer" />
+            <DatePicker type="range" container="drawer" />
+        </div>
+    );
+};
+
+Drawer.story = {
+    name: "drawer",
 };
