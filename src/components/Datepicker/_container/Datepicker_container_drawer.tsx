@@ -1,5 +1,5 @@
 import React from "react";
-import { withBemMod, compose } from "@bem-react/core";
+import { withBemMod } from "@bem-react/core";
 
 import { Drawer } from "../../Drawer/Drawer.bundle";
 import { DatepickerProps } from "../Datepicker";
@@ -13,6 +13,13 @@ export interface IDatepickerContainerDrawerProps {
     container?: "drawer";
 }
 
+const animation = {
+    tension: 230,
+    friction: 24,
+    disabled: false,
+    dragImmediate: false,
+};
+
 export const withContainerDrawer = withBemMod<IDatepickerContainerDrawerProps, DatepickerProps>(
     cnDatepicker(),
     { container: "drawer" },
@@ -21,9 +28,9 @@ export const withContainerDrawer = withBemMod<IDatepickerContainerDrawerProps, D
             const { visible, className } = props;
 
             return (
-                <Modal visible={visible} theme="default" onClose={props.onClose}>
+                <Drawer visible={visible} animation={animation} theme="default" onClose={props.onClose}>
                     <WrappedComponent className={cnCalendar({ container: "drawer" }, [className])} {...props} />
-                </Modal>
+                </Drawer>
             );
         };
     }
