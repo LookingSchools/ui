@@ -138,6 +138,12 @@
     border-bottom-left-radius: 4px;
 }
 
+@media (max-width: 719px) {
+    .Calendar.Calendar_layout_month {
+        max-width: 596px;
+    }
+}
+
 @media (max-width: 380px) {
     .Calendar.Calendar_layout_month {
         max-width: 304px;
@@ -160,3 +166,6 @@
         left: -2px;
     }
 }
+
+
+

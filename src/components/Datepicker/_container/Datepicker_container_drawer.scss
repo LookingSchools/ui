@@ -18,6 +18,12 @@
     margin: 0 auto;
 }
 
+@media (max-width: 719px) {
+    .Datepicker.Datepicker_container_drawer {
+        width: 596px;
+    }
+}
+
 @media (max-width: 380px) {
     .Datepicker.Datepicker_container_drawer {
         max-width: 304px;

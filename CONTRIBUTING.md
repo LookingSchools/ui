@@ -151,10 +151,28 @@ module.exports = {
 
 }
 
-/* Portrait tablets and small desktops */
-@media (min-width: 320px) and (max-width: 767px) {
+/* small desktops */
+@media (min-width: 720px) and (max-width: 767px) {
+
+}
+
+/* Portrait tablets */
+@media (min-width: 320px) and (max-width: 719px) {
 
 }
 ```
+Points:
+
+320
+719
+767
+959
+1023
+1279
+1439
 
 </details>
+
+
+
+

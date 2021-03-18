@@ -13,3 +13,9 @@
     position: relative;
     z-index: 3;
 }
+
+@media (max-width: 719px) {
+    .Datepicker {
+        max-width: 628px;
+    }
+}
