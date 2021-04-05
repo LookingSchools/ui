@@ -61,7 +61,7 @@
 
 /* check */
 .Button_theme_clear.Button_checked:not([aria-disabled='true']):hover::before {
-    background-color: #85b1ff;
+    background-color: rgba(6, 122, 255, .15);
 }
 
 /* focus */
