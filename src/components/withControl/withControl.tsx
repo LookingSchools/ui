@@ -41,7 +41,6 @@ export function withControl<T extends IWithControlProps>(WrappedComponent: Compo
             disabled: this.props.disabled,
         };
 
-        // TODO: https://st.yandex-team.ru/ISL-5863
         // eslint-disable-next-line camelcase
         UNSAFE_componentWillReceiveProps(nextProps: IWithControlProps) {
             if (this.props.disabled !== nextProps.disabled) {

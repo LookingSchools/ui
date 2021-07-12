@@ -89,7 +89,6 @@ const SelectPresenter = class extends PureComponent<SelectProps> {
     /**
      * Флаг, предотвращающий закрытие меню после клика в скроллбар (нужен исключительно для ie11).
      *
-     * @see https://st.yandex-team.ru/ISL-7610
      */
     private preventClosable = false;
 

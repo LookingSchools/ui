@@ -34,7 +34,7 @@ const backgroundOptionToJsx = {
         <picture>
             <img
                 style={{ filter: "opacity(.5)", width: "100%" }}
-                src="//jing.yandex-team.ru/files/axaxaman/catalogue-banner-x3.jpeg"
+                src="https://pictures.s3.yandex.net:443/resources/landos_3_1623850714.png"
             />
         </picture>
     ),
@@ -135,7 +135,7 @@ export const Complex = () => (
                 background={
                     <img
                         style={{ filter: "opacity(.5)", width: "100%" }}
-                        src="//jing.yandex-team.ru/files/axaxaman/catalogue-banner-x3.jpeg"
+                        src="https://pictures.s3.yandex.net:443/resources/landos_3_1623850714.png"
                     />
                 }
             >

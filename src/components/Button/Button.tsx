@@ -26,7 +26,6 @@ import './Button.scss';
 
 export type ContainerElement = HTMLButtonElement | HTMLAnchorElement;
 
-// https://st.yandex-team.ru/ISL-1667
 type ButtonEnhancedAttributes = { autoComplete?: string | null };
 type ReactButtonElement = DetailedHTMLFactory<
     ButtonHTMLAttributes<ContainerElement> & ButtonEnhancedAttributes,
@@ -267,7 +266,6 @@ export const Button = class extends PureComponent<ButtonProps, IButtonState> {
                 onBlur={this.onBlur}
                 aria-pressed={checked}
                 aria-disabled={disabled}
-                // https://st.yandex-team.ru/ISL-1667
                 autoComplete={autoComplete}
                 title={title}
                 role={role}
