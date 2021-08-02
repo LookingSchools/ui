@@ -1,4 +1,5 @@
 const { execSync } = require('child_process');
+const postCss = require('../postcss.config')
 
 module.exports = {
     srcPath: './src',
@@ -9,14 +10,7 @@ module.exports = {
     ],
     tsconfig: 'tsconfig.prod.json',
     distPath: './',
-    postcss: [
-        require('postcss-import')(),
-        require('postcss-flexbugs-fixes'),
-        require('postcss-url')({ url: 'inline', optimizeSvgEncode: true }),
-        require('postcss-simple-vars')({ silent: true }),
-        require('postcss-calc'),
-        // require('postcss-csso')
-    ],
+    postcss: postCss.plugins,
     afterBuild: () => {
         // Копируем readme & docs для storybook-harvest.
         execSync('cp README.md __internal__', { stdio: 'inherit' });

@@ -6,7 +6,7 @@ module.exports = {
         require('postcss-url')({ url: 'inline', optimizeSvgEncode: true }),
         require('postcss-simple-vars'),
         require('postcss-calc'),
-        require('postcss-csso')
+        // require('postcss-csso')
     ],
     parser: require('postcss-scss')
 };
