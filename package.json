@@ -48,7 +48,7 @@
     "@bem-react/core": "3.0.4",
     "@bem-react/di": "2.2.5",
     "@bem-react/pack": "1.4.1",
-    "@lookingschools/dist-generator": "0.0.19",
+    "@lookingschools/dist-generator": "0.0.21",
     "@sambego/storybook-state": "2.0.1",
     "@storybook-addons/docs": "1.2.0",
     "@storybook/addon-actions": "6.1.18",
