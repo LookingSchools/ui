@@ -35,7 +35,7 @@ module.exports = {
       },
       {
         src: ['./package.json', './README.md'],
-        },
+      },
     ]),
 
     {

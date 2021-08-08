@@ -3,8 +3,8 @@ import { withKnobs, boolean, number, select, object } from "@storybook/addon-kno
 import { Snippet } from "./Snippet";
 
 const image = {
-    src: "//avatars.mds.yandex.net/get-mpic/1382936/img_id3557252912121609779.png/5hq",
-    srcSet: "//avatars.mds.yandex.net/get-mpic/1382936/img_id3557252912121609779.png/9hq 2.5x",
+    src: "https://avatars.mds.yandex.net/get-mpic/5272194/img_id8877169469247728612.jpeg/9hq",
+    srcSet: "	https://avatars.mds.yandex.net/get-mpic/4561793/img_id7613356289433317605.jpeg/x248_trim 1.24x",
 };
 
 const Container = ({ width, children }: { width: number; children: ReactChild }) => (
@@ -36,13 +36,13 @@ export default {
 export const Playground = () => {
     const suite = select("Сьют", ["small", "medium"], "small") as any;
     const theme = select("Тема", ["cinco", "siete"], "cinco") as any;
-    const price = number("Цена", 7000, {
+    const price = number("Цена", 490, {
         min: 0,
         max: 150000,
         range: true,
         step: 1,
     }) as any;
-    const oldPrice = number("Старая цена", 9000, {
+    const oldPrice = number("Старая цена", 935, {
         min: 0,
         max: 150000,
         range: true,
@@ -75,7 +75,7 @@ export const Playground = () => {
                 url={"https://google.com"}
                 suite={suite}
                 theme={theme}
-                title={"Мультимедиа-платформа Яндекс.Станция, фиолетовая"}
+                title={"Стиральный порошок Ушастый Нянь для стирки детского белья, 6 кг"}
                 price={price}
                 oldPrice={oldPrice}
                 discountBadgeTheme={discountBadgeTheme}
@@ -108,7 +108,7 @@ export const Theme = () => {
             <Snippet
                 suite={getSuiteKnobs(groupId)}
                 theme={getThemeKnobs(groupId)}
-                title={"Мультимедиа-платформа Яндекс.Станция, фиолетовая"}
+                title={"Стиральный порошок Ушастый Нянь для стирки детского белья, 6 кг"}
                 price={getPriceKnobs(groupId)}
                 oldPrice={getOldPriceKnobs(groupId)}
                 discountBadgeTheme={getBadgeThemeKnobs(groupId)}
@@ -158,7 +158,7 @@ function getPriceKnobs(id: string) {
 }
 
 function getOldPriceKnobs(id: string) {
-    return number("Старая цена", 9000, { min: 0, max: 150000, range: true, step: 1 }, id);
+    return number("Старая цена", 935, { min: 0, max: 150000, range: true, step: 1 }, id);
 }
 
 function getThemeKnobs(id: string) {
