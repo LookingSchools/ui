@@ -17,11 +17,11 @@ export default {
 export const Playground = () => {
     const url = text(
         "url",
-        "https://avatars.mds.yandex.net/get-adfox-content/2804317/200611_market_1183631_3543568_1.6ef8fd90f40696aacccc1bbbe7eeba54.png/optimize.webp"
+        "https://www.malikafavre.com/uploads/project_thumbnails/Bucherer_THUMB2.jpg"
     );
     const alt = text("alt", "Альтернативный текст");
-    const width = number("width", 1184);
-    const height = number("height", 300);
+    const width = number("width", 700);
+    const height = number("height", 700);
     const borderRadius = number("borderRadius", 0);
     const sizes = text("sizes", "(max-width: 1100px) 300px, 75vw");
     const srcSet = text("srcSet (file)", url + " 1500w");
@@ -51,9 +51,9 @@ export const Width = () => {
     return (
         <>
             <p>{"width={300}"}</p>
-            <Image src={require("./Image.assets/img-700w.png")} width={300} />
+            <Image src={require("./Image.assets/cat-700.jpeg")} width={300} />
             <p>{"height={150}"}</p>
-            <Image src={require("./Image.assets/img-700w.png")} height={150} />
+            <Image src={require("./Image.assets/cat-700.jpeg")} height={150} />
         </>
     );
 };
@@ -65,7 +65,7 @@ Width.story = {
 export const Stub = () => {
     return (
         <Image
-            src={require("./Image.assets/img-700w.png")}
+            src={require("./Image.assets/cat-700.jpeg")}
             height={150}
             stub={<Spin progress theme="primary" size="m" />}
         />
@@ -83,7 +83,7 @@ export const Size = () => {
                 Чтобы увидеть разницу, измените ширину окна браузера во вкладке <strong>Песочница</strong>.
             </p>
             <p>—</p>
-            <Image src={require("./Image.assets/img-700w.png")} />
+            <Image src={require("./Image.assets/cat-700.jpeg")} />
             <br />
             <br />
             <pre>
@@ -91,11 +91,11 @@ export const Size = () => {
                     'sizes="(max-width: 700px) 100vw, 700px"'}
             </pre>
             <Image
-                src={require("./Image.assets/img-700w.png")}
+                src={require("./Image.assets/cat-700.jpeg")}
                 srcSet={
-                    require("./Image.assets/img-700w.png") +
+                    require("./Image.assets/cat-700.jpeg") +
                     " 700w, " +
-                    require("./Image.assets/img-540w.png") +
+                    require("./Image.assets/cat-500.jpeg") +
                     " 540w"
                 }
                 sizes="(max-width: 700px) 100vw, 700px"
@@ -118,7 +118,7 @@ export const DownloadError = () => {
     );
 
     useEffect(() => {
-        setTimeout(() => setImage(require("./Image.assets/img-700w.png")), 2000);
+        setTimeout(() => setImage(require("./Image.assets/cat-700.jpeg")), 2000);
     }, []);
 
     return (
@@ -136,7 +136,7 @@ export const DownloadError = () => {
                 <p>Показываем подложку на время загрузки изображения</p>
                 <pre>
                     {".stub { position: absolute; width: 100%; height: 100% }\n\n"}
-                    {['src="./Image.assets/img-700w.png"', 'stub={<img className="stub" src="loading.png"} />'].join(
+                    {['src="./Image.assets/cat-700.jpeg"', 'stub={<img className="stub" src="loading.png"} />'].join(
                         "\n"
                     )}
                 </pre>
