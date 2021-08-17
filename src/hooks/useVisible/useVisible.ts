@@ -1,4 +1,5 @@
-import { RefObject, useLayoutEffect, useState, useRef } from 'react';
+import { RefObject, useState, useRef } from 'react';
+import { useIsomorphicLayoutEffect as useLayoutEffect } from '../../components/useIsomorphicLayoutEffect';
 
 export function useVisible(ref: RefObject<HTMLElement>, options?: IntersectionObserverInit) {
     // Пока не навешан обработчик на элемент, мы точно не можем сказать видим он или нет,

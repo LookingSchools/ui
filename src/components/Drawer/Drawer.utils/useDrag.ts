@@ -1,4 +1,5 @@
-import { RefObject, useCallback, useLayoutEffect, useRef } from 'react';
+import { RefObject, useCallback, useRef } from 'react';
+import { useIsomorphicLayoutEffect as useLayoutEffect } from '../../useIsomorphicLayoutEffect';
 import { noop } from './noop';
 
 /**

@@ -1,4 +1,5 @@
-import React, { useState, useRef, useLayoutEffect, createContext, useCallback, useContext, useMemo } from 'react';
+import React, { useState, useRef, createContext, useCallback, useContext, useMemo } from 'react';
+import { useIsomorphicLayoutEffect as useLayoutEffect } from '../../../useIsomorphicLayoutEffect';
 
 import { Textinput } from '../../../Textinput/desktop/bundle';
 import { Select } from '../../desktop/bundle';

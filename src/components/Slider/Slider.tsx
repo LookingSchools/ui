@@ -1,4 +1,5 @@
-import React, { FC, useCallback, useLayoutEffect, useRef } from "react";
+import React, { FC, useCallback, useRef } from "react";
+import { useIsomorphicLayoutEffect as useLayoutEffect } from '../useIsomorphicLayoutEffect';
 import { cn } from "@bem-react/classname";
 
 import { HorizontalScroll } from "../_internal_/HorizontalScroll/HorizontalScroll";

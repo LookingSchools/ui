@@ -1,4 +1,5 @@
-import { useCallback, useLayoutEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useIsomorphicLayoutEffect as useLayoutEffect } from '../../useIsomorphicLayoutEffect';
 import { canUseDOM } from '../../lib/canUseDOM';
 
 /**
