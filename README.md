@@ -19,7 +19,7 @@ npm i -P @bem-react/core @bem-react/di @bem-react/classname
 
 Пример использования компонента с нужным набором модификаторов (предпочтительный способ):
 
-```ts
+```js
 // src/App.ts
 import React from 'react'
 import { compose } from '@bem-react/core'
@@ -40,7 +40,7 @@ const App: React.FC = () => (
 
 Пример использования компонента с полным набором модификаторов (увеличивает размер итогового бандла):
 
-```ts
+```js
 // src/App.ts
 import React from 'react'
 import { Button } from '@lookingschools/ui/Button/bundle'
