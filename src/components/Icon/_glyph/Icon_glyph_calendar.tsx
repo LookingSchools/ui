@@ -19,8 +19,8 @@ export interface IWithGlyphCalendarProps {
 export const withGlyphCalendar = withBemMod<IWithGlyphCalendarProps, IIconProps>(
     cnIcon(),
     { glyph: "calendar" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg
                 focusable="false"
                 width="0"

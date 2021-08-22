@@ -19,8 +19,8 @@ export interface IWithGlyphLikeProps {
 export const withGlyphLike = withBemMod<IWithGlyphLikeProps, IIconProps>(
     cnIcon(),
     { glyph: "like" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg
                 focusable="false"
                 width="0"

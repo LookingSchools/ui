@@ -19,8 +19,8 @@ export interface IWithGlyphCreateCourseProps {
 export const withGlyphCreateCourse = withBemMod<IWithGlyphCreateCourseProps, IIconProps>(
     cnIcon(),
     { glyph: "create-course" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg
                 focusable="false"
                 viewBox="0 0 26 26"

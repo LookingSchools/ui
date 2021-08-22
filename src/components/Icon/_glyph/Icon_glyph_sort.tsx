@@ -19,8 +19,8 @@ export interface IWithGlyphSortProps {
 export const withGlyphSort = withBemMod<IWithGlyphSortProps, IIconProps>(
     cnIcon(),
     { glyph: "sort" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg width="24" height="24" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M1 20v-2h6v2H1zM1 6V4h22v2H1zm0 7v-2h14v2H1z"

@@ -15,8 +15,8 @@ export interface IWithGlyphLocationProps {
 export const withGlyphLocation = withBemMod<IWithGlyphLocationProps, IIconProps>(
     cnIcon(),
     { glyph: "location" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg
                 focusable="false"
                 width="0"

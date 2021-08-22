@@ -15,8 +15,8 @@ export interface IWithGlyphPlusProps {
 export const withGlyphPlus = withBemMod<IWithGlyphPlusProps, IIconProps>(
     cnIcon(),
     { glyph: "plus" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg width="0" height="0" viewBox="0 0 24 24">
                 <g fill="#000" fillRule="evenodd">
                     <path d="M4 13h16v-2H4z" />

@@ -19,8 +19,8 @@ export interface IWithGlyphAuthenticAccountProps {
 export const withGlyphAuthenticAccount = withBemMod<IWithGlyphAuthenticAccountProps, IIconProps>(
     cnIcon(),
     { glyph: "authentic-account" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg
                 focusable="false"
                 width="0"

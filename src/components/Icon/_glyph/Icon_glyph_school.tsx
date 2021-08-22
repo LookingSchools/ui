@@ -19,8 +19,8 @@ export interface IWithGlyphSchoolProps {
 export const withGlyphSchool = withBemMod<IWithGlyphSchoolProps, IIconProps>(
     cnIcon(),
     { glyph: "school" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg
                 focusable="false"
                 width="0"

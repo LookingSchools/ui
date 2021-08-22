@@ -19,8 +19,8 @@ export interface IWithGlyphArrowBottomProps {
 export const withGlyphArrowBottom = withBemMod<IWithGlyphArrowBottomProps, IIconProps>(
     cnIcon(),
     { glyph: "arrow-bottom" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg
                 focusable="false"
                 width="0"

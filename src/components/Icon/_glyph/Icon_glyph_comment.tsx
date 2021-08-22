@@ -19,8 +19,8 @@ export interface IWithGlyphCommentProps {
 export const withGlyphComment = withBemMod<IWithGlyphCommentProps, IIconProps>(
     cnIcon(),
     { glyph: "comment" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg
                 focusable="false"
                 width="0"

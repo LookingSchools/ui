@@ -19,8 +19,8 @@ export interface IWithGlyphXSignProps {
 export const withGlyphXSign = withBemMod<IWithGlyphXSignProps, IIconProps>(
     cnIcon(),
     { glyph: "x-sign" },
-    (Icon) => ({ className, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+    (Icon) => ({ className, size, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
             <svg viewBox="0 0 20 20">
                 <path
                     focusable="false"
