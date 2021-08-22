@@ -19,8 +19,8 @@ export interface IWithGlyphArrowBackProps {
 export const withGlyphArrowBack = withBemMod<IWithGlyphArrowBackProps, IIconProps>(
     cnIcon(),
     { glyph: "arrow-back" },
-    (Icon) => ({ className, size, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
+    (Icon) => ({ className, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg
                 focusable="false"
                 width="0"

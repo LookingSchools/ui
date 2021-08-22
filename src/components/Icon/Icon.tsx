@@ -50,8 +50,8 @@ export const cnIcon = cn("Icon");
  */
 export const Icon: FC<IIconProps> = ({
     direction,
-    size,
     url,
+    size,
     style = {},
     children,
     // Извлекаем свойства, т.к. они не нужны на DOM узле
@@ -75,3 +75,5 @@ export const Icon: FC<IIconProps> = ({
 };
 
 Icon.displayName = cnIcon();
+
+

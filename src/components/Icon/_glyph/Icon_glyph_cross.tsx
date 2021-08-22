@@ -19,9 +19,9 @@ export interface IWithGlyphCrossProps {
 export const withGlyphCross = withBemMod<IWithGlyphCrossProps, IIconProps>(
     cnIcon(),
     { glyph: "cross" },
-    (Icon) => ({ className, size, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
-            {size === "xs" ? (
+    (Icon) => ({ className, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
+            {props.size === "xs" ? (
                 <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="10" height="10">
                     <path
                         fillRule="evenodd"

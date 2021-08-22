@@ -19,8 +19,8 @@ export interface IWithGlyphArrowForwardProps {
 export const withGlyphArrowForward = withBemMod<IWithGlyphArrowForwardProps, IIconProps>(
     cnIcon(),
     { glyph: "arrow-forward" },
-    (Icon) => ({ className, size, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
+    (Icon) => ({ className, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg
                 focusable="false"
                 width="0"

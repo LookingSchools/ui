@@ -19,8 +19,8 @@ export interface IWithGlyphCloseProps {
 export const withGlyphClose = withBemMod<IWithGlyphCloseProps, IIconProps>(
     cnIcon(),
     { glyph: "close" },
-    (Icon) => ({ className, size, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
+    (Icon) => ({ className, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="10" height="10">
                 <polygon points="10,0.714 9.287,0 5,4.286 0.714,0 0,0.714 4.286,5 0,9.285 0.714,10 5,5.714 9.287,10 10,9.285 5.714,5" />
             </svg>

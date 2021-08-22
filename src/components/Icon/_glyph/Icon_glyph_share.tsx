@@ -19,8 +19,8 @@ export interface IWithGlyphShareProps {
 export const withGlyphShare = withBemMod<IWithGlyphShareProps, IIconProps>(
     cnIcon(),
     { glyph: "share" },
-    (Icon) => ({ className, size, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
+    (Icon) => ({ className, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg
                 focusable="false"
                 width="0"

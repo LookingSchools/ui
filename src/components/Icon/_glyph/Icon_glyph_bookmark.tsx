@@ -15,8 +15,8 @@ export interface IWithGlyphBookmarkProps {
 export const withGlyphBookmark = withBemMod<IWithGlyphBookmarkProps, IIconProps>(
     cnIcon(),
     { glyph: "bookmark" },
-    (Icon) => ({ className, size, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
+    (Icon) => ({ className, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg
                 focusable="false"
                 width="0"

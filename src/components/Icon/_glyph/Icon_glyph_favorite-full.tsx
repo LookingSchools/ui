@@ -15,8 +15,8 @@ export interface IWithGlyphfavoriteFullProps {
 export const withGlyphfavoriteFull = withBemMod<IWithGlyphfavoriteFullProps, IIconProps>(
     cnIcon(),
     { glyph: "favorite-full" },
-    (Icon) => ({ className, size, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
+    (Icon) => ({ className, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg
                 focusable="false"
                 width="0"

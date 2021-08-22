@@ -19,8 +19,8 @@ export interface IWithSocialRSSProps {
 export const withSocialRSS = withBemMod<IWithSocialRSSProps, IIconProps>(
     cnIcon(),
     { social: "rss" },
-    (Icon) => ({ className, size, ...props }) => (
-        <Icon {...props} className={cnIcon({ hasGlyph: true, size }, [className])}>
+    (Icon) => ({ className, ...props }) => (
+        <Icon {...props} className={cnIcon({ hasGlyph: true }, [className])}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                 <path
                     d="M8.727 20.544a2.63 2.63 0 0 0-1.932.795A2.63 2.63 0 0 0 6 23.271c0 .757.265 1.401.795 1.931a2.63 2.63 0 0 0 1.932.795 2.63 2.63 0 0 0 1.931-.795 2.63 2.63 0 0 0 .796-1.931 2.63 2.63 0 0 0-.796-1.932 2.63 2.63 0 0 0-1.931-.795zm6.278-3.551a12.558 12.558 0 0 0-3.68-2.578 12.735 12.735 0 0 0-4.345-1.143h-.071c-.246 0-.45.08-.61.241a.836.836 0 0 0-.299.668v1.917c0 .237.078.44.234.61a.864.864 0 0 0 .59.285c2.168.208 4.021 1.082 5.56 2.62 1.538 1.539 2.412 3.392 2.62 5.56a.863.863 0 0 0 .285.59c.17.156.373.235.61.235h1.918c.274 0 .497-.1.667-.299.18-.19.26-.417.242-.682a12.742 12.742 0 0 0-1.144-4.345 12.558 12.558 0 0 0-2.578-3.68z"
