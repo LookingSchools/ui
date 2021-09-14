@@ -84,7 +84,9 @@ export const Block: FC<IBlockProps> = ({
     )
 }
 
-Block.displayName = cnBlock();
+if (process.env.NODE_ENV !== 'production') {
+  Block.displayName = cnBlock();
+}
 ```
 
 

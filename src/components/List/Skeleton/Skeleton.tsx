@@ -24,4 +24,6 @@ export const ListSkeleton: React.FC<ListSkeletonProps> = (props) => {
     );
 };
 
-ListSkeleton.displayName = "ListSkeleton";
+if (process.env.NODE_ENV !== 'production') {
+    ListSkeleton.displayName = "ListSkeleton";
+}

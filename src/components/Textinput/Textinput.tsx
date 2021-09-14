@@ -108,7 +108,7 @@ export interface ITextinputProps extends ITextinputControlProps, IWithControlPro
  * Однострочное текстовое поле.
  * @param {ITextinputProps} props
  */
-const TextinputPresenter: FC<ITextinputProps> = ({
+const TextinputBase: FC<ITextinputProps> = ({
     addonAfter,
     addonBefore,
     className,
@@ -197,6 +197,8 @@ const TextinputPresenter: FC<ITextinputProps> = ({
     );
 };
 
-TextinputPresenter.displayName = cnTextinput();
+if (process.env.NODE_ENV !== 'production') {
+    TextinputBase.displayName = cnTextinput();
+}
 
-export const Textinput = withControl(TextinputPresenter);
+export const Textinput = withControl(TextinputBase);

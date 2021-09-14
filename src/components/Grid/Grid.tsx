@@ -20,6 +20,8 @@ export const Grid: FC<GridProps> = ({ children, className }) => {
     );
 };
 
-Grid.displayName = cnGrid();
+if (process.env.NODE_ENV !== 'production') {
+    Grid.displayName = cnGrid();
+}
 
 export { GridItem, GridItemProps };

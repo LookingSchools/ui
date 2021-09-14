@@ -31,4 +31,6 @@ export const SliderItem: FC<SliderItemProps> = (props) => {
     );
 };
 
-SliderItem.displayName = "SliderItem";
+if (process.env.NODE_ENV !== 'production') {
+    SliderItem.displayName = "SliderItem";
+}

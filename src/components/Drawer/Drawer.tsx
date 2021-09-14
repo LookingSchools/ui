@@ -117,4 +117,6 @@ export const Drawer: FC<IDrawerProps> = (props) => {
     );
 };
 
-Drawer.displayName = cnDrawer();
+if (process.env.NODE_ENV !== 'production') {
+    Drawer.displayName = cnDrawer();
+}

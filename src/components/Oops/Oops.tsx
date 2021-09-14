@@ -59,4 +59,6 @@ export const Oops: FC<IOopsProps> = ({ children, className, title, subtitle, but
     );
 };
 
-Oops.displayName = cnOops();
+if (process.env.NODE_ENV !== 'production') {
+    Oops.displayName = cnOops();
+}

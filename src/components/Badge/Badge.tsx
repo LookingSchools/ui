@@ -95,4 +95,6 @@ export const Badge: FC<IBadgeProps> = ({
     );
 };
 
-Badge.displayName = cnBadge();
+if (process.env.NODE_ENV !== 'production') {
+    Badge.displayName = cnBadge();
+}

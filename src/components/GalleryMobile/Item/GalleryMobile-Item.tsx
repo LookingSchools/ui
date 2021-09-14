@@ -21,4 +21,6 @@ export const GalleryMobileItem: FC<GalleryMobileItemProps> = ({ src, src2x, alt,
     );
 };
 
-GalleryMobileItem.displayName = cnGalleryMobileItem();
+if (process.env.NODE_ENV !== 'production') {
+    GalleryMobileItem.displayName = cnGalleryMobileItem();
+}

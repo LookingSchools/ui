@@ -17,7 +17,9 @@ export const List: React.FC<ListProps> = ({ children, className }) => {
     );
 };
 
-List.displayName = "List";
+if (process.env.NODE_ENV !== 'production') {
+    List.displayName = "List";
+}
 
 export * from "./Item/Item";
 export * from "./Skeleton/Skeleton";

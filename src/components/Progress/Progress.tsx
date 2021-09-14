@@ -60,4 +60,6 @@ export const Progress: FC<IProgressProps> = ({
     );
 };
 
-Progress.displayName = cnProgress();
+if (process.env.NODE_ENV !== 'production') {
+    Progress.displayName = cnProgress();
+}

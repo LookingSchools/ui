@@ -37,4 +37,6 @@ export const Typography: FC<ITypographyProps> = ({ children, tag, size, classNam
     );
 };
 
-Typography.displayName = cnTypography();
+if (process.env.NODE_ENV !== 'production') {
+    Typography.displayName = cnTypography();
+}

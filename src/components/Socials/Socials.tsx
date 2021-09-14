@@ -54,4 +54,6 @@ export const Socials: FC<ISocialsProps> = ({ className, icons = [], ...props }) 
     );
 };
 
-Socials.displayName = cnSocials();
+if (process.env.NODE_ENV !== 'production') {
+    Socials.displayName = cnSocials();
+}

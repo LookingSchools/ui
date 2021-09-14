@@ -19,4 +19,6 @@ export const ListItemSkeleton: React.FC<ListItemSkeletonProps> = ({ className })
     );
 };
 
-ListItemSkeleton.displayName = "ListItemSkeleton";
+if (process.env.NODE_ENV !== 'production') {
+    ListItemSkeleton.displayName = "ListItemSkeleton";
+}

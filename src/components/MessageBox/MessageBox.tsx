@@ -104,4 +104,6 @@ export const MessageBox: FC<MessageBoxProps> = ({
     </div>
 );
 
-MessageBox.displayName = "MessageBox";
+if (process.env.NODE_ENV !== 'production') {
+    MessageBox.displayName = "MessageBox";
+}

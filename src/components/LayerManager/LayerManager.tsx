@@ -135,7 +135,10 @@ export const LayerManager: EFC<LayerManagerProps> = ({ visible, onClose, childre
 };
 
 LayerManager.stack = [];
-LayerManager.displayName = 'LayerManager';
+
+if (process.env.NODE_ENV !== 'production') {
+    LayerManager.displayName = 'LayerManager';
+}
 
 function removeLayerById(id: string) {
     LayerManager.stack = LayerManager.stack.filter(([layerId]) => layerId !== id);

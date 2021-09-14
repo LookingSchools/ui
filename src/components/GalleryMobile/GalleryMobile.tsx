@@ -32,7 +32,9 @@ export const GalleryMobile: FC<GalleryMobileProps> = ({ className, activeIndex: 
     );
 };
 
-GalleryMobile.displayName = cnGalleryMobile();
+if (process.env.NODE_ENV !== 'production') {
+    GalleryMobile.displayName = cnGalleryMobile();
+}
 
 export { GalleryMobileItemProps };
 // export { GalleryMobileSkeleton, GalleryMobileSkeletonProps } from './Skeleton/Skeleton';

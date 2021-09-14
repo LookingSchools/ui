@@ -62,7 +62,9 @@ export const RenderOverrideProvider: FC<RenderOverrideProviderProps> = ({ childr
     return children(renderer);
 };
 
-RenderOverrideProvider.displayName = 'RenderOverrideProvider';
+if (process.env.NODE_ENV !== 'production') {
+    RenderOverrideProvider.displayName = 'RenderOverrideProvider';
+}
 
 export type MultiRenderOverrideProviderProps = {
     components: [ComponentType<any>, RenderOverride<any> | undefined][];
@@ -98,4 +100,6 @@ export const MultiRenderOverrideProvider: FC<MultiRenderOverrideProviderProps> =
     return children(...renderers);
 };
 
-MultiRenderOverrideProvider.displayName = 'MultiRenderOverrideProvider';
+if (process.env.NODE_ENV !== 'production') {
+    MultiRenderOverrideProvider.displayName = 'MultiRenderOverrideProvider';
+}

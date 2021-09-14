@@ -14,4 +14,6 @@ export const GridItem: FC<GridItemProps> = ({ children, className, fullWidth = f
     return <div className={cnGrid("Item", { fullWidth }, [className])}>{children}</div>;
 };
 
-GridItem.displayName = "GridItem";
+if (process.env.NODE_ENV !== 'production') {
+    GridItem.displayName = "GridItem";
+}

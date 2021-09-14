@@ -92,4 +92,6 @@ export const Tooltip: FC<TooltipProps> = ({
     );
 };
 
-Tooltip.displayName = "Tooltip";
+if (process.env.NODE_ENV !== 'production') {
+    Tooltip.displayName = "Tooltip";
+}

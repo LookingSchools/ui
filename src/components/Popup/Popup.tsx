@@ -147,4 +147,6 @@ export const Popup: FC<IPopupProps> = ({
     );
 };
 
-Popup.displayName = cnPopup();
+if (process.env.NODE_ENV !== 'production') {
+    Popup.displayName = cnPopup();
+}

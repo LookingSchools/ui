@@ -74,6 +74,7 @@ export const Icon: FC<IIconProps> = ({
     );
 };
 
-Icon.displayName = cnIcon();
-
+if (process.env.NODE_ENV !== 'production') {
+    Icon.displayName = cnIcon();
+}
 

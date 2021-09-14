@@ -53,4 +53,7 @@ export const BottomBar: React.FC<BottomBarProps> = ({ tabs }) => {
     );
 };
 
-BottomBar.displayName = "BottomBar";
+
+if (process.env.NODE_ENV !== 'production') {
+    BottomBar.displayName = "BottomBar";
+}

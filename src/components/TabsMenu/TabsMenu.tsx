@@ -125,4 +125,6 @@ export const TabsMenu: FC<ITabsMenuProps> = ({
     );
 };
 
-TabsMenu.displayName = cnTabsMenu();
+if (process.env.NODE_ENV !== 'production') {
+    TabsMenu.displayName = cnTabsMenu();
+}

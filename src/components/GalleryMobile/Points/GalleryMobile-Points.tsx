@@ -33,4 +33,6 @@ export const GalleryMobilePoints: FC<GalleryMobilePointsProps> = (props) => {
     );
 };
 
-GalleryMobilePoints.displayName = cnGalleryMobilePoints();
+if (process.env.NODE_ENV !== 'production') {
+    GalleryMobilePoints.displayName = cnGalleryMobilePoints();
+}

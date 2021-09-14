@@ -128,4 +128,6 @@ export const Link: FC<ILinkProps> = ({
     );
 };
 
-Link.displayName = cnLink();
+if (process.env.NODE_ENV !== 'production') {
+    Link.displayName = cnLink();
+}

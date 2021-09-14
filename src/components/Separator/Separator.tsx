@@ -44,4 +44,6 @@ export const Separator: FC<ISeparatorProps> = ({ className, thickness, width, co
     );
 };
 
-Separator.displayName = cnSeparator();
+if (process.env.NODE_ENV !== 'production') {
+    Separator.displayName = cnSeparator();
+}

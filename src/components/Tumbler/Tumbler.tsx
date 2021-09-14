@@ -248,4 +248,6 @@ export const Tumbler: FC<TumblerProps> = ({ checked, onKeyDown: htmlOnKeyDown, .
     return <TumblerCommon checked={checked} onKeyDown={onKeyDown} {...props} />;
 };
 
-Tumbler.displayName = "Tumbler";
+if (process.env.NODE_ENV !== 'production') {
+    Tumbler.displayName = "Tumbler";
+}

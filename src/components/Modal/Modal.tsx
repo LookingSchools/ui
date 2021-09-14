@@ -98,4 +98,6 @@ export const Modal: FC<IModalProps> = ({
     );
 };
 
-Modal.displayName = cnModal();
+if (process.env.NODE_ENV !== 'production') {
+    Modal.displayName = cnModal();
+}

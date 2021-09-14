@@ -57,4 +57,6 @@ export const TabsPanes: FC<ITabsPanesProps> = ({ activePane, className, innerRef
     );
 };
 
-TabsPanes.displayName = cnTabsPanes();
+if (process.env.NODE_ENV !== 'production') {
+    TabsPanes.displayName = cnTabsPanes();
+}

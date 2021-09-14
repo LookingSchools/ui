@@ -191,6 +191,8 @@ const TextareaBase: FC<ITextareaProps> = ({
     );
 };
 
-TextareaBase.displayName = cnTextarea();
+if (process.env.NODE_ENV !== 'production') {
+    TextareaBase.displayName = cnTextarea();
+}
 
 export const Textarea = withControl(TextareaBase);

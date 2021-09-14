@@ -158,7 +158,9 @@ export const Image: FC<IImageProps> = (props) => {
     return image;
 };
 
-Image.displayName = cnImage();
+if (process.env.NODE_ENV !== 'production') {
+    Image.displayName = cnImage();
+}
 
 // import React, { FC, RefObject } from 'react';
 // import { cn } from '@bem-react/classname';

@@ -62,4 +62,6 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
     );
 };
 
-ListItem.displayName = "ListItem";
+if (process.env.NODE_ENV !== 'production') {
+    ListItem.displayName = "ListItem";
+}

@@ -80,4 +80,6 @@ export const Radiobox: FC<IRadioboxProps> = ({
     );
 };
 
-Radiobox.displayName = cnRadiobox();
+if (process.env.NODE_ENV !== 'production') {
+    Radiobox.displayName = cnRadiobox();
+}

@@ -40,4 +40,7 @@ export const Spin: FC<ISpinProps> = ({
     ...props
 }) => <div {...props} ref={innerRef} className={cnSpin({ progress }, [className])} />;
 
-Spin.displayName = cnSpin();
+if (process.env.NODE_ENV !== 'production') {
+    Spin.displayName = cnSpin();
+}
+

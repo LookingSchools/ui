@@ -253,6 +253,8 @@ const CheckboxPresenter: FC<ICheckboxProps> = ({
     );
 };
 
-CheckboxPresenter.displayName = cnCheckbox();
+if (process.env.NODE_ENV !== 'production') {
+    CheckboxPresenter.displayName = cnCheckbox();
+}
 
 export const Checkbox = withControl(CheckboxPresenter);

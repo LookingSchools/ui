@@ -61,4 +61,6 @@ export const HorizontalScroll: FC<Props> = ({ children, innerRef, contentClassNa
     );
 };
 
-HorizontalScroll.displayName = cnHorizontalScroll();
+if (process.env.NODE_ENV !== 'production') {
+    HorizontalScroll.displayName = cnHorizontalScroll();
+}
