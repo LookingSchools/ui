@@ -12,8 +12,10 @@ import { withGlyphfavoriteFull } from "../_glyph/Icon_glyph_favorite-full";
 import { withGlyphLocation } from "../_glyph/Icon_glyph_location";
 import { withGlyphBell } from "../_glyph/Icon_glyph_bell";
 import { withGlyphBookmark } from "../_glyph/Icon_glyph_bookmark";
+import { withGlyphBookmarkFull } from "../_glyph/Icon_glyph_bookmark-full";
 import { withGlyphMenu } from "../_glyph/Icon_glyph_menu";
 import { withGlyphProfile } from "../_glyph/Icon_glyph_profile";
+import { withGlyphPhoto } from "../_glyph/Icon_glyph_photo";
 import { withGlyphPlus } from "../_glyph/Icon_glyph_plus";
 import { withGlyphMinus } from "../_glyph/Icon_glyph_minus";
 import { withGlyphSearch } from "../_glyph/Icon_glyph_search";
@@ -64,9 +66,11 @@ export interface IIconProps extends IIconBaseProps {
         | "help"
         | "bell"
         | "bookmark"
+        | "bookmark-full"
         | "menu"
         | "edit"
         | "profile"
+        | "photo"
         | "plus"
         | "minus"
         | "search"
@@ -107,8 +111,10 @@ export const Icon = compose(
         withGlyphLocation,
         withGlyphBell,
         withGlyphBookmark,
+        withGlyphBookmarkFull,
         withGlyphMenu,
         withGlyphProfile,
+        withGlyphPhoto,
         withGlyphPlus,
         withGlyphMinus,
         withGlyphSearch,

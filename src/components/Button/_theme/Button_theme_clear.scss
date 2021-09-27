@@ -11,7 +11,7 @@
 
 .Button_theme_clear .Button-Text,
 .Button_theme_clear .Button-Icon {
-    opacity: .3;
+    opacity: .5;
 }
 
 .Button_theme_clear::before {
@@ -44,7 +44,7 @@
 
 /* check */
 .Button_theme_clear.Button_checked {
-    opacity: .8;
+    opacity: .9;
 }
 
 .Button_theme_clear.Button_checked::before {
@@ -56,7 +56,7 @@
 /* stylelint-disable no-descending-specificity */
 .Button_theme_clear:not([aria-disabled='true']):hover .Button-Text,
 .Button_theme_clear:not([aria-disabled='true']):hover .Button-Icon {
-    opacity: .8;
+    opacity: .9;
 }
 
 /* check */
