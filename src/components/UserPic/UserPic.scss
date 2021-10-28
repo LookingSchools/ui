@@ -3,8 +3,8 @@
 
     display: inline-block;
 
-    width: var(--user-pic-size-m-size);
-    height: var(--user-pic-size-m-size);
+    width: 42px;
+    height: 42px;
 }
 
 .UserPic_hasPlus::after {
@@ -13,9 +13,9 @@
     top: 50%;
     left: 50%;
 
-    width: var(--user-pic-size-m-size-plus);
-    height: var(--user-pic-size-m-size-plus);
-    margin: calc(var(--user-pic-size-m-size-plus) / -2) 0 0 calc(var(--user-pic-size-m-size-plus) / -2);
+    width: 52px;
+    height: 52px;
+    margin: calc(52px / -2) 0 0 calc(52px / -2);
 
     content: '';
 

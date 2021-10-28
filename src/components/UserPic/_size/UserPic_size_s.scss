@@ -1,15 +1,15 @@
 .UserPic_size_s {
-    width: var(--user-pic-size-s-size);
-    height: var(--user-pic-size-s-size);
+    width: 24px;
+    height: 24px;
 }
 
 .UserPic_size_s.UserPic_hasPlus::after {
-    width: var(--user-pic-size-s-size-plus);
-    height: var(--user-pic-size-s-size-plus);
-    margin: calc(var(--user-pic-size-s-size-plus) / -2) 0 0 calc(var(--user-pic-size-s-size-plus) / -2);
+    width: 30px;
+    height: 30px;
+    margin: calc(30px / -2) 0 0 calc(30px / -2);
 }
 
 .UserPic_size_s .UserPic-Camera::after {
-    width: calc(var(--user-pic-size-s-size) / 2);
-    height: calc(var(--user-pic-size-s-size) / 2);
+    width: calc(24px / 2);
+    height: calc(24px / 2);
 }

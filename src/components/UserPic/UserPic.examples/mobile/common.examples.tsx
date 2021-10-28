@@ -10,7 +10,7 @@ const parameters = {
 };
 
 export default {
-    title: 'Select/mobile',
+    title: 'UserPic/mobile',
     decorators: [withKnobs],
     parameters,
 };
@@ -27,7 +27,7 @@ export const Default = () => (
             <UserPic plus avatarId="0/0-0" hasCamera />
         </div>
         <div style={{ marginRight: '20px', display: 'inline-block' }}>
-            <UserPic lodpiUrl="https://jing.yandex-team.ru/files/kri0-gen/halp_orange.jpg" />
+            <UserPic lodpiUrl="https://storage.yandexcloud.net/lookingschools-s3/avatars/man-128.png" />
         </div>
     </>
 );

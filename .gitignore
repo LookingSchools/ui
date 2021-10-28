@@ -29,6 +29,7 @@ npm-debug.log*
 /LayerManager
 /Link
 /List
+/ListTile
 /Menu
 /MessageBox
 /Modal
@@ -57,6 +58,7 @@ npm-debug.log*
 /Tooltip
 /Tumbler
 /Typography
+/UserPic
 /__internal__
 /useForkRef
 /useIsomorphicLayoutEffect

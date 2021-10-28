@@ -92,4 +92,6 @@ export const UserPic: FC<IUserPicProps> = ({
     );
 };
 
-UserPic.displayName = cnUserPic();
+if (process.env.NODE_ENV !== 'production') {
+    UserPic.displayName = cnUserPic();
+}

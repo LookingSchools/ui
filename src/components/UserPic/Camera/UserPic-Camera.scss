@@ -28,8 +28,8 @@
     top: 50%;
     left: 50%;
 
-    width: calc(var(--user-pic-size-m-size) / 2);
-    height: calc(var(--user-pic-size-m-size) / 2);
+    width: calc(42px / 2);
+    height: calc(42px / 2);
 
     content: '';
     pointer-events: none;
