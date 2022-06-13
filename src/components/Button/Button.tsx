@@ -9,6 +9,7 @@ import React, {
     RefObject,
     ReactNode,
     ReactType,
+    CSSProperties,
     KeyboardEventHandler,
     MouseEventHandler,
     FocusEvent,
@@ -173,6 +174,20 @@ export interface IButtonProps {
      * HTML-атрибут `role`
      */
     role?: string;
+
+      /**
+     * Обработчик удаления
+     */
+    // eslint-disable-next-line no-unused-vars
+    onRemove?: (event: MouseEvent<HTMLDivElement>, id: string | number) => void;
+
+    /**
+     * CSS-стили иконки
+     *
+     * @default {}
+     */
+    style?: CSSProperties;
+
 }
 
 export interface IButtonState {
@@ -236,6 +251,7 @@ export const Button = class extends PureComponent<ButtonProps, IButtonState> {
             controlRef,
             title,
             role,
+            onRemove,
             pressKeys: _pressKeys,
             prvntKeys: _prvntKeys,
             // Извлекаем свойства, т.к. они не нужны на DOM узле
@@ -243,6 +259,7 @@ export const Button = class extends PureComponent<ButtonProps, IButtonState> {
             baseline: _baseline,
             pin: _pin,
             width: _width,
+            style = {},
             ...props
         } = this.props as ButtonProps & ButtonInternalProps;
         const { pressed } = this.state;

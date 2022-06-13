@@ -5,6 +5,7 @@
     "max-empty-lines": 2,
   },
   "ignoreFiles": [
-    "**/*.tsx"
+    "**/*.tsx",
+    "./src/components/Theme/presets/**/*.css"
   ]
 }

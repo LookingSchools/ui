@@ -45,6 +45,11 @@ export interface ICookieProps {
      * Состояние, при котором блок отображается
      */
     visible?: boolean;
+    
+    /**
+     * Нужно ли показывать ссылку
+     */
+    linkVisible?: boolean;
 }
 
 export interface ICookieState {
@@ -63,18 +68,16 @@ export const Cookie = class extends PureComponent<ICookieProps, ICookieState> {
     };
 
     render() {
-        const { className, text, button, visible = this.state.isVisible, ...props } = this.props as ICookieProps;
+        const { className, text, button, visible = this.state.isVisible, linkVisible = true, ...props } = this.props as ICookieProps;
 
         return (
             <div {...props} className={cnCookie({ visible }, [className])}>
                 <div className={cnCookie("Control")}>
                     <Icon glyph="info" size="m" className={cnCookie("Icon")} />
                     <Typography className={cnCookie("Message")}>
-                        {text} Подробности в{" "}
-                        <Link theme="default" href="https://google.com">
-                            политике конфиденциальности
-                        </Link>
-                        .
+                        {text}
+                        {' '}
+                        {linkVisible && <span>Подробности в <Link theme="default" href="https://google.com">политике конфиденциальности</Link>.</span>}
                     </Typography>
                     <Button size="m" theme="default" className="Cookie-Button" onClick={this.onClick}>
                         {button}

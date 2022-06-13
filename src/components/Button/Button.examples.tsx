@@ -26,19 +26,19 @@ export const Playground = () => {
             <Button
                 size="m"
                 theme="secondary"
-                icon={(className) => <Icon glyph="plus" size="m" className={className} />}
+                icon={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             />{" "}
             <Button
                 size="m"
                 theme="secondary"
-                iconLeft={(className) => <Icon glyph="plus" size="m" className={className} />}
+                iconLeft={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             >
                 Button
             </Button>{" "}
             <Button
                 size="m"
                 theme="secondary"
-                iconRight={(className) => <Icon glyph="plus" size="m" className={className} />}
+                iconRight={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             >
                 Button
             </Button>
@@ -47,19 +47,19 @@ export const Playground = () => {
                 size="m"
                 theme="default"
                 pin="circle-circle"
-                icon={(className) => <Icon glyph="plus" size="m" className={className} />}
+                icon={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             />{" "}
             <Button
                 size="m"
                 theme="default"
                 pin="circle-circle"
-                icon={(className) => <Icon glyph="minus" size="m" className={className} />}
+                icon={(className: string) => <Icon glyph="minus" size="m" className={className} />}
             />{" "}
             <Button
                 size="m"
                 theme="default"
                 pin="circle-circle"
-                iconLeft={(className) => <Icon glyph="plus" size="m" className={className} />}
+                iconLeft={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             >
                 Button
             </Button>{" "}
@@ -67,7 +67,7 @@ export const Playground = () => {
                 size="m"
                 theme="default"
                 pin="circle-circle"
-                iconRight={(className) => <Icon glyph="plus" size="m" className={className} />}
+                iconRight={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             >
                 Button
             </Button>{" "}
@@ -75,7 +75,7 @@ export const Playground = () => {
                 size="m"
                 theme="tretiary"
                 pin="circle-circle"
-                iconLeft={(className) => <Icon glyph="type-arrow" size="m" className={className} />}
+                iconLeft={(className: string) => <Icon glyph="type-arrow" size="m" className={className} />}
             >
                 Button
             </Button>
@@ -84,25 +84,25 @@ export const Playground = () => {
                 size="m"
                 theme="clear"
                 pin="circle-circle"
-                icon={(className) => <Icon glyph="plus" size="m" className={className} />}
+                icon={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             />{" "}
             <Button
                 size="m"
                 theme="pseudo"
                 pin="circle-circle"
-                icon={(className) => <Icon glyph="plus" size="m" className={className} />}
+                icon={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             />{" "}
             <Button
                 size="m"
                 theme="tretiary"
                 pin="circle-circle"
-                icon={(className) => <Icon glyph="plus" size="m" className={className} />}
+                icon={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             />{" "}
             <Button
                 size="m"
                 theme="raised"
                 pin="circle-circle"
-                icon={(className) => <Icon glyph="plus" size="m" className={className} />}
+                icon={(className: string) => <Icon glyph="plus" size="m" className={className} />}
             />
         </>
     );

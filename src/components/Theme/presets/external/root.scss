@@ -1,0 +1,10 @@
+.Theme_root_external {
+  /* Общие переменные для переиспользования */
+  --control-font-family: 'Roboto', opensans, 'Helvetica Neue', helvetica, arial, sans-serif;
+  --display-font-family: 'Roboto', opensans, 'Helvetica Neue', helvetica, arial, sans-serif;
+
+
+  /* Button */
+  --button-font-family: var(--display-font-family);
+
+}
