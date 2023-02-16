@@ -1,2 +1,3 @@
 export * from '../../Popup.bundle/desktop';
-export { Direction, directions } from '../../../usePopper';
+export { directions } from '../../../usePopper';
+export type { Direction } from '../../../usePopper';

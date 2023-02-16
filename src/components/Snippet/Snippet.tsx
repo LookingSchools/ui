@@ -12,7 +12,7 @@ import { Price, IPriceProps } from "../Price/Price";
 import { Cut } from "../Cut/Cut.bundle";
 import { Image, IImageProps } from "../Image/Image.bundle";
 
-import { TSuiteName, getConfig } from "./suiteConfigs";
+import { getConfig } from "./suiteConfigs";
 
 import "./Snippet.scss";
 import "./_theme/Snippet_theme_cinco.scss";
@@ -26,7 +26,7 @@ export type TOrder = "price" | "rating" | "title";
 /** названия поддерживаемых тем */
 export type TThemeName = "cinco" | "siete";
 
-export { TSuiteName };
+export type { TSuiteName } from "./suiteConfigs";
 
 export interface ISnippetProps {
     /** Тема */

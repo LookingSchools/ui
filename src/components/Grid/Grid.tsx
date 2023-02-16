@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from "react";
 import { cn } from "@bem-react/classname";
 
-import { GridItem, GridItemProps } from "./Item/Grid-Item";
-
+import { GridItem } from "./Item/Grid-Item";
+import type { GridItemProps } from "./Item/Grid-Item";
 import "./Grid.scss";
 
 export type GridProps = {
@@ -24,4 +24,5 @@ if (process.env.NODE_ENV !== 'production') {
     Grid.displayName = cnGrid();
 }
 
-export { GridItem, GridItemProps };
+export { GridItem };
+export type { GridItemProps };

@@ -8,7 +8,7 @@ import { TooltipBackdrop as Backdrop } from "./Backdrop/Tooltip-Backdrop";
 import { TooltipRegistry } from "./Tooltip.registry/interface";
 import "./Tooltip.scss";
 
-export { Direction } from "../Popup";
+export type { Direction } from "../Popup";
 
 export const cnTooltip = cn("Tooltip");
 

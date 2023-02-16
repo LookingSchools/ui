@@ -36,5 +36,5 @@ if (process.env.NODE_ENV !== 'production') {
     GalleryMobile.displayName = cnGalleryMobile();
 }
 
-export { GalleryMobileItemProps };
+export type { GalleryMobileItemProps };
 // export { GalleryMobileSkeleton, GalleryMobileSkeletonProps } from './Skeleton/Skeleton';

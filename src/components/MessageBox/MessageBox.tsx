@@ -6,8 +6,11 @@ import { MessageBoxButtons as Buttons } from "./Buttons/MessageBox-Buttons";
 import { MessageBoxTail as Tail } from "./Tail/MessageBox-Tail";
 import "./MessageBox.scss";
 
-export { MessageBoxCorner as Corner, MessageBoxCornerProps } from "./Corner/MessageBox-Corner";
-export { MessageBoxTextWrap as Wrapper, MessageBoxTextWrapProps } from "./TextWrap/MessageBox-TextWrap";
+export { MessageBoxCorner as Corner } from "./Corner/MessageBox-Corner";
+export { MessageBoxTextWrap as Wrapper } from "./TextWrap/MessageBox-TextWrap";
+
+export type { MessageBoxCornerProps } from "./Corner/MessageBox-Corner";
+export type { MessageBoxTextWrapProps } from "./TextWrap/MessageBox-TextWrap";
 
 export type MessageBoxProps = {
     /**
